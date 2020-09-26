@@ -6,11 +6,11 @@
     $tag = "2.0.d"
     $imageNameFull = "$($imageNameBase):$($tag)"
 
-    $containerName = "plexmovieposterdisplayinstance"
+    $containerName = "$($imageNameBase)instance"
 #endregion
 
 #region Remove Image
-    docker image rm $($imageName)
+    docker image rm $($imageNameFull)
 #endregion
 
 #region Build Image
