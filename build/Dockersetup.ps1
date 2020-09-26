@@ -3,7 +3,7 @@
 #region Settings
     $imageNameBase = "plexmovieposterdisplay"
     # $tag = "latest"
-    $tag = "2.0.c"
+    $tag = "2.0.d"
     $imageNameFull = "$($imageNameBase):$($tag)"
 
     $containerName = "plexmovieposterdisplayinstance"
@@ -15,7 +15,7 @@
 
 #region Build Image
     Write-Output "Build Image Name (Full): $($imageNameFull)"
-    docker build -t $($imageNameFull) . 
+    docker build -t $($imageNameFull) ../. 
 #endregion
 
 #region Stop and remove running container
