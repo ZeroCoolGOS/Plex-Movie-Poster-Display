@@ -47,9 +47,9 @@ $pmpImageSpeed = ($pmpImageSpeed * 1000);
                         $('#' + key).html(val);
                     }
                 });
-                fitty('.userText', {maxSize: 100, minSize: 10});
-                fitty.fitAll();
             });
+            fitty('.userText', {maxSize: 100, minSize: 10});
+            fitty.fitAll();
 
             $(document).keypress(function(event){
                 var keycode = (event.keyCode ? event.keyCode : event.which);

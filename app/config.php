@@ -22,12 +22,12 @@
   //Custom Image Configuration
   $customImageEnabled = 'Disabled'; //Default: Disabled
   $customImage = '';
-  $customTopText = 'CUSTOM TOP TEXT';
+  $customTopText = '';
   $customTopFontSize = '55'; //Default: 55 (px)
   $customTopFontColor = '#FFFF00'; //Default: #FFFF00 (Yellow)
   $customTopFontOutlineSize = '2'; //Default: 2 (px)
   $customTopFontOutlineColor = '#FFFF00'; //Default: #FFFF00 (Yellow)
-  $customBottomText = 'CUSTOM BOTTOM TEXT';
+  $customBottomText = '';
   $customBottomFontSize = '25'; //Default: 25 (px)
   $customBottomFontColor = '#FFFFFF'; //Default: #FFFFFF (White)
   $customBottomFontOutlineSize = '2'; //Default: 2 (px)
