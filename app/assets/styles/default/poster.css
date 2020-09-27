@@ -57,7 +57,6 @@ body {
   background-repeat: no-repeat;
 }
 
-
 #bottom {
   background-color: black;
   bottom: 0;
@@ -70,8 +69,6 @@ body {
 .newsimage {
   margin-right: 10px;
 }
-
-
 
 .userText {
   position: relative;

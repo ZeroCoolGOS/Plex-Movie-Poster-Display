@@ -61,12 +61,9 @@ $pmpImageSpeed = ($pmpImageSpeed * 1000);
 
             });
 
-
-
                 $('#myModal').on('hidden.bs.modal', function(){
                     $('#settingFrame').html("").attr("src", "");
                 });
-
 
             setInterval(function () {
                 $.getJSON('getData.php', function (data) {
