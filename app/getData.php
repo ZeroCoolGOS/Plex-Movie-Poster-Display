@@ -42,6 +42,7 @@ if ($handle = opendir($cachePath)) {
 $title = "";
 $display = "";
 $bottomLine = "";
+$topLine = "";
 $isPlaying = false;
 $mediaTitle = "";
 $mediaSummary = "";
@@ -209,6 +210,7 @@ $topLine = "<div><span class='userText' style='$topStyle'> $topText</span></div>
 $bottomStyle = "color: ${bottomColor};";
 if (!$autoScaleBottom) $bottomStyle .= "font-size: ${bottomSize}px;";
 $bottomLine = "$scrollPrepend<div><span class='userText' style='$bottomStyle'>${bottomText}</span></div>$scrollAppend";
+
 $results = [];
 $results['top'] = $topLine . $progressBar;
 $results['middle'] = $display;
