@@ -15,12 +15,12 @@ Plex Movie Poster Display is running on separate Raspberry Pi 3 connected to a s
 https://www.mattsshack.com/plex-movie-poster-display/
 
 ## Local Installation
-If you would like to setup locally the installation instructions can be found [here](documentation\Setup_local.md).
+If you would like to setup locally the installation instructions can be found [here](documentation/Setup_local.md).
 
 ## Docker Setup
-If you would like to create a docker image locally the instructions can be found [here](documentation\Setup_docker.md).
+If you would like to create a docker image locally the instructions can be found [here](documentation/Setup_docker.md).
 
-## [Change Logs](documentation\ChangeLogs.md)
+## [Change Logs](documentation/ChangeLogs.md)
 
 **v2.1 To Do**\
 Font Outline Size and Color for the Bottom Text.\
