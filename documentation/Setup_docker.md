@@ -22,6 +22,11 @@ Where a standard replace could be simply done, that process was used to keep tru
 
 Since this image is being built from within the code repo, a git clone was not used and the core application was copied in.
 
+**Workarounds:**
+Due to how docker is designed as a single service container we have created a service wrapper to start multiple services when the image starts (nginx and php).
+
+If you are familiar with docker these instructions should be very basic.
+
 ## Pre Requirements
 Following the [Get Started with Docker](https://www.docker.com/get-started) would be a good start if you need to familiarize yourself with docker
 ### Linux
@@ -32,5 +37,19 @@ Following the [Get Started with Docker](https://www.docker.com/get-started) woul
 - Installation of Docker Desktop for macOS can be found [here](https://download.docker.com/mac/stable/Docker.dmg).
 
 ## Build
+    docker build -t {image Name} .
 
 ## Run
+    docker run -d -p 80:80 -- {container Name} {image name}
+
+## Docker Build (Simplified):
+We have created a set of scripts to automate the creation and run process of the docker image.
+
+### Python
+    cd build    
+    py ./DockerSetup.py --port:80 --imageName: --containerName: 
+### PowerShell
+    Coming Soon
+
+## Future Plans:
+- To create a public docker image with latest build that can just be installed from docker hub
