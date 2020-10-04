@@ -28,7 +28,7 @@ Due to how docker is designed as a single service container we have created a se
 If you are familiar with docker these instructions should be very basic.
 
 ## Pre Requirements
-Following the [Get Started with Docker](https://www.docker.com/get-started) would be a good start if you need to familiarize yourself with docker
+Following the [Get Started with Docker](https://www.docker.com/get-started) would be a good start if you need to familiarize yourself with docker.
 ### Linux
 - Installation instructions coming soon.
 ### Windows
@@ -47,9 +47,9 @@ We have created a set of scripts to automate the creation and run process of the
 
 ### Python
     cd build    
-    py ./DockerSetup.py --port:80 --imageName: --containerName: 
+    py ./DockerSetup.py --port 80 --build --run
 ### PowerShell
     Coming Soon
 
 ## Future Plans:
-- To create a public docker image with latest build that can just be installed from docker hub
+- To create a public docker image with latest build that can just be installed from docker hub.
