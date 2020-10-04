@@ -77,8 +77,11 @@ RUN sed -i "s|upload_max_filesize = 2M|upload_max_filesize = 25M|g" /etc/php/7.3
 
 COPY /app/ ${htmldefault}
 
-# Permissions
+# Restore Pre Existing Config
+RUN rm ${htmldefault}/config.php
+ADD _backupConfig/config.php ${htmldefault}/config.php
 
+# Permissions
 # sudo chmod -R 774 /var/www/html/
 RUN chmod -R 774 ${htmldefault}
 
