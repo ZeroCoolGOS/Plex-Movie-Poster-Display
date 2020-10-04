@@ -8,6 +8,8 @@ $pmpImageSpeed = ($pmpImageSpeed * 1000);
 <head>
     <title>Plex Movie Poster Display</title>
 
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
     <!-- JQuery -->
     <script src="assets/jquery-3.4.0/jquery-3.4.0.min.js"></script>
     <script src="assets/jquery-3.4.0/jquery.marquee.min.js"></script>
