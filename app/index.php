@@ -7,8 +7,11 @@ $pmpImageSpeed = ($pmpImageSpeed * 1000);
 <html>
 <head>
     <title>Plex Movie Poster Display</title>
+    <link rel="shortcut icon" type="image/png" href="assets/images/favicon-16x16.png"/>
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <!-- JQuery -->
     <script src="assets/jquery-3.4.0/jquery-3.4.0.min.js"></script>
