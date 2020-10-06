@@ -107,8 +107,8 @@ if (!empty($_POST['saveConfig'])) {
 \$nowShowingBottomAutoScale = '$_POST[nowShowingBottomAutoScale]'; //Default: false
 \$nowShowingBottomFontSize = '$_POST[nowShowingBottomFontSize]'; //Default: 25 (px)
 \$nowShowingBottomFontColor = '$_POST[nowShowingBottomFontColor]'; //Default: #FFFFFF (White)
-\$nowShowingBottomFontOutlineSize = '$_POST[nowShowingTopFontOutlineSize]'; //Default: 2 (px)
-\$nowShowingBottomFontOutlineColor = '$_POST[nowShowingTopFontOutlineColor]'; //Default: #FFFF00 (Yellow)
+\$nowShowingBottomFontOutlineSize = '$_POST[nowShowingBottomFontOutlineSize]'; //Default: 2 (px)
+\$nowShowingBottomFontOutlineColor = '$_POST[nowShowingBottomFontOutlineColor]'; //Default: #FFFF00 (Yellow)
 
 //Misc Configuration
 \$pmpDisplayProgress = '$_POST[pmpDisplayProgress]'; //Default: Disabled
