@@ -65,3 +65,23 @@ body {
 .gm-style-iw {
   color: #000;
 }
+
+.showhideconfigButton {
+  display:block;
+}
+
+.showhideconfig {
+  display:none;
+}
+
+.showhideconfig::before {
+  /* content:'This is my menumode' */
+}
+
+.fieldInfo-password {
+  max-width: 330px;
+}
+
+.fieldInfo-ipaddress {
+  max-width: 150px;
+}

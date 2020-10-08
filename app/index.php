@@ -12,6 +12,7 @@ $pmpImageSpeed = ($pmpImageSpeed * 1000);
 
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-touch-fullscreen" content="yes">
 
     <!-- JQuery -->
     <script src="assets/jquery-3.4.0/jquery-3.4.0.min.js"></script>

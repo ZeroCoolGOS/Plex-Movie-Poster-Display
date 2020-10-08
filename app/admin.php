@@ -175,26 +175,25 @@ include('config.php');
     <script src="assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
 
     <!-- Custom styles for this template -->
-    <link href="assets/styles/default/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/default/style.css">
     <link rel="stylesheet" href="assets/styles/default/form-validation.css">
-
 
     <script>
         $(document).ready(function(){
 
-            $('.myButton').click(function(){
+            $('.showhideconfigButton').click(function(){
             if ( this.value === 'Hide' ) {
                 // if it's open close it
                 open = false;
-                this.value = 'View';
-                $(this).next("div.container").hide("fast");
+                this.value = 'Show';
+                $(this).next("div.showhideconfig").hide("fast");
             }
             else {
                 // if it's close open it
                 open = true;
                 this.value = 'Hide';
-                $(this).siblings("[value='Hide']").click(); //to collapse the open divs
-                $(this).next("div.container").show("fast");
+                // $(this).siblings("[value='Hide']").click(); //to collapse the open divs - Disabled to allow for all divs to stay open
+                $(this).next("div.showhideconfig").show("fast");
             }
             });
 
@@ -260,14 +259,13 @@ include('config.php');
                     <span class="text-muted"><?php echo fixupSize(disk_free_space("/")); ?></span>
                 </li>
             </ul>
-
         </div>
 
         <div class="col-md-8 order-md-1">
             <!-- Plex Movie Poster Display Config -->
             <h4 class="mb-3"><a name="Server"></a>Plex Movie Poster Display Config</h4>
-            <input class="myButton" type="button" value="View"></input><!-- TEST -->
-            <div class="container">
+            <input class="btn btn-secondary showhideconfigButton" type="button" value="Show"></input>
+            <div class="showhideconfig">
                 <form method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="pmpUsername">Username</label>
@@ -283,12 +281,12 @@ include('config.php');
                     <div class="mb-3">
                         <label for="pmpPassword">Password</label>
                         <div class="input-group" id="password_view">
-                            <input type="password" class="form-control" id="pmpPassword" name="pmpPassword"
+                            <input type="password" class="fieldInfo-password form-control" id="pmpPassword" name="pmpPassword" 
                                 placeholder="Password" value="<?php echo $pmpPassword; ?>" required>
+                                &nbsp;
                             <span class="input-group-btn">
-                    <button class="btn btn-secondary" type="button" id="password_view_btn"
-                            onclick="passwordView()">Show</button>
-                    </span>
+                                <button class="btn btn-secondary" type="button" id="password_view_btn" onclick="passwordView()">Show</button>
+                            </span>
                         </div>
                     </div>
                     <div class="mb-3">
@@ -305,14 +303,14 @@ include('config.php');
             <hr class="mb-4">
 
             <!-- Server Configuration -->
-            <h4 class="mb-3"><a name="Server"></a> Server Configuration</h4>
-            <input class="myButton" type="button" value="View"></input><!-- TEST -->
-            <div class="container">
+            <h4 class="mb-3"><a name="Server"></a>Server Configuration</h4>
+            <input class="btn btn-secondary showhideconfigButton" type="button" value="Show">
+            <div class="showhideconfig">
                 <form method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label for="plexServer">Plex Server IP</label>
+                        <label for="plexServer">Plex Server IP:</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="plexServer" name="plexServer"
+                            <input type="text" class="fieldInfo-ipaddress form-control" id="plexServer" name="plexServer" maxlength="15"
                                 placeholder="Plex Server IP" value="<?php echo $plexServer; ?>" required>
                             <div class="invalid-feedback" style="width: 100%;">
                                 A Plex server IP address is required.
@@ -321,9 +319,9 @@ include('config.php');
                     </div>
 
                     <div class="mb-3">
-                        <label for="plexToken">Plex Token <a
+                        <label for="plexToken">Plex Token: <a
                                     href="https://support.plex.tv/hc/en-us/articles/204059436-Finding-your-account-token-X-Plex-Token"
-                                    target=_blank><span class="badge badge-primary">?</span></a> </label>
+                                    target=_blank><span class="badge badge-primary">?</span></a></label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="plexToken" name="plexToken"
                                 placeholder="Plex Token" value="<?php echo $plexToken; ?>" required>
@@ -334,8 +332,7 @@ include('config.php');
                     </div>
 
                     <div class="mb-3">
-                        <label for="plexServerMovieSection">Plex Movie Sections <small>( Comma Seperated with no Spaces
-                                )</small></label>
+                        <label for="plexServerMovieSection">Plex Movie Sections <small>(Comma Separated with no Spaces)</small></label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="plexServerMovieSection"
                                 name="plexServerMovieSection" placeholder="Plex Movie Sections"
@@ -350,9 +347,9 @@ include('config.php');
             <hr class="mb-4">
 
             <!-- Client Configuration -->
-            <h4 class="mb-3"><a name="Client"></a> Client Configuration</h4>
-            <input class="myButton" type="button" value="View"></input><!-- TEST -->
-            <div class="container">
+            <h4 class="mb-3"><a name="Client"></a>Client Configuration</h4>
+            <input class="btn btn-secondary showhideconfigButton" type="button" value="Show">
+            <div class="showhideconfig">
                 <div class="mb-3">
                     <label for="plexClient">Plex Client IP</label>
                     <div class="input-group">
@@ -375,9 +372,9 @@ include('config.php');
             <hr class="mb-4">
 
             <!-- Coming Soon Configuration  -->
-            <h4 class="mb-3"><a name="ComingSoon"></a> Coming Soon Configuration</h4>
-            <input class="myButton" type="button" value="View"></input><!-- TEST -->
-            <div class="container">
+            <h4 class="mb-3"><a name="ComingSoon"></a>Coming Soon Configuration</h4>
+            <input class="btn btn-secondary showhideconfigButton" type="button" value="Show">
+            <div class="showhideconfig">
                 <div class="mb-3">
                     <label for="comingSoonShowSelection">Show Movies</label>
                     <select class="custom-select d-block w-100" id="comingSoonShowSelection"
@@ -436,6 +433,7 @@ include('config.php');
 
                 <div class="mb-3">
                     <label for="comingSoonTopText">Coming Soon Top Text</label>
+                    <span class="text-muted"><small>(Optional)</small></span></label>
                     <div class="input-group">
                         <input type="text" class="form-control" id="comingSoonTopText" name="comingSoonTopText"
                             placeholder="Coming Soon Top Text" value="<?php echo $comingSoonTopText; ?>">
@@ -539,6 +537,7 @@ include('config.php');
 
                 <div class="mb-3">
                     <label for="comingSoonBottomText">Coming Soon Bottom Text</label>
+                    <span class="text-muted"><small>(Optional)</small></span></label>
                     <div class="input-group">
                         <input type="text" class="form-control" id="comingSoonBottomText"
                             name="comingSoonBottomText" placeholder="Coming Soon Bottom Text"
@@ -599,6 +598,15 @@ include('config.php');
                                 value="<?php echo $comingSoonBottomFontOutlineColor; ?>">
                         </div>
                     </div>
+
+                    <script>
+                        $(function () {
+                            $('#comingSoonBottomFontColor').colorpicker();
+                            $('#comingSoonBottomFontColor').on('colorpickerChange', function (event) {
+                                $('.jumbotron').css('background-color', event.color.toString());
+                            });
+                        });
+                    </script>
                 </div>
 
                 <div class="mb-3">
@@ -609,24 +617,14 @@ include('config.php');
                         </div>
                     </div>
                 </div>
-
-                <script>
-                    $(function () {
-                        $('#comingSoonBottomFontColor').colorpicker();
-                        $('#comingSoonBottomFontColor').on('colorpickerChange', function (event) {
-                            $('.jumbotron').css('background-color', event.color.toString());
-                        });
-                    });
-                </script>
-
             </div>
 
             <hr class="mb-4">
 
             <!-- Now Showing Configuration -->
-            <h4 class="mb-3"><a name="NowShowing"></a> Now Showing Configuration</h4>
-            <input class="myButton" type="button" value="View"></input><!-- TEST -->
-            <div class="container">
+            <h4 class="mb-3"><a name="NowShowing"></a>Now Showing Configuration</h4>
+            <input class="btn btn-secondary showhideconfigButton" type="button" value="Show">
+            <div class="showhideconfig">
                 <div class="mb-3">
                     <label for="nowShowingTop" class="checkLabel">Now Showing Top Text Option</label>
                     <div class="input-group">
@@ -651,7 +649,7 @@ include('config.php');
 
                 <div class="mb-3">
                     <label for="nowShowingTopText">Now Showing Custom Top Text</label>
-                    <span class="text-muted">(Optional)</span></label>
+                    <span class="text-muted"><small>(Optional)</small></span></label>
                     <div class="input-group">
                         <input type="text" class="form-control" id="nowShowingTopText" name="nowShowingTopText"
                             placeholder="Now Showing Top Text" value="<?php echo $nowShowingTopText; ?>">
@@ -702,15 +700,6 @@ include('config.php');
                         </div>
                     </div>
 
-                    <script>
-                        $(function () {
-                            $('#nowShowingTopFontOutlineColor').colorpicker();
-                            $('#nowShowingTopFontOutlineColor').on('colorpickerChange', function (event) {
-                                $('.jumbotron').css('background-color', event.color.toString());
-                            });
-                        });
-                    </script>
-
                     <div class="col-md-6 mb-3">
                         <label for="nowShowingTopFontOutlineColor">Now Showing Top Font Outline Color</label>
                         <div class="input-group">
@@ -720,8 +709,16 @@ include('config.php');
                                 value="<?php echo $nowShowingTopFontOutlineColor; ?>">
                         </div>
                     </div>
-
                 </div>
+
+                <script>
+                    $(function () {
+                        $('#nowShowingTopFontOutlineColor').colorpicker();
+                        $('#nowShowingTopFontOutlineColor').on('colorpickerChange', function (event) {
+                            $('.jumbotron').css('background-color', event.color.toString());
+                        });
+                    });
+                </script>
 
                 <div class="mb-3">
                     <div class="input-group">
@@ -756,7 +753,7 @@ include('config.php');
 
                 <div class="mb-3">
                     <label for="nowShowingBottomText">Now Showing Custom Bottom Text</label>
-                    <span class="text-muted">(Optional)</span></label>
+                    <span class="text-muted"><small>(Optional)</small></span></label>
                     <div class="input-group">
                         <input type="text" class="form-control" id="nowShowingBottomText"
                             name="nowShowingBottomText" placeholder="Now Showing Bottom Text"
@@ -808,15 +805,6 @@ include('config.php');
                         </div>
                     </div>
 
-                    <script>
-                        $(function () {
-                            $('#nowShowingBottomFontOutlineColor').colorpicker();
-                            $('#nowShowingBottomFontOutlineColor').on('colorpickerChange', function (event) {
-                                $('.jumbotron').css('background-color', event.color.toString());
-                            });
-                        });
-                    </script>
-
                     <div class="col-md-6 mb-3">
                         <label for="nowShowingBottomFontOutlineColor">Now Showing Bottom Font Outline Color</label>
                         <div class="input-group">
@@ -827,6 +815,14 @@ include('config.php');
                         </div>
                     </div>
 
+                    <script>
+                        $(function () {
+                            $('#nowShowingBottomFontOutlineColor').colorpicker();
+                            $('#nowShowingBottomFontOutlineColor').on('colorpickerChange', function (event) {
+                                $('.jumbotron').css('background-color', event.color.toString());
+                            });
+                        });
+                    </script>
                 </div>
 
                 <div class="mb-3">
@@ -872,16 +868,16 @@ include('config.php');
                                 value="<?php echo $pmpDisplayProgressColor; ?>">
                         </div>
                     </div>
-                </div>
 
-                <script>
-                    $(function () {
-                        $('#pmpDisplayProgressColor').colorpicker();
-                        $('#pmpDisplayProgressColor').on('colorpickerChange', function (event) {
-                            $('.jumbotron').css('background-color', event.color.toString());
+                    <script>
+                        $(function () {
+                            $('#pmpDisplayProgressColor').colorpicker();
+                            $('#pmpDisplayProgressColor').on('colorpickerChange', function (event) {
+                                $('.jumbotron').css('background-color', event.color.toString());
+                            });
                         });
-                    });
-                </script>
+                    </script>
+                </div>
 
                 <div class="mb-3">
                     <label for="pmpBottomScroll">Scrolling Text </label>
@@ -901,9 +897,9 @@ include('config.php');
             <hr class="mb-4">
 
             <!-- Custom Images Configuration -->
-            <h4 class="mb-3"><a name="CustomImages"></a> Custom Images Configuration</h4>
-            <input class="myButton" type="button" value="View"></input><!-- TEST -->
-            <div class="container">
+            <h4 class="mb-3"><a name="CustomImages"></a>Custom Images Configuration</h4>
+            <input class="btn btn-secondary showhideconfigButton" type="button" value="Show">
+            <div class="showhideconfig">
                 <div class="mb-3">
                     <label for="customImageUpload">Custom Image Upload</label>
                     <span class="text-muted"></span></label>
@@ -950,7 +946,7 @@ include('config.php');
 
                 <div class="mb-3">
                     <label for="customTopText">Custom Image Top Text</label>
-                    <span class="text-muted">(Optional)</span></label>
+                    <span class="text-muted"><small>(Optional)</small></span></label>
                     <div class="input-group">
                         <input type="text" class="form-control" id="customTopText" name="customTopText"
                                 placeholder="Custom Image Top Text" value="<?php echo $customTopText; ?>">
@@ -1021,7 +1017,7 @@ include('config.php');
 
                 <div class="mb-3">
                     <label for="customBottomText">Custom Image Bottom Text</label>
-                    <span class="text-muted">(Optional)</span></label>
+                    <span class="text-muted"><small>(Optional)</small></span></label>
                     <div class="input-group">
                         <input type="text" class="form-control" id="customBottomText" name="customBottomText"
                                 placeholder="Coming Soon Top Text" value="<?php echo $customBottomText; ?>">
@@ -1091,10 +1087,11 @@ include('config.php');
                 </script>
             </div>
 
-                <hr class="mb-4">
-                <button name="saveConfig" class="btn btn-primary btn-lg btn-block" type="submit" value="saveConfig">
-                    Update Settings
-                </button>
+            <hr class="mb-4">
+
+            <button name="saveConfig" class="btn btn-primary btn-lg btn-block" type="submit" value="saveConfig">
+                Update Settings
+            </button>
             </form>
         </div>
     </div>
