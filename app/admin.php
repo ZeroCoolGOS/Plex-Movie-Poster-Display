@@ -324,9 +324,13 @@ include('config.php');
                         <label for="plexToken">Plex Token: <a
                                     href="https://support.plex.tv/hc/en-us/articles/204059436-Finding-your-account-token-X-Plex-Token"
                                     target=_blank><span class="badge badge-primary">?</span></a></label>
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="plexToken" name="plexToken"
+                        <div class="input-group" id="token_view">
+                            <input type="password" class="fieldInfo-token form-control" id="plexToken" name="plexToken"
                                 placeholder="Plex Token" value="<?php echo $plexToken; ?>" required>
+                                &nbsp;
+                            <span class="input-group-btn">
+                                <button class="btn btn-secondary" type="button" id="token_view_btn" onclick="tokenView()">Show</button>
+                            </span>
                             <div class="invalid-feedback" style="width: 100%;">
                                 A Plex token is required.
                             </div>
@@ -1119,6 +1123,17 @@ include('config.php');
         } else if ($('#password_view input').attr("type") == "password") {
             $('#password_view input').attr('type', 'text');
             document.getElementById('password_view_btn').innerHTML = "Hide";
+        }
+    }
+
+    function tokenView() {
+        event.preventDefault();
+        if ($('#token_view input').attr("type") == "text") {
+            document.getElementById('token_view_btn').innerHTML = "Show";
+            $('#token_view input').attr('type', 'password');
+        } else if ($('#token_view input').attr("type") == "password") {
+            $('#token_view input').attr('type', 'text');
+            document.getElementById('token_view_btn').innerHTML = "Hide";
         }
     }
 </script>
