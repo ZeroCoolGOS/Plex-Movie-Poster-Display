@@ -268,9 +268,10 @@ include('config.php');
             <div class="showhideconfig">
                 <form method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label for="pmpUsername">Username</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="pmpUsername" name="pmpUsername"
+                        
+                        <div class="form-alignment input-group">
+                            <label for="pmpUsername">Username:&nbsp;</label>
+                            <input type="text" class="fieldInfo-username form-control" id="pmpUsername" name="pmpUsername"
                                 placeholder="Username" value="<?php echo $pmpUsername; ?>" required>
                             <div class="invalid-feedback" style="width: 100%;">
                                 Movie Poster Display Username.
@@ -279,8 +280,9 @@ include('config.php');
                     </div>
 
                     <div class="mb-3">
-                        <label for="pmpPassword">Password</label>
-                        <div class="input-group" id="password_view">
+                        
+                        <div class="form-alignment input-group" id="password_view">
+                        <label for="pmpPassword">Password:&nbsp;&nbsp;</label>
                             <input type="password" class="fieldInfo-password form-control" id="pmpPassword" name="pmpPassword" 
                                 placeholder="Password" value="<?php echo $pmpPassword; ?>" required>
                                 &nbsp;
@@ -308,8 +310,8 @@ include('config.php');
             <div class="showhideconfig">
                 <form method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label for="plexServer">Plex Server IP:</label>
-                        <div class="input-group">
+                        <div class="form-alignment input-group">
+                            <label for="plexServer">Plex Server IP:&nbsp;</label>
                             <input type="text" class="fieldInfo-ipaddress form-control" id="plexServer" name="plexServer" maxlength="15"
                                 placeholder="Plex Server IP" value="<?php echo $plexServer; ?>" required>
                             <div class="invalid-feedback" style="width: 100%;">
@@ -351,9 +353,10 @@ include('config.php');
             <input class="btn btn-secondary showhideconfigButton" type="button" value="Show">
             <div class="showhideconfig">
                 <div class="mb-3">
-                    <label for="plexClient">Plex Client IP</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="plexClient" name="plexClient"
+                    
+                    <div class="form-alignment input-group">
+                    <label for="plexClient">Plex Client IP:&nbsp;</label>
+                        <input type="text" class="fieldInfo-ipaddress form-control" id="plexClient" name="plexClient" maxlength="15"
                             placeholder="Plex Client IP" value="<?php echo $plexClient; ?>" required>
                         <div class="invalid-feedback" style="width: 100%;">
                             A Plex client IP address is required.

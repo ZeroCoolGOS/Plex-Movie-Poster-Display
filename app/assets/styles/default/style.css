@@ -82,6 +82,15 @@ body {
   max-width: 330px;
 }
 
+.fieldInfo-username {
+  max-width: 330px;
+}
+
 .fieldInfo-ipaddress {
   max-width: 150px;
 }
+
+.form-alignment label{
+  margin-top:.5rem;
+}
+
