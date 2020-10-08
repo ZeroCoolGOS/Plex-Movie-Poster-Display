@@ -65,10 +65,10 @@ class DockerMoviePoster:
             print ("  -t, --tag string \t Tag Image")
             print ("  -r, --run \t\t Start/Run docker container and built image")
             print ("  -i, --images \t\t List images that match current configuration")
-            
+
             print ("\nManagement Commands:")
             print ("  image \tManage images")
-            
+
             print ("\nCommands:")
             print ("  build \tBuild an image from a Dockerfile")
             print ("  images \tList images")
@@ -77,7 +77,7 @@ class DockerMoviePoster:
             print ("  run \t\tRun a command in a new container")
             print ("  stop \t\tStop one or more running containers")
             print ("  tag \t\tCreate a tag TARGET_IMAGE that refers to SOURCE_IMAGE")
-            
+
             print ("\nRun 'DockerSetup COMMAND --help' for more information on a command.")
 
     def Actions(self,DisplayMSG=False):

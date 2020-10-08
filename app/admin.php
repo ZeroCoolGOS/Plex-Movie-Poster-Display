@@ -722,7 +722,7 @@ include('config.php');
                     </div>
 
                 </div>
-                
+
                 <div class="mb-3">
                     <div class="input-group">
                         <label for="nowShowingTopAutoScale" class="checkLabel">Auto-scale top text</label>
@@ -753,7 +753,7 @@ include('config.php');
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="mb-3">
                     <label for="nowShowingBottomText">Now Showing Custom Bottom Text</label>
                     <span class="text-muted">(Optional)</span></label>
@@ -785,7 +785,7 @@ include('config.php');
                         </div>
                     </div>
                 </div>
-                
+
                 <script>
                     $(function () {
                         $('#nowShowingBottomFontColor').colorpicker();
@@ -794,7 +794,7 @@ include('config.php');
                         });
                     });
                 </script>
-                
+
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="nowShowingBottomFontOutlineSize">Now Showing Bottom Font Outline Size</label>
@@ -828,7 +828,7 @@ include('config.php');
                     </div>
 
                 </div>
-                
+
                 <div class="mb-3">
                     <div class="input-group">
                         <label for="nowShowingBottomAutoScale" class="checkLabel">Auto-scale bottom text</label>
@@ -837,7 +837,7 @@ include('config.php');
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="mb-3">
                     <label for="pmpDisplayProgress">Progress Bar</label>
                     <select class="custom-select d-block w-100" id="pmpDisplayProgress" name="pmpDisplayProgress">
@@ -1058,7 +1058,7 @@ include('config.php');
                         });
                     });
                 </script>
-                
+
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="customBottomFontOutlineSize">Custom Image Bottom Font Outline Size</label>
@@ -1090,7 +1090,7 @@ include('config.php');
                     });
                 </script>
             </div>
-                
+
                 <hr class="mb-4">
                 <button name="saveConfig" class="btn btn-primary btn-lg btn-block" type="submit" value="saveConfig">
                     Update Settings

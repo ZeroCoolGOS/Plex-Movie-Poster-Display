@@ -17,10 +17,10 @@ $pmpImageSpeed = ($pmpImageSpeed * 1000);
     <script src="assets/jquery-3.4.0/jquery-3.4.0.min.js"></script>
     <script src="assets/jquery-3.4.0/jquery.marquee.min.js"></script>
     <script src="assets/jquery-3.4.0/jquery.easing.min.js"></script>
-    
+
     <!-- Text Scaler -->
     <script src="assets/fitty/fitty.js"></script>
-    
+
     <!-- Bootstrap JavaScript-->
     <script src="assets/bootstrap-4.3.1/js/bootstrap.min.js"></script>
 
@@ -29,7 +29,7 @@ $pmpImageSpeed = ($pmpImageSpeed * 1000);
 
     <!-- Default Poster Template CSS -->
     <link rel="stylesheet" href="assets/styles/default/poster.css">
-    
+
     <style>
         .comingSoonTop {
             font-size: <?php echo $comingSoonTopFontSize?>px;
