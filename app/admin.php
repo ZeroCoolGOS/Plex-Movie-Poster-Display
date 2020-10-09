@@ -268,7 +268,7 @@ include('config.php');
             <div class="showhideconfig">
                 <form method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                     <div class="mb-3">
-                        
+
                         <div class="form-alignment input-group">
                             <label for="pmpUsername">Username:&nbsp;</label>
                             <input type="text" class="fieldInfo-username form-control" id="pmpUsername" name="pmpUsername"
@@ -280,10 +280,10 @@ include('config.php');
                     </div>
 
                     <div class="mb-3">
-                        
+
                         <div class="form-alignment input-group" id="password_view">
                         <label for="pmpPassword">Password:&nbsp;&nbsp;</label>
-                            <input type="password" class="fieldInfo-password form-control" id="pmpPassword" name="pmpPassword" 
+                            <input type="password" class="fieldInfo-password form-control" id="pmpPassword" name="pmpPassword"
                                 placeholder="Password" value="<?php echo $pmpPassword; ?>" required>
                                 &nbsp;
                             <span class="input-group-btn">
@@ -357,7 +357,7 @@ include('config.php');
             <input class="btn btn-secondary showhideconfigButton" type="button" value="Show">
             <div class="showhideconfig">
                 <div class="mb-3">
-                    
+
                     <div class="form-alignment input-group">
                     <label for="plexClient">Plex Client IP:&nbsp;</label>
                         <input type="text" class="fieldInfo-ipaddress form-control" id="plexClient" name="plexClient" maxlength="15"
@@ -449,19 +449,29 @@ include('config.php');
                     <span class="text-muted"><small>(Optional)</small>:</span></label>
                     <div class="input-group">
                         <input type="text" class="form-control" id="comingSoonTopText" name="comingSoonTopText"
-                            placeholder="Coming Soon Top Text" value="<?php echo $comingSoonTopText; ?>">
+                            placeholder="Coming Soon Top Text" value="<?php echo $comingSoonTopText; ?>" readonly="readonly">
                     </div>
                 </div>
 
                 <script>
-                    function comingSoonTopSelected() { 
+                    $(function(){
+                        //First call for the load
+                        comingSoonTopSelected();
+
+                        //Second call for change event
+                        $("input[type=radio]").change( comingSoonTopSelected );
+                    });
+
+                    function comingSoonTopSelected() {
+                        // readonly: input can't be modified
+                        // disabled: input has no form function
                         var result = document.querySelector('input[name="comingSoonTop"]:checked').value;
                         if(result=="custom") {
                             // document.getElementById("comingSoonTopText").setAttribute('disabled', true);
-                            document.getElementById("comingSoonTopText").removeAttribute('disabled');
+                            document.getElementById("comingSoonTopText").removeAttribute('readonly');
                         }
                         else {
-                            document.getElementById("comingSoonTopText").setAttribute('disabled', true);
+                            document.getElementById("comingSoonTopText").setAttribute('readonly', true);
                             // document.getElementById("comingSoonTopText").removeAttribute('disabled');
                         }
                     }
@@ -570,19 +580,29 @@ include('config.php');
                     <div class="input-group">
                         <input type="text" class="form-control" id="comingSoonBottomText"
                             name="comingSoonBottomText" placeholder="Coming Soon Bottom Text"
-                            value="<?php echo $comingSoonBottomText; ?>">
+                            value="<?php echo $comingSoonBottomText; ?>" readonly="readonly">
                     </div>
                 </div>
 
                 <script>
-                    function comingSoonBottomSelected() { 
+                    $(function(){
+                        //First call for the load
+                        comingSoonBottomSelected();
+
+                        //Second call for change event
+                        $("input[type=radio]").change( comingSoonBottomSelected );
+                    });
+
+                    function comingSoonBottomSelected() {
+                        // readonly: input can't be modified
+                        // disabled: input has no form function
                         var result = document.querySelector('input[name="comingSoonBottom"]:checked').value;
                         if(result=="custom") {
                             // document.getElementById("comingSoonBottomText").setAttribute('disabled', true);
-                            document.getElementById("comingSoonBottomText").removeAttribute('disabled');
+                            document.getElementById("comingSoonBottomText").removeAttribute('readonly');
                         }
                         else {
-                            document.getElementById("comingSoonBottomText").setAttribute('disabled', true);
+                            document.getElementById("comingSoonBottomText").setAttribute('readonly', true);
                             // document.getElementById("comingSoonBottomText").removeAttribute('disabled');
                         }
                     }
@@ -697,19 +717,29 @@ include('config.php');
                     <span class="text-muted"><small>(Optional)</small>:</span></label>
                     <div class="input-group">
                         <input type="text" class="form-control" id="nowShowingTopText" name="nowShowingTopText"
-                            placeholder="Now Showing Top Text" value="<?php echo $nowShowingTopText; ?>">
+                            placeholder="Now Showing Top Text" value="<?php echo $nowShowingTopText; ?>" readonly="readonly">
                     </div>
                 </div>
 
                 <script>
-                    function nowShowingTopSelected() { 
+                    $(function(){
+                        //First call for the load
+                        nowShowingTopSelected();
+
+                        //Second call for change event
+                        $("input[type=radio]").change( nowShowingTopSelected );
+                    });
+
+                    function nowShowingTopSelected() {
+                        // readonly: input can't be modified
+                        // disabled: input has no form function
                         var result = document.querySelector('input[name="nowShowingTop"]:checked').value;
                         if(result=="custom") {
                             // document.getElementById("nowShowingTopText").setAttribute('disabled', true);
-                            document.getElementById("nowShowingTopText").removeAttribute('disabled');
+                            document.getElementById("nowShowingTopText").removeAttribute('readonly');
                         }
                         else {
-                            document.getElementById("nowShowingTopText").setAttribute('disabled', true);
+                            document.getElementById("nowShowingTopText").setAttribute('readonly', true);
                             // document.getElementById("nowShowingTopText").removeAttribute('disabled');
                         }
                     }
@@ -818,19 +848,29 @@ include('config.php');
                     <div class="input-group">
                         <input type="text" class="form-control" id="nowShowingBottomText"
                             name="nowShowingBottomText" placeholder="Now Showing Bottom Text"
-                            value="<?php echo $nowShowingBottomText; ?>">
+                            value="<?php echo $nowShowingBottomText; ?>" readonly="readonly">
                     </div>
                 </div>
 
                 <script>
-                    function nowShowingBottomSelected() { 
+                    $(function(){
+                        //First call for the load
+                        nowShowingBottomSelected();
+
+                        //Second call for change event
+                        $("input[type=radio]").change( nowShowingBottomSelected );
+                    });
+
+                    function nowShowingBottomSelected() {
+                        // readonly: input can't be modified
+                        // disabled: input has no form function
                         var result = document.querySelector('input[name="nowShowingBottom"]:checked').value;
                         if(result=="custom") {
                             // document.getElementById("nowShowingBottomText").setAttribute('disabled', true);
-                            document.getElementById("nowShowingBottomText").removeAttribute('disabled');
+                            document.getElementById("nowShowingBottomText").removeAttribute('readonly');
                         }
                         else {
-                            document.getElementById("nowShowingBottomText").setAttribute('disabled', true);
+                            document.getElementById("nowShowingBottomText").setAttribute('readonly', true);
                             // document.getElementById("nowShowingBottomText").removeAttribute('disabled');
                         }
                     }
@@ -986,7 +1026,7 @@ include('config.php');
             <input class="btn btn-secondary showhideconfigButton" type="button" value="Show">
             <div class="showhideconfig">
                 <hr class="internalconfigbreak">
-                
+
                 <div class="mb-3">
                     <label for="customImageUpload">Custom Image Upload:</label>
                     <span class="text-muted"></span></label>
