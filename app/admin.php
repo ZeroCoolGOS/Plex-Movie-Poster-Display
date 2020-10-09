@@ -929,8 +929,10 @@ include('config.php');
             <h4 class="mb-3"><a name="CustomImages"></a>Custom Images Configuration</h4>
             <input class="btn btn-secondary showhideconfigButton" type="button" value="Show">
             <div class="showhideconfig">
+                <hr class="internalconfigbreak">
+                
                 <div class="mb-3">
-                    <label for="customImageUpload">Custom Image Upload</label>
+                    <label for="customImageUpload">Custom Image Upload:</label>
                     <span class="text-muted"></span></label>
                     <div class="input-group">
                         <input type="file" class="form-control" id="customImageUpload" name="customImageUpload"
@@ -939,43 +941,49 @@ include('config.php');
                 </div>
 
                 <div class="mb-3">
-                    <label for="customImageEnabled">Custom Image State</label>
-                    <select class="custom-select d-block w-100" id="customImageEnabled" name="customImageEnabled">
-                        <option value="Disabled" <?php if ($customImageEnabled == 'Disabled') {
-                            echo "selected";
-                        } ?>>Disabled
-                        </option>
-                        <option value="Enabled" <?php if ($customImageEnabled == 'Enabled') {
-                            echo "selected";
-                        } ?>>Enabled
-                        </option>
-                    </select>
+                    <div class="form-alignment input-group">
+                        <label for="customImageEnabled">Custom Image State: &nbsp;&nbsp;</label>
+                        <select class="fieldInfo-select custom-select d-block w-100" id="customImageEnabled" name="customImageEnabled">
+                            <option value="Disabled" <?php if ($customImageEnabled == 'Disabled') {
+                                echo "selected";
+                            } ?>>Disabled
+                            </option>
+                            <option value="Enabled" <?php if ($customImageEnabled == 'Enabled') {
+                                echo "selected";
+                            } ?>>Enabled
+                            </option>
+                        </select>
+                    </div>
                 </div>
 
                 <div class=" mb-3">
-                    <label for="customTopFontSize">Custom Image Select</label>
-                    <select class="custom-select d-block w-100" id="customImage" name="customImage">
-                        <option value="" <?php if ($customImage == '') {
-                            echo "selected";
-                        } ?>>None
-                        </option>
-                        <?php
-                        $path = "cache/custom";
-                        $files = array_diff(scandir($path), array('.', '..'));
-                        foreach ($files as $file) {
-                            echo "<option value='$file'";
-                            if ($customImage == $file) {
+                    <div class="form-alignment input-group">
+                        <label for="customTopFontSize">Custom Image Select: &nbsp;</label>
+                        <select class="fieldInfo-select custom-select d-block w-100" id="customImage" name="customImage">
+                            <option value="" <?php if ($customImage == '') {
                                 echo "selected";
+                            } ?>>None
+                            </option>
+                            <?php
+                            $path = "cache/custom";
+                            $files = array_diff(scandir($path), array('.', '..'));
+                            foreach ($files as $file) {
+                                echo "<option value='$file'";
+                                if ($customImage == $file) {
+                                    echo "selected";
+                                }
+                                echo ">$file</option>";
                             }
-                            echo ">$file</option>";
-                        }
-                        ?>
-                    </select>
+                            ?>
+                        </select>
+                    </div>
                 </div>
 
+                <hr class="internalconfigbreak">
+
                 <div class="mb-3">
-                    <label for="customTopText">Custom Image Top Text</label>
-                    <span class="text-muted"><small>(Optional)</small></span></label>
+                    <label for="customTopText">Custom Top Text</label>
+                    <span class="text-muted"><small>(Optional)</small>:</span></label>
                     <div class="input-group">
                         <input type="text" class="form-control" id="customTopText" name="customTopText"
                                 placeholder="Custom Image Top Text" value="<?php echo $customTopText; ?>">
@@ -984,7 +992,7 @@ include('config.php');
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="customTopFontSize">Custom Image Top Font Size</label>
+                        <label for="customTopFontSize">Top Font Size:</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="customTopFontSize" name="customTopFontSize"
                                     value="<?php echo $customTopFontSize; ?>">
@@ -995,7 +1003,7 @@ include('config.php');
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label for="customTopFontColor">Custom Image Top Font Color</label>
+                        <label for="customTopFontColor">Top Font Color:</label>
                         <div class="input-group">
                             <input type="text" id="customTopFontColor" name="customTopFontColor"
                                     class="form-control" data-position="bottom left"
@@ -1015,7 +1023,7 @@ include('config.php');
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="customTopFontOutlineSize">Custom Image Top Font Outline Size</label>
+                        <label for="customTopFontOutlineSize">Top Font Outline Size:</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="customTopFontOutlineSize"
                                     name="customTopFontOutlineSize" value="<?php echo $customTopFontOutlineSize; ?>">
@@ -1026,7 +1034,7 @@ include('config.php');
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label for="customTopFontOutlineColor">Custom Image Top Font Outline Color</label>
+                        <label for="customTopFontOutlineColor">Top Font Outline Color:</label>
                         <div class="input-group">
                             <input type="text" id="customTopFontOutlineColor" name="customTopFontOutlineColor"
                                     class="form-control" data-position="bottom left"
@@ -1044,9 +1052,11 @@ include('config.php');
                     });
                 </script>
 
+                <hr class="internalconfigbreak">
+
                 <div class="mb-3">
-                    <label for="customBottomText">Custom Image Bottom Text</label>
-                    <span class="text-muted"><small>(Optional)</small></span></label>
+                    <label for="customBottomText">Custom Bottom Text</label>
+                    <span class="text-muted"><small>(Optional)</small>:</span></label>
                     <div class="input-group">
                         <input type="text" class="form-control" id="customBottomText" name="customBottomText"
                                 placeholder="Coming Soon Top Text" value="<?php echo $customBottomText; ?>">
@@ -1055,7 +1065,7 @@ include('config.php');
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="customBottomFontSize">Custom Image Bottom Font Size</label>
+                        <label for="customBottomFontSize">Bottom Font Size:</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="customBottomFontSize"
                                     name="customBottomFontSize" value="<?php echo $customBottomFontSize; ?>">
@@ -1066,7 +1076,7 @@ include('config.php');
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label for="customBottomFontColor">Custom Image Bottom Font Color</label>
+                        <label for="customBottomFontColor">Bottom Font Color:</label>
                         <div class="input-group">
                             <input type="text" id="customBottomFontColor" name="customBottomFontColor"
                                     class="form-control" data-position="bottom left"
@@ -1086,7 +1096,7 @@ include('config.php');
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="customBottomFontOutlineSize">Custom Image Bottom Font Outline Size</label>
+                        <label for="customBottomFontOutlineSize">Bottom Font Outline Size:</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="customBottomFontOutlineSize"
                                     name="customBottomFontOutlineSize" value="<?php echo $customBottomFontOutlineSize; ?>">
@@ -1097,7 +1107,7 @@ include('config.php');
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label for="customBottomFontOutlineColor">Custom Image Bottom Font Outline Color</label>
+                        <label for="customBottomFontOutlineColor">Bottom Font Outline Color:</label>
                         <div class="input-group">
                             <input type="text" id="customBottomFontOutlineColor" name="customBottomFontOutlineColor"
                                     class="form-control" data-position="bottom left"
