@@ -426,19 +426,19 @@ include('config.php');
                     <label for="comingSoonTop" class="checkLabel">Top Text Option:</label>
                     <div class="input-group">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="comingSoonTop" id="csb1" value="title"<?php if($comingSoonTop == 'title' || $comingSoonTop == '') echo " checked"?>>
+                            <input class="form-check-input" type="radio" name="comingSoonTop" id="csb1" value="title"<?php if($comingSoonTop == 'title' || $comingSoonTop == '') echo " checked"?> onChange="comingSoonTopSelected()">
                             <label class="form-check-label" for="inlineRadio1">Title</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="comingSoonTop" id="csb2" value="summary"<?php if($comingSoonTop == 'summary') echo " checked"?>>
+                            <input class="form-check-input" type="radio" name="comingSoonTop" id="csb2" value="summary"<?php if($comingSoonTop == 'summary') echo " checked"?> onChange="comingSoonTopSelected()">
                             <label class="form-check-label" for="inlineRadio2">Summary</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="comingSoonTop" id="csb3" value="tagline"<?php if($comingSoonTop == 'tagline') echo " checked"?>>
+                            <input class="form-check-input" type="radio" name="comingSoonTop" id="csb3" value="tagline"<?php if($comingSoonTop == 'tagline') echo " checked"?> onChange="comingSoonTopSelected()">
                             <label class="form-check-label" for="inlineRadio2">Tagline</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="comingSoonTop" id="csb4" value="custom"<?php if($comingSoonTop == 'custom') echo " checked"?>>
+                            <input class="form-check-input" type="radio" name="comingSoonTop" id="csb4" value="custom"<?php if($comingSoonTop == 'custom') echo " checked"?> onChange="comingSoonTopSelected()">
                             <label class="form-check-label" for="inlineRadio3">Custom</label>
                         </div>
                     </div>
@@ -452,6 +452,20 @@ include('config.php');
                             placeholder="Coming Soon Top Text" value="<?php echo $comingSoonTopText; ?>">
                     </div>
                 </div>
+
+                <script>
+                    function comingSoonTopSelected() { 
+                        var result = document.querySelector('input[name="comingSoonTop"]:checked').value;
+                        if(result=="custom") {
+                            // document.getElementById("comingSoonTopText").setAttribute('disabled', true);
+                            document.getElementById("comingSoonTopText").removeAttribute('disabled');
+                        }
+                        else {
+                            document.getElementById("comingSoonTopText").setAttribute('disabled', true);
+                            // document.getElementById("comingSoonTopText").removeAttribute('disabled');
+                        }
+                    }
+                </script>
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
@@ -532,19 +546,19 @@ include('config.php');
                     <label for="comingSoonBottom" class="checkLabel">Bottom Text Option:</label>
                     <div class="input-group">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="comingSoonBottom" id="csb1" value="title"<?php if($comingSoonBottom == 'title' || $comingSoonBottom == '') echo " checked"?>>
+                            <input class="form-check-input" type="radio" name="comingSoonBottom" id="csb1" value="title"<?php if($comingSoonBottom == 'title' || $comingSoonBottom == '') echo " checked"?> onChange="comingSoonBottomSelected()">
                             <label class="form-check-label" for="inlineRadio1">Title</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="comingSoonBottom" id="csb2" value="summary"<?php if($comingSoonBottom == 'summary') echo " checked"?>>
+                            <input class="form-check-input" type="radio" name="comingSoonBottom" id="csb2" value="summary"<?php if($comingSoonBottom == 'summary') echo " checked"?> onChange="comingSoonBottomSelected()">
                             <label class="form-check-label" for="inlineRadio2">Summary</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="comingSoonBottom" id="csb3" value="tagline"<?php if($comingSoonBottom == 'tagline') echo " checked"?>>
+                            <input class="form-check-input" type="radio" name="comingSoonBottom" id="csb3" value="tagline"<?php if($comingSoonBottom == 'tagline') echo " checked"?> onChange="comingSoonBottomSelected()">
                             <label class="form-check-label" for="inlineRadio2">Tagline</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="comingSoonBottom" id="csb4" value="custom"<?php if($comingSoonBottom == 'custom') echo " checked"?>>
+                            <input class="form-check-input" type="radio" name="comingSoonBottom" id="csb4" value="custom"<?php if($comingSoonBottom == 'custom') echo " checked"?> onChange="comingSoonBottomSelected()">
                             <label class="form-check-label" for="inlineRadio3">Custom</label>
                         </div>
                     </div>
@@ -559,6 +573,20 @@ include('config.php');
                             value="<?php echo $comingSoonBottomText; ?>">
                     </div>
                 </div>
+
+                <script>
+                    function comingSoonBottomSelected() { 
+                        var result = document.querySelector('input[name="comingSoonBottom"]:checked').value;
+                        if(result=="custom") {
+                            // document.getElementById("comingSoonBottomText").setAttribute('disabled', true);
+                            document.getElementById("comingSoonBottomText").removeAttribute('disabled');
+                        }
+                        else {
+                            document.getElementById("comingSoonBottomText").setAttribute('disabled', true);
+                            // document.getElementById("comingSoonBottomText").removeAttribute('disabled');
+                        }
+                    }
+                </script>
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
@@ -646,19 +674,19 @@ include('config.php');
                     <label for="nowShowingTop" class="checkLabel">Top Text Option:</label>
                     <div class="input-group">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="nowShowingTop" id="csb1" value="title"<?php if($nowShowingTop == 'title' || $nowShowingTop == '') echo " checked"?>>
+                            <input class="form-check-input" type="radio" name="nowShowingTop" id="csb1" value="title"<?php if($nowShowingTop == 'title' || $nowShowingTop == '') echo " checked"?> onChange="nowShowingTopSelected()">
                             <label class="form-check-label" for="inlineRadio1">Title</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="nowShowingTop" id="csb2" value="summary"<?php if($nowShowingTop == 'summary') echo " checked"?>>
+                            <input class="form-check-input" type="radio" name="nowShowingTop" id="csb2" value="summary"<?php if($nowShowingTop == 'summary') echo " checked"?> onChange="nowShowingTopSelected()">
                             <label class="form-check-label" for="inlineRadio2">Summary</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="nowShowingTop" id="csb3" value="tagline"<?php if($nowShowingTop == 'tagline') echo " checked"?>>
+                            <input class="form-check-input" type="radio" name="nowShowingTop" id="csb3" value="tagline"<?php if($nowShowingTop == 'tagline') echo " checked"?> onChange="nowShowingTopSelected()">
                             <label class="form-check-label" for="inlineRadio2">Tagline</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="nowShowingTop" id="csb4" value="custom"<?php if($nowShowingTop == 'custom') echo " checked"?>>
+                            <input class="form-check-input" type="radio" name="nowShowingTop" id="csb4" value="custom"<?php if($nowShowingTop == 'custom') echo " checked"?> onChange="nowShowingTopSelected()">
                             <label class="form-check-label" for="inlineRadio3">Custom</label>
                         </div>
                     </div>
@@ -672,6 +700,20 @@ include('config.php');
                             placeholder="Now Showing Top Text" value="<?php echo $nowShowingTopText; ?>">
                     </div>
                 </div>
+
+                <script>
+                    function nowShowingTopSelected() { 
+                        var result = document.querySelector('input[name="nowShowingTop"]:checked').value;
+                        if(result=="custom") {
+                            // document.getElementById("nowShowingTopText").setAttribute('disabled', true);
+                            document.getElementById("nowShowingTopText").removeAttribute('disabled');
+                        }
+                        else {
+                            document.getElementById("nowShowingTopText").setAttribute('disabled', true);
+                            // document.getElementById("nowShowingTopText").removeAttribute('disabled');
+                        }
+                    }
+                </script>
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
@@ -752,19 +794,19 @@ include('config.php');
                     <label for="nowShowingBottom" class="checkLabel">Bottom Text Option:</label>
                     <div class="input-group">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="nowShowingBottom" id="csb1" value="title"<?php if($nowShowingBottom == 'title' || $nowShowingBottom == '') echo " checked"?>>
+                            <input class="form-check-input" type="radio" name="nowShowingBottom" id="csb1" value="title"<?php if($nowShowingBottom == 'title' || $nowShowingBottom == '') echo " checked"?> onChange="nowShowingBottomSelected()">
                             <label class="form-check-label" for="inlineRadio1">Title</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="nowShowingBottom" id="csb2" value="summary"<?php if($nowShowingBottom == 'summary') echo " checked"?>>
+                            <input class="form-check-input" type="radio" name="nowShowingBottom" id="csb2" value="summary"<?php if($nowShowingBottom == 'summary') echo " checked"?> onChange="nowShowingBottomSelected()">
                             <label class="form-check-label" for="inlineRadio2">Summary</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="nowShowingBottom" id="csb3" value="tagline"<?php if($nowShowingBottom == 'tagline') echo " checked"?>>
+                            <input class="form-check-input" type="radio" name="nowShowingBottom" id="csb3" value="tagline"<?php if($nowShowingBottom == 'tagline') echo " checked"?> onChange="nowShowingBottomSelected()">
                             <label class="form-check-label" for="inlineRadio2">Tagline</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="nowShowingBottom" id="csb4" value="custom"<?php if($nowShowingBottom == 'custom') echo " checked"?>>
+                            <input class="form-check-input" type="radio" name="nowShowingBottom" id="csb4" value="custom"<?php if($nowShowingBottom == 'custom') echo " checked"?> onChange="nowShowingBottomSelected()">
                             <label class="form-check-label" for="inlineRadio3">Custom</label>
                         </div>
                     </div>
@@ -779,6 +821,20 @@ include('config.php');
                             value="<?php echo $nowShowingBottomText; ?>">
                     </div>
                 </div>
+
+                <script>
+                    function nowShowingBottomSelected() { 
+                        var result = document.querySelector('input[name="nowShowingBottom"]:checked').value;
+                        if(result=="custom") {
+                            // document.getElementById("nowShowingBottomText").setAttribute('disabled', true);
+                            document.getElementById("nowShowingBottomText").removeAttribute('disabled');
+                        }
+                        else {
+                            document.getElementById("nowShowingBottomText").setAttribute('disabled', true);
+                            // document.getElementById("nowShowingBottomText").removeAttribute('disabled');
+                        }
+                    }
+                </script>
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
