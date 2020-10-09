@@ -382,6 +382,8 @@ include('config.php');
             <h4 class="mb-3"><a name="ComingSoon"></a>Coming Soon Configuration</h4>
             <input class="btn btn-secondary showhideconfigButton" type="button" value="Show">
             <div class="showhideconfig">
+                <hr class="internalconfigbreak">
+
                 <div class="mb-3">
                     <div class="form-alignment input-group">
                         <label for="comingSoonShowSelection">Show Movies: &nbsp;</label>
@@ -409,7 +411,7 @@ include('config.php');
 
                 <div class="mb-3">
                     <div class="form-alignment input-group">
-                        <label for="pmpImageSpeed">Poster Transition Speed <small>( Seconds )</small>: &nbsp;</label>
+                        <label for="pmpImageSpeed">Poster Transition Speed <small>(Seconds)</small>: &nbsp;</label>
                         <input type="text" class="fieldInfo-short form-control" id="pmpImageSpeed" name="pmpImageSpeed"
                             placeholder="Poster Transition Speed" value="<?php echo $pmpImageSpeed; ?>" required>
                         <div class="fieldInfo-group-text input-group-prepend">
@@ -443,7 +445,7 @@ include('config.php');
                 </div>
 
                 <div class="mb-3">
-                    <label for="comingSoonTopText">Top Text</label>
+                    <label for="comingSoonTopText">Custom Top Text</label>
                     <span class="text-muted"><small>(Optional)</small>:</span></label>
                     <div class="input-group">
                         <input type="text" class="form-control" id="comingSoonTopText" name="comingSoonTopText"
@@ -549,7 +551,7 @@ include('config.php');
                 </div>
 
                 <div class="mb-3">
-                    <label for="comingSoonBottomText">Bottom Text</label>
+                    <label for="comingSoonBottomText">Custom Bottom Text</label>
                     <span class="text-muted"><small>(Optional)</small>:</span></label>
                     <div class="input-group">
                         <input type="text" class="form-control" id="comingSoonBottomText"
@@ -638,8 +640,10 @@ include('config.php');
             <h4 class="mb-3"><a name="NowShowing"></a>Now Showing Configuration</h4>
             <input class="btn btn-secondary showhideconfigButton" type="button" value="Show">
             <div class="showhideconfig">
+                <hr class="internalconfigbreak">
+
                 <div class="mb-3">
-                    <label for="nowShowingTop" class="checkLabel">Now Showing Top Text Option</label>
+                    <label for="nowShowingTop" class="checkLabel">Top Text Option:</label>
                     <div class="input-group">
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="nowShowingTop" id="csb1" value="title"<?php if($nowShowingTop == 'title' || $nowShowingTop == '') echo " checked"?>>
@@ -661,8 +665,8 @@ include('config.php');
                 </div>
 
                 <div class="mb-3">
-                    <label for="nowShowingTopText">Now Showing Custom Top Text</label>
-                    <span class="text-muted"><small>(Optional)</small></span></label>
+                    <label for="nowShowingTopText">Custom Top Text</label>
+                    <span class="text-muted"><small>(Optional)</small>:</span></label>
                     <div class="input-group">
                         <input type="text" class="form-control" id="nowShowingTopText" name="nowShowingTopText"
                             placeholder="Now Showing Top Text" value="<?php echo $nowShowingTopText; ?>">
@@ -671,7 +675,7 @@ include('config.php');
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="nowShowingTopFontSize">Now Showing Top Font Size</label>
+                        <label for="nowShowingTopFontSize">Top Font Size:</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="nowShowingTopFontSize"
                                 name="nowShowingTopFontSize" value="<?php echo $nowShowingTopFontSize; ?>">
@@ -682,7 +686,7 @@ include('config.php');
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label for="nowShowingTopFontColor">Now Showing Top Font Color</label>
+                        <label for="nowShowingTopFontColor">Top Font Color:</label>
                         <div class="input-group">
                             <input type="text" id="nowShowingTopFontColor" name="nowShowingTopFontColor"
                                 class="form-control" data-position="bottom left"
@@ -702,7 +706,7 @@ include('config.php');
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="nowShowingTopFontOutlineSize">Now Showing Top Font Outline Size</label>
+                        <label for="nowShowingTopFontOutlineSize">Top Font Outline Size:</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="nowShowingTopFontOutlineSize"
                                 name="nowShowingTopFontOutlineSize"
@@ -714,7 +718,7 @@ include('config.php');
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label for="nowShowingTopFontOutlineColor">Now Showing Top Font Outline Color</label>
+                        <label for="nowShowingTopFontOutlineColor">Top Font Outline Color:</label>
                         <div class="input-group">
                             <input type="text" id="nowShowingTopFontOutlineColor"
                                 name="nowShowingTopFontOutlineColor" class="form-control"
@@ -742,8 +746,10 @@ include('config.php');
                     </div>
                 </div>
 
+                <hr class="internalconfigbreak">
+
                 <div class="mb-3">
-                    <label for="nowShowingBottom" class="checkLabel">Now Showing Bottom Text Option</label>
+                    <label for="nowShowingBottom" class="checkLabel">Bottom Text Option:</label>
                     <div class="input-group">
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="nowShowingBottom" id="csb1" value="title"<?php if($nowShowingBottom == 'title' || $nowShowingBottom == '') echo " checked"?>>
@@ -765,8 +771,8 @@ include('config.php');
                 </div>
 
                 <div class="mb-3">
-                    <label for="nowShowingBottomText">Now Showing Custom Bottom Text</label>
-                    <span class="text-muted"><small>(Optional)</small></span></label>
+                    <label for="nowShowingBottomText">Custom Bottom Text</label>
+                    <span class="text-muted"><small>(Optional)</small>:</span></label>
                     <div class="input-group">
                         <input type="text" class="form-control" id="nowShowingBottomText"
                             name="nowShowingBottomText" placeholder="Now Showing Bottom Text"
@@ -776,7 +782,7 @@ include('config.php');
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="nowShowingBottomFontSize">Now Showing Bottom Font Size</label>
+                        <label for="nowShowingBottomFontSize">Bottom Font Size:</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="nowShowingBottomFontSize"
                                 name="nowShowingBottomFontSize" value="<?php echo $nowShowingBottomFontSize; ?>">
@@ -787,7 +793,7 @@ include('config.php');
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label for="nowShowingBottomFontColor">Now Showing Bottom Font Color</label>
+                        <label for="nowShowingBottomFontColor">Bottom Font Color:</label>
                         <div class="input-group">
                             <input type="text" id="nowShowingBottomFontColor" name="nowShowingBottomFontColor"
                                 class="form-control" data-position="bottom left"
@@ -807,7 +813,7 @@ include('config.php');
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="nowShowingBottomFontOutlineSize">Now Showing Bottom Font Outline Size</label>
+                        <label for="nowShowingBottomFontOutlineSize">Bottom Font Outline Size:</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="nowShowingBottomFontOutlineSize"
                                 name="nowShowingBottomFontOutlineSize"
@@ -819,7 +825,7 @@ include('config.php');
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label for="nowShowingBottomFontOutlineColor">Now Showing Bottom Font Outline Color</label>
+                        <label for="nowShowingBottomFontOutlineColor">Bottom Font Outline Color:</label>
                         <div class="input-group">
                             <input type="text" id="nowShowingBottomFontOutlineColor"
                                 name="nowShowingBottomFontOutlineColor" class="form-control"
@@ -847,23 +853,27 @@ include('config.php');
                     </div>
                 </div>
 
+                <hr class="internalconfigbreak">
+
                 <div class="mb-3">
-                    <label for="pmpDisplayProgress">Progress Bar</label>
-                    <select class="custom-select d-block w-100" id="pmpDisplayProgress" name="pmpDisplayProgress">
-                        <option value="Disabled" <?php if ($pmpDisplayProgress == 'Disabled') {
-                            echo "selected";
-                        } ?>>Disabled
-                        </option>
-                        <option value="Enabled" <?php if ($pmpDisplayProgress == 'Enabled') {
-                            echo "selected";
-                        } ?>>Enabled
-                        </option>
-                    </select>
+                    <div class="form-alignment input-group">
+                        <label for="pmpDisplayProgress">Progress Bar: &nbsp;</label>
+                        <select class="fieldInfo-select custom-select d-block w-100" id="pmpDisplayProgress" name="pmpDisplayProgress">
+                            <option value="Disabled" <?php if ($pmpDisplayProgress == 'Disabled') {
+                                echo "selected";
+                            } ?>>Disabled
+                            </option>
+                            <option value="Enabled" <?php if ($pmpDisplayProgress == 'Enabled') {
+                                echo "selected";
+                            } ?>>Enabled
+                            </option>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="pmpDisplayProgressSize">Progress Bar Height</label>
+                        <label for="pmpDisplayProgressSize">Progress Bar Height:</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="pmpDisplayProgressSize"
                                 name="pmpDisplayProgressSize" value="<?php echo $pmpDisplayProgressSize; ?>">
@@ -874,7 +884,7 @@ include('config.php');
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label for="pmpDisplayProgressColor">Progress Bar Color</label>
+                        <label for="pmpDisplayProgressColor">Progress Bar Color:</label>
                         <div class="input-group">
                             <input type="text" id="pmpDisplayProgressColor" name="pmpDisplayProgressColor"
                                 class="form-control" data-position="bottom left"
@@ -892,18 +902,24 @@ include('config.php');
                     </script>
                 </div>
 
+                <hr class="internalconfigbreak">
+                <hr class="internalconfigbreak">
+                <!-- Scrolling text works for both "Now Playing" and "Coming Soon" -->
+
                 <div class="mb-3">
-                    <label for="pmpBottomScroll">Scrolling Text </label>
-                    <select class="custom-select d-block w-100" id="pmpBottomScroll" name="pmpBottomScroll">
-                        <option value="Disabled" <?php if ($pmpBottomScroll == 'Disabled') {
-                            echo "selected";
-                        } ?>>Disabled
-                        </option>
-                        <option value="Enabled" <?php if ($pmpBottomScroll == 'Enabled') {
-                            echo "selected";
-                        } ?>>Enabled
-                        </option>
-                    </select>
+                    <div class="form-alignment input-group">
+                        <label for="pmpBottomScroll">Scrolling Text: &nbsp;</label>
+                        <select class="fieldInfo-select custom-select d-block w-100" id="pmpBottomScroll" name="pmpBottomScroll">
+                            <option value="Disabled" <?php if ($pmpBottomScroll == 'Disabled') {
+                                echo "selected";
+                            } ?>>Disabled
+                            </option>
+                            <option value="Enabled" <?php if ($pmpBottomScroll == 'Enabled') {
+                                echo "selected";
+                            } ?>>Enabled
+                            </option>
+                        </select>
+                    </div>
                 </div>
             </div>
 
