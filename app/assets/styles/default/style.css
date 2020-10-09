@@ -94,7 +94,24 @@ body {
   max-width: 150px;
 }
 
+.fieldInfo-short {
+  max-width: 75px;
+}
+
+.fieldInfo-select {
+  /* display:inline-block; */
+  max-width: 200px;
+}
+
 .form-alignment label{
   margin-top:.5rem;
 }
 
+.fieldInfo-group-text{
+  margin-bottom:.5rem;
+}
+
+/* Dashed red border */
+hr.internalconfigbreak {
+  border-top: 1px dashed gray;
+}

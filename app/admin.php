@@ -383,41 +383,45 @@ include('config.php');
             <input class="btn btn-secondary showhideconfigButton" type="button" value="Show">
             <div class="showhideconfig">
                 <div class="mb-3">
-                    <label for="comingSoonShowSelection">Show Movies</label>
-                    <select class="custom-select d-block w-100" id="comingSoonShowSelection"
-                            name="comingSoonShowSelection">
-                        <option value="unwatched" <?php if ($comingSoonShowSelection == 'unwatched') {
-                            echo "selected";
-                        } ?>>UnWatched
-                        </option>
-                        <option value="all" <?php if ($comingSoonShowSelection == 'all') {
-                            echo "selected";
-                        } ?>>All
-                        </option>
-                        <option value="recentlyAdded" <?php if ($comingSoonShowSelection == 'recentlyAdded') {
-                            echo "selected";
-                        } ?>>Recently Added
-                        </option>
-                        <option value="newest" <?php if ($comingSoonShowSelection == 'newest') {
-                            echo "selected";
-                        } ?>>Newest
-                        </option>
-                    </select>
-                </div>
-
-                <div class="mb-3">
-                    <label for="pmpImageSpeed">Poster Transition Speed <small>( Seconds )</small></label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="pmpImageSpeed" name="pmpImageSpeed"
-                            placeholder="Poster Transition Speed" value="<?php echo $pmpImageSpeed; ?>" required>
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">Seconds</div>
-                        </div>
+                    <div class="form-alignment input-group">
+                        <label for="comingSoonShowSelection">Show Movies: &nbsp;</label>
+                        <select class="fieldInfo-select custom-select d-block w-100" id="comingSoonShowSelection"
+                                name="comingSoonShowSelection">
+                            <option value="unwatched" <?php if ($comingSoonShowSelection == 'unwatched') {
+                                echo "selected";
+                            } ?>>Unwatched
+                            </option>
+                            <option value="all" <?php if ($comingSoonShowSelection == 'all') {
+                                echo "selected";
+                            } ?>>All
+                            </option>
+                            <option value="recentlyAdded" <?php if ($comingSoonShowSelection == 'recentlyAdded') {
+                                echo "selected";
+                            } ?>>Recently Added
+                            </option>
+                            <option value="newest" <?php if ($comingSoonShowSelection == 'newest') {
+                                echo "selected";
+                            } ?>>Newest
+                            </option>
+                        </select>
                     </div>
                 </div>
 
                 <div class="mb-3">
-                    <label for="comingSoonTop" class="checkLabel">Coming Soon Top Text Option</label>
+                    <div class="form-alignment input-group">
+                        <label for="pmpImageSpeed">Poster Transition Speed <small>( Seconds )</small>: &nbsp;</label>
+                        <input type="text" class="fieldInfo-short form-control" id="pmpImageSpeed" name="pmpImageSpeed"
+                            placeholder="Poster Transition Speed" value="<?php echo $pmpImageSpeed; ?>" required>
+                        <div class="fieldInfo-group-text input-group-prepend">
+                            <div class=" input-group-text">Seconds</div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="internalconfigbreak">
+
+                <div class="mb-3">
+                    <label for="comingSoonTop" class="checkLabel">Top Text Option:</label>
                     <div class="input-group">
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="comingSoonTop" id="csb1" value="title"<?php if($comingSoonTop == 'title' || $comingSoonTop == '') echo " checked"?>>
@@ -439,8 +443,8 @@ include('config.php');
                 </div>
 
                 <div class="mb-3">
-                    <label for="comingSoonTopText">Coming Soon Top Text</label>
-                    <span class="text-muted"><small>(Optional)</small></span></label>
+                    <label for="comingSoonTopText">Top Text</label>
+                    <span class="text-muted"><small>(Optional)</small>:</span></label>
                     <div class="input-group">
                         <input type="text" class="form-control" id="comingSoonTopText" name="comingSoonTopText"
                             placeholder="Coming Soon Top Text" value="<?php echo $comingSoonTopText; ?>">
@@ -449,7 +453,7 @@ include('config.php');
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="comingSoonTopFontSize">Coming Soon Top Font Size</label>
+                        <label for="comingSoonTopFontSize">Top Font Size:</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="comingSoonTopFontSize"
                                 name="comingSoonTopFontSize" value="<?php echo $comingSoonTopFontSize; ?>">
@@ -460,7 +464,7 @@ include('config.php');
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label for="comingSoonTopFontColor">Coming Soon Top Font Color</label>
+                        <label for="comingSoonTopFontColor">Top Font Color:</label>
                         <div class="input-group">
                             <input type="text" id="comingSoonTopFontColor" name="comingSoonTopFontColor"
                                 class="form-control" data-position="bottom left"
@@ -480,7 +484,7 @@ include('config.php');
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="comingSoonTopFontOutlineSize">Coming Soon Top Font Outline Size</label>
+                        <label for="comingSoonTopFontOutlineSize">Top Font Outline Size:</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="comingSoonTopFontOutlineSize"
                                 name="comingSoonTopFontOutlineSize"
@@ -492,7 +496,7 @@ include('config.php');
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label for="comingSoonTopFontOutlineColor">Coming Soon Top Font Outline Color</label>
+                        <label for="comingSoonTopFontOutlineColor">Top Font Outline Color:</label>
                         <div class="input-group">
                             <input type="text" id="comingSoonTopFontOutlineColor"
                                 name="comingSoonTopFontOutlineColor" class="form-control"
@@ -520,8 +524,10 @@ include('config.php');
                     </div>
                 </div>
 
+                <hr class="internalconfigbreak">
+
                 <div class="mb-3">
-                    <label for="comingSoonBottom" class="checkLabel">Coming Soon Bottom Text Option</label>
+                    <label for="comingSoonBottom" class="checkLabel">Bottom Text Option:</label>
                     <div class="input-group">
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="comingSoonBottom" id="csb1" value="title"<?php if($comingSoonBottom == 'title' || $comingSoonBottom == '') echo " checked"?>>
@@ -543,8 +549,8 @@ include('config.php');
                 </div>
 
                 <div class="mb-3">
-                    <label for="comingSoonBottomText">Coming Soon Bottom Text</label>
-                    <span class="text-muted"><small>(Optional)</small></span></label>
+                    <label for="comingSoonBottomText">Bottom Text</label>
+                    <span class="text-muted"><small>(Optional)</small>:</span></label>
                     <div class="input-group">
                         <input type="text" class="form-control" id="comingSoonBottomText"
                             name="comingSoonBottomText" placeholder="Coming Soon Bottom Text"
@@ -554,7 +560,7 @@ include('config.php');
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="comingSoonBottomFontSize">Coming Soon Bottom Font Size</label>
+                        <label for="comingSoonBottomFontSize">Bottom Font Size:</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="comingSoonBottomFontSize"
                                 name="comingSoonBottomFontSize" value="<?php echo $comingSoonBottomFontSize; ?>">
@@ -565,7 +571,7 @@ include('config.php');
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label for="comingSoonBottomFontColor">Coming Soon Bottom Font Color</label>
+                        <label for="comingSoonBottomFontColor">Bottom Font Color:</label>
                         <div class="input-group">
                             <input type="text" id="comingSoonBottomFontColor" name="comingSoonBottomFontColor"
                                 class="form-control" data-position="bottom left"
@@ -585,7 +591,7 @@ include('config.php');
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="comingSoonBottomFontOutlineSize">Coming Soon Bottom Font Outline Size</label>
+                        <label for="comingSoonBottomFontOutlineSize">Bottom Font Outline Size:</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="comingSoonBottomFontOutlineSize"
                                 name="comingSoonBottomFontOutlineSize"
@@ -597,7 +603,7 @@ include('config.php');
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label for="comingSoonBottomFontOutlineColor">Coming Soon Bottom Font Outline Color</label>
+                        <label for="comingSoonBottomFontOutlineColor">Bottom Font Outline Color:</label>
                         <div class="input-group">
                             <input type="text" id="comingSoonBottomFontOutlineColor"
                                 name="comingSoonBottomFontOutlineColor" class="form-control"
