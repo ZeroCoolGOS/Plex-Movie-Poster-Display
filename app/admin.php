@@ -409,17 +409,6 @@ include('config.php');
                     </div>
                 </div>
 
-                <div class="mb-3">
-                    <div class="form-alignment input-group">
-                        <label for="pmpImageSpeed">Poster Transition Speed <small>(Seconds)</small>: &nbsp;</label>
-                        <input type="text" class="fieldInfo-short form-control" id="pmpImageSpeed" name="pmpImageSpeed"
-                            placeholder="Poster Transition Speed" value="<?php echo $pmpImageSpeed; ?>" required>
-                        <div class="fieldInfo-group-text input-group-prepend">
-                            <div class=" input-group-text">Seconds</div>
-                        </div>
-                    </div>
-                </div>
-
                 <hr class="internalconfigbreak">
 
                 <div class="mb-3">
@@ -997,14 +986,19 @@ include('config.php');
                         });
                     </script>
                 </div>
+            </div>
 
-                <hr class="internalconfigbreak">
-                <hr class="internalconfigbreak">
-                <!-- Scrolling text works for both "Now Playing" and "Coming Soon" -->
-
+            <hr class="mb-4">
+            
+            <!-- Scrolling text works for both "Now Playing" and "Coming Soon" -->
+            <!-- Custom Images Configuration -->
+            <h4 class="mb-3"><a name="CommonConfig"></a>Common Configuration</h4>
+            <input class="btn btn-secondary showhideconfigButton" type="button" value="Show">
+            <div class="showhideconfig">
+            <!-- <hr class="internalconfigbreak"> -->
                 <div class="mb-3">
                     <div class="form-alignment input-group">
-                        <label for="pmpBottomScroll">Scrolling Text: &nbsp;</label>
+                        <label for="pmpBottomScroll">Bottom Scrolling Text: &nbsp;</label>
                         <select class="fieldInfo-select custom-select d-block w-100" id="pmpBottomScroll" name="pmpBottomScroll">
                             <option value="Disabled" <?php if ($pmpBottomScroll == 'Disabled') {
                                 echo "selected";
@@ -1017,6 +1011,19 @@ include('config.php');
                         </select>
                     </div>
                 </div>
+
+                <div class="mb-3">
+                    <div class="form-alignment input-group">
+                        <!-- <label for="pmpImageSpeed">Poster Transition/Refresh Speed <small>(Seconds)</small>: &nbsp;</label> -->
+                        <label for="pmpImageSpeed">Poster Transition/Refresh Speed: &nbsp;</label>
+                        <input type="text" class="fieldInfo-short form-control" id="pmpImageSpeed" name="pmpImageSpeed"
+                            placeholder="Poster Transition Speed" value="<?php echo $pmpImageSpeed; ?>" required>
+                        <div class="fieldInfo-group-text input-group-prepend">
+                            <div class=" input-group-text">Seconds</div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <hr class="mb-4">
