@@ -14,7 +14,7 @@ ARG htmldefault=/var/www/html/
 ARG htmlbackup=${htmldefault}backup/
 #endregion
 
-# --- DEBIAN ---
+# --- Debian ---
 #region Install Required software packages
 RUN apt-get update -y
 RUN apt-get upgrade -y
