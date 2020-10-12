@@ -94,8 +94,24 @@ body {
   max-width: 150px;
 }
 
-.fieldInfo-short {
+.fieldInfo-xsmall {
+  max-width: 50px;
+}
+
+.fieldInfo-small {
   max-width: 75px;
+}
+
+.fieldInfo-medium {
+  max-width: 100px;
+}
+
+.fieldInfo-large {
+  max-width: 150px;
+}
+
+.fieldInfo-xlarge {
+  max-width: 250px;
 }
 
 .fieldInfo-select {

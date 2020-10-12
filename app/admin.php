@@ -262,8 +262,9 @@ include('config.php');
         </div>
 
         <div class="col-md-8 order-md-1">
-            <!-- Plex Movie Poster Display Config -->
-            <h4 class="mb-3"><a name="Server"></a>Plex Movie Poster Display Config</h4>
+            
+            <!-- Security Configuration -->
+            <h4 class="mb-3"><a name="Server"></a>Security Configuration</h4>
             <input class="btn btn-secondary showhideconfigButton" type="button" value="Show"></input>
             <div class="showhideconfig">
                 <form method="post" class="needs-validation" novalidate enctype="multipart/form-data">
@@ -280,7 +281,6 @@ include('config.php');
                     </div>
 
                     <div class="mb-3">
-
                         <div class="form-alignment input-group" id="password_view">
                         <label for="pmpPassword">Password:&nbsp;&nbsp;</label>
                             <input type="password" class="fieldInfo-password form-control" id="pmpPassword" name="pmpPassword"
@@ -291,6 +291,43 @@ include('config.php');
                             </span>
                         </div>
                     </div>
+            </div>
+            
+            <hr class="mb-4">
+
+            <!-- Plex Movie Poster Display Common Configuration -->
+            <h4 class="mb-3"><a name="Server"></a>Plex Movie Poster Display Common Configuration</h4>
+            <input class="btn btn-secondary showhideconfigButton" type="button" value="Show"></input>
+            <div class="showhideconfig">
+                <form method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <div class="form-alignment input-group">
+                            <!-- <label for="pmpImageSpeed">Poster Transition/Refresh Speed <small>(Seconds)</small>: &nbsp;</label> -->
+                            <label for="pmpImageSpeed">Poster Transition/Refresh Speed: &nbsp;</label>
+                            <input type="text" class="fieldInfo-xsmall form-control" id="pmpImageSpeed" name="pmpImageSpeed"
+                                placeholder="Poster Transition Speed" value="<?php echo $pmpImageSpeed; ?>" required>
+                            <div class="fieldInfo-group-text input-group-prepend">
+                                <div class=" input-group-text">Seconds</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="form-alignment input-group">
+                            <label for="pmpBottomScroll">Bottom Scrolling Text: &nbsp;</label>
+                            <select class="fieldInfo-select custom-select d-block w-100" id="pmpBottomScroll" name="pmpBottomScroll">
+                                <option value="Disabled" <?php if ($pmpBottomScroll == 'Disabled') {
+                                    echo "selected";
+                                } ?>>Disabled
+                                </option>
+                                <option value="Enabled" <?php if ($pmpBottomScroll == 'Enabled') {
+                                    echo "selected";
+                                } ?>>Enabled
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
                     <div class="mb-3">
                         <div class="input-group">
                             <label for="cacheEnabled" class="checkLabel">Cache Images</label>
@@ -321,10 +358,10 @@ include('config.php');
                     </div>
 
                     <div class="mb-3">
-                        <label for="plexToken">Plex Token: <a
-                                    href="https://support.plex.tv/hc/en-us/articles/204059436-Finding-your-account-token-X-Plex-Token"
-                                    target=_blank><span class="badge badge-primary">?</span></a></label>
-                        <div class="input-group" id="token_view">
+                        <div class="form-alignment input-group" id="token_view">
+                            <label for="plexToken">Plex Token: <a
+                                        href="https://support.plex.tv/hc/en-us/articles/204059436-Finding-your-account-token-X-Plex-Token"
+                                        target=_blank><span class="badge badge-primary">?</span></a>&nbsp;</label>
                             <input type="password" class="fieldInfo-token form-control" id="plexToken" name="plexToken"
                                 placeholder="Plex Token" value="<?php echo $plexToken; ?>" required>
                                 &nbsp;
@@ -338,9 +375,9 @@ include('config.php');
                     </div>
 
                     <div class="mb-3">
-                        <label for="plexServerMovieSection">Plex Movie Sections <small>(Comma Separated with no Spaces)</small></label>
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="plexServerMovieSection"
+                        <div class="form-alignment input-group">
+                        <label for="plexServerMovieSection">Plex Movie Sections <small>(Comma Separated with no Spaces)</small>:&nbsp;</label>
+                            <input type="text" class="fieldInfo-medium form-control" id="plexServerMovieSection"
                                 name="plexServerMovieSection" placeholder="Plex Movie Sections"
                                 value="<?php echo $plexServerMovieSection; ?>" required>
                             <div class="invalid-feedback" style="width: 100%;">
@@ -359,7 +396,7 @@ include('config.php');
                 <div class="mb-3">
 
                     <div class="form-alignment input-group">
-                    <label for="plexClient">Plex Client IP:&nbsp;</label>
+                    <label for="plexClient">Plex Client IP: &nbsp;</label>
                         <input type="text" class="fieldInfo-ipaddress form-control" id="plexClient" name="plexClient" maxlength="15"
                             placeholder="Plex Client IP" value="<?php echo $plexClient; ?>" required>
                         <div class="invalid-feedback" style="width: 100%;">
@@ -367,10 +404,11 @@ include('config.php');
                         </div>
                     </div>
                 </div>
+
                 <div class="mb-3">
-                    <label for="plexClient">Plex Client Name</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="plexClientName" name="plexClientName"
+                    <div class="form-alignment input-group">
+                        <label for="plexClient">Plex Client Name: &nbsp;</label>
+                        <input type="text" class="fieldInfo-xlarge form-control" id="plexClientName" name="plexClientName"
                             placeholder="Plex Client Name" value="<?php echo $plexClientName; ?>">
                     </div>
                 </div>
@@ -986,44 +1024,6 @@ include('config.php');
                         });
                     </script>
                 </div>
-            </div>
-
-            <hr class="mb-4">
-            
-            <!-- Scrolling text works for both "Now Playing" and "Coming Soon" -->
-            <!-- Custom Images Configuration -->
-            <h4 class="mb-3"><a name="CommonConfig"></a>Common Configuration</h4>
-            <input class="btn btn-secondary showhideconfigButton" type="button" value="Show">
-            <div class="showhideconfig">
-            <!-- <hr class="internalconfigbreak"> -->
-                <div class="mb-3">
-                    <div class="form-alignment input-group">
-                        <label for="pmpBottomScroll">Bottom Scrolling Text: &nbsp;</label>
-                        <select class="fieldInfo-select custom-select d-block w-100" id="pmpBottomScroll" name="pmpBottomScroll">
-                            <option value="Disabled" <?php if ($pmpBottomScroll == 'Disabled') {
-                                echo "selected";
-                            } ?>>Disabled
-                            </option>
-                            <option value="Enabled" <?php if ($pmpBottomScroll == 'Enabled') {
-                                echo "selected";
-                            } ?>>Enabled
-                            </option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <div class="form-alignment input-group">
-                        <!-- <label for="pmpImageSpeed">Poster Transition/Refresh Speed <small>(Seconds)</small>: &nbsp;</label> -->
-                        <label for="pmpImageSpeed">Poster Transition/Refresh Speed: &nbsp;</label>
-                        <input type="text" class="fieldInfo-short form-control" id="pmpImageSpeed" name="pmpImageSpeed"
-                            placeholder="Poster Transition Speed" value="<?php echo $pmpImageSpeed; ?>" required>
-                        <div class="fieldInfo-group-text input-group-prepend">
-                            <div class=" input-group-text">Seconds</div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
             <hr class="mb-4">
