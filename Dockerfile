@@ -1,9 +1,12 @@
-FROM debian:latest
+# FROM debian:latest
+FROM debian:stable-slim
+# FROM alpine:latest
 
 LABEL maintainer="MattsShack <mattsshack@gmail.com>"
 
 #region Settings
 ARG localconfig=/dockerimageconfigs/
+ARG buildconfig=/build/
 
 ARG nginxpath=/etc/nginx/
 
@@ -11,9 +14,13 @@ ARG htmldefault=/var/www/html/
 ARG htmlbackup=${htmldefault}backup/
 #endregion
 
+# --- DEBIAN ---
 #region Install Required software packages
-RUN apt update -y
-RUN apt upgrade -y
+RUN apt-get update -y
+RUN apt-get upgrade -y
+
+# RUN apt-get install dialog -y
+# RUN apt-get install apt-utils -y
 
 RUN apt-get install nginx -y
 RUN apt-get install php-fpm -y
@@ -23,7 +30,27 @@ RUN apt-get install supervisor -y
 
 # RUN apt-get install git -y
 # RUN apt-get install nano -y
+# RUN apt-get install python3 -y
 #endregion
+
+# # --- Alpine/Ubuntu ---
+# #region Install Required software packages
+# RUN apk update 
+# RUN apk upgrade
+
+# # RUN apk add dialog
+# # RUN apk add apt-utils
+
+# RUN apk add nginx
+# RUN apk add php-fpm
+# RUN apk add php-xml
+
+# RUN apk add supervisor
+
+# # RUN apk add git
+# # RUN apk add nano
+# # RUN apk add python3
+# #endregion
 
 #region Setup PHP with NGINX
 WORKDIR ${nginxpath}/sites-enabled/
@@ -41,7 +68,7 @@ COPY ${localconfig}${nginxpath}/sites-enabled/default ${nginxpath}/sites-enabled
 #endregion
 
 #region Setup PHP information file.
-RUN mkdir ${htmlbackup}
+RUN mkdir -p ${htmlbackup}
 WORKDIR ${htmlbackup}
 RUN mv ${htmldefault}/index.nginx-debian.html ${htmlbackup}/index.nginx-debian.html
 
@@ -98,6 +125,7 @@ WORKDIR /home/
 # CMD ["nginx", "-g", "daemon off;"]
 
 COPY ${localconfig}/start.sh start.sh
+COPY ${buildconfig}/Setup.sh Setup.sh
 CMD ["/bin/bash","start.sh"]
 #endregion
 
