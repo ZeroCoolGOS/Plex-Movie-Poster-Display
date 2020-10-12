@@ -125,7 +125,7 @@ WORKDIR /home/
 # CMD ["nginx", "-g", "daemon off;"]
 
 COPY ${localconfig}/start.sh start.sh
-COPY ${buildconfig}/Setup.sh Setup.sh
+# COPY ${buildconfig}/Setup.sh Setup.sh
 CMD ["/bin/bash","start.sh"]
 #endregion
 
