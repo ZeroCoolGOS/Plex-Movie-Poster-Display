@@ -149,34 +149,53 @@ include('config.php');
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <title>Plex Movie Poster Display - Admin</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="www.mattsshack.com">
+
     <meta content="no-cache, no-store, must-revalidate" http-equiv="Cache-Control"/>
     <meta content="no-cache" http-equiv="Pragma"/>
     <meta content="0" http-equiv="Expires"/>
 
-    <link rel="shortcut icon" type="image/png" href="assets/images/favicon-16x16.png"/>
+    <link rel="shortcut icon" type="image/png" href="/assets/images/desktop/favicon.ico"/>
+    <link rel="mask-icon" href="/assets/images/desktop/favicon-mask.svg" color="#cc7b19">
 
-    <title>PMPD Admin</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-touch-fullscreen" content="yes">
 
-    <!-- JQuery -->
-    <script src="assets/jquery-3.4.0/jquery-3.4.0.min.js"></script>
+    <!-- <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png"> -->
+    <link rel="apple-touch-icon-precomposed" href="/assets/images/desktop/ios/icon-iphone.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/desktop/ios/icon-ipad.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/desktop/ios/icon-iphone@2x.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/desktop/ios/icon-ipad@2x.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 320px)" href="/assets/images/desktop/ios/startup-iphone-portrait.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" href="/assets/images/desktop/ios/startup-iphone-portrait@2x.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="/assets/images/desktop/ios/startup-iphone5-portrait@2x.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 768px) and (orientation: portrait)" href="/assets/images/desktop/ios/startup-ipad-portrait.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 768px) and (orientation: landscape)" href="/assets/images/desktop/ios/startup-ipad-landscape.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 1536px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="/assets/images/desktop/ios/startup-ipad-portrait@2x.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 1536px)  and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="/assets/images/desktop/ios/startup-ipad-landscape@2x.png">
 
-    <!-- Popper -->
-    <script src="assets/popper/popper.min.js"></script>
+    <!-- JQuery Javascript -->
+    <script src="/assets/jquery-3.4.0/jquery-3.4.0.min.js"></script>
 
-    <!-- Bootstrap-->
-    <script src="assets/bootstrap-4.3.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="assets/bootstrap-4.3.1/css/bootstrap.min.css">
+    <!-- Popper Javascript -->
+    <script src="/assets/popper/popper.min.js"></script>
 
-    <!-- Bootstrap Colorpicker -->
-    <link rel="stylesheet" href="assets/bootstrap-colorpicker/css/bootstrap-colorpicker.css">
-    <script src="assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+    <!-- Bootstrap Javascript & CSS -->
+    <script src="/assets/bootstrap-4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/assets/bootstrap-4.3.1/css/bootstrap.min.css">
 
-    <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="assets/styles/default/style.css">
-    <link rel="stylesheet" href="assets/styles/default/form-validation.css">
+    <!-- Bootstrap Colorpicker Javascript & CSS -->
+    <script src="/assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+    <link rel="stylesheet" href="/assets/bootstrap-colorpicker/css/bootstrap-colorpicker.css">
+
+    <!-- Plex Movie Poster Display CSS -->
+    <link rel="stylesheet" href="/assets/styles/default/style.css">
+    <link rel="stylesheet" href="/assets/styles/default/form-validation.css">
 
     <script>
         $(document).ready(function(){
@@ -205,7 +224,7 @@ include('config.php');
 <body class="bg-light">
 <div class="container">
     <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="assets/images/android-chrome-192x192.png" alt="" width="192"
+        <img class="d-block mx-auto mb-4" src="/assets/images/android-chrome-192x192.png" alt="" width="192"
              height="192">
         <h2>Plex Movie Poster Display</h2>
         <p class="text-muted text-center text-small">
