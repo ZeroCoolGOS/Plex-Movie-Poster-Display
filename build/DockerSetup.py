@@ -286,7 +286,7 @@ class DockerCompile:
         self.UpdateVariables()
 
         self.BuildParameters = ""
-        self.BuildParameters = "{} --no-cache".format(self.BuildParameters)
+        # self.BuildParameters = "{} --no-cache".format(self.BuildParameters)
         self.BuildParameters = "{} --tag {}".format(self.BuildParameters,self.imageNameFull)
 
         print ("\nBuild Image (Full Name): {}\n".format(self.imageNameFull))

@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y \
     # dialog \
     dos2unix \
     # git \
-    # nano \
+    nano \
     nginx \
     php-curl \
     php-fpm \
@@ -84,6 +84,7 @@ RUN sed -i "s|upload_max_filesize = 2M|upload_max_filesize = 25M|g" /etc/php/7.3
 
 COPY *.php ${htmldefault}
 COPY assets ${htmldefault}/assets/
+COPY admin ${htmldefault}/admin/
 COPY cache ${htmldefault}/cache/
 
 # Restore Pre Existing Config
