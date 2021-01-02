@@ -54,9 +54,11 @@ if (!empty($_POST['saveConfig'])) {
 
 //Server Configuration
 \$plexServer = '$_POST[plexServer]';
+\$plexServerDirect = '$_POST[plexServerDirect]';
 \$plexToken = '$_POST[plexToken]';
 \$plexServerMovieSection = '$_POST[plexServerMovieSection]';
 \$cacheEnabled = '$_POST[cacheEnabled]'; //Default true
+\$plexServerSSL = '$_POST[plexServerSSL]'; //Default: Unchecked
 
 //Client Configuration
 \$plexClient = '$_POST[plexClient]';
@@ -68,13 +70,13 @@ if (!empty($_POST['saveConfig'])) {
 \$customTopText = '$_POST[customTopText]';
 \$customTopFontSize = '$_POST[customTopFontSize]'; //Default: 55 (px)
 \$customTopFontColor = '$_POST[customTopFontColor]'; //Default: #FFFF00 (Yellow)
-\$customTopFontOutlineSize = '$_POST[customTopFontOutlineSize]'; //Default: 2 (px)
+\$customTopFontOutlineSize = '$_POST[customTopFontOutlineSize]'; //Default: 0 (px)
 \$customTopFontOutlineColor = '$_POST[customTopFontOutlineColor]'; //Default: #FFFF00 (Yellow)
 \$customBottomText = '$_POST[customBottomText]';
 \$customBottomFontSize = '$_POST[customBottomFontSize]'; //Default: 25 (px)
 \$customBottomFontColor = '$_POST[customBottomFontColor]'; //Default: #FFFFFF (White)
-\$customBottomFontOutlineSize = '$_POST[customBottomFontOutlineSize]'; //Default: 2 (px)
-\$customBottomFontOutlineColor = '$_POST[customBottomFontOutlineColor]'; //Default: #FFFF00 (Yellow)
+\$customBottomFontOutlineSize = '$_POST[customBottomFontOutlineSize]'; //Default: 0 (px)
+\$customBottomFontOutlineColor = '$_POST[customBottomFontOutlineColor]'; //Default: #FFFFFF (White)
 
 //Coming Soon Configuration
 \$comingSoonTop = '$_POST[comingSoonTop]'; //Default: custom (title/summary/tagline/custom)
@@ -82,7 +84,7 @@ if (!empty($_POST['saveConfig'])) {
 \$comingSoonTopText = '$_POST[comingSoonTopText]';
 \$comingSoonTopFontSize = '$_POST[comingSoonTopFontSize]'; //Default: 55 (px)
 \$comingSoonTopFontColor = '$_POST[comingSoonTopFontColor]'; //Default: #FFFF00 (Yellow)
-\$comingSoonTopFontOutlineSize = '$_POST[comingSoonTopFontOutlineSize]'; //Default: 2 (px)
+\$comingSoonTopFontOutlineSize = '$_POST[comingSoonTopFontOutlineSize]'; //Default: 0 (px)
 \$comingSoonTopFontOutlineColor = '$_POST[comingSoonTopFontOutlineColor]'; //Default: #FFFF00 (Yellow)
 \$showComingSoonInfo = '$_POST[showComingSoonInfo]'; //Default: false
 \$comingSoonBottom = '$_POST[comingSoonBottom]'; //Default: custom (title/summary/tagline/custom)
@@ -90,8 +92,8 @@ if (!empty($_POST['saveConfig'])) {
 \$comingSoonBottomAutoScale = '$_POST[comingSoonBottomAutoScale]'; //Default: false
 \$comingSoonBottomFontSize = '$_POST[comingSoonBottomFontSize]'; //Default: 25 (px)
 \$comingSoonBottomFontColor = '$_POST[comingSoonBottomFontColor]'; //Default: #FFFFFF (White)
-\$comingSoonBottomFontOutlineSize = '$_POST[comingSoonBottomFontOutlineSize]'; //Default: 2 (px)
-\$comingSoonBottomFontOutlineColor = '$_POST[comingSoonBottomFontOutlineColor]'; //Default: #FFFF00 (Yellow)
+\$comingSoonBottomFontOutlineSize = '$_POST[comingSoonBottomFontOutlineSize]'; //Default: 0 (px)
+\$comingSoonBottomFontOutlineColor = '$_POST[comingSoonBottomFontOutlineColor]'; //Default: #FFFFFF (White)
 \$comingSoonShowSelection = '$_POST[comingSoonShowSelection]'; //Default: unwatched
 
 //Now Showing Configuration
@@ -100,15 +102,15 @@ if (!empty($_POST['saveConfig'])) {
 \$nowShowingTopText = '$_POST[nowShowingTopText]';
 \$nowShowingTopFontSize = '$_POST[nowShowingTopFontSize]'; //Default: 55 (px)
 \$nowShowingTopFontColor = '$_POST[nowShowingTopFontColor]'; //Default: #FFFF00 (Yellow)
-\$nowShowingTopFontOutlineSize = '$_POST[nowShowingTopFontOutlineSize]'; //Default: 2 (px)
+\$nowShowingTopFontOutlineSize = '$_POST[nowShowingTopFontOutlineSize]'; //Default: 0 (px)
 \$nowShowingTopFontOutlineColor = '$_POST[nowShowingTopFontOutlineColor]'; //Default: #FFFF00 (Yellow)
 \$nowShowingBottom = '$_POST[nowShowingBottom]'; //Default: title (title/summary/tagline/custom)
 \$nowShowingBottomText = '$_POST[nowShowingBottomText]';
 \$nowShowingBottomAutoScale = '$_POST[nowShowingBottomAutoScale]'; //Default: false
 \$nowShowingBottomFontSize = '$_POST[nowShowingBottomFontSize]'; //Default: 25 (px)
 \$nowShowingBottomFontColor = '$_POST[nowShowingBottomFontColor]'; //Default: #FFFFFF (White)
-\$nowShowingBottomFontOutlineSize = '$_POST[nowShowingBottomFontOutlineSize]'; //Default: 2 (px)
-\$nowShowingBottomFontOutlineColor = '$_POST[nowShowingBottomFontOutlineColor]'; //Default: #FFFF00 (Yellow)
+\$nowShowingBottomFontOutlineSize = '$_POST[nowShowingBottomFontOutlineSize]'; //Default: 0 (px)
+\$nowShowingBottomFontOutlineColor = '$_POST[nowShowingBottomFontOutlineColor]'; //Default: #FFFFFF (White)
 
 //Misc Configuration
 \$pmpDisplayProgress = '$_POST[pmpDisplayProgress]'; //Default: Disabled
@@ -196,6 +198,7 @@ include('config.php');
     <!-- Plex Movie Poster Display CSS -->
     <link rel="stylesheet" href="/assets/styles/default/style.css">
     <link rel="stylesheet" href="/assets/styles/default/form-validation.css">
+    <link rel="stylesheet" href="/assets/styles/default/tooltips.css">
 
     <script>
         $(document).ready(function(){
@@ -377,6 +380,34 @@ include('config.php');
                     </div>
 
                     <div class="mb-3">
+                        <div class="input-group">
+                            <label for="plexServerSSL" class="checkLabel">Plex SSL:</label>
+                            <div class="form-check">
+                                <input type="checkbox" name="plexServerSSL" class="form-check-input" id="plexServerSSL" value="1" <?php if ($plexServerSSL) echo " checked"?>>
+                                <label class="form-check-label" for="plexServerSSL"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="form-alignment input-group">
+                            <label for="plexServer">
+                                <div class="customtooltip">Plex Server Direct: 
+                                    <a href="https://support.plex.tv/articles/206225077-how-to-use-secure-server-connections/" target=_blank>
+                                    <span class="badge badge-primary">?</span></a>
+                                    <span class="tooltiptext"><small>A Plex server direct URL is required (.plex.direct).</small></span>
+                                </div>
+                                &nbsp;
+                            </label>
+                            <input type="text" class="form-control" id="plexServerDirect" name="plexServerDirect" maxlength="65"
+                                placeholder="Plex Server Direct" value="<?php echo $plexServerDirect; ?>" required>
+                            <div class="invalid-feedback" style="width: 100%;">
+                                A Plex server direct URL is required (.plex.direct).
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
                         <div class="form-alignment input-group" id="token_view">
                             <label for="plexToken">Plex Token: <a
                                         href="https://support.plex.tv/hc/en-us/articles/204059436-Finding-your-account-token-X-Plex-Token"
@@ -395,7 +426,12 @@ include('config.php');
 
                     <div class="mb-3">
                         <div class="form-alignment input-group">
-                        <label for="plexServerMovieSection">Plex Movie Sections <small>(Comma Separated with no Spaces)</small>:&nbsp;</label>
+                            <label for="plexServerMovieSection">
+                                <div class="customtooltip">Plex Movie Section(s):
+                                    <span class="tooltiptext"><small>Multiple libraries can be added with a comma separated with no spaces.</small></span>
+                                </div>
+                                &nbsp;
+                            </label>
                             <input type="text" class="fieldInfo-medium form-control" id="plexServerMovieSection"
                                 name="plexServerMovieSection" placeholder="Plex Movie Sections"
                                 value="<?php echo $plexServerMovieSection; ?>" required>
@@ -528,7 +564,7 @@ include('config.php');
                         <label for="comingSoonTopFontSize">Top Font Size:</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="comingSoonTopFontSize"
-                                name="comingSoonTopFontSize" value="<?php echo $comingSoonTopFontSize; ?>">
+                                name="comingSoonTopFontSize" placeholder="55" value="<?php echo $comingSoonTopFontSize; ?>">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">px</div>
                             </div>
@@ -559,8 +595,7 @@ include('config.php');
                         <label for="comingSoonTopFontOutlineSize">Top Font Outline Size:</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="comingSoonTopFontOutlineSize"
-                                name="comingSoonTopFontOutlineSize"
-                                value="<?php echo $comingSoonTopFontOutlineSize; ?>">
+                                name="comingSoonTopFontOutlineSize" placeholder="0" value="<?php echo $comingSoonTopFontOutlineSize; ?>">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">px</div>
                             </div>
@@ -659,7 +694,7 @@ include('config.php');
                         <label for="comingSoonBottomFontSize">Bottom Font Size:</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="comingSoonBottomFontSize"
-                                name="comingSoonBottomFontSize" value="<?php echo $comingSoonBottomFontSize; ?>">
+                                name="comingSoonBottomFontSize" placeholder="25" value="<?php echo $comingSoonBottomFontSize; ?>">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">px</div>
                             </div>
@@ -690,8 +725,7 @@ include('config.php');
                         <label for="comingSoonBottomFontOutlineSize">Bottom Font Outline Size:</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="comingSoonBottomFontOutlineSize"
-                                name="comingSoonBottomFontOutlineSize"
-                                value="<?php echo $comingSoonBottomFontOutlineSize; ?>">
+                                name="comingSoonBottomFontOutlineSize" placeholder="0" value="<?php echo $comingSoonBottomFontOutlineSize; ?>">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">px</div>
                             </div>
@@ -796,7 +830,7 @@ include('config.php');
                         <label for="nowShowingTopFontSize">Top Font Size:</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="nowShowingTopFontSize"
-                                name="nowShowingTopFontSize" value="<?php echo $nowShowingTopFontSize; ?>">
+                                name="nowShowingTopFontSize" placeholder="55" value="<?php echo $nowShowingTopFontSize; ?>">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">px</div>
                             </div>
@@ -827,8 +861,7 @@ include('config.php');
                         <label for="nowShowingTopFontOutlineSize">Top Font Outline Size:</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="nowShowingTopFontOutlineSize"
-                                name="nowShowingTopFontOutlineSize"
-                                value="<?php echo $nowShowingTopFontOutlineSize; ?>">
+                                name="nowShowingTopFontOutlineSize" placeholder="0" value="<?php echo $nowShowingTopFontOutlineSize; ?>">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">px</div>
                             </div>
@@ -927,7 +960,7 @@ include('config.php');
                         <label for="nowShowingBottomFontSize">Bottom Font Size:</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="nowShowingBottomFontSize"
-                                name="nowShowingBottomFontSize" value="<?php echo $nowShowingBottomFontSize; ?>">
+                                name="nowShowingBottomFontSize" placeholder="25" value="<?php echo $nowShowingBottomFontSize; ?>">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">px</div>
                             </div>
@@ -958,8 +991,7 @@ include('config.php');
                         <label for="nowShowingBottomFontOutlineSize">Bottom Font Outline Size:</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="nowShowingBottomFontOutlineSize"
-                                name="nowShowingBottomFontOutlineSize"
-                                value="<?php echo $nowShowingBottomFontOutlineSize; ?>">
+                                name="nowShowingBottomFontOutlineSize" placeholder="0" value="<?php echo $nowShowingBottomFontOutlineSize; ?>">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">px</div>
                             </div>
@@ -1116,8 +1148,8 @@ include('config.php');
                     <div class="col-md-6 mb-3">
                         <label for="customTopFontSize">Top Font Size:</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="customTopFontSize" name="customTopFontSize"
-                                    value="<?php echo $customTopFontSize; ?>">
+                            <input type="text" class="form-control" id="customTopFontSize" 
+                                name="customTopFontSize" placeholder="55" value="<?php echo $customTopFontSize; ?>">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">px</div>
                             </div>
@@ -1148,7 +1180,7 @@ include('config.php');
                         <label for="customTopFontOutlineSize">Top Font Outline Size:</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="customTopFontOutlineSize"
-                                    name="customTopFontOutlineSize" value="<?php echo $customTopFontOutlineSize; ?>">
+                                    name="customTopFontOutlineSize" placeholder="0" value="<?php echo $customTopFontOutlineSize; ?>">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">px</div>
                             </div>
@@ -1190,7 +1222,7 @@ include('config.php');
                         <label for="customBottomFontSize">Bottom Font Size:</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="customBottomFontSize"
-                                    name="customBottomFontSize" value="<?php echo $customBottomFontSize; ?>">
+                                    name="customBottomFontSize" placeholder="25" value="<?php echo $customBottomFontSize; ?>">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">px</div>
                             </div>
@@ -1221,7 +1253,7 @@ include('config.php');
                         <label for="customBottomFontOutlineSize">Bottom Font Outline Size:</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="customBottomFontOutlineSize"
-                                    name="customBottomFontOutlineSize" value="<?php echo $customBottomFontOutlineSize; ?>">
+                                    name="customBottomFontOutlineSize" placeholder="0" value="<?php echo $customBottomFontOutlineSize; ?>">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">px</div>
                             </div>
