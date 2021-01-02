@@ -35,7 +35,7 @@ if (!empty($_POST['saveConfig'])) {
     }
 
     //Define Config File
-    $myfile = fopen("config.php", "w") or die("Unable to open file!");
+    $myfile = fopen("../config.php", "w") or die("Unable to open file!");
 
     //FixUP POST Data
     $_POST = array_map("stripslashes", $_POST);
@@ -142,7 +142,7 @@ function fixupSize($bytes)
     return sprintf("%.{$places}f", $bytes / pow(1024, $factor)) . @$size[$factor];
 }
 
-include('config.php');
+include('../config.php');
 ?>
 
 <!doctype html>

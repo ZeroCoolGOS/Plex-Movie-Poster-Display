@@ -65,15 +65,6 @@ $scrollBottom = false;
 $topSelection = false;
 $bottomSelection = false;
 
-// Setting SSL Prefix
-if ($plexServerSSL) {
-    $URLScheme = "https";
-    $plexServer = $plexServerDirect;
-}
-else {
-    $URLScheme = "http";
-}
-
 //Display Custom Image if Enabled
 if ($customImageEnabled == "Enabled") {
     $data['type'] = 'custom';
@@ -92,8 +83,7 @@ if ($customImageEnabled == "Enabled") {
     $bottomStrokeSize = $customBottomFontOutlineSize;
 } else {
     // Plex Module Connect to Plex
-    // $url = "http://$plexServer:32400/status/sessions?X-Plex-Token=$plexToken";
-    $url = "$URLScheme://$plexServer:32400/status/sessions?X-Plex-Token=$plexToken";
+    $url = "http://$plexServer:32400/status/sessions?X-Plex-Token=$plexToken";
     // Store this for debugging
     $data['sessionUrl'] = $url;
     $data['plexClient'] = $plexClient;
@@ -157,8 +147,7 @@ if ($customImageEnabled == "Enabled") {
         //Multi Movie Section Support
         $plexServerMovieSections = explode(",", $plexServerMovieSection);
         $useSection = rand(0, count($plexServerMovieSections) - 1);
-        // $MoviesURL = 'http://' . $plexServer . ':32400/library/sections/' . $plexServerMovieSections[$useSection] . '/' . $comingSoonShowSelection . '?X-Plex-Token=' . $plexToken . '';
-        $MoviesURL = $URLScheme . '://' . $plexServer . ':32400/library/sections/' . $plexServerMovieSections[$useSection] . '/' . $comingSoonShowSelection . '?X-Plex-Token=' . $plexToken . '';
+        $MoviesURL = 'http://' . $plexServer . ':32400/library/sections/' . $plexServerMovieSections[$useSection] . '/' . $comingSoonShowSelection . '?X-Plex-Token=' . $plexToken . '';
         $getMovies = file_get_contents($MoviesURL);
         $xmlMovies = simplexml_load_string($getMovies) or die("feed not loading");
         $countMovies = count($xmlMovies);
@@ -190,16 +179,14 @@ if ($customImageEnabled != "Enabled") {
         $filename = 'cache/posters/' . $poster;
         // There's nothing else to do here, just save it
         if (!file_exists($filename)) {
-            // file_put_contents("cache/posters/$poster", fopen("http://$plexServer:32400$art?X-Plex-Token=$plexToken", 'r'));
-            file_put_contents("cache/posters/$poster", fopen("$URLScheme://$plexServer:32400$art?X-Plex-Token=$plexToken", 'r'));
+            file_put_contents("cache/posters/$poster", fopen("http://$plexServer:32400$art?X-Plex-Token=$plexToken", 'r'));
         }
         $display = "url('cache/posters/$poster')";
     } else {
         $display = "url('data:image/jpeg;base64,".getPoster($art)."')";
-        // $display = "url('$URLScheme://$plexServer:32400$art?X-Plex-Token=$plexToken')";
+        
         if (empty($display)) {
-            // $display = "url('http://$plexServer:32400$art?X-Plex-Token=$plexToken')";
-            $display = "url('$URLScheme://$plexServer:32400$art?X-Plex-Token=$plexToken')";
+            $display = "url('http://$plexServer:32400$art?X-Plex-Token=$plexToken')";
         }
     }
     // Figure out which text goes where
@@ -216,26 +203,18 @@ if ($customImageEnabled != "Enabled") {
         case 'tagline': $bottomText = $mediaTagline;break;
         case 'custom': $bottomText = $isPlaying ? $nowShowingBottomText : $comingSoonBottomText;break;
     }
-
     // Set our stroke size and color for top and bottom
-    if ($isPlaying) {
-        $topStrokeSize = $nowShowingTopFontOutlineSize;
-        $topStrokeColor = $nowShowingTopFontOutlineColor;
-        $bottomStrokeSize = $nowShowingBottomFontOutlineSize;
-        $bottomStrokeColor = $nowShowingBottomFontOutlineColor;
-    } else {
-        $topStrokeSize = $comingSoonTopFontOutlineSize;
-        $topStrokeColor = $comingSoonTopFontOutlineColor;
-        $bottomStrokeSize = $comingSoonBottomFontOutlineSize;
-        $bottomStrokeColor = $comingSoonBottomFontOutlineColor;
-    }
+    $topStrokeSize = $isPlaying ? $comingSoonTopFontOutlineSize : $nowShowingTopFontOutlineSize;
+    $topStrokeColor = $isPlaying ? $comingSoonTopFontOutlineColor : $nowShowingTopFontOutlineColor;
+    $bottomStrokeSize = $isPlaying ? $comingSoonBottomFontOutlineSize : $nowShowingBottomFontOutlineSize;
+    $bottomStrokeColor = $isPlaying ? $comingSoonBottomFontOutlineColor : $nowShowingBottomFontOutlineColor;
 }
 
 $topStyle = "color: ${topColor}; -webkit-text-stroke: ${topStrokeSize}px ${topStrokeColor};";
 if (!$autoScaleTop) $topStyle .= "font-size: ${topSize}px;";
-$topLine = "<div><span class='userText' style='$topStyle'> $topText</span></div>"; // Missing: Scroll Append?
+$topLine = "<div><span class='userText' style='$topStyle'> $topText</span></div>";
 
-$bottomStyle = "color: ${bottomColor}; -webkit-text-stroke: ${bottomStrokeSize}px ${bottomStrokeColor};";
+$bottomStyle = "color: ${bottomColor};";
 if (!$autoScaleBottom) $bottomStyle .= "font-size: ${bottomSize}px;";
 $bottomLine = "$scrollPrepend<div><span class='userText' style='$bottomStyle'>${bottomText}</span></div>$scrollAppend";
 

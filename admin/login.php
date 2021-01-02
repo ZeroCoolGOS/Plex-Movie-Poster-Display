@@ -2,13 +2,15 @@
 $msg = NULL;
 
 if (isset($_POST['username']) && !empty($_POST['password'])) {
-    include_once 'config.php';
+    include_once '../config.php';
 
     if (($_POST['username'] == $pmpUsername) && ($_POST['password'] == $pmpPassword)) {
         session_start();
         $_SESSION['username'] = $pmpUsername;
         $_SESSION['access'] = '1';
-        header("Location: admin.php");
+        // header("Location: admin.php");
+        // header("Location: general.php");
+        header("Location: comingSoon.php");
         die();
     } else {
         $msg = "Invalid Username or Password";
@@ -59,7 +61,7 @@ if (isset($_POST['username']) && !empty($_POST['password'])) {
 <body class="text-center">
 <form class="form-login needs-validation" novalidate action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>"
       method="post">
-    <img class="d-block mx-auto mb-4" src="assets/images/android-chrome-192x192.png" alt="" width="100" height="100">
+    <img class="d-block mx-auto mb-4" src="/../assets/images/android-chrome-192x192.png" alt="" width="100" height="100">
 
     <?php
     if ($msg != NULL) {
