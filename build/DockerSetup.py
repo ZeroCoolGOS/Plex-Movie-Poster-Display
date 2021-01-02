@@ -294,7 +294,7 @@ class DockerCompile:
         self.UpdateVariables()
 
         self.BuildParameters = ""
-        
+       
         if self.noCache:
             self.BuildParameters = "{} --no-cache".format(self.BuildParameters)
         
