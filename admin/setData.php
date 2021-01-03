@@ -247,7 +247,7 @@ function ghostData($configPage) {
     // echo 'GHOST BLOCK END';
 }
 
-function setData() {
+function setData($configPage) {
 //Custom Image Upload
     if ($_FILES['customImageUpload'] != "") {
         $uploaddir = 'cache/custom/';
@@ -345,50 +345,9 @@ function setData() {
 
     echo $newConfig;
     fwrite($myfile, $newConfig);
-    sleep(1);
+    sleep(2);
     fclose($myfile);
-    header("Location: client.php");
+    header("Location: $configPage");
 }
 
-function setData2() {
-    // $file = file_get_contents('../config.php');
-    // $matches = array();
-    // $pattern = "\$plexServerMovieSection = \'(.*)\';";
-    // $new_value = $_POST['plexServer'];
-    // preg_match($pattern, $file, $matches);
-    // $file = str_replace($matches[1], $new_value, $file);
-    // file_put_contents('../config.php', $file);
-
-    // $filename = "../config.php";
-    // $contentfile = fread($file, filesize($filename));
-
-    // preg_match($pattern, $contentfile, $matches);
-    // $contentfile = str_replace($matches[1], $new_value, $contentfile);
-    // echo $contentfile;
-    // sleep(1);
-    // fclose($file);
-    // header("Location: client.php");
-
-}
-
-function setData3() {
-    $configfileName = "../config.php";
-    $matches = array();
-    $pattern = "\$plexServerMovieSection = \'(.*)\';";
-    $new_value = $_POST['plexServer'];
-
-    $configfile = fopen($configfileName, "w") or die("Unable to open file!");
-
-
-    $contentfile = fread($configfile, filesize($configfileName));
-
-    preg_match($pattern, $contentfile, $matches);
-    $contentfile = str_replace($matches[1], $new_value, $contentfile);
-
-    echo $contentfile;
-    fwrite($configfile, $contentfile);
-    sleep(1);
-    fclose($configfile);
-    header("Location: client.php");
-}
 ?>

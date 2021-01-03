@@ -24,7 +24,7 @@ if (!empty($_POST['clearCustomCache'])) {
 }
 
 if (!empty($_POST['saveConfig'])) {
-    setData();
+    setData(basename(__FILE__));
 }
 
 //Count Items in Posters
@@ -307,7 +307,7 @@ include('../config.php');
                                 <!-- SEGMENT BLOCK END -->
 
                                 <!-- GHOST BLOCK START -->
-                                    <?php ghostData("server.php") ;?>
+                                    <?php ghostData(basename(__FILE__)) ;?>
                                 <!-- GHOST BLOCK END -->
 
                                 <div class="form-footer">

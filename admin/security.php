@@ -24,44 +24,7 @@ if (!empty($_POST['clearCustomCache'])) {
 }
 
 if (!empty($_POST['saveConfig'])) {
-    //Custom Image Upload
-    if ($_FILES['customImageUpload'] != "") {
-        $uploaddir = 'cache/custom/';
-        $uploadfile = $uploaddir . basename($_FILES['customImageUpload']['name']);
-
-        if (move_uploaded_file($_FILES['customImageUpload']['tmp_name'], $uploadfile)) {
-        } else {
-            $uploadfile = $_POST['customImageUpload'];
-        }
-    }
-
-    //Define Config File
-    $myfile = fopen("../config.php", "w") or die("Unable to open file!");
-
-    // $myconfig = fread($myfile);
-
-    //FixUP POST Data
-    $_POST = array_map("stripslashes", $_POST);
-
-    //Create New Config
-//     $newConfig = "
-// <?php
-// //PMPD Configuration
-// \$pmpConfigVersion = '2';
-// \$pmpUsername = '$_POST[pmpUsername]';
-// \$pmpPassword = $myconfig;";
-$str=implode("\n",file("../config.php"));
-$str=str_replace('$pmpUserName',"$pmpUsername = 'bobShat'",$str);
-
-// $newConfig = $str;
-
-fwrite($myfile,$str,strlen($str));
-
-    // echo $newConfig;
-    // fwrite($myfile, $newConfig);
-    // sleep(1);
-    // fclose($myfile);
-    header("Location: admin.php");
+    setData(basename(__FILE__));
 }
 
 //Count Items in Posters
@@ -320,7 +283,7 @@ include('../config.php');
                                 <!-- SEGMENT BLOCK END -->
 
                                 <!-- GHOST BLOCK START -->
-                                    <?php ghostData("security.php") ;?>
+                                    <?php ghostData(basename(__FILE__)) ;?>
                                 <!-- GHOST BLOCK END -->
 
                                 <div class="form-footer">
