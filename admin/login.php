@@ -8,9 +8,7 @@ if (isset($_POST['username']) && !empty($_POST['password'])) {
         session_start();
         $_SESSION['username'] = $pmpUsername;
         $_SESSION['access'] = '1';
-        // header("Location: admin.php");
-        // header("Location: general.php");
-        header("Location: comingSoon.php");
+        header("Location: general.php");
         die();
     } else {
         $msg = "Invalid Username or Password";

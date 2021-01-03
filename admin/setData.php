@@ -11,7 +11,7 @@ function ghostData($configPage) {
     if ($configPage != "general.php") {
         $ghostField = "\n";
         echo $ghostField;
-    
+
         $ghostField = "$formIndent<!-- General PHP -->\n";
         echo $ghostField;
     }
@@ -53,7 +53,7 @@ function ghostData($configPage) {
     if ($configPage != "server.php") {
         $ghostField = "\n";
         echo $ghostField;
-        
+
         $ghostField = "$formIndent<!-- Server PHP -->\n";
         echo $ghostField;
 
@@ -348,6 +348,94 @@ function setData($configPage) {
     sleep(2);
     fclose($myfile);
     header("Location: $configPage");
+}
+
+function sidebarInfo($configPage) {
+    // General PHP
+    if ($configPage == "general.php") {
+        sidebarInfoMeta("general.php","General","Active");
+    }
+    else {
+        sidebarInfoMeta("general.php","General","NotActive");
+    }
+
+    // Security PHP
+    if ($configPage == "security.php") {
+        sidebarInfoMeta("security.php","Security Configuration","Active");
+    }
+    else {
+        sidebarInfoMeta("security.php","Security Configuration","NotActive");
+    }
+
+    // Common PHP
+    if ($configPage == "common.php") {
+        sidebarInfoMeta("common.php","Common Configuration","Active");
+    }
+    else {
+        sidebarInfoMeta("common.php","Common Configuration","NotActive");
+    }
+
+    // Server PHP
+    if ($configPage == "server.php") {
+        sidebarInfoMeta("server.php","Server Configuration","Active");
+    }
+    else {
+        sidebarInfoMeta("server.php","Server Configuration","NotActive");
+    }
+
+    // Client PHP
+    if ($configPage == "client.php") {
+        sidebarInfoMeta("client.php","Client Configuration","Active");
+    }
+    else {
+        sidebarInfoMeta("client.php","Client Configuration","NotActive");
+    }
+
+    // Coming Soon PHP
+    if ($configPage == "comingSoon.php") {
+        sidebarInfoMeta("comingSoon.php","Coming Soon","Active");
+    }
+    else {
+        sidebarInfoMeta("comingSoon.php","Coming Soon","NotActive");
+    }
+
+    // Now Showing PHP
+    if ($configPage == "nowShowing.php") {
+        sidebarInfoMeta("nowShowing.php","Now Showing","Active");
+    }
+    else {
+        sidebarInfoMeta("nowShowing.php","Now Showing","NotActive");
+    }
+
+    // Custom PHP
+    if ($configPage == "custom.php") {
+        sidebarInfoMeta("custom.php","Custom Configuration","Active");
+    }
+    else {
+        sidebarInfoMeta("custom.php","Custom Configuration","NotActive");
+    }
+}
+
+function sidebarInfoMeta($configPage, $configString, $configStatus) {
+    echo '<div class="SidebarListItem-sidebarListItem-GdcVsd">';
+
+    if ($configStatus == "Active") {
+        echo "<a href=\"$configPage\" role=\"link\" class=\"SidebarLink-sidebarLink-L2OPdE Link-default-2XA2bN Link-link-2n0yJn Link-isSelected-IRm9uM\">
+              <div class=\"SidebarLink-container-24bhWp\">
+              <div class=\"SettingsSidebarListLink-icon-eICe1t SidebarLink-icon-34JWqs SettingsSidebarListLink-selectedIcon-caIG1g\"></div>
+              <div class=\"SidebarLink-title-2vaAAn\">$configString</div>
+              <div class=\"SidebarLink-children-3Lh_RU\"></div>";
+    }
+    else {
+        echo "<a href=\"$configPage\" role=\"link\" class=\"SidebarLink-sidebarLink-L2OPdE Link-default-2XA2bN Link-link-2n0yJn\">
+              <div class=\"SidebarLink-container-24bhWp\">
+              <div class=\"SettingsSidebarListLink-icon-eICe1t SidebarLink-icon-34JWqs\"></div>
+              <div class=\"SidebarLink-title-2vaAAn\">$configString</div>";
+    }
+
+    echo '</div>
+          </a>
+          </div>';
 }
 
 ?>
