@@ -1,6 +1,7 @@
 <?php
 //For feedback, suggestions, or issues please visit https://www.mattsshack.com/plex-movie-poster-display/
 include_once('loginCheck.php');
+include 'setData.php';
 
 //Clear Poster Cache Directory
 if (!empty($_POST['clearPosterCache'])) {
@@ -643,6 +644,11 @@ include('../config.php');
                                     </script>
                                 </div>
                                 <!-- SEGMENT BLOCK END -->
+                                
+                                <!-- GHOST BLOCK START -->
+                                    <?php ghostData("nowShowing.php") ;?>
+                                <!-- GHOST BLOCK END -->
+
                                 <div class="form-footer">
                                     <!-- <button name="saveConfig" class="submit-btn btn btn-lg btn-primary btn-loading disabled" type="submit" value="saveConfig"> -->
                                     <button name="saveConfig" class="submit-btn btn btn-lg btn-primary btn-loading " type="submit" value="saveConfig">
