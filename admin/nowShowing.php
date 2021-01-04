@@ -155,18 +155,7 @@ include('../config.php');
         <div id="content" class="scroll-container dark-scrollbar">
             <div class="FullPage-container-17Y0cs">
                 <div class="Measure-container-3yONEe">
-                    <div class="SidebarContainer-sidebarContainer-2RAYT1">
-                        <div class="SidebarScroller-scroller-2wp83y Scroller-scroller-3GqQcZ Scroller-vertical-VScFLT Scroller-auto-LsWiWx ">
-                            <div id="SideBar" class="SettingsSidebar-sidebarContent-3yMjj9">
-                                <div role="navigation">
-                                    <div class="SidebarList-sidebarListHeaderContainer-2D2g-W">
-                                        <div class="SettingsSidebarList-header-1RCToc SidebarList-sidebarListHeader-1t0yzs" role="header">Settings</div>
-                                    </div>
-                                    <?php sidebarInfo(basename(__FILE__)) ;?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php sidebarInfo(basename(__FILE__)) ;?>
                 </div>
                 <div class="Page-page-aq7i_X Scroller-scroller-3GqQcZ Scroller-vertical-VScFLT  ">
                     <div id="MainPage" class="SettingsPage-content-1vKVEr PageContent-pageContent-16mK6G">
@@ -181,294 +170,304 @@ include('../config.php');
                         </div>
                             <form id="server-settings-form" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                                 <!-- SEGMENT BLOCK START -->
-                                <div class="form-group">
-                                    <label for="nowShowingTop" class="checkLabel">Top Text Option:</label>
-                                    <div class="input-group">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="nowShowingTop" id="csb1" value="title"<?php if($nowShowingTop == 'title' || $nowShowingTop == '') echo " checked"?> onChange="nowShowingTopSelected()">
-                                            <label class="form-check-label" for="inlineRadio1">Title</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="nowShowingTop" id="csb2" value="summary"<?php if($nowShowingTop == 'summary') echo " checked"?> onChange="nowShowingTopSelected()">
-                                            <label class="form-check-label" for="inlineRadio2">Summary</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="nowShowingTop" id="csb3" value="tagline"<?php if($nowShowingTop == 'tagline') echo " checked"?> onChange="nowShowingTopSelected()">
-                                            <label class="form-check-label" for="inlineRadio2">Tagline</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="nowShowingTop" id="csb4" value="custom"<?php if($nowShowingTop == 'custom') echo " checked"?> onChange="nowShowingTopSelected()">
-                                            <label class="form-check-label" for="inlineRadio3">Custom</label>
+                                    <div class="form-group">
+                                        <h3>Top Text Option:</h3>
+                                        <div class="input-group">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="nowShowingTop" id="csb1" value="title"<?php if($nowShowingTop == 'title' || $nowShowingTop == '') echo " checked"?> onChange="nowShowingTopSelected()">
+                                                <label class="form-check-label" for="inlineRadio1">Title</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="nowShowingTop" id="csb2" value="summary"<?php if($nowShowingTop == 'summary') echo " checked"?> onChange="nowShowingTopSelected()">
+                                                <label class="form-check-label" for="inlineRadio2">Summary</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="nowShowingTop" id="csb3" value="tagline"<?php if($nowShowingTop == 'tagline') echo " checked"?> onChange="nowShowingTopSelected()">
+                                                <label class="form-check-label" for="inlineRadio2">Tagline</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="nowShowingTop" id="csb4" value="custom"<?php if($nowShowingTop == 'custom') echo " checked"?> onChange="nowShowingTopSelected()">
+                                                <label class="form-check-label" for="inlineRadio3">Custom</label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="nowShowingTopText">Custom Top Text</label>
-                                    <span class="text-muted"><small>(Optional)</small>:</span></label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" id="nowShowingTopText" name="nowShowingTopText"
-                                            placeholder="Now Showing Top Text" value="<?php echo $nowShowingTopText; ?>" readonly="readonly">
-                                    </div>
-                                    <script>
-                                        $(function(){
-                                            //First call for the load
-                                            nowShowingTopSelected();
+                                    <div class="form-group">
+                                        <label for="nowShowingTopText">Custom Top Text</label>
+                                        <span class="text-muted"><small>(Optional)</small>:</span></label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="nowShowingTopText" name="nowShowingTopText"
+                                                placeholder="Now Showing Top Text" value="<?php echo $nowShowingTopText; ?>" readonly="readonly">
+                                        </div>
+                                        <script>
+                                            $(function(){
+                                                //First call for the load
+                                                nowShowingTopSelected();
 
-                                            //Second call for change event
-                                            $("input[type=radio]").change( nowShowingTopSelected );
-                                        });
+                                                //Second call for change event
+                                                $("input[type=radio]").change( nowShowingTopSelected );
+                                            });
 
-                                        function nowShowingTopSelected() {
-                                            // readonly: input can't be modified
-                                            // disabled: input has no form function
-                                            var result = document.querySelector('input[name="nowShowingTop"]:checked').value;
-                                            if(result=="custom") {
-                                                // document.getElementById("nowShowingTopText").setAttribute('disabled', true);
-                                                document.getElementById("nowShowingTopText").removeAttribute('readonly');
+                                            function nowShowingTopSelected() {
+                                                // readonly: input can't be modified
+                                                // disabled: input has no form function
+                                                var result = document.querySelector('input[name="nowShowingTop"]:checked').value;
+                                                if(result=="custom") {
+                                                    // document.getElementById("nowShowingTopText").setAttribute('disabled', true);
+                                                    document.getElementById("nowShowingTopText").removeAttribute('readonly');
+                                                }
+                                                else {
+                                                    document.getElementById("nowShowingTopText").setAttribute('readonly', true);
+                                                    // document.getElementById("nowShowingTopText").removeAttribute('disabled');
+                                                }
                                             }
-                                            else {
-                                                document.getElementById("nowShowingTopText").setAttribute('readonly', true);
-                                                // document.getElementById("nowShowingTopText").removeAttribute('disabled');
-                                            }
-                                        }
-                                    </script>
-                                </div>
-                                <div class="form-group advanced-setting row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="nowShowingTopFontSize">Top Font Size:</label>
+                                        </script>
+                                    </div>
+                                    <div class="form-group advanced-setting row">
+                                        <div class="col-md-6 mb-3">
+                                            <!-- <label for="nowShowingTopFontSize">Top Font Size:</label> -->
+                                            Top Font Size:
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="nowShowingTopFontSize"
+                                                    name="nowShowingTopFontSize" value="<?php echo $nowShowingTopFontSize; ?>">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">px</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <!-- <label for="nowShowingTopFontColor">Top Font Color:</label> -->
+                                            Top Font Color:
+                                            <div class="input-group">
+                                                <input type="text" id="nowShowingTopFontColor" name="nowShowingTopFontColor"
+                                                    class="form-control" data-position="bottom left"
+                                                    value="<?php echo $nowShowingTopFontColor; ?>">
+                                            </div>
+                                        </div>
+                                        <script>
+                                            $(function () {
+                                                $('#nowShowingTopFontColor').colorpicker();
+                                                $('#nowShowingTopFontColor').on('colorpickerChange', function (event) {
+                                                    $('.jumbotron').css('background-color', event.color.toString());
+                                                });
+                                            });
+                                        </script>
+                                    </div>
+                                    <div class="form-group advanced-setting row">
+                                        <div class="col-md-6 mb-3">
+                                            <!-- <label for="nowShowingTopFontOutlineSize">Top Font Outline Size:</label> -->
+                                            Top Font Outline Size:
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="nowShowingTopFontOutlineSize"
+                                                    name="nowShowingTopFontOutlineSize"
+                                                    value="<?php echo $nowShowingTopFontOutlineSize; ?>">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">px</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <!-- <label for="nowShowingTopFontOutlineColor">Top Font Outline Color:</label> -->
+                                            Top Font Outline Color:
+                                            <div class="input-group">
+                                                <input type="text" id="nowShowingTopFontOutlineColor"
+                                                    name="nowShowingTopFontOutlineColor" class="form-control"
+                                                    data-position="bottom left"
+                                                    value="<?php echo $nowShowingTopFontOutlineColor; ?>">
+                                            </div>
+                                        </div>
+                                        <script>
+                                            $(function () {
+                                                $('#nowShowingTopFontOutlineColor').colorpicker();
+                                                $('#nowShowingTopFontOutlineColor').on('colorpickerChange', function (event) {
+                                                    $('.jumbotron').css('background-color', event.color.toString());
+                                                });
+                                            });
+                                        </script>
+                                    </div>
+                                    <div class="form-group advanced-setting">
+                                        <!-- <div class="input-group"> -->
+                                            <!-- <label for="nowShowingTopAutoScale" class="checkLabel">Auto-scale top text</label> -->
+                                            <label class="control-label" for="nowShowingTopAutoScale">
+                                            <!-- <div class="form-check"> -->
+                                                <!-- <input type="checkbox" name="nowShowingTopAutoScale" class="form-check-input" id="nowShowingTopAutoScale" value="1" <?php if ($nowShowingTopAutoScale) echo " checked"?>> -->
+                                                <input type="checkbox" name="nowShowingTopAutoScale" id="comingSoonTopAutoScale" value="1" <?php if ($comingSoonTopAutoScale) echo " checked"?>> Auto-scale top text </label>
+                                            <!-- </div> -->
+                                        <!-- </div> -->
+                                    </div>
+                                    <div class="form-group">
+                                        <hr>
+                                        <h3>Bottom Text Option:</h3>
                                         <div class="input-group">
-                                            <input type="text" class="form-control" id="nowShowingTopFontSize"
-                                                name="nowShowingTopFontSize" value="<?php echo $nowShowingTopFontSize; ?>">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">px</div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="nowShowingBottom" id="csb1" value="title"<?php if($nowShowingBottom == 'title' || $nowShowingBottom == '') echo " checked"?> onChange="nowShowingBottomSelected()">
+                                                <label class="form-check-label" for="inlineRadio1">Title</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="nowShowingBottom" id="csb2" value="summary"<?php if($nowShowingBottom == 'summary') echo " checked"?> onChange="nowShowingBottomSelected()">
+                                                <label class="form-check-label" for="inlineRadio2">Summary</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="nowShowingBottom" id="csb3" value="tagline"<?php if($nowShowingBottom == 'tagline') echo " checked"?> onChange="nowShowingBottomSelected()">
+                                                <label class="form-check-label" for="inlineRadio2">Tagline</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="nowShowingBottom" id="csb4" value="custom"<?php if($nowShowingBottom == 'custom') echo " checked"?> onChange="nowShowingBottomSelected()">
+                                                <label class="form-check-label" for="inlineRadio3">Custom</label>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 mb-3">
-                                             <label for="nowShowingTopFontColor">Top Font Color:</label>
+                                    <div class="form-group">
+                                        <label for="nowShowingBottomText">Custom Bottom Text</label>
+                                        <span class="text-muted"><small>(Optional)</small>:</span></label>
                                         <div class="input-group">
-                                            <input type="text" id="nowShowingTopFontColor" name="nowShowingTopFontColor"
-                                                class="form-control" data-position="bottom left"
-                                                value="<?php echo $nowShowingTopFontColor; ?>">
+                                            <input type="text" class="form-control" id="nowShowingBottomText"
+                                                name="nowShowingBottomText" placeholder="Now Showing Bottom Text"
+                                                value="<?php echo $nowShowingBottomText; ?>" readonly="readonly">
                                         </div>
-                                    </div>
-                                    <script>
-                                        $(function () {
-                                            $('#nowShowingTopFontColor').colorpicker();
-                                            $('#nowShowingTopFontColor').on('colorpickerChange', function (event) {
-                                                $('.jumbotron').css('background-color', event.color.toString());
-                                            });
-                                        });
-                                    </script>
-                                </div>
-                                <div class="form-group advanced-setting row">
-                                    <div class="col-md-6 mb-3">
-                                             <label for="nowShowingTopFontOutlineSize">Top Font Outline Size:</label>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" id="nowShowingTopFontOutlineSize"
-                                                name="nowShowingTopFontOutlineSize"
-                                                value="<?php echo $nowShowingTopFontOutlineSize; ?>">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">px</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                            <label for="nowShowingTopFontOutlineColor">Top Font Outline Color:</label>
-                                        <div class="input-group">
-                                            <input type="text" id="nowShowingTopFontOutlineColor"
-                                                name="nowShowingTopFontOutlineColor" class="form-control"
-                                                data-position="bottom left"
-                                                value="<?php echo $nowShowingTopFontOutlineColor; ?>">
-                                        </div>
-                                    </div>
-                                    <script>
-                                        $(function () {
-                                            $('#nowShowingTopFontOutlineColor').colorpicker();
-                                            $('#nowShowingTopFontOutlineColor').on('colorpickerChange', function (event) {
-                                                $('.jumbotron').css('background-color', event.color.toString());
-                                            });
-                                        });
-                                    </script>
-                                </div>
-                                <div class="form-group advanced-setting">
-                                    <div class="input-group">
-                                        <label for="nowShowingTopAutoScale" class="checkLabel">Auto-scale top text</label>
-                                        <div class="form-check">
-                                            <input type="checkbox" name="nowShowingTopAutoScale" class="form-check-input" id="nowShowingTopAutoScale" value="1" <?php if ($nowShowingTopAutoScale) echo " checked"?>>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <hr>
-                                    <label for="nowShowingBottom" class="checkLabel">Bottom Text Option:</label>
-                                    <div class="input-group">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="nowShowingBottom" id="csb1" value="title"<?php if($nowShowingBottom == 'title' || $nowShowingBottom == '') echo " checked"?> onChange="nowShowingBottomSelected()">
-                                            <label class="form-check-label" for="inlineRadio1">Title</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="nowShowingBottom" id="csb2" value="summary"<?php if($nowShowingBottom == 'summary') echo " checked"?> onChange="nowShowingBottomSelected()">
-                                            <label class="form-check-label" for="inlineRadio2">Summary</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="nowShowingBottom" id="csb3" value="tagline"<?php if($nowShowingBottom == 'tagline') echo " checked"?> onChange="nowShowingBottomSelected()">
-                                            <label class="form-check-label" for="inlineRadio2">Tagline</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="nowShowingBottom" id="csb4" value="custom"<?php if($nowShowingBottom == 'custom') echo " checked"?> onChange="nowShowingBottomSelected()">
-                                            <label class="form-check-label" for="inlineRadio3">Custom</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="nowShowingBottomText">Custom Bottom Text</label>
-                                    <span class="text-muted"><small>(Optional)</small>:</span></label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" id="nowShowingBottomText"
-                                            name="nowShowingBottomText" placeholder="Now Showing Bottom Text"
-                                            value="<?php echo $nowShowingBottomText; ?>" readonly="readonly">
-                                    </div>
-                                    <script>
-                                        $(function(){
-                                            //First call for the load
-                                            nowShowingBottomSelected();
+                                        <script>
+                                            $(function(){
+                                                //First call for the load
+                                                nowShowingBottomSelected();
 
-                                            //Second call for change event
-                                            $("input[type=radio]").change( nowShowingBottomSelected );
-                                        });
+                                                //Second call for change event
+                                                $("input[type=radio]").change( nowShowingBottomSelected );
+                                            });
 
-                                        function nowShowingBottomSelected() {
-                                            // readonly: input can't be modified
-                                            // disabled: input has no form function
-                                            var result = document.querySelector('input[name="nowShowingBottom"]:checked').value;
-                                            if(result=="custom") {
-                                                // document.getElementById("nowShowingBottomText").setAttribute('disabled', true);
-                                                document.getElementById("nowShowingBottomText").removeAttribute('readonly');
+                                            function nowShowingBottomSelected() {
+                                                // readonly: input can't be modified
+                                                // disabled: input has no form function
+                                                var result = document.querySelector('input[name="nowShowingBottom"]:checked').value;
+                                                if(result=="custom") {
+                                                    // document.getElementById("nowShowingBottomText").setAttribute('disabled', true);
+                                                    document.getElementById("nowShowingBottomText").removeAttribute('readonly');
+                                                }
+                                                else {
+                                                    document.getElementById("nowShowingBottomText").setAttribute('readonly', true);
+                                                    // document.getElementById("nowShowingBottomText").removeAttribute('disabled');
+                                                }
                                             }
-                                            else {
-                                                document.getElementById("nowShowingBottomText").setAttribute('readonly', true);
-                                                // document.getElementById("nowShowingBottomText").removeAttribute('disabled');
-                                            }
-                                        }
-                                    </script>
-                                </div>
-                                <div class="form-group advanced-setting row">
-                                    <div class="col-md-6 mb-3">
-                                            <label for="nowShowingBottomFontSize">Bottom Font Size:</label>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" id="nowShowingBottomFontSize"
-                                                name="nowShowingBottomFontSize" value="<?php echo $nowShowingBottomFontSize; ?>">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">px</div>
+                                        </script>
+                                    </div>
+                                    <div class="form-group advanced-setting row">
+                                        <div class="col-md-6 mb-3">
+                                            <!-- <label for="nowShowingBottomFontSize">Bottom Font Size:</label> -->
+                                            Bottom Font Size:
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="nowShowingBottomFontSize"
+                                                    name="nowShowingBottomFontSize" value="<?php echo $nowShowingBottomFontSize; ?>">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">px</div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                            <label for="nowShowingBottomFontColor">Bottom Font Color:</label>
-                                        <div class="input-group">
-                                            <input type="text" id="nowShowingBottomFontColor" name="nowShowingBottomFontColor"
-                                                class="form-control" data-position="bottom left"
-                                                value="<?php echo $nowShowingBottomFontColor; ?>">
-                                        </div>
-                                    </div>
-                                    <script>
-                                        $(function () {
-                                            $('#nowShowingBottomFontColor').colorpicker();
-                                            $('#nowShowingBottomFontColor').on('colorpickerChange', function (event) {
-                                                $('.jumbotron').css('background-color', event.color.toString());
-                                            });
-                                        });
-                                    </script>
-                                </div>
-                                <div class="form-group advanced-setting row">
-                                    <div class="col-md-6 mb-3">
-                                            <label for="nowShowingBottomFontOutlineSize">Bottom Font Outline Size:</label>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" id="nowShowingBottomFontOutlineSize"
-                                                name="nowShowingBottomFontOutlineSize"
-                                                value="<?php echo $nowShowingBottomFontOutlineSize; ?>">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">px</div>
+                                        <div class="col-md-6 mb-3">
+                                            <!-- <label for="nowShowingBottomFontColor">Bottom Font Color:</label> -->
+                                            Bottom Font Color:
+                                            <div class="input-group">
+                                                <input type="text" id="nowShowingBottomFontColor" name="nowShowingBottomFontColor"
+                                                    class="form-control" data-position="bottom left"
+                                                    value="<?php echo $nowShowingBottomFontColor; ?>">
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                            <label for="nowShowingBottomFontOutlineColor">Bottom Font Outline Color:</label>
-                                        <div class="input-group">
-                                            <input type="text" id="nowShowingBottomFontOutlineColor"
-                                                name="nowShowingBottomFontOutlineColor" class="form-control"
-                                                data-position="bottom left"
-                                                value="<?php echo $nowShowingBottomFontOutlineColor; ?>">
-                                        </div>
-                                    </div>
-                                    <script>
-                                        $(function () {
-                                            $('#nowShowingBottomFontOutlineColor').colorpicker();
-                                            $('#nowShowingBottomFontOutlineColor').on('colorpickerChange', function (event) {
-                                                $('.jumbotron').css('background-color', event.color.toString());
+                                        <script>
+                                            $(function () {
+                                                $('#nowShowingBottomFontColor').colorpicker();
+                                                $('#nowShowingBottomFontColor').on('colorpickerChange', function (event) {
+                                                    $('.jumbotron').css('background-color', event.color.toString());
+                                                });
                                             });
-                                        });
-                                    </script>
-                                </div>
-                                <div class="form-group advanced-setting">
-                                    <div class="input-group">
-                                        <label for="nowShowingBottomAutoScale" class="checkLabel">Auto-scale bottom text</label>
-                                        <div class="form-check">
-                                            <input type="checkbox" name="nowShowingBottomAutoScale" class="form-check-input" id="nowShowingBottomAutoScale" value="1" <?php if ($nowShowingBottomAutoScale) echo " checked"?>>
-                                        </div>
+                                        </script>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <hr>
-                                    <div class="form-alignment input-group">
-                                        <label for="pmpDisplayProgress">Progress Bar: &nbsp;</label>
-                                        <select class="fieldInfo-select custom-select d-block w-100" id="pmpDisplayProgress" name="pmpDisplayProgress">
-                                            <option value="Disabled" <?php if ($pmpDisplayProgress == 'Disabled') {
-                                                echo "selected";
-                                            } ?>>Disabled
-                                            </option>
-                                            <option value="Enabled" <?php if ($pmpDisplayProgress == 'Enabled') {
-                                                echo "selected";
-                                            } ?>>Enabled
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group advanced-setting row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="pmpDisplayProgressSize">Progress Bar Height:</label>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" id="pmpDisplayProgressSize"
-                                                name="pmpDisplayProgressSize" value="<?php echo $pmpDisplayProgressSize; ?>">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">px</div>
+                                    <div class="form-group advanced-setting row">
+                                        <div class="col-md-6 mb-3">
+                                            <!-- <label for="nowShowingBottomFontOutlineSize">Bottom Font Outline Size:</label> -->
+                                            Bottom Font Outline Size:
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="nowShowingBottomFontOutlineSize"
+                                                    name="nowShowingBottomFontOutlineSize"
+                                                    value="<?php echo $nowShowingBottomFontOutlineSize; ?>">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">px</div>
+                                                </div>
                                             </div>
                                         </div>
+                                        <div class="col-md-6 mb-3">
+                                            <!-- <label for="nowShowingBottomFontOutlineColor">Bottom Font Outline Color:</label> -->
+                                            Bottom Font Outline Color:
+                                            <div class="input-group">
+                                                <input type="text" id="nowShowingBottomFontOutlineColor"
+                                                    name="nowShowingBottomFontOutlineColor" class="form-control"
+                                                    data-position="bottom left"
+                                                    value="<?php echo $nowShowingBottomFontOutlineColor; ?>">
+                                            </div>
+                                        </div>
+                                        <script>
+                                            $(function () {
+                                                $('#nowShowingBottomFontOutlineColor').colorpicker();
+                                                $('#nowShowingBottomFontOutlineColor').on('colorpickerChange', function (event) {
+                                                    $('.jumbotron').css('background-color', event.color.toString());
+                                                });
+                                            });
+                                        </script>
                                     </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="pmpDisplayProgressColor">Progress Bar Color:</label>
-                                        <div class="input-group">
-                                            <input type="text" id="pmpDisplayProgressColor" name="pmpDisplayProgressColor"
-                                                class="form-control" data-position="bottom left"
-                                                value="<?php echo $pmpDisplayProgressColor; ?>">
+                                    <div class="form-group advanced-setting">
+                                        <!-- <div class="input-group"> -->
+                                            <!-- <label for="nowShowingBottomAutoScale" class="checkLabel">Auto-scale bottom text</label> -->
+                                            <label class="control-label" for="nowShowingBottomAutoScale">
+                                            <!-- <div class="form-check"> -->
+                                                <!-- <input type="checkbox" name="nowShowingBottomAutoScale" class="form-check-input" id="nowShowingBottomAutoScale" value="1" <?php if ($nowShowingBottomAutoScale) echo " checked"?>> -->
+                                                <input type="checkbox" name="nowShowingBottomAutoScale" id="nowShowingBottomAutoScale" value="1" <?php if ($comingSoonBottomAutoScale) echo " checked"?>> Auto-scale bottom text </label>
+                                            <!-- </div> -->
+                                        <!-- </div> -->
+                                    </div>
+                                    <div class="form-group">
+                                        <hr>
+                                        <div class="form-alignment input-group">
+                                            <label for="pmpDisplayProgress">Progress Bar: &nbsp;</label>
+                                            <select class="fieldInfo-select custom-select d-block w-100" id="pmpDisplayProgress" name="pmpDisplayProgress">
+                                                <option value="Disabled" <?php if ($pmpDisplayProgress == 'Disabled') {
+                                                    echo "selected";
+                                                } ?>>Disabled
+                                                </option>
+                                                <option value="Enabled" <?php if ($pmpDisplayProgress == 'Enabled') {
+                                                    echo "selected";
+                                                } ?>>Enabled
+                                                </option>
+                                            </select>
                                         </div>
                                     </div>
-                                    <script>
-                                        $(function () {
-                                            $('#pmpDisplayProgressColor').colorpicker();
-                                            $('#pmpDisplayProgressColor').on('colorpickerChange', function (event) {
-                                                $('.jumbotron').css('background-color', event.color.toString());
+                                    <div class="form-group advanced-setting row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="pmpDisplayProgressSize">Progress Bar Height:</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="pmpDisplayProgressSize"
+                                                    name="pmpDisplayProgressSize" value="<?php echo $pmpDisplayProgressSize; ?>">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">px</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="pmpDisplayProgressColor">Progress Bar Color:</label>
+                                            <div class="input-group">
+                                                <input type="text" id="pmpDisplayProgressColor" name="pmpDisplayProgressColor"
+                                                    class="form-control" data-position="bottom left"
+                                                    value="<?php echo $pmpDisplayProgressColor; ?>">
+                                            </div>
+                                        </div>
+                                        <script>
+                                            $(function () {
+                                                $('#pmpDisplayProgressColor').colorpicker();
+                                                $('#pmpDisplayProgressColor').on('colorpickerChange', function (event) {
+                                                    $('.jumbotron').css('background-color', event.color.toString());
+                                                });
                                             });
-                                        });
-                                    </script>
-                                </div>
+                                        </script>
+                                    </div>
                                 <!-- SEGMENT BLOCK END -->
-                                
                                 <!-- GHOST BLOCK START -->
                                     <?php ghostData(basename(__FILE__)) ;?>
                                 <!-- GHOST BLOCK END -->
-
                                 <div class="form-footer">
                                     <!-- <button name="saveConfig" class="submit-btn btn btn-lg btn-primary btn-loading disabled" type="submit" value="saveConfig"> -->
                                     <button name="saveConfig" class="submit-btn btn btn-lg btn-primary btn-loading " type="submit" value="saveConfig">

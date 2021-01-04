@@ -155,18 +155,7 @@ include('../config.php');
         <div id="content" class="scroll-container dark-scrollbar">
             <div class="FullPage-container-17Y0cs">
                 <div class="Measure-container-3yONEe">
-                    <div class="SidebarContainer-sidebarContainer-2RAYT1">
-                        <div class="SidebarScroller-scroller-2wp83y Scroller-scroller-3GqQcZ Scroller-vertical-VScFLT Scroller-auto-LsWiWx ">
-                            <div id="SideBar" class="SettingsSidebar-sidebarContent-3yMjj9">
-                                <div role="navigation">
-                                    <div class="SidebarList-sidebarListHeaderContainer-2D2g-W">
-                                        <div class="SettingsSidebarList-header-1RCToc SidebarList-sidebarListHeader-1t0yzs" role="header">Settings</div>
-                                    </div>
-                                    <?php sidebarInfo(basename(__FILE__)) ;?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php sidebarInfo(basename(__FILE__)) ;?>
                 </div>
                 <div class="Page-page-aq7i_X Scroller-scroller-3GqQcZ Scroller-vertical-VScFLT  ">
                     <div id="MainPage" class="SettingsPage-content-1vKVEr PageContent-pageContent-16mK6G">

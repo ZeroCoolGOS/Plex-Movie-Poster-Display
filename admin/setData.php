@@ -351,6 +351,15 @@ function setData($configPage) {
 }
 
 function sidebarInfo($configPage) {
+
+    echo '<div class="SidebarContainer-sidebarContainer-2RAYT1">
+              <div class="SidebarScroller-scroller-2wp83y Scroller-scroller-3GqQcZ Scroller-vertical-VScFLT Scroller-auto-LsWiWx ">
+                  <div id="SideBar" class="SettingsSidebar-sidebarContent-3yMjj9">
+                      <div role="navigation">
+                          <div class="SidebarList-sidebarListHeaderContainer-2D2g-W">
+                              <div class="SettingsSidebarList-header-1RCToc SidebarList-sidebarListHeader-1t0yzs" role="header">Settings</div>
+                          </div>';
+
     // General PHP
     if ($configPage == "general.php") {
         sidebarInfoMeta("general.php","General","Active");
@@ -414,6 +423,12 @@ function sidebarInfo($configPage) {
     else {
         sidebarInfoMeta("custom.php","Custom Configuration","NotActive");
     }
+
+    echo '            </div>
+                  </div>
+              </div>
+          </div>';
+
 }
 
 function sidebarInfoMeta($configPage, $configString, $configStatus) {

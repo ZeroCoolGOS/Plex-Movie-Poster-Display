@@ -155,18 +155,7 @@ include('../config.php');
         <div id="content" class="scroll-container dark-scrollbar">
             <div class="FullPage-container-17Y0cs">
                 <div class="Measure-container-3yONEe">
-                    <div class="SidebarContainer-sidebarContainer-2RAYT1">
-                        <div class="SidebarScroller-scroller-2wp83y Scroller-scroller-3GqQcZ Scroller-vertical-VScFLT Scroller-auto-LsWiWx ">
-                            <div id="SideBar" class="SettingsSidebar-sidebarContent-3yMjj9">
-                                <div role="navigation">
-                                    <div class="SidebarList-sidebarListHeaderContainer-2D2g-W">
-                                        <div class="SettingsSidebarList-header-1RCToc SidebarList-sidebarListHeader-1t0yzs" role="header">Settings</div>
-                                    </div>
-                                    <?php sidebarInfo(basename(__FILE__)) ;?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php sidebarInfo(basename(__FILE__)) ;?>
                 </div>
                 <div class="Page-page-aq7i_X Scroller-scroller-3GqQcZ Scroller-vertical-VScFLT  ">
                     <div id="MainPage" class="SettingsPage-content-1vKVEr PageContent-pageContent-16mK6G">
@@ -181,285 +170,285 @@ include('../config.php');
                         </div>
                             <form id="server-settings-form" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                                 <!-- SEGMENT BLOCK START -->
-                                <div class="form-group advanced-setting">
-                                    <div class="form-alignment input-group">
-                                        <label for="comingSoonShowSelection">Show Movies: &nbsp;</label>
-                                        <select class="fieldInfo-select custom-select d-block w-100" id="comingSoonShowSelection"
-                                                name="comingSoonShowSelection">
-                                            <option value="unwatched" <?php if ($comingSoonShowSelection == 'unwatched') {
-                                                echo "selected";
-                                            } ?>>Unwatched
-                                            </option>
-                                            <option value="all" <?php if ($comingSoonShowSelection == 'all') {
-                                                echo "selected";
-                                            } ?>>All
-                                            </option>
-                                            <option value="recentlyAdded" <?php if ($comingSoonShowSelection == 'recentlyAdded') {
-                                                echo "selected";
-                                            } ?>>Recently Added
-                                            </option>
-                                            <option value="newest" <?php if ($comingSoonShowSelection == 'newest') {
-                                                echo "selected";
-                                            } ?>>Newest
-                                            </option>
-                                        </select>
+                                    <div class="form-group advanced-setting">
+                                        <div class="form-alignment input-group">
+                                            <label for="comingSoonShowSelection">Show Movies: &nbsp;</label>
+                                            <select class="fieldInfo-select custom-select d-block w-100" id="comingSoonShowSelection"
+                                                    name="comingSoonShowSelection">
+                                                <option value="unwatched" <?php if ($comingSoonShowSelection == 'unwatched') {
+                                                    echo "selected";
+                                                } ?>>Unwatched
+                                                </option>
+                                                <option value="all" <?php if ($comingSoonShowSelection == 'all') {
+                                                    echo "selected";
+                                                } ?>>All
+                                                </option>
+                                                <option value="recentlyAdded" <?php if ($comingSoonShowSelection == 'recentlyAdded') {
+                                                    echo "selected";
+                                                } ?>>Recently Added
+                                                </option>
+                                                <option value="newest" <?php if ($comingSoonShowSelection == 'newest') {
+                                                    echo "selected";
+                                                } ?>>Newest
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <hr>
                                     </div>
-                                    <hr>
-                                </div>
-                                <div class="form-group">
-                                    <h3>Top Text Option:</h3>
-                                    <div class="input-group">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="comingSoonTop" id="csb1" value="title"<?php if($comingSoonTop == 'title' || $comingSoonTop == '') echo " checked"?> onChange="comingSoonTopSelected()">
-                                            <label class="form-check-label" for="inlineRadio1">Title</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="comingSoonTop" id="csb2" value="summary"<?php if($comingSoonTop == 'summary') echo " checked"?> onChange="comingSoonTopSelected()">
-                                            <label class="form-check-label" for="inlineRadio2">Summary</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="comingSoonTop" id="csb3" value="tagline"<?php if($comingSoonTop == 'tagline') echo " checked"?> onChange="comingSoonTopSelected()">
-                                            <label class="form-check-label" for="inlineRadio2">Tagline</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="comingSoonTop" id="csb4" value="custom"<?php if($comingSoonTop == 'custom') echo " checked"?> onChange="comingSoonTopSelected()">
-                                            <label class="form-check-label" for="inlineRadio3">Custom</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="comingSoonTopText">Custom Top Text</label>
-                                    <span class="text-muted"><small>(Optional)</small>:</span></label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" id="comingSoonTopText" name="comingSoonTopText"
-                                            placeholder="Coming Soon Top Text" value="<?php echo $comingSoonTopText; ?>" readonly="readonly">
-                                    </div>
-                                    <script>
-                                        $(function(){
-                                            //First call for the load
-                                            comingSoonTopSelected();
-
-                                            //Second call for change event
-                                            $("input[type=radio]").change( comingSoonTopSelected );
-                                        });
-
-                                        function comingSoonTopSelected() {
-                                            // readonly: input can't be modified
-                                            // disabled: input has no form function
-                                            var result = document.querySelector('input[name="comingSoonTop"]:checked').value;
-                                            if(result=="custom") {
-                                                // document.getElementById("comingSoonTopText").setAttribute('disabled', true);
-                                                document.getElementById("comingSoonTopText").removeAttribute('readonly');
-                                            }
-                                            else {
-                                                document.getElementById("comingSoonTopText").setAttribute('readonly', true);
-                                                // document.getElementById("comingSoonTopText").removeAttribute('disabled');
-                                            }
-                                        }
-                                    </script>
-                                </div>
-                                <div class="form-group advanced-setting row">
-                                    <div class="col-md-6 mb-3">
-                                        <!-- <label for="comingSoonTopFontSize">Top Font Size:</label> -->
-                                        Top Font Size:
+                                    <div class="form-group">
+                                        <h3>Top Text Option:</h3>
                                         <div class="input-group">
-                                            <input type="text" class="form-control" id="comingSoonTopFontSize"
-                                                name="comingSoonTopFontSize" value="<?php echo $comingSoonTopFontSize; ?>">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">px</div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="comingSoonTop" id="csb1" value="title"<?php if($comingSoonTop == 'title' || $comingSoonTop == '') echo " checked"?> onChange="comingSoonTopSelected()">
+                                                <label class="form-check-label" for="inlineRadio1">Title</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="comingSoonTop" id="csb2" value="summary"<?php if($comingSoonTop == 'summary') echo " checked"?> onChange="comingSoonTopSelected()">
+                                                <label class="form-check-label" for="inlineRadio2">Summary</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="comingSoonTop" id="csb3" value="tagline"<?php if($comingSoonTop == 'tagline') echo " checked"?> onChange="comingSoonTopSelected()">
+                                                <label class="form-check-label" for="inlineRadio2">Tagline</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="comingSoonTop" id="csb4" value="custom"<?php if($comingSoonTop == 'custom') echo " checked"?> onChange="comingSoonTopSelected()">
+                                                <label class="form-check-label" for="inlineRadio3">Custom</label>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 mb-3">
-                                        <!-- <label for="comingSoonTopFontColor">Top Font Color:</label> -->
-                                        Top Font Color:
+                                    <div class="form-group">
+                                        <label for="comingSoonTopText">Custom Top Text</label>
+                                        <span class="text-muted"><small>(Optional)</small>:</span></label>
                                         <div class="input-group">
-                                            <input type="text" id="comingSoonTopFontColor" name="comingSoonTopFontColor"
-                                                class="form-control" data-position="bottom left"
-                                                value="<?php echo $comingSoonTopFontColor; ?>">
+                                            <input type="text" class="form-control" id="comingSoonTopText" name="comingSoonTopText"
+                                                placeholder="Coming Soon Top Text" value="<?php echo $comingSoonTopText; ?>" readonly="readonly">
                                         </div>
-                                    </div>
-                                    <script>
-                                        $(function () {
-                                            $('#comingSoonTopFontColor').colorpicker();
-                                            $('#comingSoonTopFontColor').on('colorpickerChange', function (event) {
-                                                $('.jumbotron').css('background-color', event.color.toString());
+                                        <script>
+                                            $(function(){
+                                                //First call for the load
+                                                comingSoonTopSelected();
+
+                                                //Second call for change event
+                                                $("input[type=radio]").change( comingSoonTopSelected );
                                             });
-                                        });
-                                    </script>
-                                </div>
-                                <div class="form-group advanced-setting row">
-                                    <div class="col-md-6 mb-3">
-                                        <!-- <label for="comingSoonTopFontOutlineSize">Top Font Outline Size:</label> -->
-                                        Top Font Outline Size:
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" id="comingSoonTopFontOutlineSize"
-                                                name="comingSoonTopFontOutlineSize"
-                                                value="<?php echo $comingSoonTopFontOutlineSize; ?>">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">px</div>
+
+                                            function comingSoonTopSelected() {
+                                                // readonly: input can't be modified
+                                                // disabled: input has no form function
+                                                var result = document.querySelector('input[name="comingSoonTop"]:checked').value;
+                                                if(result=="custom") {
+                                                    // document.getElementById("comingSoonTopText").setAttribute('disabled', true);
+                                                    document.getElementById("comingSoonTopText").removeAttribute('readonly');
+                                                }
+                                                else {
+                                                    document.getElementById("comingSoonTopText").setAttribute('readonly', true);
+                                                    // document.getElementById("comingSoonTopText").removeAttribute('disabled');
+                                                }
+                                            }
+                                        </script>
+                                    </div>
+                                    <div class="form-group advanced-setting row">
+                                        <div class="col-md-6 mb-3">
+                                            <!-- <label for="comingSoonTopFontSize">Top Font Size:</label> -->
+                                            Top Font Size:
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="comingSoonTopFontSize"
+                                                    name="comingSoonTopFontSize" value="<?php echo $comingSoonTopFontSize; ?>">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">px</div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <!-- <label for="comingSoonTopFontOutlineColor">Top Font Outline Color:</label> -->
-                                        Top Font Outline Color:
-                                        <div class="input-group">
-                                            <input type="text" id="comingSoonTopFontOutlineColor"
-                                                name="comingSoonTopFontOutlineColor" class="form-control"
-                                                data-position="bottom left"
-                                                value="<?php echo $comingSoonTopFontOutlineColor; ?>">
+                                        <div class="col-md-6 mb-3">
+                                            <!-- <label for="comingSoonTopFontColor">Top Font Color:</label> -->
+                                            Top Font Color:
+                                            <div class="input-group">
+                                                <input type="text" id="comingSoonTopFontColor" name="comingSoonTopFontColor"
+                                                    class="form-control" data-position="bottom left"
+                                                    value="<?php echo $comingSoonTopFontColor; ?>">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <script>
-                                        $(function () {
-                                            $('#comingSoonTopFontOutlineColor').colorpicker();
-                                            $('#comingSoonTopFontOutlineColor').on('colorpickerChange', function (event) {
-                                                $('.jumbotron').css('background-color', event.color.toString());
+                                        <script>
+                                            $(function () {
+                                                $('#comingSoonTopFontColor').colorpicker();
+                                                $('#comingSoonTopFontColor').on('colorpickerChange', function (event) {
+                                                    $('.jumbotron').css('background-color', event.color.toString());
+                                                });
                                             });
-                                        });
-                                    </script>
-                                </div>
-                                <div class="form-group advanced-setting">
-                                    <!-- <div class="input-group"> -->
-                                        <!-- <label for="comingSoonTopAutoScale" class="checkLabel">Auto-scale top text</label> -->
-                                        <label class="control-label" for="comingSoonTopAutoScale">
-                                        <!-- <div class="form-check"> -->
-                                            <!-- <input type="checkbox" name="comingSoonTopAutoScale" class="form-check-input" id="comingSoonTopAutoScale" value="1" <?php if ($comingSoonTopAutoScale) echo " checked"?>> Auto-scale top text </label> -->
-                                            <input type="checkbox" name="comingSoonTopAutoScale" id="comingSoonTopAutoScale" value="1" <?php if ($comingSoonTopAutoScale) echo " checked"?>> Auto-scale top text </label>
+                                        </script>
+                                    </div>
+                                    <div class="form-group advanced-setting row">
+                                        <div class="col-md-6 mb-3">
+                                            <!-- <label for="comingSoonTopFontOutlineSize">Top Font Outline Size:</label> -->
+                                            Top Font Outline Size:
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="comingSoonTopFontOutlineSize"
+                                                    name="comingSoonTopFontOutlineSize"
+                                                    value="<?php echo $comingSoonTopFontOutlineSize; ?>">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">px</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <!-- <label for="comingSoonTopFontOutlineColor">Top Font Outline Color:</label> -->
+                                            Top Font Outline Color:
+                                            <div class="input-group">
+                                                <input type="text" id="comingSoonTopFontOutlineColor"
+                                                    name="comingSoonTopFontOutlineColor" class="form-control"
+                                                    data-position="bottom left"
+                                                    value="<?php echo $comingSoonTopFontOutlineColor; ?>">
+                                            </div>
+                                        </div>
+                                        <script>
+                                            $(function () {
+                                                $('#comingSoonTopFontOutlineColor').colorpicker();
+                                                $('#comingSoonTopFontOutlineColor').on('colorpickerChange', function (event) {
+                                                    $('.jumbotron').css('background-color', event.color.toString());
+                                                });
+                                            });
+                                        </script>
+                                    </div>
+                                    <div class="form-group advanced-setting">
+                                        <!-- <div class="input-group"> -->
+                                            <!-- <label for="comingSoonTopAutoScale" class="checkLabel">Auto-scale top text</label> -->
+                                            <label class="control-label" for="comingSoonTopAutoScale">
+                                            <!-- <div class="form-check"> -->
+                                                <!-- <input type="checkbox" name="comingSoonTopAutoScale" class="form-check-input" id="comingSoonTopAutoScale" value="1" <?php if ($comingSoonTopAutoScale) echo " checked"?>> Auto-scale top text </label> -->
+                                                <input type="checkbox" name="comingSoonTopAutoScale" id="comingSoonTopAutoScale" value="1" <?php if ($comingSoonTopAutoScale) echo " checked"?>> Auto-scale top text </label>
+                                            <!-- </div> -->
                                         <!-- </div> -->
-                                    <!-- </div> -->
-                                </div>
-                                <div class="form-group">
-                                    <hr>
-                                    <h3>Bottom Text Option:</h3>                                    
-                                    <div class="input-group">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="comingSoonBottom" id="csb1" value="title"<?php if($comingSoonBottom == 'title' || $comingSoonBottom == '') echo " checked"?> onChange="comingSoonBottomSelected()">
-                                            <label class="form-check-label" for="inlineRadio1">Title</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="comingSoonBottom" id="csb2" value="summary"<?php if($comingSoonBottom == 'summary') echo " checked"?> onChange="comingSoonBottomSelected()">
-                                            <label class="form-check-label" for="inlineRadio2">Summary</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="comingSoonBottom" id="csb3" value="tagline"<?php if($comingSoonBottom == 'tagline') echo " checked"?> onChange="comingSoonBottomSelected()">
-                                            <label class="form-check-label" for="inlineRadio2">Tagline</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="comingSoonBottom" id="csb4" value="custom"<?php if($comingSoonBottom == 'custom') echo " checked"?> onChange="comingSoonBottomSelected()">
-                                            <label class="form-check-label" for="inlineRadio3">Custom</label>
-                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="comingSoonBottomText">Custom Bottom Text</label>
-                                    <span class="text-muted"><small>(Optional)</small>:</span></label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" id="comingSoonBottomText"
-                                            name="comingSoonBottomText" placeholder="Coming Soon Bottom Text"
-                                            value="<?php echo $comingSoonBottomText; ?>" readonly="readonly">
-                                    </div>
-                                    <script>
-                                        $(function(){
-                                            //First call for the load
-                                            comingSoonBottomSelected();
-
-                                            //Second call for change event
-                                            $("input[type=radio]").change( comingSoonBottomSelected );
-                                        });
-
-                                        function comingSoonBottomSelected() {
-                                            // readonly: input can't be modified
-                                            // disabled: input has no form function
-                                            var result = document.querySelector('input[name="comingSoonBottom"]:checked').value;
-                                            if(result=="custom") {
-                                                // document.getElementById("comingSoonBottomText").setAttribute('disabled', true);
-                                                document.getElementById("comingSoonBottomText").removeAttribute('readonly');
-                                            }
-                                            else {
-                                                document.getElementById("comingSoonBottomText").setAttribute('readonly', true);
-                                                // document.getElementById("comingSoonBottomText").removeAttribute('disabled');
-                                            }
-                                        }
-                                    </script>
-                                </div>
-                                <div class="form-group advanced-setting row">
-                                    <div class="col-md-6 mb-3">
-                                        <!-- <label for="comingSoonBottomFontSize">Bottom Font Size:</label> -->
-                                        Bottom Font Size:
+                                    <div class="form-group">
+                                        <hr>
+                                        <h3>Bottom Text Option:</h3>
                                         <div class="input-group">
-                                            <input type="text" class="form-control" id="comingSoonBottomFontSize"
-                                                name="comingSoonBottomFontSize" value="<?php echo $comingSoonBottomFontSize; ?>">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">px</div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="comingSoonBottom" id="csb1" value="title"<?php if($comingSoonBottom == 'title' || $comingSoonBottom == '') echo " checked"?> onChange="comingSoonBottomSelected()">
+                                                <label class="form-check-label" for="inlineRadio1">Title</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="comingSoonBottom" id="csb2" value="summary"<?php if($comingSoonBottom == 'summary') echo " checked"?> onChange="comingSoonBottomSelected()">
+                                                <label class="form-check-label" for="inlineRadio2">Summary</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="comingSoonBottom" id="csb3" value="tagline"<?php if($comingSoonBottom == 'tagline') echo " checked"?> onChange="comingSoonBottomSelected()">
+                                                <label class="form-check-label" for="inlineRadio2">Tagline</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="comingSoonBottom" id="csb4" value="custom"<?php if($comingSoonBottom == 'custom') echo " checked"?> onChange="comingSoonBottomSelected()">
+                                                <label class="form-check-label" for="inlineRadio3">Custom</label>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 mb-3">
-                                        <!-- <label for="comingSoonBottomFontColor">Bottom Font Color:</label> -->
-                                        Bottom Font Color:
+                                    <div class="form-group">
+                                        <label for="comingSoonBottomText">Custom Bottom Text</label>
+                                        <span class="text-muted"><small>(Optional)</small>:</span></label>
                                         <div class="input-group">
-                                            <input type="text" id="comingSoonBottomFontColor" name="comingSoonBottomFontColor"
-                                                class="form-control" data-position="bottom left"
-                                                value="<?php echo $comingSoonBottomFontColor; ?>">
+                                            <input type="text" class="form-control" id="comingSoonBottomText"
+                                                name="comingSoonBottomText" placeholder="Coming Soon Bottom Text"
+                                                value="<?php echo $comingSoonBottomText; ?>" readonly="readonly">
                                         </div>
-                                    </div>
-                                    <script>
-                                        $(function () {
-                                            $('#comingSoonBottomFontColor').colorpicker();
-                                            $('#comingSoonBottomFontColor').on('colorpickerChange', function (event) {
-                                                $('.jumbotron').css('background-color', event.color.toString());
+                                        <script>
+                                            $(function(){
+                                                //First call for the load
+                                                comingSoonBottomSelected();
+
+                                                //Second call for change event
+                                                $("input[type=radio]").change( comingSoonBottomSelected );
                                             });
-                                        });
-                                    </script>
-                                </div>
-                                <div class="form-group advanced-setting row">
-                                    <div class="col-md-6 mb-3">
-                                        <!-- <label for="comingSoonBottomFontOutlineSize">Bottom Font Outline Size:</label> -->
-                                        Bottom Font Outline Size:
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" id="comingSoonBottomFontOutlineSize"
-                                                name="comingSoonBottomFontOutlineSize"
-                                                value="<?php echo $comingSoonBottomFontOutlineSize; ?>">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">px</div>
+
+                                            function comingSoonBottomSelected() {
+                                                // readonly: input can't be modified
+                                                // disabled: input has no form function
+                                                var result = document.querySelector('input[name="comingSoonBottom"]:checked').value;
+                                                if(result=="custom") {
+                                                    // document.getElementById("comingSoonBottomText").setAttribute('disabled', true);
+                                                    document.getElementById("comingSoonBottomText").removeAttribute('readonly');
+                                                }
+                                                else {
+                                                    document.getElementById("comingSoonBottomText").setAttribute('readonly', true);
+                                                    // document.getElementById("comingSoonBottomText").removeAttribute('disabled');
+                                                }
+                                            }
+                                        </script>
+                                    </div>
+                                    <div class="form-group advanced-setting row">
+                                        <div class="col-md-6 mb-3">
+                                            <!-- <label for="comingSoonBottomFontSize">Bottom Font Size:</label> -->
+                                            Bottom Font Size:
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="comingSoonBottomFontSize"
+                                                    name="comingSoonBottomFontSize" value="<?php echo $comingSoonBottomFontSize; ?>">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">px</div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <!-- <label for="comingSoonBottomFontOutlineColor">Bottom Font Outline Color:</label> -->
-                                        Bottom Font Outline Color:
-                                        <div class="input-group">
-                                            <input type="text" id="comingSoonBottomFontOutlineColor"
-                                                name="comingSoonBottomFontOutlineColor" class="form-control"
-                                                data-position="bottom left"
-                                                value="<?php echo $comingSoonBottomFontOutlineColor; ?>">
+                                        <div class="col-md-6 mb-3">
+                                            <!-- <label for="comingSoonBottomFontColor">Bottom Font Color:</label> -->
+                                            Bottom Font Color:
+                                            <div class="input-group">
+                                                <input type="text" id="comingSoonBottomFontColor" name="comingSoonBottomFontColor"
+                                                    class="form-control" data-position="bottom left"
+                                                    value="<?php echo $comingSoonBottomFontColor; ?>">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <script>
-                                        $(function () {
-                                            $('#comingSoonBottomFontOutlineColor').colorpicker();
-                                            $('#comingSoonBottomFontOutlineColor').on('colorpickerChange', function (event) {
-                                                $('.jumbotron').css('background-color', event.color.toString());
+                                        <script>
+                                            $(function () {
+                                                $('#comingSoonBottomFontColor').colorpicker();
+                                                $('#comingSoonBottomFontColor').on('colorpickerChange', function (event) {
+                                                    $('.jumbotron').css('background-color', event.color.toString());
+                                                });
                                             });
-                                        });
-                                    </script>
-                                </div>
-                                <div class="form-group advanced-setting">
-                                    <div class="input-group">
-                                        <label for="comingSoonBottomAutoScale" class="checkLabel">Auto-scale bottom text</label>
-                                        <div class="form-check">
-                                            <input type="checkbox" name="comingSoonBottomAutoScale" class="form-check-input" id="comingSoonBottomAutoScale" value="1" <?php if ($comingSoonBottomAutoScale) echo " checked"?>>
-                                        </div>
+                                        </script>
                                     </div>
-                                </div>
+                                    <div class="form-group advanced-setting row">
+                                        <div class="col-md-6 mb-3">
+                                            <!-- <label for="comingSoonBottomFontOutlineSize">Bottom Font Outline Size:</label> -->
+                                            Bottom Font Outline Size:
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="comingSoonBottomFontOutlineSize"
+                                                    name="comingSoonBottomFontOutlineSize"
+                                                    value="<?php echo $comingSoonBottomFontOutlineSize; ?>">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">px</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <!-- <label for="comingSoonBottomFontOutlineColor">Bottom Font Outline Color:</label> -->
+                                            Bottom Font Outline Color:
+                                            <div class="input-group">
+                                                <input type="text" id="comingSoonBottomFontOutlineColor"
+                                                    name="comingSoonBottomFontOutlineColor" class="form-control"
+                                                    data-position="bottom left"
+                                                    value="<?php echo $comingSoonBottomFontOutlineColor; ?>">
+                                            </div>
+                                        </div>
+                                        <script>
+                                            $(function () {
+                                                $('#comingSoonBottomFontOutlineColor').colorpicker();
+                                                $('#comingSoonBottomFontOutlineColor').on('colorpickerChange', function (event) {
+                                                    $('.jumbotron').css('background-color', event.color.toString());
+                                                });
+                                            });
+                                        </script>
+                                    </div>
+                                    <div class="form-group advanced-setting">
+                                        <!-- <div class="input-group"> -->
+                                            <!-- <label for="comingSoonBottomAutoScale" class="checkLabel">Auto-scale bottom text</label> -->
+                                            <label class="control-label" for="comingSoonBottomAutoScale">
+                                            <!-- <div class="form-check"> -->
+                                                <!-- <input type="checkbox" name="comingSoonBottomAutoScale" class="form-check-input" id="comingSoonBottomAutoScale" value="1" <?php if ($comingSoonBottomAutoScale) echo " checked"?>> Auto-scale top text </label> -->
+                                                <input type="checkbox" name="comingSoonBottomAutoScale" id="comingSoonBottomAutoScale" value="1" <?php if ($comingSoonBottomAutoScale) echo " checked"?>> Auto-scale bottom text </label>
+                                            <!-- </div> -->
+                                        <!-- </div> -->
+                                    </div>
                                 <!-- SEGMENT BLOCK END -->
-
                                 <!-- GHOST BLOCK START -->
                                     <?php ghostData(basename(__FILE__)) ;?>
                                 <!-- GHOST BLOCK END -->
-
                                 <div class="form-footer">
                                     <!-- <button name="saveConfig" class="submit-btn btn btn-lg btn-primary btn-loading disabled" type="submit" value="saveConfig"> -->
                                     <button name="saveConfig" class="submit-btn btn btn-lg btn-primary btn-loading " type="submit" value="saveConfig">
