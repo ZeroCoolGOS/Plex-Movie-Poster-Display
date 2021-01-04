@@ -170,7 +170,78 @@ include('../config.php');
                         </div>
                             <form id="server-settings-form" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                                 <!-- SEGMENT BLOCK START -->
-
+                                    <div class="form-group">
+                                        <div class="ClaimedServer-container-3O6-1n">
+                                            <div class="ServerAvatar-avatar-2VGH0z">
+                                                <div class="AvatarImg-avatar-3Op56u">
+                                                    <div style="width: 60px; height: 60px; background-image: url(&quot;blob:https://app.plex.tv/49d7b718-cdf4-4a60-bb4b-d524d8b80851&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="ClaimedServer-message-1yZ-wd">
+                                            <div class="ClaimedServer-messageHeader-3uzatL">Server signed in as</div>
+                                            <div class="ClaimedServer-messageDetails-3lEkVI"><?php echo $pmpUsername?></div>
+                                        </div>
+                                        <button data-uid="id-1157" role="button" class="ClaimedServer-button-36k0Q0 SpinnerButton-button-1A8EcL Button-button-2kT68l Link-link-2n0yJn SpinnerButton-button-1A8EcL Button-button-2kT68l Link-link-2n0yJn  Button-button-2kT68l Link-link-2n0yJn Button-default--yDCH5 Button-medium-3g45_Q Link-link-2n0yJn Link-default-2XA2bN     " type="button">
+                                            <span class="SpinnerButton-spinnerContainer-1NdZWc">
+                                                <div class="SpinnerButton-spinner-1TgDPI Spinner-spinner-Niere7 spin-spin-2kLwt_ Spinner-small-3PStHE Spinner-spinner-Niere7 spin-spin-2kLwt_" aria-label="Loading" style="border-top-color: rgb(255, 255, 255); border-left-color: rgb(255, 255, 255);">
+                                                </div>
+                                            </span>
+                                            <span class="SpinnerButton-label-qxG01S">Sign Out</span>
+                                        </button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <h4 class="version-header">
+                                            <span class="version">Version 1.20.4.3517</span> 
+                                            <span class="update-region">
+                                                <span class="check-for-updates-container has-release-notes available">
+                                                    <a href="#" class="check-for-updates-btn label label-btn label-primary active"> 
+                                                        <i class="label-icon glyphicon upload"></i> 
+                                                        Check for Updates 
+                                                    </a>
+                                                    <a href="#" class="checking-for-updates-btn label label-btn label-primary active"> 
+                                                        <i class="label-icon glyphicon upload"></i> 
+                                                        Checking for Updates 
+                                                    </a> 
+                                                    <a href="#" class="available-updates-btn label label-btn label-primary"> 
+                                                        <i class="label-icon glyphicon download"></i> 
+                                                        Download Updates 
+                                                    </a> 
+                                                    <span class="downloading-updates-container label label-btn label-progress active"> 
+                                                        <i class="label-icon glyphicon download"></i> 
+                                                        Downloading Update 
+                                                        <span class="downloading-progress-container hidden">
+                                                            (
+                                                            <span class="downloading-progress-label"></span>
+                                                            %)
+                                                            </span>
+                                                        </span> 
+                                                    <a href="#" class="install-updates-btn label label-btn label-primary"> 
+                                                        <i class="label-icon glyphicon download"></i>
+                                                        Install Update
+                                                    </a> 
+                                                    <a href="#" class="installing-updates-btn label label-btn label-primary active"> 
+                                                        <i class="label-icon glyphicon upload"></i>
+                                                        Installing 
+                                                    </a> 
+                                                    <span class="install-info-label up-to-date-label"> 
+                                                        <i class="success-icon glyphicon ok-2"></i>
+                                                        Up to date
+                                                    </span> 
+                                                    <span class="install-info-label install-error-label"> 
+                                                        <i class="failure-icon glyphicon circle-exclamation-mark"></i> 
+                                                        <span class="update-error-message"></span> 
+                                                        <a class="install-manual-link" href="https://plex.tv/downloads" target="_blank">Please install manually.</a>
+                                                    </span> 
+                                                    <a href="#" class="release-notes-btn label label-btn label-default"> 
+                                                        <i class="label-icon glyphicon circle-info"></i>
+                                                        What's New 
+                                                    </a> 
+                                                </span>
+                                            </span>
+                                        </h4>
+                                    </div>
                                 <!-- SEGMENT BLOCK END -->
 
                                 <!-- GHOST BLOCK START -->
