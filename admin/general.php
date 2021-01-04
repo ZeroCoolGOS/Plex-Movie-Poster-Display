@@ -159,7 +159,11 @@ include('../config.php');
                 </div>
                 <div class="Page-page-aq7i_X Scroller-scroller-3GqQcZ Scroller-vertical-VScFLT  ">
                     <div id="MainPage" class="SettingsPage-content-1vKVEr PageContent-pageContent-16mK6G">
-                        <h2 class="SettingsPageHeader-header-1ugtIL">General</h2>
+                        <h2 class="SettingsPageHeader-header-1ugtIL">
+                            <?php echo gethostname(); ?>
+                            <span class="DashSeparator-separator-4CyEFW">—</span>
+                            General
+                        </h2>
                         <div>
                         <div class="server-settings-container show-advanced">
                             <div class="filter-bar">
