@@ -1,6 +1,8 @@
 <?php
 
 function ghostData($configPage) {
+    // TODO:
+    // - Cleanup and set as an array and loop to simplify the processing of ghost data.
     include '../config.php';
 
     $formIndent = "\t\t\t\t\t\t\t\t\t";
@@ -59,11 +61,17 @@ function ghostData($configPage) {
 
         $ghostField = "$formIndent<input type=\"hidden\" id=\"plexServer\" name=\"plexServer\" value=\"$plexServer\">\n";
         echo $ghostField;
+        
+        $ghostField = "$formIndent<input type=\"hidden\" id=\"plexServerDirect\" name=\"plexServerDirect\" value=\"$plexServerDirect\">\n";
+        echo $ghostField;
 
         $ghostField = "$formIndent<input type=\"hidden\" id=\"plexToken\" name=\"plexToken\" value=\"$plexToken\">\n";
         echo $ghostField;
 
         $ghostField = "$formIndent<input type=\"hidden\" id=\"plexServerMovieSection\" name=\"plexServerMovieSection\" value=\"$plexServerMovieSection\">\n";
+        echo $ghostField;
+        
+        $ghostField = "$formIndent<input type=\"hidden\" id=\"plexServerSSL\" name=\"plexServerSSL\" value=\"$plexServerSSL\">\n";
         echo $ghostField;
     }
 
@@ -279,9 +287,11 @@ function setData($configPage) {
 
 //Server Configuration
 \$plexServer = '$_POST[plexServer]';
+\$plexServerDirect = '$_POST[plexServerDirect]';
 \$plexToken = '$_POST[plexToken]';
 \$plexServerMovieSection = '$_POST[plexServerMovieSection]';
 \$cacheEnabled = '$_POST[cacheEnabled]'; //Default true
+\$plexServerSSL = '$_POST[plexServerSSL]'; //Default: Unchecked
 
 //Client Configuration
 \$plexClient = '$_POST[plexClient]';
@@ -293,13 +303,13 @@ function setData($configPage) {
 \$customTopText = '$_POST[customTopText]';
 \$customTopFontSize = '$_POST[customTopFontSize]'; //Default: 55 (px)
 \$customTopFontColor = '$_POST[customTopFontColor]'; //Default: #FFFF00 (Yellow)
-\$customTopFontOutlineSize = '$_POST[customTopFontOutlineSize]'; //Default: 2 (px)
+\$customTopFontOutlineSize = '$_POST[customTopFontOutlineSize]'; //Default: 0 (px)
 \$customTopFontOutlineColor = '$_POST[customTopFontOutlineColor]'; //Default: #FFFF00 (Yellow)
 \$customBottomText = '$_POST[customBottomText]';
 \$customBottomFontSize = '$_POST[customBottomFontSize]'; //Default: 25 (px)
 \$customBottomFontColor = '$_POST[customBottomFontColor]'; //Default: #FFFFFF (White)
-\$customBottomFontOutlineSize = '$_POST[customBottomFontOutlineSize]'; //Default: 2 (px)
-\$customBottomFontOutlineColor = '$_POST[customBottomFontOutlineColor]'; //Default: #FFFF00 (Yellow)
+\$customBottomFontOutlineSize = '$_POST[customBottomFontOutlineSize]'; //Default: 0 (px)
+\$customBottomFontOutlineColor = '$_POST[customBottomFontOutlineColor]'; //Default: #FFFFFF (White)
 
 //Coming Soon Configuration
 \$comingSoonTop = '$_POST[comingSoonTop]'; //Default: custom (title/summary/tagline/custom)
@@ -307,7 +317,7 @@ function setData($configPage) {
 \$comingSoonTopText = '$_POST[comingSoonTopText]';
 \$comingSoonTopFontSize = '$_POST[comingSoonTopFontSize]'; //Default: 55 (px)
 \$comingSoonTopFontColor = '$_POST[comingSoonTopFontColor]'; //Default: #FFFF00 (Yellow)
-\$comingSoonTopFontOutlineSize = '$_POST[comingSoonTopFontOutlineSize]'; //Default: 2 (px)
+\$comingSoonTopFontOutlineSize = '$_POST[comingSoonTopFontOutlineSize]'; //Default: 0 (px)
 \$comingSoonTopFontOutlineColor = '$_POST[comingSoonTopFontOutlineColor]'; //Default: #FFFF00 (Yellow)
 \$showComingSoonInfo = '$_POST[showComingSoonInfo]'; //Default: false
 \$comingSoonBottom = '$_POST[comingSoonBottom]'; //Default: custom (title/summary/tagline/custom)
@@ -315,8 +325,8 @@ function setData($configPage) {
 \$comingSoonBottomAutoScale = '$_POST[comingSoonBottomAutoScale]'; //Default: false
 \$comingSoonBottomFontSize = '$_POST[comingSoonBottomFontSize]'; //Default: 25 (px)
 \$comingSoonBottomFontColor = '$_POST[comingSoonBottomFontColor]'; //Default: #FFFFFF (White)
-\$comingSoonBottomFontOutlineSize = '$_POST[comingSoonBottomFontOutlineSize]'; //Default: 2 (px)
-\$comingSoonBottomFontOutlineColor = '$_POST[comingSoonBottomFontOutlineColor]'; //Default: #FFFF00 (Yellow)
+\$comingSoonBottomFontOutlineSize = '$_POST[comingSoonBottomFontOutlineSize]'; //Default: 0 (px)
+\$comingSoonBottomFontOutlineColor = '$_POST[comingSoonBottomFontOutlineColor]'; //Default: #FFFFFF (White)
 \$comingSoonShowSelection = '$_POST[comingSoonShowSelection]'; //Default: unwatched
 
 //Now Showing Configuration
@@ -325,15 +335,15 @@ function setData($configPage) {
 \$nowShowingTopText = '$_POST[nowShowingTopText]';
 \$nowShowingTopFontSize = '$_POST[nowShowingTopFontSize]'; //Default: 55 (px)
 \$nowShowingTopFontColor = '$_POST[nowShowingTopFontColor]'; //Default: #FFFF00 (Yellow)
-\$nowShowingTopFontOutlineSize = '$_POST[nowShowingTopFontOutlineSize]'; //Default: 2 (px)
+\$nowShowingTopFontOutlineSize = '$_POST[nowShowingTopFontOutlineSize]'; //Default: 0 (px)
 \$nowShowingTopFontOutlineColor = '$_POST[nowShowingTopFontOutlineColor]'; //Default: #FFFF00 (Yellow)
 \$nowShowingBottom = '$_POST[nowShowingBottom]'; //Default: title (title/summary/tagline/custom)
 \$nowShowingBottomText = '$_POST[nowShowingBottomText]';
 \$nowShowingBottomAutoScale = '$_POST[nowShowingBottomAutoScale]'; //Default: false
 \$nowShowingBottomFontSize = '$_POST[nowShowingBottomFontSize]'; //Default: 25 (px)
 \$nowShowingBottomFontColor = '$_POST[nowShowingBottomFontColor]'; //Default: #FFFFFF (White)
-\$nowShowingBottomFontOutlineSize = '$_POST[nowShowingBottomFontOutlineSize]'; //Default: 2 (px)
-\$nowShowingBottomFontOutlineColor = '$_POST[nowShowingBottomFontOutlineColor]'; //Default: #FFFF00 (Yellow)
+\$nowShowingBottomFontOutlineSize = '$_POST[nowShowingBottomFontOutlineSize]'; //Default: 0 (px)
+\$nowShowingBottomFontOutlineColor = '$_POST[nowShowingBottomFontOutlineColor]'; //Default: #FFFFFF (White)
 
 //Misc Configuration
 \$pmpDisplayProgress = '$_POST[pmpDisplayProgress]'; //Default: Disabled

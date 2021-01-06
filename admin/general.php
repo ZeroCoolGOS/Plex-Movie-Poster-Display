@@ -105,7 +105,6 @@ include('../config.php');
                         </div>
                             <form id="server-settings-form" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                                 <!-- SEGMENT BLOCK START -->
-
                                     <div class="form-group">
                                         <div class="ClaimedServer-container-3O6-1n">
                                             <div class="ServerAvatar-avatar-2VGH0z">
@@ -129,7 +128,6 @@ include('../config.php');
                                         </div>
                                     </div>
                                     <div class="form-group ">
-                                    <!-- <div class="form-group advanced-setting"> -->
                                         <h4 class="version-header">
                                             <span class="version">Version <?php echo $version;?></span> 
                                             <span class="update-region">

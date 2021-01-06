@@ -2,10 +2,13 @@
 //For feedback, suggestions, or issues please visit https://www.mattsshack.com/plex-movie-poster-display/
 include_once('loginCheck.php');
 include 'setData.php';
+include 'PMPInfo.php';
+include 'PMPReleaseNotes.php';
+include 'CommonLib.php';
 
 //Clear Poster Cache Directory
 if (!empty($_POST['clearPosterCache'])) {
-    $files = glob('cache/posters/*');
+    $files = glob('/../cache/posters/*');
     foreach ($files as $file) {
         if (is_file($file)) {
             unlink($file);
@@ -15,7 +18,7 @@ if (!empty($_POST['clearPosterCache'])) {
 
 //Clear Custom Cache Directory
 if (!empty($_POST['clearCustomCache'])) {
-    $files = glob('cache/custom/*');
+    $files = glob('/../cache/custom/*');
     foreach ($files as $file) {
         if (is_file($file)) {
             unlink($file);
@@ -28,11 +31,11 @@ if (!empty($_POST['saveConfig'])) {
 }
 
 //Count Items in Posters
-$posters = scandir('cache/posters');
+$posters = scandir('/../cache/posters');
 $posterCount = count($posters) - 2;
 
 //Count Items in Custom Images
-$custom = scandir('cache/custom');
+$custom = scandir('/../cache/custom');
 $customCount = count($custom) - 2;
 
 //Fixup Size Calculations
@@ -50,80 +53,8 @@ include('../config.php');
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Plex Movie Poster Display - Admin</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="www.mattsshack.com">
-
-    <meta content="no-cache, no-store, must-revalidate" http-equiv="Cache-Control"/>
-    <meta content="no-cache" http-equiv="Pragma"/>
-    <meta content="0" http-equiv="Expires"/>
-
-    <link rel="shortcut icon" type="image/png" href="/../assets/images/desktop/favicon.ico"/>
-    <link rel="mask-icon" href="/../assets/images/desktop/favicon-mask.svg" color="#cc7b19">
-
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-touch-fullscreen" content="yes">
-
-    <!-- <link rel="apple-touch-icon" href="/../assets/images/apple-touch-icon.png"> -->
-    <link rel="apple-touch-icon-precomposed" href="/../assets/images/desktop/ios/icon-iphone.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/../assets/images/desktop/ios/icon-ipad.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/../assets/images/desktop/ios/icon-iphone@2x.png">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/../assets/images/desktop/ios/icon-ipad@2x.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 320px)" href="/../assets/images/desktop/ios/startup-iphone-portrait.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" href="/../assets/images/desktop/ios/startup-iphone-portrait@2x.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="/../assets/images/desktop/ios/startup-iphone5-portrait@2x.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 768px) and (orientation: portrait)" href="/../assets/images/desktop/ios/startup-ipad-portrait.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 768px) and (orientation: landscape)" href="/../assets/images/desktop/ios/startup-ipad-landscape.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 1536px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="/../assets/images/desktop/ios/startup-ipad-portrait@2x.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 1536px)  and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="/../assets/images/desktop/ios/startup-ipad-landscape@2x.png">
-
-    <!-- JQuery Javascript -->
-    <script src="/../assets/jquery-3.4.0/jquery-3.4.0.min.js"></script>
-
-    <!-- Popper Javascript -->
-    <script src="/../assets/popper/popper.min.js"></script>
-
-    <!-- Bootstrap Javascript & CSS -->
-    <script src="/../assets/bootstrap-4.3.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/../assets/bootstrap-4.3.1/css/bootstrap.min.css">
-
-    <!-- Bootstrap Colorpicker Javascript & CSS -->
-    <script src="/../assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
-    <link rel="stylesheet" href="/../assets/bootstrap-colorpicker/css/bootstrap-colorpicker.css">
-
-    <!-- Plex Movie Poster Display CSS -->
-    <link rel="stylesheet" href="/../assets/styles/default/style.css">
-    <link rel="stylesheet" href="/../assets/styles/default/form-validation.css">
-    <link rel="stylesheet" href="Plex.css">
-
-    <script>
-        $(document).ready(function(){
-
-            $('.advanced-settingButton').click(function(){
-            if ( this.value === 'HIDE ADVANCED' ) {
-                // if it's open close it
-                open = false;
-                this.value = 'SHOW ADVANCED';
-                // $(this).siblings("[value='Hide']").click();
-                // $(this).next("div.showhideconfig").hide("fast"); // For <div.showhideconfig> post input
-                $("div.advanced-setting").hide("fast"); // For <div.showhideconfig> global
-            }
-            else {
-                // if it's close open it
-                open = true;
-                this.value = 'HIDE ADVANCED';
-                // $(this).siblings("[value='Show']").click(); //to collapse the open divs - Disabled to allow for all divs to stay open
-                // $(this).next("div.showhideconfig").show("fast"); // For <div.showhideconfig> post input
-                $("div.advanced-setting").show("fast"); // For <div.showhideconfig> global
-            }
-            });
-
-        });
-    </script>
+    <?php HeaderInfo(); ?>
+    <script> ShowHideAdvanced(); </script>
 </head>
 
 <body class="bg-light">
@@ -159,7 +90,9 @@ include('../config.php');
                 </div>
                 <div class="Page-page-aq7i_X Scroller-scroller-3GqQcZ Scroller-vertical-VScFLT  ">
                     <div id="MainPage" class="SettingsPage-content-1vKVEr PageContent-pageContent-16mK6G">
-                        <h2 class="SettingsPageHeader-header-1ugtIL">Custom Images Configuration</h2>
+                        <h2 class="SettingsPageHeader-header-1ugtIL">
+                            Custom Images Configuration
+                        </h2>
                         <div>
                         <div class="server-settings-container show-advanced">
                             <div class="filter-bar">
@@ -365,9 +298,11 @@ include('../config.php');
                                         </script>
                                     </div>
                                 <!-- SEGMENT BLOCK END -->
+
                                 <!-- GHOST BLOCK START -->
                                     <?php ghostData(basename(__FILE__)) ;?>
                                 <!-- GHOST BLOCK END -->
+
                                 <div class="form-footer">
                                     <!-- <button name="saveConfig" class="submit-btn btn btn-lg btn-primary btn-loading disabled" type="submit" value="saveConfig"> -->
                                     <button name="saveConfig" class="submit-btn btn btn-lg btn-primary btn-loading " type="submit" value="saveConfig">
@@ -382,30 +317,6 @@ include('../config.php');
             </div>
         </div>
     </div>
-
-<script>
-    function passwordView() {
-        event.preventDefault();
-        if ($('#password_view input').attr("type") == "text") {
-            document.getElementById('password_view_btn').innerHTML = "Show";
-            $('#password_view input').attr('type', 'password');
-        } else if ($('#password_view input').attr("type") == "password") {
-            $('#password_view input').attr('type', 'text');
-            document.getElementById('password_view_btn').innerHTML = "Hide";
-        }
-    }
-
-    function tokenView() {
-        event.preventDefault();
-        if ($('#token_view input').attr("type") == "text") {
-            document.getElementById('token_view_btn').innerHTML = "Show";
-            $('#token_view input').attr('type', 'password');
-        } else if ($('#token_view input').attr("type") == "password") {
-            $('#token_view input').attr('type', 'text');
-            document.getElementById('token_view_btn').innerHTML = "Hide";
-        }
-    }
-</script>
 
 </body>
 </html>

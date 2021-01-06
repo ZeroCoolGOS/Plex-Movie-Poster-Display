@@ -15,10 +15,6 @@ function HeaderInfo() {
     echo "\t<meta content=\"no-cache\" http-equiv=\"Pragma\"/>\n";
     echo "\t<meta content=\"0\" http-equiv=\"Expires\"/>\n";
     
-    echo "\n";
-    echo "\t<link rel=\"shortcut icon\" type=\"image/png\" href=\"/../assets/images/desktop/favicon.ico\"/>\n";
-    echo "\t<link rel=\"mask-icon\" href=\"/../assets/images/desktop/favicon-mask.svg\" color=\"#cc7b19\">\n";
-    
     HeaderInfoApple();
     
     echo "\n";
@@ -38,13 +34,18 @@ function HeaderInfo() {
     echo "\t<!-- Bootstrap Colorpicker Javascript & CSS -->\n";
     echo "\t<script src=\"/../assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js\"></script>\n";
     echo "\t<link rel=\"stylesheet\" href=\"/../assets/bootstrap-colorpicker/css/bootstrap-colorpicker.css\">\n";
-    
+
     echo "\n";
-    echo "\t<!-- Plex Movie Poster Display CSS -->\n";
+    echo "\t<!-- Plex Movie Poster Display Javascript & CSS -->\n";
+    echo "\t<script src=\"CommonLib.js\"></script>\n";
     echo "\t<link rel=\"stylesheet\" href=\"/../assets/styles/default/style.css\">\n";
     echo "\t<link rel=\"stylesheet\" href=\"/../assets/styles/default/form-validation.css\">\n";
-    echo "\t<link rel=\"stylesheet\" href=\"Plex.css\">\n";
-    echo "\t<script src=\"CommonLib.js\"></script>\n";
+
+    echo "\n";
+    echo "\t<!-- Plex CSS & Icons-->\n";
+    echo "\t<link rel=\"stylesheet\" href=\"/../assets/plex/Plex.css\">\n";
+    echo "\t<link rel=\"shortcut icon\" type=\"image/png\" href=\"/../assets/plex/images/desktop/favicon.ico\"/>\n";
+    echo "\t<link rel=\"mask-icon\" href=\"/../assets/plex/images/desktop/favicon-mask.svg\" color=\"#cc7b19\">\n";
 
 }
 
@@ -56,18 +57,18 @@ function HeaderInfoApple() {
     echo "\t<meta name=\"apple-touch-fullscreen\" content=\"yes\">\n";
     
     echo "\n";
-    echo "\t<!-- <link rel=\"apple-touch-icon\" href=\"/../assets/images/apple-touch-icon.png\"> -->\n";
-    echo "\t<link rel=\"apple-touch-icon-precomposed\" href=\"/../assets/images/desktop/ios/icon-iphone.png\">\n";
-    echo "\t<link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"/../assets/images/desktop/ios/icon-ipad.png\">\n";
-    echo "\t<link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"/../assets/images/desktop/ios/icon-iphone@2x.png\">\n";
-    echo "\t<link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"/../assets/images/desktop/ios/icon-ipad@2x.png\">\n";
-    echo "\t<link rel=\"apple-touch-startup-image\" media=\"(device-width: 320px)\" href=\"/../assets/images/desktop/ios/startup-iphone-portrait.png\">\n";
-    echo "\t<link rel=\"apple-touch-startup-image\" media=\"(device-width: 320px) and (-webkit-device-pixel-ratio: 2)\" href=\"/../assets/images/desktop/ios/startup-iphone-portrait@2x.png\">\n";
-    echo "\t<link rel=\"apple-touch-startup-image\" media=\"(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)\" href=\"/../assets/images/desktop/ios/startup-iphone5-portrait@2x.png\">\n";
-    echo "\t<link rel=\"apple-touch-startup-image\" media=\"(device-width: 768px) and (orientation: portrait)\" href=\"/../assets/images/desktop/ios/startup-ipad-portrait.png\">\n";
-    echo "\t<link rel=\"apple-touch-startup-image\" media=\"(device-width: 768px) and (orientation: landscape)\" href=\"/../assets/images/desktop/ios/startup-ipad-landscape.png\">\n";
-    echo "\t<link rel=\"apple-touch-startup-image\" media=\"(device-width: 1536px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)\" href=\"/../assets/images/desktop/ios/startup-ipad-portrait@2x.png\">\n";
-    echo "\t<link rel=\"apple-touch-startup-image\" media=\"(device-width: 1536px)  and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)\" href=\"/../assets/images/desktop/ios/startup-ipad-landscape@2x.png\">\n";
+    echo "\t<!-- <link rel=\"apple-touch-icon\" href=\"/../assets/plex/images/apple-touch-icon.png\"> -->\n";
+    echo "\t<link rel=\"apple-touch-icon-precomposed\" href=\"/../assets/plex/images/desktop/ios/icon-iphone.png\">\n";
+    echo "\t<link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"/../assets/plex/images/desktop/ios/icon-ipad.png\">\n";
+    echo "\t<link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"/../assets/plex/images/desktop/ios/icon-iphone@2x.png\">\n";
+    echo "\t<link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"/../assets/plex/images/desktop/ios/icon-ipad@2x.png\">\n";
+    echo "\t<link rel=\"apple-touch-startup-image\" media=\"(device-width: 320px)\" href=\"/../assets/plex//images/desktop/ios/startup-iphone-portrait.png\">\n";
+    echo "\t<link rel=\"apple-touch-startup-image\" media=\"(device-width: 320px) and (-webkit-device-pixel-ratio: 2)\" href=\"/../assets/plex//images/desktop/ios/startup-iphone-portrait@2x.png\">\n";
+    echo "\t<link rel=\"apple-touch-startup-image\" media=\"(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)\" href=\"/../assets/plex/images/desktop/ios/startup-iphone5-portrait@2x.png\">\n";
+    echo "\t<link rel=\"apple-touch-startup-image\" media=\"(device-width: 768px) and (orientation: portrait)\" href=\"/../assets/plex/images/desktop/ios/startup-ipad-portrait.png\">\n";
+    echo "\t<link rel=\"apple-touch-startup-image\" media=\"(device-width: 768px) and (orientation: landscape)\" href=\"/../assets/plex/images/desktop/ios/startup-ipad-landscape.png\">\n";
+    echo "\t<link rel=\"apple-touch-startup-image\" media=\"(device-width: 1536px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)\" href=\"/../assets/plex/images/desktop/ios/startup-ipad-portrait@2x.png\">\n";
+    echo "\t<link rel=\"apple-touch-startup-image\" media=\"(device-width: 1536px)  and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)\" href=\"/../assets/plex/images/desktop/ios/startup-ipad-landscape@2x.png\">\n";
 
 }
 
