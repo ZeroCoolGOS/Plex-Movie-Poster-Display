@@ -61,39 +61,39 @@ include('../config.php');
     <meta content="no-cache" http-equiv="Pragma"/>
     <meta content="0" http-equiv="Expires"/>
 
-    <link rel="shortcut icon" type="image/png" href="/assets/images/desktop/favicon.ico"/>
-    <link rel="mask-icon" href="/assets/images/desktop/favicon-mask.svg" color="#cc7b19">
+    <link rel="shortcut icon" type="image/png" href="/../assets/images/desktop/favicon.ico"/>
+    <link rel="mask-icon" href="/../assets/images/desktop/favicon-mask.svg" color="#cc7b19">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-touch-fullscreen" content="yes">
 
-    <!-- <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png"> -->
-    <link rel="apple-touch-icon-precomposed" href="/assets/images/desktop/ios/icon-iphone.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/desktop/ios/icon-ipad.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/desktop/ios/icon-iphone@2x.png">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/desktop/ios/icon-ipad@2x.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 320px)" href="/assets/images/desktop/ios/startup-iphone-portrait.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" href="/assets/images/desktop/ios/startup-iphone-portrait@2x.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="/assets/images/desktop/ios/startup-iphone5-portrait@2x.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 768px) and (orientation: portrait)" href="/assets/images/desktop/ios/startup-ipad-portrait.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 768px) and (orientation: landscape)" href="/assets/images/desktop/ios/startup-ipad-landscape.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 1536px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="/assets/images/desktop/ios/startup-ipad-portrait@2x.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 1536px)  and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="/assets/images/desktop/ios/startup-ipad-landscape@2x.png">
+    <!-- <link rel="apple-touch-icon" href="/../assets/images/apple-touch-icon.png"> -->
+    <link rel="apple-touch-icon-precomposed" href="/../assets/images/desktop/ios/icon-iphone.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/../assets/images/desktop/ios/icon-ipad.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/../assets/images/desktop/ios/icon-iphone@2x.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/../assets/images/desktop/ios/icon-ipad@2x.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 320px)" href="/../assets/images/desktop/ios/startup-iphone-portrait.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" href="/../assets/images/desktop/ios/startup-iphone-portrait@2x.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="/../assets/images/desktop/ios/startup-iphone5-portrait@2x.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 768px) and (orientation: portrait)" href="/../assets/images/desktop/ios/startup-ipad-portrait.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 768px) and (orientation: landscape)" href="/../assets/images/desktop/ios/startup-ipad-landscape.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 1536px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="/../assets/images/desktop/ios/startup-ipad-portrait@2x.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 1536px)  and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="/../assets/images/desktop/ios/startup-ipad-landscape@2x.png">
 
     <!-- JQuery Javascript -->
-    <script src="/assets/jquery-3.4.0/jquery-3.4.0.min.js"></script>
+    <script src="/../assets/jquery-3.4.0/jquery-3.4.0.min.js"></script>
 
     <!-- Popper Javascript -->
-    <script src="/assets/popper/popper.min.js"></script>
+    <script src="/../assets/popper/popper.min.js"></script>
 
     <!-- Bootstrap Javascript & CSS -->
-    <script src="/assets/bootstrap-4.3.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/assets/bootstrap-4.3.1/css/bootstrap.min.css">
+    <script src="/../assets/bootstrap-4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/../assets/bootstrap-4.3.1/css/bootstrap.min.css">
 
     <!-- Bootstrap Colorpicker Javascript & CSS -->
-    <script src="/assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
-    <link rel="stylesheet" href="/assets/bootstrap-colorpicker/css/bootstrap-colorpicker.css">
+    <script src="/../assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+    <link rel="stylesheet" href="/../assets/bootstrap-colorpicker/css/bootstrap-colorpicker.css">
 
     <!-- Plex Movie Poster Display CSS -->
     <link rel="stylesheet" href="/../assets/styles/default/style.css">
@@ -159,7 +159,7 @@ include('../config.php');
                 </div>
                 <div class="Page-page-aq7i_X Scroller-scroller-3GqQcZ Scroller-vertical-VScFLT  ">
                     <div id="MainPage" class="SettingsPage-content-1vKVEr PageContent-pageContent-16mK6G">
-                        <h2 class="SettingsPageHeader-header-1ugtIL">Plex Movie Poster Display Common Configuration</h2>
+                        <h2 class="SettingsPageHeader-header-1ugtIL">Common Configuration</h2>
                         <div>
                         <div class="server-settings-container show-advanced">
                             <div class="filter-bar">
@@ -211,11 +211,9 @@ include('../config.php');
                                         </div>
                                 
                                 <!-- SEGMENT BLOCK END -->
-                                
                                 <!-- GHOST BLOCK START -->
                                     <?php ghostData(basename(__FILE__)) ;?>
                                 <!-- GHOST BLOCK END -->
-
                                 <div class="form-footer">
                                     <!-- <button name="saveConfig" class="submit-btn btn btn-lg btn-primary btn-loading disabled" type="submit" value="saveConfig"> -->
                                     <button name="saveConfig" class="submit-btn btn btn-lg btn-primary btn-loading " type="submit" value="saveConfig">
