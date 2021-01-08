@@ -92,11 +92,12 @@ if (!empty($_POST['saveConfig'])) {
                                 <!-- GHOST BLOCK END -->
 
                                 <div class="form-footer">
-                                    <!-- <button name="saveConfig" class="submit-btn btn btn-lg btn-primary btn-loading disabled" type="submit" value="saveConfig"> -->
-                                    <button name="saveConfig" class="submit-btn btn btn-lg btn-primary btn-loading " type="submit" value="saveConfig">
-                                        <div class="loading loading-sm"></div>
-                                        <span class="btn-label">SAVE CHANGES</span>
-                                    </button>
+                                    <div class="form-alignment input-group">
+                                        <button name="saveConfig" class="submit-btn btn btn-lg btn-primary btn-loading " type="submit" value="saveConfig">
+                                            <div class="loading loading-sm"></div>
+                                            <span class="btn-label">SAVE CHANGES</span>
+                                        </button>
+                                    </div>
                                 </div>
                             </form>
                         </div>

@@ -167,56 +167,78 @@ if (!empty($_GET['file'])) {
                                             </span>
                                         </h4>
                                     </div>
-                                    <div class="format-group">
-                                        <span>
-                                            <div class="col-md-4 order-md-2 mb-4">
-                                                <h4 class="d-flex justify-content-between align-items-center mb-3">
-                                                    Stats
-                                                </h4>
-                                                <ul class="list-group mb-3">
-                                                    <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                                        <div>
-                                                            <h6 class="my-0">Posters</h6>
-                                                            <small class="text-muted">Items in cache/posters</small>
-                                                        </div>
-                                                        <span class="text-muted"><?php echo $posterCount; ?></span>
-                                                        <form method="post" class="needs-validation" novalidate>
-                                                            <button name="clearPosterCache" type="submit" class="btn btn-danger btn-sm"
-                                                                    value="clearPosterCache">Clear
-                                                            </button>
-                                                        </form>
-                                                    </li>
-                                                    <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                                        <div>
-                                                            <h6 class="my-0">Custom Images</h6>
-                                                            <small class="text-muted">Items in cache/custom</small>
-                                                        </div>
-                                                        <span class="text-muted"><?php echo $customCount; ?></span>
-                                                        <form method="post" class="needs-validation" novalidate>
-                                                            <button name="clearCustomCache" type="submit" class="btn btn-danger btn-sm"
-                                                                    value="clearCustomCache">Clear
-                                                            </button>
-                                                        </form>
-                                                    </li>
-                                                    <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                                        <div>
-                                                            <h6 class="my-0">Free Space</h6>
-                                                            <small class="text-muted">Free space on /</small>
-                                                        </div>
-                                                        <span class="text-muted"><?php echo fixupSize(disk_free_space("/")); ?></span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </span>
+                                    <div class="form-group">
+                                        <hr>
+                                        <h3>Stats:</h3>
+                                    </div>
+                                    <div class="format-group row">
+                                        <div class="col-md-6 mb-3">
+                                            Posters<br>
+                                            <small class="text-muted">Items in cache/posters</small>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <?php echo $posterCount; ?>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <form method="post" class="needs-validation" novalidate>
+                                                <button name="clearPosterCache" type="submit" class="btn btn-danger btn-sm"
+                                                        value="clearPosterCache">Clear
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="format-group row">
+                                        <div class="col-md-6 mb-3">
+                                            Custom Images<br>
+                                            <small class="text-muted">Items in cache/custom</small>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <?php echo $posterCount; ?>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <form method="post" class="needs-validation" novalidate>
+                                                <button name="clearCustomCache" type="submit" class="btn btn-danger btn-sm"
+                                                        value="clearCustomCache">Clear
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="format-group row">
+                                        <div class="col-md-6 mb-3">
+                                            Free Space<br>
+                                            <small class="text-muted">Free space on /</small>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <span><?php echo fixupSize(disk_free_space("/")); ?></span>
+                                        </div>
                                     </div>
                                     <div class="format-group advanced-setting">
+                                        <hr>
+                                        <h3>Configuration Settings:</h3>
+                                    </div>
+                                    <div class="format-group advanced-setting row">
                                         <span>
                                             <div class="col-md-6 mb-3">
                                                 <a href="general.php?file=config.php" class="available-updates-btn label label-btn label-primary">
-                                                    <i class="label-icon glyphicon download"></i>    
+                                                    <i class="label-icon glyphicon download"></i>
                                                     Export Configuration
                                                 </a>
                                             </div>
+                                        </span>
+                                    </div>
+                                    <div class="format-group advanced-setting row">
+                                        <span>
+                                            <div class="col-md-6 mb-3">
+                                                <a href="general.php?file=config.php" class="available-updates-btn label label-btn label-primary">
+                                                    <i class="label-icon glyphicon upload"></i>
+                                                    Restore Configuration
+                                                </a>
+                                            </div>
+                                            <form action="upload.php" method="post" enctype="multipart/form-data">
+                                                Select image to upload:
+                                                <input type="file" name="fileToUpload" id="fileToUpload">
+                                                <input type="submit" value="Restore Configuration" name="submit">
+                                            </form>
                                         </span>
                                     </div>
                                 <!-- SEGMENT BLOCK END -->

@@ -1,4 +1,5 @@
 <?php
+include 'CommonLib.php';
 $msg = NULL;
 
 if (isset($_POST['username']) && !empty($_POST['password'])) {
@@ -19,63 +20,102 @@ if (isset($_POST['username']) && !empty($_POST['password'])) {
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Plex Movie Poster Display - Login</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="www.mattsshack.com">
-
-    <link rel="shortcut icon" type="image/png" href="/assets/images/desktop/favicon.ico"/>
-    <link rel="mask-icon" href="/assets/images/desktop/favicon-mask.svg" color="#cc7b19">
-
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-touch-fullscreen" content="yes">
-
-    <!-- <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png"> -->
-    <link rel="apple-touch-icon-precomposed" href="/assets/images/desktop/ios/icon-iphone.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/desktop/ios/icon-ipad.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/desktop/ios/icon-iphone@2x.png">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/desktop/ios/icon-ipad@2x.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 320px)" href="/assets/images/desktop/ios/startup-iphone-portrait.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" href="/assets/images/desktop/ios/startup-iphone-portrait@2x.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="/assets/images/desktop/ios/startup-iphone5-portrait@2x.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 768px) and (orientation: portrait)" href="/assets/images/desktop/ios/startup-ipad-portrait.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 768px) and (orientation: landscape)" href="/assets/images/desktop/ios/startup-ipad-landscape.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 1536px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="/assets/images/desktop/ios/startup-ipad-portrait@2x.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 1536px)  and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="/assets/images/desktop/ios/startup-ipad-landscape@2x.png">
-
-    <!-- Bootstrap Javascript & CSS -->
-    <script src="/assets/bootstrap-4.3.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/assets/bootstrap-4.3.1/css/bootstrap.min.css">
-
-    <!-- Plex Movie Poster Display CSS -->
-    <link rel="stylesheet" href="/assets/styles/default/login.css">
-    <link rel="stylesheet" href="/assets/styles/default/form-validation.css">
-
+    <?php HeaderInfo(); ?>
+    <script> ShowHideAdvanced(); </script>
 </head>
 
-<body class="text-center">
-<form class="form-login needs-validation" novalidate action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>"
-      method="post">
-    <img class="d-block mx-auto mb-4" src="/../assets/images/android-chrome-192x192.png" alt="" width="100" height="100">
+<body class="bg-light">
+    <div id="plex" class="application">
+        <div class="background-container">
+            <div class="FullPage-container-17Y0cs">
+                <div>
+                    <div style="position: absolute; width: 100%; height: 100%;">
+                        <div class=" CrossFadeImage-crossFade-10Sndv" style="position: absolute; animation-duration: 600ms; background-image: url(&quot;/../assets/images/Plex/backgrounds/preset-dark.png&quot;); width: 100%; height: 100%; background-size: cover; background-position: center center; background-repeat: no-repeat;"></div>
+                    </div>
+                    <div style="position: absolute; width: 100%; height: 100%; background: url(&quot;/../assets/images/Plex/backgrounds/noise.png&quot;); z-index: 2;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="nav-bar">
+            <div class="NavBar-container-1T0BJz">
+                <div class="NavBar-left-2SrTGf NavBar-side-2kZrHV">
+                    <a id="id-261" aria-label="Home" data-uid="id-262" href="../index.php" role="link" class="NavBar-button-diriIs NavBarIconButton-button-eR0v0j IconButton-button-9An-7I Link-link-2n0yJn Link-default-2XA2bN     ">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 560" id="plex-icon-navbar-home-560" aria-hidden="true" class="PlexIcon-plexIcon-8Tamaj NavBarIconButton-icon-2gdVPu">
+                        <path d="M84 448V291.598a28 28 0 0 1 8.201-19.799L280 84l187.799 187.799A28 28 0 0 1 476 291.598V448c0 15.464-12.536 28-28 28H322V336h-84v140H112c-15.464 0-28-12.536-28-28z">
+                        </path>
+                        </svg>
+                    </a>
+                    <a data-uid="id-2" href="#" role="link" class="NavBar-plexLogo-3_NNRw NavBarIconButton-button-eR0v0j IconButton-button-9An-7I Link-link-2n0yJn Link-default-2XA2bN     ">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="scroll-container dark-scrollbar">
+            <div class="FullPage-container-17Y0cs">
+                <div class="Measure-container-3yONEe">
+                    <?php sidebarInfo(basename(__FILE__)) ;?>
+                </div>
+                <div class="Page-page-aq7i_X Scroller-scroller-3GqQcZ Scroller-vertical-VScFLT  ">
+                    <div id="MainPage" class="SettingsPage-content-1vKVEr PageContent-pageContent-16mK6G">
+                        <h2 class="SettingsPageHeader-header-1ugtIL" style="text-align:center;">
+                            Plex Movie Poster
+                        <span class="DashSeparator-separator-4CyEFW">—</span>
+                        Login
+                        </h2>
+                        <div>
+                        <div class="server-settings-container show-advanced">
+                            <!-- <div class="filter-bar">
+                                <div class="filter-bar-right">
+                                    <input class="toggle-advanced-btn btn btn-sm btn-default advanced-settingButton" type="button" value="SHOW ADVANCED"></input>
+                                </div>
+                            </div> -->
+                        </div>
+                        <form method="post" class="form-login needs-validation" novalidate action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" >
+                            <!-- SEGMENT BLOCK START -->
+                                <!-- <div class="form-group">
+                                    <img class="d-block mx-auto mb-4" src="/../assets/images/android-chrome-192x192.png" alt="" width="100" height="100">
+                                </div> -->
+                                <div class="form-group">
+                                    <?php
+                                    if ($msg != NULL) {
+                                        echo "<h3 style=\"text-align:center;\">$msg</h3>";
+                                    }
+                                    ?>
+                                </div>
+                                <div class="form-group">
+                                    <div class="mb-3">
+                                        <div class="form-alignment input-group" style="text-align:center;">
+                                            <label for="inputUsername" class="sr-only">Username</label>
+                                            <input type="username" id="username" name="username" class="fieldInfo-username form-control" placeholder="Username" required autofocus>
+                                        </div>
+                                    </div>
 
-    <?php
-    if ($msg != NULL) {
-        echo "<p class='alert alert-danger'> $msg </p>";
-    }
-    ?>
+                                    <div class="mb-3">
+                                        <div class="form-alignment input-group" id="password_view" style="text-align:center;">
+                                            <label for="inputPassword" class="sr-only">Password</label>
+                                            <input type="password" id="password" name="password" class="fieldInfo-password form-control" placeholder="Password" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!-- SEGMENT BLOCK END -->
 
-    <label for="inputUsername" class="sr-only">Username</label>
-    <input type="username" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
-    <hr class="login">
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
-    <p></p>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-</form>
+                            <!-- GHOST BLOCK START -->
+                            <!-- GHOST BLOCK END -->
 
+                            <div class="form-footer">
+                                <div class="form-alignment input-group" style="text-align:center;">
+                                    <button name="login" class="submit-btn btn btn-lg btn-primary btn-loading " type="submit">
+                                        <div class="loading loading-sm"></div>
+                                        <span class="btn-label">SIGN IN</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 <script>
     //Taken from https://getbootstrap.com
     //Example starter JavaScript for disabling form submissions if there are invalid fields
