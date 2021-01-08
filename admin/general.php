@@ -5,49 +5,33 @@ include 'setData.php';
 include 'PMPInfo.php';
 include 'PMPReleaseNotes.php';
 include 'CommonLib.php';
+include '../config.php';
 
-//Clear Poster Cache Directory
-if (!empty($_POST['clearPosterCache'])) {
-    $files = glob('/../cache/posters/*');
-    foreach ($files as $file) {
-        if (is_file($file)) {
-            unlink($file);
-        }
-    }
-}
-
-//Clear Custom Cache Directory
-if (!empty($_POST['clearCustomCache'])) {
-    $files = glob('/../cache/custom/*');
-    foreach ($files as $file) {
-        if (is_file($file)) {
-            unlink($file);
-        }
-    }
-}
-
+//Save Configuration
 if (!empty($_POST['saveConfig'])) {
     setData(basename(__FILE__));
 }
 
 //Count Items in Posters
-$posters = scandir('/../cache/posters');
-$posterCount = count($posters) - 2;
+PosterCache();
 
-//Count Items in Custom Images
-$custom = scandir('/../cache/custom');
-$customCount = count($custom) - 2;
-
-//Fixup Size Calculations
-function fixupSize($bytes)
-{
-    $places = '2';
-    $size = array('B', 'KB', 'MB', 'GB');
-    $factor = floor((strlen($bytes) - 1) / 3);
-    return sprintf("%.{$places}f", $bytes / pow(1024, $factor)) . @$size[$factor];
+//Clear Poster Cache Directory
+if (!empty($_POST['clearPosterCache'])) {
+    PosterCacheClear();
 }
 
-include('../config.php');
+//Count Items in Custom Images
+CustomCache();
+
+//Clear Custom Cache Directory
+if (!empty($_POST['clearCustomCache'])) {
+    CustomCacheClear();
+}
+
+if (!empty($_GET['file'])) {
+    exportConfig(basename($_GET['file']));
+}
+
 ?>
 
 <!doctype html>
@@ -129,59 +113,111 @@ include('../config.php');
                                     </div>
                                     <div class="form-group ">
                                         <h4 class="version-header">
-                                            <span class="version">Version <?php echo $version;?></span> 
+                                            <span class="version">Version <?php echo $version;?></span>
                                             <span class="update-region">
                                                 <span class="check-for-updates-container has-release-notes available">
-                                                    <a href="#" class="check-for-updates-btn label label-btn label-primary active"> 
-                                                        <i class="label-icon glyphicon upload"></i> 
-                                                        Check for Updates 
+                                                    <a href="#" class="check-for-updates-btn label label-btn label-primary active">
+                                                        <i class="label-icon glyphicon upload"></i>
+                                                        Check for Updates
                                                     </a>
-                                                    <a href="#" class="checking-for-updates-btn label label-btn label-primary active"> 
-                                                        <i class="label-icon glyphicon upload"></i> 
-                                                        Checking for Updates 
-                                                    </a> 
-                                                    <a href="https://github.com/MattsShack/Plex-Movie-Poster-Display/tree/dev" class="available-updates-btn label label-btn label-primary" target="_blank"> 
-                                                        <i class="label-icon glyphicon download"></i> 
-                                                        Download Updates 
+                                                    <a href="#" class="checking-for-updates-btn label label-btn label-primary active">
+                                                        <i class="label-icon glyphicon upload"></i>
+                                                        Checking for Updates
                                                     </a>
-                                                    <!-- <a href="#" class="available-updates-btn label label-btn label-primary"> 
-                                                        <i class="label-icon glyphicon download"></i> 
-                                                        Download Updates 
-                                                    </a> 
-                                                    <span class="downloading-updates-container label label-btn label-progress active"> 
-                                                        <i class="label-icon glyphicon download"></i> 
-                                                        Downloading Update 
+                                                    <a href="https://github.com/MattsShack/Plex-Movie-Poster-Display/tree/dev" class="available-updates-btn label label-btn label-primary" target="_blank">
+                                                        <i class="label-icon glyphicon download"></i>
+                                                        Download Updates
+                                                    </a>
+                                                    <!-- <a href="#" class="available-updates-btn label label-btn label-primary">
+                                                        <i class="label-icon glyphicon download"></i>
+                                                        Download Updates
+                                                    </a>
+                                                    <span class="downloading-updates-container label label-btn label-progress active">
+                                                        <i class="label-icon glyphicon download"></i>
+                                                        Downloading Update
                                                         <span class="downloading-progress-container hidden">
                                                             (
                                                             <span class="downloading-progress-label"></span>
                                                             %)
                                                             </span>
-                                                        </span> 
-                                                    <a href="#" class="install-updates-btn label label-btn label-primary"> 
+                                                        </span>
+                                                    <a href="#" class="install-updates-btn label label-btn label-primary">
                                                         <i class="label-icon glyphicon download"></i>
                                                         Install Update
-                                                    </a> 
-                                                    <a href="#" class="installing-updates-btn label label-btn label-primary active"> 
+                                                    </a>
+                                                    <a href="#" class="installing-updates-btn label label-btn label-primary active">
                                                         <i class="label-icon glyphicon upload"></i>
-                                                        Installing 
-                                                    </a> 
-                                                    <span class="install-info-label up-to-date-label"> 
+                                                        Installing
+                                                    </a>
+                                                    <span class="install-info-label up-to-date-label">
                                                         <i class="success-icon glyphicon ok-2"></i>
                                                         Up to date
-                                                    </span> 
-                                                    <span class="install-info-label install-error-label"> 
-                                                        <i class="failure-icon glyphicon circle-exclamation-mark"></i> 
-                                                        <span class="update-error-message"></span> 
+                                                    </span>
+                                                    <span class="install-info-label install-error-label">
+                                                        <i class="failure-icon glyphicon circle-exclamation-mark"></i>
+                                                        <span class="update-error-message"></span>
                                                         <a class="install-manual-link" href="https://github.com/MattsShack/Plex-Movie-Poster-Display/tree/dev" target="_blank">Please install manually.</a>
                                                     </span>  -->
                                                     <!-- NOTE: What's New option coming soon -->
-                                                    <!-- <a href="#" class="release-notes-btn label label-btn label-default"> 
+                                                    <!-- <a href="#" class="release-notes-btn label label-btn label-default">
                                                         <i class="label-icon glyphicon circle-info"></i>
-                                                        What's New 
-                                                    </a> --> 
+                                                        What's New
+                                                    </a> -->
                                                 </span>
                                             </span>
                                         </h4>
+                                    </div>
+                                    <div class="format-group">
+                                        <span>
+                                            <div class="col-md-4 order-md-2 mb-4">
+                                                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                                                    Stats
+                                                </h4>
+                                                <ul class="list-group mb-3">
+                                                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                                        <div>
+                                                            <h6 class="my-0">Posters</h6>
+                                                            <small class="text-muted">Items in cache/posters</small>
+                                                        </div>
+                                                        <span class="text-muted"><?php echo $posterCount; ?></span>
+                                                        <form method="post" class="needs-validation" novalidate>
+                                                            <button name="clearPosterCache" type="submit" class="btn btn-danger btn-sm"
+                                                                    value="clearPosterCache">Clear
+                                                            </button>
+                                                        </form>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                                        <div>
+                                                            <h6 class="my-0">Custom Images</h6>
+                                                            <small class="text-muted">Items in cache/custom</small>
+                                                        </div>
+                                                        <span class="text-muted"><?php echo $customCount; ?></span>
+                                                        <form method="post" class="needs-validation" novalidate>
+                                                            <button name="clearCustomCache" type="submit" class="btn btn-danger btn-sm"
+                                                                    value="clearCustomCache">Clear
+                                                            </button>
+                                                        </form>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                                        <div>
+                                                            <h6 class="my-0">Free Space</h6>
+                                                            <small class="text-muted">Free space on /</small>
+                                                        </div>
+                                                        <span class="text-muted"><?php echo fixupSize(disk_free_space("/")); ?></span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="format-group advanced-setting">
+                                        <span>
+                                            <div class="col-md-6 mb-3">
+                                                <a href="general.php?file=config.php" class="available-updates-btn label label-btn label-primary">
+                                                    <i class="label-icon glyphicon download"></i>    
+                                                    Export Configuration
+                                                </a>
+                                            </div>
+                                        </span>
                                     </div>
                                 <!-- SEGMENT BLOCK END -->
 

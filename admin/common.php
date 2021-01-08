@@ -5,49 +5,13 @@ include 'setData.php';
 include 'PMPInfo.php';
 include 'PMPReleaseNotes.php';
 include 'CommonLib.php';
+include '../config.php';
 
-//Clear Poster Cache Directory
-if (!empty($_POST['clearPosterCache'])) {
-    $files = glob('/../cache/posters/*');
-    foreach ($files as $file) {
-        if (is_file($file)) {
-            unlink($file);
-        }
-    }
-}
-
-//Clear Custom Cache Directory
-if (!empty($_POST['clearCustomCache'])) {
-    $files = glob('/../cache/custom/*');
-    foreach ($files as $file) {
-        if (is_file($file)) {
-            unlink($file);
-        }
-    }
-}
-
+//Save Configuration
 if (!empty($_POST['saveConfig'])) {
     setData(basename(__FILE__));
 }
 
-//Count Items in Posters
-$posters = scandir('/../cache/posters');
-$posterCount = count($posters) - 2;
-
-//Count Items in Custom Images
-$custom = scandir('/../cache/custom');
-$customCount = count($custom) - 2;
-
-//Fixup Size Calculations
-function fixupSize($bytes)
-{
-    $places = '2';
-    $size = array('B', 'KB', 'MB', 'GB');
-    $factor = floor((strlen($bytes) - 1) / 3);
-    return sprintf("%.{$places}f", $bytes / pow(1024, $factor)) . @$size[$factor];
-}
-
-include('../config.php');
 ?>
 
 <!doctype html>

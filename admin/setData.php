@@ -61,7 +61,7 @@ function ghostData($configPage) {
 
         $ghostField = "$formIndent<input type=\"hidden\" id=\"plexServer\" name=\"plexServer\" value=\"$plexServer\">\n";
         echo $ghostField;
-        
+
         $ghostField = "$formIndent<input type=\"hidden\" id=\"plexServerDirect\" name=\"plexServerDirect\" value=\"$plexServerDirect\">\n";
         echo $ghostField;
 
@@ -70,7 +70,7 @@ function ghostData($configPage) {
 
         $ghostField = "$formIndent<input type=\"hidden\" id=\"plexServerMovieSection\" name=\"plexServerMovieSection\" value=\"$plexServerMovieSection\">\n";
         echo $ghostField;
-        
+
         $ghostField = "$formIndent<input type=\"hidden\" id=\"plexServerSSL\" name=\"plexServerSSL\" value=\"$plexServerSSL\">\n";
         echo $ghostField;
     }
@@ -256,7 +256,9 @@ function ghostData($configPage) {
 }
 
 function setData($configPage) {
-//Custom Image Upload
+    //Save Configuration
+
+    //Custom Image Upload
     if ($_FILES['customImageUpload'] != "") {
         $uploaddir = 'cache/custom/';
         $uploadfile = $uploaddir . basename($_FILES['customImageUpload']['name']);
@@ -276,82 +278,83 @@ function setData($configPage) {
     //Create New Config
     $newConfig = "
 <?php
-//PMPD Configuration
-\$pmpConfigVersion = '2';
-\$pmpUsername = '$_POST[pmpUsername]';
-\$pmpPassword = '$_POST[pmpPassword]';
-\$pmpClearImageCache = 'Yes'; //Default Yes
-\$pmpImageSpeed = '$_POST[pmpImageSpeed]'; //Default 30 Seconds
-\$pmpPosterDir = 'cache/posters/'; //Default cache/posters/ (FUTURE)
-\$pmpCustomDir = 'cache/custom/'; //Default cache/custom/ (FUTURE)
+  //PMPD Configuration
+  \$pmpConfigVersion = '2';
+  \$pmpUsername = '$_POST[pmpUsername]';
+  \$pmpPassword = '$_POST[pmpPassword]';
+  \$pmpClearImageCache = 'Yes'; //Default Yes
+  \$pmpImageSpeed = '$_POST[pmpImageSpeed]'; //Default 30 Seconds
+  \$pmpPosterDir = 'cache/posters/'; //Default cache/posters/ (FUTURE)
+  \$pmpCustomDir = 'cache/custom/'; //Default cache/custom/ (FUTURE)
 
-//Server Configuration
-\$plexServer = '$_POST[plexServer]';
-\$plexServerDirect = '$_POST[plexServerDirect]';
-\$plexToken = '$_POST[plexToken]';
-\$plexServerMovieSection = '$_POST[plexServerMovieSection]';
-\$cacheEnabled = '$_POST[cacheEnabled]'; //Default true
-\$plexServerSSL = '$_POST[plexServerSSL]'; //Default: Unchecked
+  //Server Configuration
+  \$plexServer = '$_POST[plexServer]';
+  \$plexServerDirect = '$_POST[plexServerDirect]';
+  \$plexToken = '$_POST[plexToken]';
+  \$plexServerMovieSection = '$_POST[plexServerMovieSection]';
+  \$cacheEnabled = '$_POST[cacheEnabled]'; //Default true
+  \$plexServerSSL = '$_POST[plexServerSSL]'; //Default: Unchecked
 
-//Client Configuration
-\$plexClient = '$_POST[plexClient]';
-\$plexClientName = '$_POST[plexClientName]';
+  //Client Configuration
+  \$plexClient = '$_POST[plexClient]';
+  \$plexClientName = '$_POST[plexClientName]';
 
-//Custom Image Configuration
-\$customImageEnabled = '$_POST[customImageEnabled]'; //Default: Disabled
-\$customImage = '$_POST[customImage]';
-\$customTopText = '$_POST[customTopText]';
-\$customTopFontSize = '$_POST[customTopFontSize]'; //Default: 55 (px)
-\$customTopFontColor = '$_POST[customTopFontColor]'; //Default: #FFFF00 (Yellow)
-\$customTopFontOutlineSize = '$_POST[customTopFontOutlineSize]'; //Default: 0 (px)
-\$customTopFontOutlineColor = '$_POST[customTopFontOutlineColor]'; //Default: #FFFF00 (Yellow)
-\$customBottomText = '$_POST[customBottomText]';
-\$customBottomFontSize = '$_POST[customBottomFontSize]'; //Default: 25 (px)
-\$customBottomFontColor = '$_POST[customBottomFontColor]'; //Default: #FFFFFF (White)
-\$customBottomFontOutlineSize = '$_POST[customBottomFontOutlineSize]'; //Default: 0 (px)
-\$customBottomFontOutlineColor = '$_POST[customBottomFontOutlineColor]'; //Default: #FFFFFF (White)
+  //Custom Image Configuration
+  \$customImageEnabled = '$_POST[customImageEnabled]'; //Default: Disabled
+  \$customImage = '$_POST[customImage]';
+  \$customTopText = '$_POST[customTopText]';
+  \$customTopFontSize = '$_POST[customTopFontSize]'; //Default: 55 (px)
+  \$customTopFontColor = '$_POST[customTopFontColor]'; //Default: #FFFF00 (Yellow)
+  \$customTopFontOutlineSize = '$_POST[customTopFontOutlineSize]'; //Default: 0 (px)
+  \$customTopFontOutlineColor = '$_POST[customTopFontOutlineColor]'; //Default: #FFFF00 (Yellow)
+  \$customBottomText = '$_POST[customBottomText]';
+  \$customBottomFontSize = '$_POST[customBottomFontSize]'; //Default: 25 (px)
+  \$customBottomFontColor = '$_POST[customBottomFontColor]'; //Default: #FFFFFF (White)
+  \$customBottomFontOutlineSize = '$_POST[customBottomFontOutlineSize]'; //Default: 0 (px)
+  \$customBottomFontOutlineColor = '$_POST[customBottomFontOutlineColor]'; //Default: #FFFFFF (White)
 
-//Coming Soon Configuration
-\$comingSoonTop = '$_POST[comingSoonTop]'; //Default: custom (title/summary/tagline/custom)
-\$comingSoonTopAutoScale = '$_POST[comingSoonTopAutoScale]'; //Default: false
-\$comingSoonTopText = '$_POST[comingSoonTopText]';
-\$comingSoonTopFontSize = '$_POST[comingSoonTopFontSize]'; //Default: 55 (px)
-\$comingSoonTopFontColor = '$_POST[comingSoonTopFontColor]'; //Default: #FFFF00 (Yellow)
-\$comingSoonTopFontOutlineSize = '$_POST[comingSoonTopFontOutlineSize]'; //Default: 0 (px)
-\$comingSoonTopFontOutlineColor = '$_POST[comingSoonTopFontOutlineColor]'; //Default: #FFFF00 (Yellow)
-\$showComingSoonInfo = '$_POST[showComingSoonInfo]'; //Default: false
-\$comingSoonBottom = '$_POST[comingSoonBottom]'; //Default: custom (title/summary/tagline/custom)
-\$comingSoonBottomText = '$_POST[comingSoonBottomText]';
-\$comingSoonBottomAutoScale = '$_POST[comingSoonBottomAutoScale]'; //Default: false
-\$comingSoonBottomFontSize = '$_POST[comingSoonBottomFontSize]'; //Default: 25 (px)
-\$comingSoonBottomFontColor = '$_POST[comingSoonBottomFontColor]'; //Default: #FFFFFF (White)
-\$comingSoonBottomFontOutlineSize = '$_POST[comingSoonBottomFontOutlineSize]'; //Default: 0 (px)
-\$comingSoonBottomFontOutlineColor = '$_POST[comingSoonBottomFontOutlineColor]'; //Default: #FFFFFF (White)
-\$comingSoonShowSelection = '$_POST[comingSoonShowSelection]'; //Default: unwatched
+  //Coming Soon Configuration
+  \$comingSoonTop = '$_POST[comingSoonTop]'; //Default: custom (title/summary/tagline/custom)
+  \$comingSoonTopAutoScale = '$_POST[comingSoonTopAutoScale]'; //Default: false
+  \$comingSoonTopText = '$_POST[comingSoonTopText]';
+  \$comingSoonTopFontSize = '$_POST[comingSoonTopFontSize]'; //Default: 55 (px)
+  \$comingSoonTopFontColor = '$_POST[comingSoonTopFontColor]'; //Default: #FFFF00 (Yellow)
+  \$comingSoonTopFontOutlineSize = '$_POST[comingSoonTopFontOutlineSize]'; //Default: 0 (px)
+  \$comingSoonTopFontOutlineColor = '$_POST[comingSoonTopFontOutlineColor]'; //Default: #FFFF00 (Yellow)
+  \$showComingSoonInfo = '$_POST[showComingSoonInfo]'; //Default: false
+  \$comingSoonBottom = '$_POST[comingSoonBottom]'; //Default: custom (title/summary/tagline/custom)
+  \$comingSoonBottomText = '$_POST[comingSoonBottomText]';
+  \$comingSoonBottomAutoScale = '$_POST[comingSoonBottomAutoScale]'; //Default: false
+  \$comingSoonBottomFontSize = '$_POST[comingSoonBottomFontSize]'; //Default: 25 (px)
+  \$comingSoonBottomFontColor = '$_POST[comingSoonBottomFontColor]'; //Default: #FFFFFF (White)
+  \$comingSoonBottomFontOutlineSize = '$_POST[comingSoonBottomFontOutlineSize]'; //Default: 0 (px)
+  \$comingSoonBottomFontOutlineColor = '$_POST[comingSoonBottomFontOutlineColor]'; //Default: #FFFFFF (White)
+  \$comingSoonShowSelection = '$_POST[comingSoonShowSelection]'; //Default: unwatched
 
-//Now Showing Configuration
-\$nowShowingTop = '$_POST[nowShowingTop]'; //Default: custom (title/summary/tagline/custom)
-\$nowShowingTopAutoScale = '$_POST[nowShowingTopAutoScale]'; //Default: false
-\$nowShowingTopText = '$_POST[nowShowingTopText]';
-\$nowShowingTopFontSize = '$_POST[nowShowingTopFontSize]'; //Default: 55 (px)
-\$nowShowingTopFontColor = '$_POST[nowShowingTopFontColor]'; //Default: #FFFF00 (Yellow)
-\$nowShowingTopFontOutlineSize = '$_POST[nowShowingTopFontOutlineSize]'; //Default: 0 (px)
-\$nowShowingTopFontOutlineColor = '$_POST[nowShowingTopFontOutlineColor]'; //Default: #FFFF00 (Yellow)
-\$nowShowingBottom = '$_POST[nowShowingBottom]'; //Default: title (title/summary/tagline/custom)
-\$nowShowingBottomText = '$_POST[nowShowingBottomText]';
-\$nowShowingBottomAutoScale = '$_POST[nowShowingBottomAutoScale]'; //Default: false
-\$nowShowingBottomFontSize = '$_POST[nowShowingBottomFontSize]'; //Default: 25 (px)
-\$nowShowingBottomFontColor = '$_POST[nowShowingBottomFontColor]'; //Default: #FFFFFF (White)
-\$nowShowingBottomFontOutlineSize = '$_POST[nowShowingBottomFontOutlineSize]'; //Default: 0 (px)
-\$nowShowingBottomFontOutlineColor = '$_POST[nowShowingBottomFontOutlineColor]'; //Default: #FFFFFF (White)
+  //Now Showing Configuration
+  \$nowShowingTop = '$_POST[nowShowingTop]'; //Default: custom (title/summary/tagline/custom)
+  \$nowShowingTopAutoScale = '$_POST[nowShowingTopAutoScale]'; //Default: false
+  \$nowShowingTopText = '$_POST[nowShowingTopText]';
+  \$nowShowingTopFontSize = '$_POST[nowShowingTopFontSize]'; //Default: 55 (px)
+  \$nowShowingTopFontColor = '$_POST[nowShowingTopFontColor]'; //Default: #FFFF00 (Yellow)
+  \$nowShowingTopFontOutlineSize = '$_POST[nowShowingTopFontOutlineSize]'; //Default: 0 (px)
+  \$nowShowingTopFontOutlineColor = '$_POST[nowShowingTopFontOutlineColor]'; //Default: #FFFF00 (Yellow)
+  \$nowShowingBottom = '$_POST[nowShowingBottom]'; //Default: title (title/summary/tagline/custom)
+  \$nowShowingBottomText = '$_POST[nowShowingBottomText]';
+  \$nowShowingBottomAutoScale = '$_POST[nowShowingBottomAutoScale]'; //Default: false
+  \$nowShowingBottomFontSize = '$_POST[nowShowingBottomFontSize]'; //Default: 25 (px)
+  \$nowShowingBottomFontColor = '$_POST[nowShowingBottomFontColor]'; //Default: #FFFFFF (White)
+  \$nowShowingBottomFontOutlineSize = '$_POST[nowShowingBottomFontOutlineSize]'; //Default: 0 (px)
+  \$nowShowingBottomFontOutlineColor = '$_POST[nowShowingBottomFontOutlineColor]'; //Default: #FFFFFF (White)
 
-//Misc Configuration
-\$pmpDisplayProgress = '$_POST[pmpDisplayProgress]'; //Default: Disabled
-\$pmpDisplayProgressSize = '$_POST[pmpDisplayProgressSize]'; //Default: 5 (px)
-\$pmpDisplayProgressColor = '$_POST[pmpDisplayProgressColor]'; //Default: #FFFF00 (Yellow)
-\$pmpDisplayClock = 'Disabled'; //Default: Disabled (FUTURE)
-\$pmpBottomScroll = '$_POST[pmpBottomScroll]'; //Default: Disabled
-\$pmpBottomScrollSpeed = '1'; //Default: 1 (FUTURE)";
+  //Misc Configuration
+  \$pmpDisplayProgress = '$_POST[pmpDisplayProgress]'; //Default: Disabled
+  \$pmpDisplayProgressSize = '$_POST[pmpDisplayProgressSize]'; //Default: 5 (px)
+  \$pmpDisplayProgressColor = '$_POST[pmpDisplayProgressColor]'; //Default: #FFFF00 (Yellow)
+  \$pmpDisplayClock = 'Disabled'; //Default: Disabled (FUTURE)
+  \$pmpBottomScroll = '$_POST[pmpBottomScroll]'; //Default: Disabled
+  \$pmpBottomScrollSpeed = '1'; //Default: 1 (FUTURE)
+?>";
 
     echo $newConfig;
     fwrite($myfile, $newConfig);
