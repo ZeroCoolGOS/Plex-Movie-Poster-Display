@@ -1,0 +1,15 @@
+---
+- name: Install docker module
+  apt:
+    name: python-docker
+    state: present
+
+- name: Start/Restart a container
+  community.general.docker_container:
+    name: plexmovieposterdisplay_pyinstance
+    image: plexmovieposterdisplay_py:2.2.0
+    state: started
+    # restart: yes
+    ports:
+     # Publish container port 9000 as host port 8080
+     - "80:80"

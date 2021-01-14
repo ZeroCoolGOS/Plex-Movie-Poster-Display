@@ -1,0 +1,9 @@
+---
+- name: Start Plex Movie Poster (Docker Image)
+  hosts: LocalHost
+  remote_user: pi
+  become: yes
+
+  roles:
+    - role: Docker
+      tags: ['Docker']

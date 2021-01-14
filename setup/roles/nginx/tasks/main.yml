@@ -1,0 +1,25 @@
+---
+
+- name: Add index.php to index list
+  lineinfile:
+    dest: "sites-enabled/default"
+    regexp:
+    line:
+
+# - name: Uncomment
+
+# - name: setup php info
+
+# - name: Move Files
+
+# - name: Update file
+
+
+
+- name: restart nginx
+  service:
+    name: nginx
+    state: restarted
+
+
+- name: 

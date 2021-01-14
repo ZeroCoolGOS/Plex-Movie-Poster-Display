@@ -1,0 +1,25 @@
+---
+- name: Ensure nginx is installed
+  apt:
+    name: nginx
+    state: present
+
+- name: Ensure php-fpm is installed
+  apt:
+    name: php-fpm
+    state: present
+
+- name: Ensure php-xml is installed
+  apt:
+    name: php-xml
+    state: present
+
+# - name: Ensure git is installed
+#   apt:
+#     name: git
+#     state: present
+
+- name: Ensure unclutter is installed
+  apt:
+    name: unclutter
+    state: present
