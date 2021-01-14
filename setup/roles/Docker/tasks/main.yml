@@ -6,8 +6,8 @@
 
 - name: Start/Restart a container
   community.general.docker_container:
-    name: plexmovieposterdisplay_pyinstance
-    image: plexmovieposterdisplay_py:2.2.0
+    name: plexmovieposterdisplaylinuxinstance
+    image: plexmovieposterdisplaylinux:2.5.0
     state: started
     # restart: yes
     ports:
