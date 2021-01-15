@@ -1,0 +1,5 @@
+---
+nginx_path: '/etc/nginx'
+nginx_sites: '{{ nginx_path }}/sites-available'
+nginx_config: '{{ nginx_sites }}/default'
+nginx_siteroot: '/var/www/html'

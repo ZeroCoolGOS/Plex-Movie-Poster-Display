@@ -1,12 +1,15 @@
 ---
 - name: Setup Plex Movie Poster
   hosts: LocalHost
-  remote_user: pi
+  remote_user: gschroeder
   become: yes
 
   roles:
-    - role: setup
-      tags: ['setup']
+    # - role: setup
+    #   tags: ['setup']
 
-    - role: prereq
-      tags: ['prereq']
+    # - role: prereq
+    #   tags: ['prereq']
+
+    - role: nginx
+      tags: ['nginx']

@@ -1,25 +1,63 @@
 ---
-
-- name: Add index.php to index list
-  lineinfile:
-    dest: "sites-enabled/default"
-    regexp:
-    line:
+# - name: Add index.php to index list
+#   lineinfile:
+#     dest: "{{ nginx_path }}default"
+#     regexp:
+#     line:
+#   notify: restart nginx
 
 # - name: Uncomment
+#   lineinfile:
+#     path:
+#     regexp: '#location ~ \\.php\$ {'
+#     replace: 'location ~ \\.php\$ {'
+
+- name: Uncomment - php location
+  replace:
+    path: "{{ nginx_config }}"
+    regexp: '#(.*location ~ \\.php.*{)'
+    replace: '\1'
+    backup: yes
+
+- name: Uncomment - fastcgi-php.conf
+  replace:
+    path: "{{ nginx_config }}"
+    regexp: '#(.*include snippets\/fastcgi-php.conf.*;)'
+    replace: '\1'
+    backup: yes
+
+- name: Uncomment - Fastcgi pass
+  replace:
+    path: "{{ nginx_config }}"
+    regexp: '#(.*fastcgi_pass\s*unix:\/var\/run\/\php\/php.*;)'
+    replace: '\1'
+    backup: yes
+
+
+- name: Uncomment - curl
+  replace:
+    path: "{{ nginx_config }}"
+    after: '#.*fastcgi_pass [0-9].*;'
+    before: '\n.*?#.*deny access to.*'
+    # before: '(\n.*?)'
+    regexp: '#(.*})'
+    replace: '\1'
+    backup: yes
+
+
+
+
+
+
+
 
 # - name: setup php info
 
 # - name: Move Files
 
 # - name: Update file
-
-
-
-- name: restart nginx
-  service:
-    name: nginx
-    state: restarted
-
-
-- name: 
+#   lineinfile:
+#     state: present
+#     path: /var/www/html/index.php
+#     line: '<?php echo phpinfo(); ?>'
+#     insertbefore: BOF
