@@ -1,16 +1,12 @@
 ---
-# - name: Add index.php to index list
-#   lineinfile:
-#     dest: "{{ nginx_path }}default"
-#     regexp:
-#     line:
-#   notify: restart nginx
+# Setup PHP with NGINX
 
-# - name: Uncomment
-#   lineinfile:
-#     path:
-#     regexp: '#location ~ \\.php\$ {'
-#     replace: 'location ~ \\.php\$ {'
+- name: Add index.php to index list
+  replace: 
+    path: "{{ nginx_config }}"
+    regexp: '^(\s+)(index index.html index.htm.*;)'
+    replace: '\1index.php \2'
+    backup: yes
 
 - name: Uncomment - php location
   replace:
@@ -33,27 +29,16 @@
     replace: '\1'
     backup: yes
 
-
 - name: Uncomment - curl
   replace:
     path: "{{ nginx_config }}"
-    after: '#.*fastcgi_pass [0-9].*;'
+    after: '#.*fastcgi_pass [0-9].*;\n'
     before: '\n.*?#.*deny access to.*'
-    # before: '(\n.*?)'
-    regexp: '#(.*})'
+    regexp: '#(.*})$'
     replace: '\1'
     backup: yes
 
-
-
-
-
-
-
-
-# - name: setup php info
-
-# - name: Move Files
+# Setup PHP information file.
 
 # - name: Update file
 #   lineinfile:
