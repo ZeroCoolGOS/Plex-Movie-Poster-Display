@@ -6,8 +6,3 @@ nginx_sites_config: '{{ nginx_sites }}/default'
 nginx_siteroot: '/var/www/html'
 nginx_siteroot_backup: '{{ nginx_siteroot }}/_backup'
 nginx_default_HTML: 'index.nginx-debian.html'
-
-PHP_version: '7.0'
-
-php_path: '/etc/php/{{ PHP_version }}/fpm'
-php_config: '{{ php_path }}/php.ini'

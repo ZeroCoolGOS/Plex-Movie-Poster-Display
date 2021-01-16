@@ -1,0 +1,9 @@
+---
+# tasks file for php
+
+- name: Increase PHP upload_max_filesize
+  replace:
+    path: "{{ php_config }}"
+    regexp: '^(upload_max_filesize =)(.*)'
+    replace: '\1 25M'
+    backup: yes

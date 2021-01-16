@@ -1,0 +1,8 @@
+---
+# vars file for git
+
+repo_name: 'Plex Movie Poster Display'
+repo_name_clone: 'Plex-Movie-Poster-Display'
+repo_url: 'https://github.com/MattsShack/Plex-Movie-Poster-Display.git'
+repo_tmp: '~/Downloads/_git/{{ repo_name_clone }}'
+repo_branch: 'dev'

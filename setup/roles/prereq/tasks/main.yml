@@ -14,10 +14,10 @@
     name: php-xml
     state: present
 
-# - name: Ensure git is installed
-#   apt:
-#     name: git
-#     state: present
+- name: Ensure git is installed
+  apt:
+    name: git
+    state: present
 
 - name: Ensure unclutter is installed
   apt:

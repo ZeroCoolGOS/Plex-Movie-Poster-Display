@@ -1,0 +1,16 @@
+---
+# tasks file for git
+
+- name: Ensures {{ repo_tmp }} dir exists
+  file: path={{repo_tmp}} state=directory
+  become: false
+
+
+- name: "Clone Repo: {{repo_name}}"
+  git:
+    repo: '{{ repo_url }}'
+    dest: '{{ repo_tmp }}'
+    clone: yes
+    update: yes
+    version: '{{ repo_branch }}'
+  become: false

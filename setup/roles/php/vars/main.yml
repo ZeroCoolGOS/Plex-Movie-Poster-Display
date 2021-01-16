@@ -1,0 +1,6 @@
+---
+# vars file for php
+
+php_version: '7.0'
+php_path: '/etc/php/{{ php_version }}/fpm'
+php_config: '{{ php_path }}/php.ini'

@@ -67,7 +67,6 @@
   notify: 
     - restart nginx
 
-
 - name: Increase NGINX File Size Limitation
   lineinfile:
     state: present
@@ -75,15 +74,6 @@
     # regexp: '^(\s+)(types_hash_max_size 2048;)'
     insertafter: '^(\s+)(types_hash_max_size 2048;)'
     line: "\tclient_max_body_size 25M;"
+  notify: 
+    - restart nginx
 
-- name: Increase PHP upload_max_filesize
-  replace:
-    path: "{{ php_config }}"
-    regexp: '^(upload_max_filesize =)(.*)'
-    replace: '\1 25M'
-    backup: yes
-
-- name: "Restart: nginx"
-  service:
-    name: nginx
-    state: restarted
