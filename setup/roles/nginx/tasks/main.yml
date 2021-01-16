@@ -3,35 +3,35 @@
 
 - name: Add index.php to index list
   replace: 
-    path: "{{ nginx_config }}"
-    regexp: '^(\s+)(index index.html index.htm.*;)'
-    replace: '\1index.php \2'
+    path: "{{ nginx_sites_config }}"
+    regexp: '^(\s+)(index index.html index.htm.*html)(;)'
+    replace: '\1\2 index.php\3'
     backup: yes
 
 - name: Uncomment - php location
   replace:
-    path: "{{ nginx_config }}"
+    path: "{{ nginx_sites_config }}"
     regexp: '#(.*location ~ \\.php.*{)'
     replace: '\1'
     backup: yes
 
 - name: Uncomment - fastcgi-php.conf
   replace:
-    path: "{{ nginx_config }}"
+    path: "{{ nginx_sites_config }}"
     regexp: '#(.*include snippets\/fastcgi-php.conf.*;)'
     replace: '\1'
     backup: yes
 
 - name: Uncomment - Fastcgi pass
   replace:
-    path: "{{ nginx_config }}"
+    path: "{{ nginx_sites_config }}"
     regexp: '#(.*fastcgi_pass\s*unix:\/var\/run\/\php\/php.*;)'
     replace: '\1'
     backup: yes
 
 - name: Uncomment - curl
   replace:
-    path: "{{ nginx_config }}"
+    path: "{{ nginx_sites_config }}"
     after: '#.*fastcgi_pass [0-9].*;\n'
     before: '\n.*?#.*deny access to.*'
     regexp: '#(.*})$'
@@ -40,9 +40,50 @@
 
 # Setup PHP information file.
 
-# - name: Update file
-#   lineinfile:
-#     state: present
-#     path: /var/www/html/index.php
-#     line: '<?php echo phpinfo(); ?>'
-#     insertbefore: BOF
+- name: Ensures {{ nginx_siteroot_backup }} dir exists
+  file: path={{nginx_siteroot_backup}} state=directory
+
+- name: "State Check: {{ nginx_default_HTML }}"
+  stat: path={{ nginx_siteroot }}/{{ nginx_default_HTML }}
+  register: defaultHTML_stat
+
+- name: "Copy: {{ nginx_default_HTML }}"
+  copy:
+    src: "{{ nginx_siteroot }}/{{ nginx_default_HTML }}"
+    dest: "{{ nginx_siteroot_backup }}/{{ nginx_default_HTML }}"
+    remote_src: yes
+  when: defaultHTML_stat.stat.exists
+
+- name: "Rename: {{ nginx_default_HTML }}"
+  command: "mv {{ nginx_siteroot }}/{{ nginx_default_HTML }} {{ nginx_siteroot }}/index.php"
+  when: defaultHTML_stat.stat.exists
+
+- name: "Update: index.php"
+  lineinfile:
+    state: present
+    path: "{{ nginx_siteroot }}/index.php"
+    line: '<?php echo phpinfo(); ?>'
+    insertbefore: BOF
+  notify: 
+    - restart nginx
+
+
+- name: Increase NGINX File Size Limitation
+  lineinfile:
+    state: present
+    path: "{{ nginx_config }}"
+    # regexp: '^(\s+)(types_hash_max_size 2048;)'
+    insertafter: '^(\s+)(types_hash_max_size 2048;)'
+    line: "\tclient_max_body_size 25M;"
+
+- name: Increase PHP upload_max_filesize
+  replace:
+    path: "{{ php_config }}"
+    regexp: '^(upload_max_filesize =)(.*)'
+    replace: '\1 25M'
+    backup: yes
+
+- name: "Restart: nginx"
+  service:
+    name: nginx
+    state: restarted
