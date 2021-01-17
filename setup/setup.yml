@@ -19,3 +19,21 @@
 
     - role: git
       tags: ['git']
+
+  tasks:
+    - name: "Copy: Site Pages (*.php)"
+      copy:
+        src: "{{ repo_tmp }}/"
+        dest: "{{ nginx_siteroot }}"
+        remote_src: yes
+      with_items:
+        ['*.php']
+      # become: false
+    - name: "Set Security"
+      file:
+        path: "{{ nginx_siteroot }}"
+        owner: 'gschroeder'
+        group: 'www-data'
+        mode: '0774'
+        state: directory
+        recurse: yes

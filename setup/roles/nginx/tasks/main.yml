@@ -58,14 +58,14 @@
   command: "mv {{ nginx_siteroot }}/{{ nginx_default_HTML }} {{ nginx_siteroot }}/index.php"
   when: defaultHTML_stat.stat.exists
 
-- name: "Update: index.php"
-  lineinfile:
-    state: present
-    path: "{{ nginx_siteroot }}/index.php"
-    line: '<?php echo phpinfo(); ?>'
-    insertbefore: BOF
-  notify: 
-    - restart nginx
+# - name: "Update: index.php"
+#   lineinfile:
+#     state: present
+#     path: "{{ nginx_siteroot }}/index.php"
+#     line: '<?php echo phpinfo(); ?>'
+#     insertbefore: BOF
+#   notify: 
+#     - restart nginx
 
 - name: Increase NGINX File Size Limitation
   lineinfile:
