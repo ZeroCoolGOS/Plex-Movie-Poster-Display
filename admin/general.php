@@ -1,6 +1,6 @@
 <?php
 //For feedback, suggestions, or issues please visit https://www.mattsshack.com/plex-movie-poster-display/
-include_once('loginCheck.php');
+// include_once('loginCheck.php');
 include 'setData.php';
 include 'PMPInfo.php';
 include 'PMPReleaseNotes.php';
@@ -121,6 +121,7 @@ uploadConfig();
                                             </button>
                                         </form>
                                     </div>
+
                                     <div class="form-group ">
                                         <h4 class="version-header">
                                             <span class="version">Version <?php echo $version;?></span>
@@ -176,124 +177,124 @@ uploadConfig();
                                                 </span>
                                             </span>
                                         </h4>
+                                    </div>
+
+                                    <div class="form-group">
                                         <hr>
+                                        <h4>
+                                            Statistics:
+                                        </h4>
                                     </div>
-                                    <div class="format-group row">
-                                        <table style="width: 50%; margin-left:1em;">
-                                            <tr>
-                                                <td colspan="3" style="text-align:Left;">
-                                                    <h4>
-                                                        Statistics
-                                                    </h4>
-                                                </td>
-                                            </tr>
-                                            <tr>    
-                                                <td style="vertical-align:top; padding: 0px;">
-                                                    <h4>
-                                                        Posters:
-                                                    </h4>
-                                                    <small class="text-muted">Items in cache/posters</small>
-                                                </td>
-                                                <td style="vertical-align:top; padding: 0px; text-align: center;">
-                                                    <h4>
-                                                        <?php echo $posterCount; ?>
-                                                    </h4>
-                                                </td>
-                                                <td style="padding: 0px;">
-                                                    <form method="post" class="needs-validation" novalidate>
-                                                        <label for="clearPosterCache" style="cursor: pointer;">
-                                                            <div class= "label label-btn label-primary">
-                                                                <i class="label-icon glyphicon remove circle"></i>
-                                                                Clear Cache
-                                                            </div>
-                                                        </label>
-                                                        <button name="clearPosterCache" id="clearPosterCache" type="submit" class="btn btn-danger btn-sm" value="clearPosterCache" style="opacity: 0; display: inline;">
-                                                            Clear
-                                                        </button>
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="vertical-align:top; padding: 0px;">
-                                                    <h4>
-                                                        Custom Images:
-                                                    </h4> 
-                                                    <small class="text-muted">Items in cache/custom</small>
-                                                </td>
-                                                <td style="vertical-align:top; padding: 0px; text-align: center;">
-                                                    <h4>
-                                                        <?php echo $customCount; ?>
-                                                    </h4>
-                                                </td>
-                                                <td style="padding: 0px;">
-                                                    <form method="post" class="needs-validation" novalidate>
-                                                        <label for="clearCustomCache" style="cursor: pointer;">
-                                                            <div class= "label label-btn label-primary">
-                                                                <i class="label-icon glyphicon remove circle"></i>
-                                                                Clear Cache
-                                                            </div>
-                                                        </label>
-                                                        <button name="clearCustomCache" id="clearCustomCache" type="submit" class="btn btn-danger btn-sm" value="clearCustomCache" style="opacity: 0; display: inline;">
-                                                            Clear
-                                                        </button>
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="vertical-align:top; padding: 0px;">
-                                                    <h4>
-                                                        Free Space:
-                                                    </h4>
-                                                    <small class="text-muted">Free space on /</small>
-                                                </td>
-                                                <td style="vertical-align:top; padding: 0px; text-align: center;">
-                                                    <h4>
-                                                        <?php echo fixupSize(disk_free_space("/")); ?>
-                                                    </h4>
-                                                </td>
-                                            </tr>
-                                        </table>
+
+                                    <div class="form-group">
+                                        Posters:
+
+                                        <div style="display: inline; padding-left:8.75em">
+                                            <?php echo $posterCount; ?>
+                                        </div>
+
+                                        <form method="post" class="needs-validation" novalidate style="display: inline; padding-left:5em">
+                                            <label for="clearPosterCache" style="cursor: pointer;">
+                                                <div class= "label label-btn label-primary">
+                                                    <i class="label-icon glyphicon remove circle"></i>
+                                                    Clear Cache
+                                                </div>
+                                            </label>
+                                            <button name="clearPosterCache" id="clearPosterCache" type="submit" class="btn btn-danger btn-sm" value="clearPosterCache" style="opacity: 0; display: inline;">
+                                                Clear
+                                            </button>
+                                        </form>
+
+                                        <p class="help-block">
+                                            <small class="text-muted">Items in cache/posters</small>
+                                        </p>
                                     </div>
+
+                                    <div class="form-group">
+                                        Custom Images:
+
+                                        <div style="display: inline; padding-left:5em">
+                                            <?php echo $customCount; ?>
+                                        </div>
+
+                                        <form method="post" class="needs-validation" novalidate style="display: inline; padding-left:5em">
+                                            <label for="clearPosterCache" style="cursor: pointer;">
+                                                <div class= "label label-btn label-primary">
+                                                    <i class="label-icon glyphicon remove circle"></i>
+                                                    Clear Cache
+                                                </div>
+                                            </label>
+                                            <button name="clearPosterCache" id="clearPosterCache" type="submit" class="btn btn-danger btn-sm" value="clearPosterCache" style="opacity: 0; display: inline;">
+                                                Clear
+                                            </button>
+                                        </form>
+
+                                        <p class="help-block">
+                                            <small class="text-muted">Items in cache/custom</small>
+                                        </p>
+                                    </div>
+
+                                    <div class="form-group">
+                                        Free Space:
+
+                                        <div style="display: inline; padding-left:5em">
+                                            <?php echo fixupSize(disk_free_space("/")); ?>
+                                        </div>
+
+                                        <p class="help-block">
+                                            <small class="text-muted">Free space on /</small>
+                                        </p>
+                                    </div>
+
                                     <div class="format-group advanced-setting">
                                         <hr>
-                                        <h3>Configuration Settings:</h3>
+                                        <h4>
+                                            Configuration Settings:
+                                        </h4>
                                     </div>
-                                    <div class="format-group advanced-setting row">
-                                        <span>
-                                            <div class="col-md-6 mb-3">
-                                                <a href="general.php?file=config.php" class="available-updates-btn label label-btn label-primary">
-                                                    <i class="label-icon glyphicon download"></i>
-                                                    Export Configuration
-                                                </a>
-                                            </div>
-                                        </span>
-                                    </div>
-                                    <div class="format-group advanced-setting" style="margin-left: -15px;">
-                                    <br>
-                                        <span>
-                                            <div class="col-md-6 mb-3">
-                                                <form action="general.php" method="post" enctype="multipart/form-data">
-                                                    <label for="fileToUpload" style="cursor: pointer;">
-                                                        <div class= "label label-btn label-primary">
-                                                            <i class="label-icon glyphicon file"></i>
-                                                            Browse Configuration
-                                                        </div>
-                                                    </label>
-                                                    <input type="file" name="fileToUpload" id="fileToUpload" accept=".php" style="opacity: 0; display: inline;" onchange="showName()">
-                                                    <h4>
-                                                        <div id="configFileName" >Restore Configuration File: <i>None</i></div>
-                                                    </h4>
-                                                    <label for="submitConfig" style="cursor: pointer;">
-                                                        <div class= "label label-btn label-primary">
-                                                            <i class="label-icon glyphicon upload"></i>
-                                                            Restore Configuration
-                                                        </div>
-                                                    </label>
-                                                    <input type="submit" value="Restore Configuration" name="restoreConfig" id="submitConfig" style="opacity: 0;">
-                                                </form>
 
-                                            </div>
-                                        </span>
+                                    <div class="format-group advanced-setting">
+                                        Export Configuration:
+                                        <br>
+
+                                        <a href="general.php?file=config.php" class="available-updates-btn label label-btn label-primary">
+                                            <i class="label-icon glyphicon download"></i>
+                                            Export Configuration
+                                        </a>
+
+                                        <p class="help-block">
+                                            <small class="text-muted">Export Current Configuration</small>
+                                        </p>
+                                    </div>
+
+                                    <div class="format-group advanced-setting">
+                                        Import Configuration:
+
+                                        <form action="general.php" method="post" enctype="multipart/form-data">
+                                            <label for="fileToUpload" style="cursor: pointer;">
+                                                <div class= "label label-btn label-primary">
+                                                    <i class="label-icon glyphicon file"></i>
+                                                    Browse Configuration
+                                                </div>
+                                            </label>
+
+                                            <input type="file" name="fileToUpload" id="fileToUpload" accept=".php" style="opacity: 0; display: inline;" onchange="showName()">
+
+                                            <p>
+                                                <div id="configFileName" style="font-size: smaller;">
+                                                    Restore Configuration File:
+                                                    <i>None</i>
+                                                </div>
+                                            </p>                                            
+
+                                            <label for="submitConfig" style="cursor: pointer;">
+                                                <div class= "label label-btn label-primary">
+                                                    <i class="label-icon glyphicon upload"></i>
+                                                    Restore Configuration
+                                                </div>
+                                            </label>
+                                            <input type="submit" value="Restore Configuration" name="restoreConfig" id="submitConfig" style="opacity: 0;">
+                                        </form>
                                     </div>
                                 <!-- SEGMENT BLOCK END -->
 
