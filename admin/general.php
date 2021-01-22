@@ -1,11 +1,13 @@
 <?php
 //For feedback, suggestions, or issues please visit https://www.mattsshack.com/plex-movie-poster-display/
-// include_once('loginCheck.php');
+include_once('loginCheck.php');
 include 'setData.php';
 include 'PMPInfo.php';
 include 'PMPReleaseNotes.php';
 include 'CommonLib.php';
 include '../config.php';
+
+$CurrentPage = basename(__FILE__);
 
 //Save Configuration
 if (!empty($_POST['saveConfig'])) {
@@ -18,6 +20,7 @@ PosterCache();
 //Clear Poster Cache Directory
 if (!empty($_POST['clearPosterCache'])) {
     PosterCacheClear();
+    header("Location: $CurrentPage");
 }
 
 //Count Items in Custom Images
@@ -26,11 +29,18 @@ CustomCache();
 //Clear Custom Cache Directory
 if (!empty($_POST['clearCustomCache'])) {
     CustomCacheClear();
+    header("Location: $CurrentPage");
 }
 
 if (!empty($_GET['file'])) {
     exportConfig(basename($_GET['file']));
 }
+
+if(!empty($_POST['pmplogout'])) {
+    header("Location: logout.php");
+}
+
+uploadConfig();
 
 ?>
 
@@ -101,15 +111,15 @@ if (!empty($_GET['file'])) {
                                             <div class="ClaimedServer-messageHeader-3uzatL">Server signed in as</div>
                                             <div class="ClaimedServer-messageDetails-3lEkVI"><?php echo $pmpUsername?></div>
                                         </div>
-                                        <!-- NOTE: Sign Out coming soon -->
-                                        <!-- <button data-uid="id-1157" role="button" class="ClaimedServer-button-36k0Q0 SpinnerButton-button-1A8EcL Button-button-2kT68l Link-link-2n0yJn SpinnerButton-button-1A8EcL Button-button-2kT68l Link-link-2n0yJn  Button-button-2kT68l Link-link-2n0yJn Button-default--yDCH5 Button-medium-3g45_Q Link-link-2n0yJn Link-default-2XA2bN     " type="button">
-                                            <span class="SpinnerButton-spinnerContainer-1NdZWc">
-                                                <div class="SpinnerButton-spinner-1TgDPI Spinner-spinner-Niere7 spin-spin-2kLwt_ Spinner-small-3PStHE Spinner-spinner-Niere7 spin-spin-2kLwt_" aria-label="Loading" style="border-top-color: rgb(255, 255, 255); border-left-color: rgb(255, 255, 255);">
-                                                </div>
-                                            </span>
-                                            <span class="SpinnerButton-label-qxG01S">Sign Out</span>
-                                        </button> -->
-                                        </div>
+                                        <form method="post" class="needs-validation" novalidate>
+                                            <button id="pmplogout" name="pmplogout" value="pmplogout" role="button" class="ClaimedServer-button-36k0Q0 SpinnerButton-button-1A8EcL Button-button-2kT68l Link-link-2n0yJn SpinnerButton-button-1A8EcL Button-button-2kT68l Link-link-2n0yJn  Button-button-2kT68l Link-link-2n0yJn Button-default--yDCH5 Button-medium-3g45_Q Link-link-2n0yJn Link-default-2XA2bN     ">
+                                                <span class="SpinnerButton-spinnerContainer-1NdZWc">
+                                                    <div class="SpinnerButton-spinner-1TgDPI Spinner-spinner-Niere7 spin-spin-2kLwt_ Spinner-small-3PStHE Spinner-spinner-Niere7 spin-spin-2kLwt_" aria-label="Loading" style="border-top-color: rgb(255, 255, 255); border-left-color: rgb(255, 255, 255);">
+                                                    </div>
+                                                </span>
+                                                <span class="SpinnerButton-label-qxG01S">Sign Out</span>
+                                            </button>
+                                        </form>
                                     </div>
                                     <div class="form-group ">
                                         <h4 class="version-header">
@@ -166,51 +176,83 @@ if (!empty($_GET['file'])) {
                                                 </span>
                                             </span>
                                         </h4>
-                                    </div>
-                                    <div class="form-group">
                                         <hr>
-                                        <h3>Stats:</h3>
                                     </div>
                                     <div class="format-group row">
-                                        <div class="col-md-6 mb-3">
-                                            Posters<br>
-                                            <small class="text-muted">Items in cache/posters</small>
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <?php echo $posterCount; ?>
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <form method="post" class="needs-validation" novalidate>
-                                                <button name="clearPosterCache" type="submit" class="btn btn-danger btn-sm"
-                                                        value="clearPosterCache">Clear
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="format-group row">
-                                        <div class="col-md-6 mb-3">
-                                            Custom Images<br>
-                                            <small class="text-muted">Items in cache/custom</small>
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <?php echo $posterCount; ?>
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <form method="post" class="needs-validation" novalidate>
-                                                <button name="clearCustomCache" type="submit" class="btn btn-danger btn-sm"
-                                                        value="clearCustomCache">Clear
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="format-group row">
-                                        <div class="col-md-6 mb-3">
-                                            Free Space<br>
-                                            <small class="text-muted">Free space on /</small>
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <span><?php echo fixupSize(disk_free_space("/")); ?></span>
-                                        </div>
+                                        <table style="width: 50%; margin-left:1em;">
+                                            <tr>
+                                                <td colspan="3" style="text-align:Left;">
+                                                    <h4>
+                                                        Statistics
+                                                    </h4>
+                                                </td>
+                                            </tr>
+                                            <tr>    
+                                                <td style="vertical-align:top; padding: 0px;">
+                                                    <h4>
+                                                        Posters:
+                                                    </h4>
+                                                    <small class="text-muted">Items in cache/posters</small>
+                                                </td>
+                                                <td style="vertical-align:top; padding: 0px; text-align: center;">
+                                                    <h4>
+                                                        <?php echo $posterCount; ?>
+                                                    </h4>
+                                                </td>
+                                                <td style="padding: 0px;">
+                                                    <form method="post" class="needs-validation" novalidate>
+                                                        <label for="clearPosterCache" style="cursor: pointer;">
+                                                            <div class= "label label-btn label-primary">
+                                                                <i class="label-icon glyphicon remove circle"></i>
+                                                                Clear Cache
+                                                            </div>
+                                                        </label>
+                                                        <button name="clearPosterCache" id="clearPosterCache" type="submit" class="btn btn-danger btn-sm" value="clearPosterCache" style="opacity: 0; display: inline;">
+                                                            Clear
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="vertical-align:top; padding: 0px;">
+                                                    <h4>
+                                                        Custom Images:
+                                                    </h4> 
+                                                    <small class="text-muted">Items in cache/custom</small>
+                                                </td>
+                                                <td style="vertical-align:top; padding: 0px; text-align: center;">
+                                                    <h4>
+                                                        <?php echo $customCount; ?>
+                                                    </h4>
+                                                </td>
+                                                <td style="padding: 0px;">
+                                                    <form method="post" class="needs-validation" novalidate>
+                                                        <label for="clearCustomCache" style="cursor: pointer;">
+                                                            <div class= "label label-btn label-primary">
+                                                                <i class="label-icon glyphicon remove circle"></i>
+                                                                Clear Cache
+                                                            </div>
+                                                        </label>
+                                                        <button name="clearCustomCache" id="clearCustomCache" type="submit" class="btn btn-danger btn-sm" value="clearCustomCache" style="opacity: 0; display: inline;">
+                                                            Clear
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="vertical-align:top; padding: 0px;">
+                                                    <h4>
+                                                        Free Space:
+                                                    </h4>
+                                                    <small class="text-muted">Free space on /</small>
+                                                </td>
+                                                <td style="vertical-align:top; padding: 0px; text-align: center;">
+                                                    <h4>
+                                                        <?php echo fixupSize(disk_free_space("/")); ?>
+                                                    </h4>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </div>
                                     <div class="format-group advanced-setting">
                                         <hr>
@@ -226,25 +268,36 @@ if (!empty($_GET['file'])) {
                                             </div>
                                         </span>
                                     </div>
-                                    <div class="format-group advanced-setting row">
+                                    <div class="format-group advanced-setting" style="margin-left: -15px;">
+                                    <br>
                                         <span>
                                             <div class="col-md-6 mb-3">
-                                                <a href="general.php?file=config.php" class="available-updates-btn label label-btn label-primary">
-                                                    <i class="label-icon glyphicon upload"></i>
-                                                    Restore Configuration
-                                                </a>
+                                                <form action="general.php" method="post" enctype="multipart/form-data">
+                                                    <label for="fileToUpload" style="cursor: pointer;">
+                                                        <div class= "label label-btn label-primary">
+                                                            <i class="label-icon glyphicon file"></i>
+                                                            Browse Configuration
+                                                        </div>
+                                                    </label>
+                                                    <input type="file" name="fileToUpload" id="fileToUpload" accept=".php" style="opacity: 0; display: inline;" onchange="showName()">
+                                                    <h4>
+                                                        <div id="configFileName" >Restore Configuration File: <i>None</i></div>
+                                                    </h4>
+                                                    <label for="submitConfig" style="cursor: pointer;">
+                                                        <div class= "label label-btn label-primary">
+                                                            <i class="label-icon glyphicon upload"></i>
+                                                            Restore Configuration
+                                                        </div>
+                                                    </label>
+                                                    <input type="submit" value="Restore Configuration" name="restoreConfig" id="submitConfig" style="opacity: 0;">
+                                                </form>
+
                                             </div>
-                                            <form action="upload.php" method="post" enctype="multipart/form-data">
-                                                Select image to upload:
-                                                <input type="file" name="fileToUpload" id="fileToUpload">
-                                                <input type="submit" value="Restore Configuration" name="submit">
-                                            </form>
                                         </span>
                                     </div>
                                 <!-- SEGMENT BLOCK END -->
 
                                 <!-- GHOST BLOCK START -->
-                                    <?php ghostData(basename(__FILE__)) ;?>
                                 <!-- GHOST BLOCK END -->
 
                                 <div class="form-footer">

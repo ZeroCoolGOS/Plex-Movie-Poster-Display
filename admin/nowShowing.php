@@ -72,29 +72,35 @@ if (!empty($_POST['saveConfig'])) {
                                         <div class="input-group">
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="nowShowingTop" id="csb1" value="title"<?php if($nowShowingTop == 'title' || $nowShowingTop == '') echo " checked"?> onChange="nowShowingTopSelected()">
-                                                <label class="form-check-label" for="inlineRadio1">Title</label>
+                                                Title
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="nowShowingTop" id="csb2" value="summary"<?php if($nowShowingTop == 'summary') echo " checked"?> onChange="nowShowingTopSelected()">
-                                                <label class="form-check-label" for="inlineRadio2">Summary</label>
+                                                Summary
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="nowShowingTop" id="csb3" value="tagline"<?php if($nowShowingTop == 'tagline') echo " checked"?> onChange="nowShowingTopSelected()">
-                                                <label class="form-check-label" for="inlineRadio2">Tagline</label>
+                                                Tagline
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="nowShowingTop" id="csb4" value="custom"<?php if($nowShowingTop == 'custom') echo " checked"?> onChange="nowShowingTopSelected()">
-                                                <label class="form-check-label" for="inlineRadio3">Custom</label>
+                                                Custom
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="form-group">
-                                        <label for="nowShowingTopText">Custom Top Text</label>
-                                        <span class="text-muted"><small>(Optional)</small>:</span></label>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" id="nowShowingTopText" name="nowShowingTopText"
-                                                placeholder="Now Showing Top Text" value="<?php echo $nowShowingTopText; ?>" readonly="readonly">
-                                        </div>
+                                        Custom Top Text:
+
+                                        <input type="text" class="form-control"
+                                            id="nowShowingTopText" name="nowShowingTopText"
+                                            placeholder="Now Showing Top Text"
+                                            value="<?php echo $nowShowingTopText; ?>" readonly="readonly">
+
+                                        <p class="help-block">
+                                            <small>Optional</small>
+                                        </p>
+
                                         <script>
                                             $(function(){
                                                 //First call for the load
@@ -119,27 +125,32 @@ if (!empty($_POST['saveConfig'])) {
                                             }
                                         </script>
                                     </div>
+
                                     <div class="form-group advanced-setting row">
                                         <div class="col-md-6 mb-3">
-                                            <!-- <label for="nowShowingTopFontSize">Top Font Size:</label> -->
                                             Top Font Size:
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" id="nowShowingTopFontSize"
-                                                    name="nowShowingTopFontSize" value="<?php echo $nowShowingTopFontSize; ?>">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">px</div>
-                                                </div>
-                                            </div>
+
+                                            <input type="text" class="form-control"
+                                                id="nowShowingTopFontSize" name="nowShowingTopFontSize"
+                                                value="<?php echo $nowShowingTopFontSize; ?>">
+
+                                            <p class="help-block">
+                                                px
+                                            </p>
                                         </div>
+
                                         <div class="col-md-6 mb-3">
-                                            <!-- <label for="nowShowingTopFontColor">Top Font Color:</label> -->
                                             Top Font Color:
-                                            <div class="input-group">
-                                                <input type="text" id="nowShowingTopFontColor" name="nowShowingTopFontColor"
-                                                    class="form-control" data-position="bottom left"
-                                                    value="<?php echo $nowShowingTopFontColor; ?>">
-                                            </div>
+
+                                            <input type="text" class="form-control"
+                                                id="nowShowingTopFontColor" name="nowShowingTopFontColor"
+                                                data-position="bottom left"
+                                                value="<?php echo $nowShowingTopFontColor; ?>">
+
+                                            <!-- <p class="help-block">
+                                            </p> -->
                                         </div>
+
                                         <script>
                                             $(function () {
                                                 $('#nowShowingTopFontColor').colorpicker();
@@ -149,29 +160,32 @@ if (!empty($_POST['saveConfig'])) {
                                             });
                                         </script>
                                     </div>
+
                                     <div class="form-group advanced-setting row">
                                         <div class="col-md-6 mb-3">
-                                            <!-- <label for="nowShowingTopFontOutlineSize">Top Font Outline Size:</label> -->
                                             Top Font Outline Size:
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" id="nowShowingTopFontOutlineSize"
-                                                    name="nowShowingTopFontOutlineSize"
-                                                    value="<?php echo $nowShowingTopFontOutlineSize; ?>">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">px</div>
-                                                </div>
-                                            </div>
+
+                                            <input type="text" class="form-control"
+                                                id="nowShowingTopFontOutlineSize" name="nowShowingTopFontOutlineSize"
+                                                value="<?php echo $nowShowingTopFontOutlineSize; ?>">
+
+                                            <p class="help-block">
+                                                px
+                                            </p>
                                         </div>
+
                                         <div class="col-md-6 mb-3">
-                                            <!-- <label for="nowShowingTopFontOutlineColor">Top Font Outline Color:</label> -->
                                             Top Font Outline Color:
-                                            <div class="input-group">
-                                                <input type="text" id="nowShowingTopFontOutlineColor"
-                                                    name="nowShowingTopFontOutlineColor" class="form-control"
-                                                    data-position="bottom left"
-                                                    value="<?php echo $nowShowingTopFontOutlineColor; ?>">
-                                            </div>
+
+                                            <input type="text" class="form-control"
+                                                id="nowShowingTopFontOutlineColor" name="nowShowingTopFontOutlineColor"
+                                                data-position="bottom left"
+                                                value="<?php echo $nowShowingTopFontOutlineColor; ?>">
+
+                                            <!-- <p class="help-block">
+                                            </p> -->
                                         </div>
+
                                         <script>
                                             $(function () {
                                                 $('#nowShowingTopFontOutlineColor').colorpicker();
@@ -181,46 +195,50 @@ if (!empty($_POST['saveConfig'])) {
                                             });
                                         </script>
                                     </div>
+
                                     <div class="form-group advanced-setting">
-                                        <!-- <div class="input-group"> -->
-                                            <!-- <label for="nowShowingTopAutoScale" class="checkLabel">Auto-scale top text</label> -->
-                                            <label class="control-label" for="nowShowingTopAutoScale">
-                                            <!-- <div class="form-check"> -->
-                                                <!-- <input type="checkbox" name="nowShowingTopAutoScale" class="form-check-input" id="nowShowingTopAutoScale" value="1" <?php if ($nowShowingTopAutoScale) echo " checked"?>> -->
-                                                <input type="checkbox" name="nowShowingTopAutoScale" id="comingSoonTopAutoScale" value="1" <?php if ($comingSoonTopAutoScale) echo " checked"?>> Auto-scale top text </label>
-                                            <!-- </div> -->
-                                        <!-- </div> -->
+                                        <input type="checkbox" name="nowShowingTopAutoScale" id="comingSoonTopAutoScale" value="1" <?php if ($comingSoonTopAutoScale) echo " checked"?>>
+                                        Auto-scale top text
+
+                                        <!-- <p class="help-block">
+                                        </p> -->
                                     </div>
+
                                     <div class="form-group">
                                         <hr>
                                         <h3>Bottom Text Option:</h3>
                                         <div class="input-group">
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="nowShowingBottom" id="csb1" value="title"<?php if($nowShowingBottom == 'title' || $nowShowingBottom == '') echo " checked"?> onChange="nowShowingBottomSelected()">
-                                                <label class="form-check-label" for="inlineRadio1">Title</label>
+                                                Title
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="nowShowingBottom" id="csb2" value="summary"<?php if($nowShowingBottom == 'summary') echo " checked"?> onChange="nowShowingBottomSelected()">
-                                                <label class="form-check-label" for="inlineRadio2">Summary</label>
+                                                Summary
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="nowShowingBottom" id="csb3" value="tagline"<?php if($nowShowingBottom == 'tagline') echo " checked"?> onChange="nowShowingBottomSelected()">
-                                                <label class="form-check-label" for="inlineRadio2">Tagline</label>
+                                                Tagline
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="nowShowingBottom" id="csb4" value="custom"<?php if($nowShowingBottom == 'custom') echo " checked"?> onChange="nowShowingBottomSelected()">
-                                                <label class="form-check-label" for="inlineRadio3">Custom</label>
+                                                Custom
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="form-group">
-                                        <label for="nowShowingBottomText">Custom Bottom Text</label>
-                                        <span class="text-muted"><small>(Optional)</small>:</span></label>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" id="nowShowingBottomText"
-                                                name="nowShowingBottomText" placeholder="Now Showing Bottom Text"
-                                                value="<?php echo $nowShowingBottomText; ?>" readonly="readonly">
-                                        </div>
+                                        Custom Bottom Text:
+
+                                        <input type="text" class="form-control"
+                                            id="nowShowingBottomText" name="nowShowingBottomText"
+                                            placeholder="Now Showing Bottom Text"
+                                            value="<?php echo $nowShowingBottomText; ?>" readonly="readonly">
+
+                                        <p class="help-block">
+                                            <small>Optional</small>
+                                        </p>
+
                                         <script>
                                             $(function(){
                                                 //First call for the load
@@ -245,27 +263,32 @@ if (!empty($_POST['saveConfig'])) {
                                             }
                                         </script>
                                     </div>
+
                                     <div class="form-group advanced-setting row">
                                         <div class="col-md-6 mb-3">
-                                            <!-- <label for="nowShowingBottomFontSize">Bottom Font Size:</label> -->
                                             Bottom Font Size:
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" id="nowShowingBottomFontSize"
-                                                    name="nowShowingBottomFontSize" value="<?php echo $nowShowingBottomFontSize; ?>">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">px</div>
-                                                </div>
-                                            </div>
+
+                                            <input type="text" class="form-control"
+                                                id="nowShowingBottomFontSize" name="nowShowingBottomFontSize"
+                                                value="<?php echo $nowShowingBottomFontSize; ?>">
+
+                                            <p class="help-block">
+                                                px
+                                            </p>
                                         </div>
+
                                         <div class="col-md-6 mb-3">
-                                            <!-- <label for="nowShowingBottomFontColor">Bottom Font Color:</label> -->
                                             Bottom Font Color:
-                                            <div class="input-group">
-                                                <input type="text" id="nowShowingBottomFontColor" name="nowShowingBottomFontColor"
-                                                    class="form-control" data-position="bottom left"
-                                                    value="<?php echo $nowShowingBottomFontColor; ?>">
-                                            </div>
+
+                                            <input type="text" class="form-control"
+                                                id="nowShowingBottomFontColor" name="nowShowingBottomFontColor"
+                                                data-position="bottom left"
+                                                value="<?php echo $nowShowingBottomFontColor; ?>">
+
+                                            <!-- <p class="help-block">
+                                            </p> -->
                                         </div>
+
                                         <script>
                                             $(function () {
                                                 $('#nowShowingBottomFontColor').colorpicker();
@@ -275,29 +298,32 @@ if (!empty($_POST['saveConfig'])) {
                                             });
                                         </script>
                                     </div>
+
                                     <div class="form-group advanced-setting row">
                                         <div class="col-md-6 mb-3">
-                                            <!-- <label for="nowShowingBottomFontOutlineSize">Bottom Font Outline Size:</label> -->
                                             Bottom Font Outline Size:
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" id="nowShowingBottomFontOutlineSize"
-                                                    name="nowShowingBottomFontOutlineSize"
-                                                    value="<?php echo $nowShowingBottomFontOutlineSize; ?>">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">px</div>
-                                                </div>
-                                            </div>
+
+                                            <input type="text" class="form-control"
+                                                id="nowShowingBottomFontOutlineSize" name="nowShowingBottomFontOutlineSize"
+                                                value="<?php echo $nowShowingBottomFontOutlineSize; ?>">
+
+                                            <p class="help-block">
+                                                px
+                                            </p>
                                         </div>
+
                                         <div class="col-md-6 mb-3">
-                                            <!-- <label for="nowShowingBottomFontOutlineColor">Bottom Font Outline Color:</label> -->
                                             Bottom Font Outline Color:
-                                            <div class="input-group">
-                                                <input type="text" id="nowShowingBottomFontOutlineColor"
-                                                    name="nowShowingBottomFontOutlineColor" class="form-control"
-                                                    data-position="bottom left"
-                                                    value="<?php echo $nowShowingBottomFontOutlineColor; ?>">
-                                            </div>
+
+                                            <input type="text" class="form-control"
+                                                id="nowShowingBottomFontOutlineColor" name="nowShowingBottomFontOutlineColor"
+                                                data-position="bottom left"
+                                                value="<?php echo $nowShowingBottomFontOutlineColor; ?>">
+
+                                            <!-- <p class="help-block">
+                                            </p> -->
                                         </div>
+
                                         <script>
                                             $(function () {
                                                 $('#nowShowingBottomFontOutlineColor').colorpicker();
@@ -307,51 +333,56 @@ if (!empty($_POST['saveConfig'])) {
                                             });
                                         </script>
                                     </div>
+
                                     <div class="form-group advanced-setting">
-                                        <!-- <div class="input-group"> -->
-                                            <!-- <label for="nowShowingBottomAutoScale" class="checkLabel">Auto-scale bottom text</label> -->
-                                            <label class="control-label" for="nowShowingBottomAutoScale">
-                                            <!-- <div class="form-check"> -->
-                                                <!-- <input type="checkbox" name="nowShowingBottomAutoScale" class="form-check-input" id="nowShowingBottomAutoScale" value="1" <?php if ($nowShowingBottomAutoScale) echo " checked"?>> -->
-                                                <input type="checkbox" name="nowShowingBottomAutoScale" id="nowShowingBottomAutoScale" value="1" <?php if ($comingSoonBottomAutoScale) echo " checked"?>> Auto-scale bottom text </label>
-                                            <!-- </div> -->
-                                        <!-- </div> -->
+                                        <input type="checkbox" name="nowShowingBottomAutoScale" id="nowShowingBottomAutoScale" value="1" <?php if ($comingSoonBottomAutoScale) echo " checked"?>>
+                                        Auto-scale bottom text
+
+                                        <!-- <p class="help-block">
+                                        </p> -->
                                     </div>
+
                                     <div class="form-group">
                                         <hr>
-                                        <div class="form-alignment input-group">
-                                            <label for="pmpDisplayProgress">Progress Bar: &nbsp;</label>
-                                            <select class="fieldInfo-select custom-select d-block w-100" id="pmpDisplayProgress" name="pmpDisplayProgress">
-                                                <option value="Disabled" <?php if ($pmpDisplayProgress == 'Disabled') {
-                                                    echo "selected";
-                                                } ?>>Disabled
-                                                </option>
-                                                <option value="Enabled" <?php if ($pmpDisplayProgress == 'Enabled') {
-                                                    echo "selected";
-                                                } ?>>Enabled
-                                                </option>
-                                            </select>
-                                        </div>
+                                        Progress Bar:&nbsp;
+
+                                        <select id="pmpDisplayProgress" name="pmpDisplayProgress">
+                                            <option value="Disabled" <?php if ($pmpDisplayProgress == 'Disabled') {
+                                                echo "selected";
+                                            } ?>>Disabled
+                                            </option>
+                                            <option value="Enabled" <?php if ($pmpDisplayProgress == 'Enabled') {
+                                                echo "selected";
+                                            } ?>>Enabled
+                                            </option>
+                                        </select>
                                     </div>
+
                                     <div class="form-group advanced-setting row">
                                         <div class="col-md-6 mb-3">
-                                            <label for="pmpDisplayProgressSize">Progress Bar Height:</label>
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" id="pmpDisplayProgressSize"
-                                                    name="pmpDisplayProgressSize" value="<?php echo $pmpDisplayProgressSize; ?>">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">px</div>
-                                                </div>
-                                            </div>
+                                            Progress Bar Height:
+
+                                            <input type="text" class="form-control"
+                                                id="pmpDisplayProgressSize" name="pmpDisplayProgressSize"
+                                                value="<?php echo $pmpDisplayProgressSize; ?>">
+
+                                            <p class="help-block">
+                                                px
+                                            </p>
                                         </div>
+
                                         <div class="col-md-6 mb-3">
-                                            <label for="pmpDisplayProgressColor">Progress Bar Color:</label>
-                                            <div class="input-group">
-                                                <input type="text" id="pmpDisplayProgressColor" name="pmpDisplayProgressColor"
-                                                    class="form-control" data-position="bottom left"
-                                                    value="<?php echo $pmpDisplayProgressColor; ?>">
-                                            </div>
+                                            Progress Bar Color:
+
+                                            <input type="text" class="form-control"
+                                                id="pmpDisplayProgressColor" name="pmpDisplayProgressColor"
+                                                data-position="bottom left"
+                                                value="<?php echo $pmpDisplayProgressColor; ?>">
+
+                                            <!-- <p class="help-block">
+                                            </p> -->
                                         </div>
+
                                         <script>
                                             $(function () {
                                                 $('#pmpDisplayProgressColor').colorpicker();

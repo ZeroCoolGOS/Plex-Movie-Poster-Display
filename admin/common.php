@@ -67,44 +67,37 @@ if (!empty($_POST['saveConfig'])) {
                         </div>
                             <form id="server-settings-form" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                                 <!-- SEGMENT BLOCK START -->
+                                    <div class="form-group" >
+                                        Poster Transition/Refresh Speed: &nbsp;
+                                        <input type="text" id="pmpImageSpeed" style="display: inline;" name="pmpImageSpeed" class="form-control fieldInfo-xsmall" value="<?php echo $pmpImageSpeed; ?>" required>
+                                        &nbsp; Seconds
+                                        
+                                        <!-- <p class="help-block">
+                                            Seconds
+                                        </p> -->
+                                    </div>
+
                                     <div class="form-group">
-                                        <div class="mb-3">
-                                            <div class="form-alignment input-group">
-                                                <!-- <label for="pmpImageSpeed">Poster Transition/Refresh Speed <small>(Seconds)</small>: &nbsp;</label> -->
-                                                <label for="pmpImageSpeed">Poster Transition/Refresh Speed: &nbsp;</label>
-                                                <input type="text" class="fieldInfo-xsmall form-control" id="pmpImageSpeed" name="pmpImageSpeed"
-                                                    placeholder="Poster Transition Speed" value="<?php echo $pmpImageSpeed; ?>" required>
-                                                <div class="fieldInfo-group-text input-group-prepend">
-                                                    <div class=" input-group-text">Seconds</div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        Bottom Scrolling Text: &nbsp;
+                                        <select id="pmpBottomScroll" name="pmpBottomScroll">
+                                            <option value="Disabled" <?php if ($pmpBottomScroll == 'Disabled') { echo "selected"; } ?>>
+                                                Disabled
+                                            </option>
+                                            <option value="Enabled" <?php if ($pmpBottomScroll == 'Enabled') { echo "selected"; } ?>>
+                                                Enabled
+                                            </option>
+                                        </select>
 
-                                        <div class="mb-3">
-                                            <div class="form-alignment input-group">
-                                                <label for="pmpBottomScroll">Bottom Scrolling Text: &nbsp;</label>
-                                                <select class="fieldInfo-select custom-select d-block w-100" id="pmpBottomScroll" name="pmpBottomScroll">
-                                                    <option value="Disabled" <?php if ($pmpBottomScroll == 'Disabled') {
-                                                        echo "selected";
-                                                    } ?>>Disabled
-                                                    </option>
-                                                    <option value="Enabled" <?php if ($pmpBottomScroll == 'Enabled') {
-                                                        echo "selected";
-                                                    } ?>>Enabled
-                                                    </option>
-                                                </select>
-                                            </div>
-                                        </div>
+                                        <!-- <p class="help-block">
+                                        </p> -->
+                                    </div>
 
-                                        <div class="mb-3">
-                                            <div class="input-group">
-                                                <label for="cacheEnabled" class="checkLabel">Cache Images</label>
-                                                <div class="form-check">
-                                                    <input type="checkbox" name="cacheEnabled" class="form-check-input" id="cacheEnabled" value="1" <?php if ($cacheEnabled) echo " checked"?>>
-                                                    <label class="form-check-label" for="cacheEnabled"></label>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="form-group">
+                                        <input type="checkbox" name="cacheEnabled" id="cacheEnabled" value="1" <?php if ($cacheEnabled) echo " checked"?>>
+                                        Cache Images
+
+                                        <!-- <p class="help-block">
+                                        </p> -->
                                     </div>
                                 <!-- SEGMENT BLOCK END -->
 

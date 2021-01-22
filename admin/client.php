@@ -68,24 +68,27 @@ if (!empty($_POST['saveConfig'])) {
                             <form id="server-settings-form" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                                 <!-- SEGMENT BLOCK START -->
                                     <div class="form-group">
-                                        <div class="mb-3">
-                                            <div class="form-alignment input-group">
-                                                <label for="plexClient">Plex Client IP: &nbsp;</label>
-                                                    <input type="text" class="fieldInfo-ipaddress form-control" id="plexClient" name="plexClient" maxlength="15"
-                                                        placeholder="Plex Client IP" value="<?php echo $plexClient; ?>" required>
-                                                    <div class="invalid-feedback" style="width: 100%;">
-                                                        A Plex client IP address is required.
-                                                    </div>
-                                            </div>
-                                        </div>
+                                        Plex Client IP:&nbsp;
 
-                                        <div class="mb-3">
-                                                <div class="form-alignment input-group">
-                                                    <label for="plexClient">Plex Client Name: &nbsp;</label>
-                                                    <input type="text" class="fieldInfo-xlarge form-control" id="plexClientName" name="plexClientName"
-                                                        placeholder="Plex Client Name" value="<?php echo $plexClientName; ?>">
-                                            </div>
+                                        <input type="text" style="display: inline;" class="fieldInfo-ipaddress form-control" id="plexClient" name="plexClient" maxlength="15"
+                                            placeholder="Plex Client IP" value="<?php echo $plexClient; ?>" required>
+
+                                        <!-- <p class="help-block">
+                                        </p> -->
+
+                                        <div class="invalid-feedback" style="width: 100%;">
+                                            A Plex client IP address is required.
                                         </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        Plex Client Name:&nbsp;
+
+                                        <input type="text" style="display: inline;" class="fieldInfo-xlarge form-control" id="plexClientName" name="plexClientName"
+                                            placeholder="Plex Client Name" value="<?php echo $plexClientName; ?>">
+                                        
+                                        <!-- <p class="help-block">
+                                        </p> -->
                                     </div>
                                 <!-- SEGMENT BLOCK END -->
 

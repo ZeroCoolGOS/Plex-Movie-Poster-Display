@@ -9,8 +9,21 @@ function ghostData($configPage) {
 
     // echo 'GHOST BLOCK START';
 
+    // Login PHP
+    if ($configPage == "login.php") {
+        $ghostField = "\n";
+        echo $ghostField;
+
+        $ghostField = "$formIndent<!-- Login PHP -->\n";
+        echo $ghostField;
+
+        // $ghostField = "$formIndent<input type=\"hidden\" id=\"returnPage\" name=\"returnPage\" value=\"$returnPage\">\n";
+        // <?php echo $returnPage; /?/>
+        // echo $ghostField;
+    }
+
     // General PHP
-    if ($configPage != "general.php") {
+    if ($configPage != "general.php"  && $configPage != "login.php") {
         $ghostField = "\n";
         echo $ghostField;
 
@@ -19,7 +32,7 @@ function ghostData($configPage) {
     }
 
     // Security PHP
-    if ($configPage != "security.php") {
+    if ($configPage != "security.php" && $configPage != "login.php") {
         $ghostField = "\n";
         echo $ghostField;
 
@@ -34,7 +47,7 @@ function ghostData($configPage) {
     }
 
     // Common PHP
-    if ($configPage != "common.php") {
+    if ($configPage != "common.php" && $configPage != "login.php") {
         $ghostField = "\n";
         echo $ghostField;
 
@@ -52,7 +65,7 @@ function ghostData($configPage) {
     }
 
     // Server PHP
-    if ($configPage != "server.php") {
+    if ($configPage != "server.php" && $configPage != "login.php") {
         $ghostField = "\n";
         echo $ghostField;
 
@@ -76,7 +89,7 @@ function ghostData($configPage) {
     }
 
     // Client PHP
-    if ($configPage != "client.php") {
+    if ($configPage != "client.php" && $configPage != "login.php") {
         $ghostField = "\n";
         echo $ghostField;
 
@@ -91,7 +104,7 @@ function ghostData($configPage) {
     }
 
     // Coming Soon PHP
-    if ($configPage != "comingSoon.php") {
+    if ($configPage != "comingSoon.php" && $configPage != "login.php") {
         $ghostField = "\n";
         echo $ghostField;
 
@@ -145,7 +158,7 @@ function ghostData($configPage) {
     }
 
     // Now Showing PHP
-    if ($configPage != "nowShowing.php") {
+    if ($configPage != "nowShowing.php" && $configPage != "login.php") {
         $ghostField = "\n";
         echo $ghostField;
 
@@ -205,7 +218,7 @@ function ghostData($configPage) {
     }
 
     // Custom PHP
-    if ($configPage != "custom.php") {
+    if ($configPage != "custom.php" && $configPage != "login.php") {
         $ghostField = "\n";
         echo $ghostField;
 

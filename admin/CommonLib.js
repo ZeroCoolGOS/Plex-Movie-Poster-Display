@@ -44,3 +44,16 @@ function tokenView() {
         document.getElementById('token_view_btn').innerHTML = "Hide";
     }
 }
+
+function showName() {
+    var name = document.getElementById('fileToUpload'); 
+    //   alert('Selected file: ' + name.files.item(0).name);
+    //   alert('Selected file: ' + name.files.item(0).size);
+    //   alert('Selected file: ' + name.files.item(0).type);
+    
+    var ConfigFileName = name.files.item(0).name;
+    
+    var PostMSG = "Restore Configuration File: " + ConfigFileName;
+    document.getElementById('configFileName').innerHTML = PostMSG;
+
+}

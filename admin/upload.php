@@ -1,4 +1,7 @@
 <?php
+// function uploadConfig() {
+
+    // echo '<script>alert("Welcome to Geeks for Geeks")</script>'; 
     // $target_dir = "uploads/";
     $target_dir = "../";
     $target_fileName = "config.php";
@@ -63,4 +66,5 @@
             echo "Sorry, there was an error uploading your file.";
         }
     }
+// }
 ?>

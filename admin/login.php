@@ -1,20 +1,25 @@
 <?php
 include 'CommonLib.php';
+include 'setData.php';
+
 $msg = NULL;
+// $returnPageData = $_GET['returnPage'];
+// $returnPage = "$returnPageData";
+$returnPage = "general.php";
 
 if (isset($_POST['username']) && !empty($_POST['password'])) {
     include_once '../config.php';
-
     if (($_POST['username'] == $pmpUsername) && ($_POST['password'] == $pmpPassword)) {
         session_start();
         $_SESSION['username'] = $pmpUsername;
         $_SESSION['access'] = '1';
-        header("Location: general.php");
+        header("Location: $returnPage");
         die();
     } else {
         $msg = "Invalid Username or Password";
     }
 }
+
 ?>
 
 <!doctype html>
@@ -72,9 +77,10 @@ if (isset($_POST['username']) && !empty($_POST['password'])) {
                         </div>
                         <form method="post" class="form-login needs-validation" novalidate action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" >
                             <!-- SEGMENT BLOCK START -->
-                                <!-- <div class="form-group">
-                                    <img class="d-block mx-auto mb-4" src="/../assets/images/android-chrome-192x192.png" alt="" width="100" height="100">
-                                </div> -->
+                                <div class="form-group">
+                                    <!-- <img class="d-block mx-auto mb-4" src="/../assets/images/android-chrome-192x192.png" alt="" width="100" height="100"> -->
+                                </div>
+
                                 <div class="form-group">
                                     <?php
                                     if ($msg != NULL) {
@@ -82,24 +88,30 @@ if (isset($_POST['username']) && !empty($_POST['password'])) {
                                     }
                                     ?>
                                 </div>
-                                <div class="form-group">
-                                    <div class="mb-3">
-                                        <div class="form-alignment input-group" style="text-align:center;">
-                                            <label for="inputUsername" class="sr-only">Username</label>
-                                            <input type="username" id="username" name="username" class="fieldInfo-username form-control" placeholder="Username" required autofocus>
-                                        </div>
-                                    </div>
 
-                                    <div class="mb-3">
-                                        <div class="form-alignment input-group" id="password_view" style="text-align:center;">
-                                            <label for="inputPassword" class="sr-only">Password</label>
-                                            <input type="password" id="password" name="password" class="fieldInfo-password form-control" placeholder="Password" required>
-                                        </div>
+                                <div class="form-group">
+                                        <!-- Username -->
+
+                                        <input type="username" class="fieldInfo-username-login form-control"
+                                            id="username" name="username"
+                                            placeholder="Username" required autofocus>
+
+                                </div>
+
+                                <div class="form-group" style="text-align:center;">
+                                        <!-- Password -->
+
+                                        <input type="password" class="fieldInfo-password-login form-control"
+                                            id="password" name="password"
+                                            placeholder="Password" required>
                                     </div>
                                 </div>
                             <!-- SEGMENT BLOCK END -->
 
                             <!-- GHOST BLOCK START -->
+                                <?php ghostData(basename(__FILE__)) ;?>
+                                <!-- Not resolving the correct value from the ghostData function -->
+                                <input type="hidden" id="returnPage" name="returnPage" value="<?php echo $returnPage; ?>">
                             <!-- GHOST BLOCK END -->
 
                             <div class="form-footer">

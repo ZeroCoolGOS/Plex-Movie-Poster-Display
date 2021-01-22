@@ -68,22 +68,22 @@ if (!empty($_POST['saveConfig'])) {
                             <form id="server-settings-form" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                                 <!-- SEGMENT BLOCK START -->
                                     <div class="form-group">
-                                        <div class="mb-3">
-                                            <div class="form-alignment input-group">
-                                                <label for="pmpUsername">Username:&nbsp;</label>
-                                                <input type="text" class="fieldInfo-username form-control" id="pmpUsername" name="pmpUsername" placeholder="Username" value="<?php echo $pmpUsername; ?>" required>
-                                                <div class="invalid-feedback" style="width: 100%;">Movie Poster Display Username.</div>
-                                            </div>
-                                        </div>
+                                        Username:&nbsp;
+                                        <input type="text" style="display: inline;" class="fieldInfo-username form-control" id="pmpUsername" name="pmpUsername" placeholder="Username" value="<?php echo $pmpUsername; ?>" required>
+                                        <div class="invalid-feedback" style="width: 100%;">Movie Poster Display Username.</div>
+                                        
+                                        <!-- <p class="help-block">
+                                        </p> -->
+                                    </div>
 
-                                        <div class="mb-3">
-                                            <div class="form-alignment input-group" id="password_view">
-                                                <label for="pmpPassword">Password:&nbsp;&nbsp;</label>
-                                                <input type="password" class="fieldInfo-password form-control" id="pmpPassword" name="pmpPassword" placeholder="Password" value="<?php echo $pmpPassword; ?>" required>
-                                                &nbsp;&nbsp;
-                                                <button class="btn btn-secondary" type="button" id="password_view_btn" onclick="passwordView()">Show</button>
-                                            </div>
-                                        </div>
+                                    <div class="form-group" id="password_view">
+                                        Password:&nbsp;&nbsp;
+                                        <input type="password" style="display: inline;" class="fieldInfo-password form-control" id="pmpPassword" name="pmpPassword" placeholder="Password" value="<?php echo $pmpPassword; ?>" required>
+                                        &nbsp;
+                                        <button class="btn btn-secondary" type="button" id="password_view_btn" onclick="passwordView()">Show</button>
+                                        
+                                        <!-- <p class="help-block">
+                                        </p> -->
                                     </div>
                                 <!-- SEGMENT BLOCK END -->
 

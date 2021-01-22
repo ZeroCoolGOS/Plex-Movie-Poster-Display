@@ -68,73 +68,79 @@ if (!empty($_POST['saveConfig'])) {
                             <form id="server-settings-form" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                                 <!-- SEGMENT BLOCK START -->
                                     <div class="form-group">
-                                        <div class="mb-3">
-                                            <div class="form-alignment input-group">
-                                                <label for="plexServer">Plex Server IP:&nbsp;</label>
-                                                <input type="text" class="fieldInfo-ipaddress form-control" id="plexServer" name="plexServer" maxlength="15"
-                                                    placeholder="Plex Server IP" value="<?php echo $plexServer; ?>" required>
-                                                <div class="invalid-feedback" style="width: 100%;">
-                                                    A Plex server IP address is required.
-                                                </div>
-                                            </div>
-                                        </div>
+                                        Plex Server IP:&nbsp;
 
-                                        <div class="mb-3">
-                                            <div class="form-alignment input-group" id="token_view">
-                                                <label for="plexToken">Plex Token: <a
-                                                            href="https://support.plex.tv/hc/en-us/articles/204059436-Finding-your-account-token-X-Plex-Token"
-                                                            target=_blank><span class="badge badge-primary">?</span></a>&nbsp;</label>
-                                                <input type="password" class="fieldInfo-token form-control" id="plexToken" name="plexToken"
-                                                    placeholder="Plex Token" value="<?php echo $plexToken; ?>" required>
-                                                    &nbsp;
-                                                <span class="input-group-btn">
-                                                    <button class="btn btn-secondary" type="button" id="token_view_btn" onclick="tokenView()">Show</button>
-                                                </span>
-                                                <div class="invalid-feedback" style="width: 100%;">
-                                                    A Plex token is required.
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <input type="text" style="display: inline;" class="fieldInfo-ipaddress form-control" id="plexServer" name="plexServer" maxlength="15"
+                                            placeholder="Plex Server IP" value="<?php echo $plexServer; ?>" required>
 
-                                        <div class="mb-3">
-                                            <div class="form-alignment input-group">
-                                            <label for="plexServerMovieSection">Plex Movie Sections <small>(Comma Separated with no Spaces)</small>:&nbsp;</label>
-                                                <input type="text" class="fieldInfo-medium form-control" id="plexServerMovieSection"
-                                                    name="plexServerMovieSection" placeholder="Plex Movie Sections"
-                                                    value="<?php echo $plexServerMovieSection; ?>" required>
-                                                <div class="invalid-feedback" style="width: 100%;">
-                                                    At least one Plex movie sections is required.
-                                                </div>
-                                            </div>
+                                        <!-- <p class="help-block">
+                                        </p> -->
+
+                                        <div class="invalid-feedback" style="width: 100%;">
+                                            A Plex server IP address is required.
                                         </div>
                                     </div>
-                                    <div class="form-group advanced-setting">
-                                        <div class="mb-3">
-                                            <div class="input-group">
-                                                <label for="plexServerSSL" class="checkLabel">Plex SSL:</label>
-                                                <div class="form-check">
-                                                    <input type="checkbox" name="plexServerSSL" class="form-check-input" id="plexServerSSL" value="1" <?php if ($plexServerSSL) echo " checked"?>>
-                                                    <label class="form-check-label" for="plexServerSSL"></label>
-                                                </div>
-                                            </div>
-                                        </div>
 
-                                        <div class="mb-3">
-                                            <div class="form-alignment input-group">
-                                                <label for="plexServer">
-                                                    <div class="customtooltip">Plex Server Direct:
-                                                        <a href="https://support.plex.tv/articles/206225077-how-to-use-secure-server-connections/" target=_blank>
-                                                        <span class="badge badge-primary">?</span></a>
-                                                        <span class="tooltiptext"><small>A Plex server direct URL is required (.plex.direct).</small></span>
-                                                    </div>
-                                                    &nbsp;
-                                                </label>
-                                                <input type="text" class="form-control" id="plexServerDirect" name="plexServerDirect" maxlength="65"
-                                                    placeholder="Plex Server Direct" value="<?php echo $plexServerDirect; ?>" required>
-                                                <div class="invalid-feedback" style="width: 100%;">
-                                                    A Plex server direct URL is required (.plex.direct).
-                                                </div>
-                                            </div>
+                                    <div class="form-group" id="token_view">
+                                        Plex Token:&nbsp;
+                                        <a href="https://support.plex.tv/hc/en-us/articles/204059436-Finding-your-account-token-X-Plex-Token" target=_blank>
+                                            <span class="badge badge-primary">?</span>
+                                        </a>
+                                        &nbsp;
+
+                                        <input type="password" style="display: inline;" class="fieldInfo-token form-control" id="plexToken" name="plexToken"
+                                            placeholder="Plex Token" value="<?php echo $plexToken; ?>" required>
+                                            &nbsp;
+                                        <button class="btn btn-secondary" type="button" id="token_view_btn" onclick="tokenView()">Show</button>
+
+                                        <!-- <p class="help-block">
+                                        </p> -->
+
+                                        <div class="invalid-feedback" style="width: 100%;">
+                                            A Plex token is required.
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        Plex Movie Sections:&nbsp;
+
+                                        <input type="text" style="display: inline;" class="fieldInfo-medium form-control" id="plexServerMovieSection"
+                                            name="plexServerMovieSection" placeholder="Plex Movie Sections"
+                                            value="<?php echo $plexServerMovieSection; ?>" required>
+
+                                        <p class="help-block">
+                                            <small>Comma Separated with no Spaces</small>
+                                        </p>
+
+                                        <div class="invalid-feedback" style="width: 100%;">
+                                            At least one Plex movie sections is required.
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group advanced-setting">
+                                        <input type="checkbox" name="plexServerSSL" id="plexServerSSL" value="1" <?php if ($plexServerSSL) echo " checked"?>>
+                                        Plex SSL
+
+                                        <!-- <p class="help-block">
+                                        </p> -->
+                                    </div>
+
+                                    <div class="form-group advanced-setting">
+                                        Plex Server Direct:
+                                        <a href="https://support.plex.tv/articles/206225077-how-to-use-secure-server-connections/" target=_blank>
+                                            <span class="badge badge-primary">?</span>
+                                        </a>
+                                        &nbsp;
+
+                                        <input type="text" class="fieldInfo-3xlarge form-control" id="plexServerDirect" name="plexServerDirect" maxlength="65"
+                                            placeholder="Plex Server Direct" value="<?php echo $plexServerDirect; ?>" required>
+                                        
+                                        <p class="help-block">
+                                            <small>A Plex server direct URL is required (.plex.direct).</small>
+                                        </p>
+
+                                        <div class="invalid-feedback" style="width: 100%;">
+                                            A Plex server direct URL is required (.plex.direct).
                                         </div>
                                     </div>
                                 <!-- SEGMENT BLOCK END -->

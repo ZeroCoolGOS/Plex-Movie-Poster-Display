@@ -68,83 +68,103 @@ if (!empty($_POST['saveConfig'])) {
                             <form id="server-settings-form" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                                 <!-- SEGMENT BLOCK START -->
                                     <div class="form-group">
-                                        <label for="customImageUpload">Custom Image Upload:</label>
-                                        <span class="text-muted"></span></label>
-                                        <div class="input-group">
-                                            <input type="file" class="form-control" id="customImageUpload" name="customImageUpload"
-                                                    value="">
-                                        </div>
+                                        Custom Image Upload:
+
+                                        <input type="file" class="form-control"
+                                            id="customImageUpload" name="customImageUpload"
+                                            value="">
+
+                                        <!-- <p class="help-block">
+                                        </p> -->
                                     </div>
+
                                     <div class="form-group">
-                                        <div class="form-alignment input-group">
-                                            <label for="customImageEnabled">Custom Image State: &nbsp;&nbsp;</label>
-                                            <select class="fieldInfo-select custom-select d-block w-100" id="customImageEnabled" name="customImageEnabled">
-                                                <option value="Disabled" <?php if ($customImageEnabled == 'Disabled') {
-                                                    echo "selected";
-                                                } ?>>Disabled
-                                                </option>
-                                                <option value="Enabled" <?php if ($customImageEnabled == 'Enabled') {
-                                                    echo "selected";
-                                                } ?>>Enabled
-                                                </option>
-                                            </select>
-                                        </div>
+                                        Custom Image State: &nbsp;
+                                        <select  style="display: inline;"
+                                            id="customImageEnabled" name="customImageEnabled">
+                                            <option value="Disabled" <?php if ($customImageEnabled == 'Disabled') {
+                                                echo "selected";
+                                            } ?>>Disabled
+                                            </option>
+                                            <option value="Enabled" <?php if ($customImageEnabled == 'Enabled') {
+                                                echo "selected";
+                                            } ?>>Enabled
+                                            </option>
+                                        </select>
+
+                                        <!-- <p class="help-block">
+                                        </p> -->
                                     </div>
+
                                     <div class="form-group">
-                                        <div class="form-alignment input-group">
-                                            <label for="customTopFontSize">Custom Image Select: &nbsp;</label>
-                                            <select class="fieldInfo-select custom-select d-block w-100" id="customImage" name="customImage">
-                                                <option value="" <?php if ($customImage == '') {
+                                        Custom Image Select:&nbsp;
+
+                                        <select style="display: inline;"
+                                            id="customImage" name="customImage">
+                                            <option value="" <?php if ($customImage == '') {
+                                                echo "selected";
+                                            } ?>>None
+                                            </option>
+                                            <?php
+                                            $path = "cache/custom";
+                                            $files = array_diff(scandir($path), array('.', '..'));
+                                            foreach ($files as $file) {
+                                                echo "<option value='$file'";
+                                                if ($customImage == $file) {
                                                     echo "selected";
-                                                } ?>>None
-                                                </option>
-                                                <?php
-                                                $path = "cache/custom";
-                                                $files = array_diff(scandir($path), array('.', '..'));
-                                                foreach ($files as $file) {
-                                                    echo "<option value='$file'";
-                                                    if ($customImage == $file) {
-                                                        echo "selected";
-                                                    }
-                                                    echo ">$file</option>";
                                                 }
-                                                ?>
-                                            </select>
-                                        </div>
+                                                echo ">$file</option>";
+                                            }
+                                            ?>
+                                        </select>
+
+                                        <!-- <p class="help-block">
+                                        </p> -->
                                     </div>
+
                                     <div class="form-group">
                                         <hr>
                                         <h3>Top Text Option:</h3>
                                     </div>
+
                                     <div class="form-group">
-                                        <label for="customTopText">Custom Top Text</label>
-                                        <span class="text-muted"><small>(Optional)</small>:</span></label>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" id="customTopText" name="customTopText"
-                                                    placeholder="Custom Image Top Text" value="<?php echo $customTopText; ?>">
-                                        </div>
+                                        Custom Top Text:
+
+                                        <input type="text" class="form-control"
+                                            id="customTopText" name="customTopText"
+                                            placeholder="Custom Image Top Text"
+                                            value="<?php echo $customTopText; ?>">
+
+                                        <p class="help-block">
+                                            <small>Optional</small>
+                                        </p>
                                     </div>
+
                                     <div class="form-group advanced-setting row">
                                         <div class="col-md-6 mb-3">
-                                            <!-- <label for="customTopFontSize">Top Font Size:</label> -->
                                             Top Font Size:
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" id="customTopFontSize" 
-                                                    name="customTopFontSize" value="<?php echo $customTopFontSize; ?>">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">px</div>
-                                                </div>
-                                            </div>
+
+                                            <input type="text" class="form-control"
+                                                id="customTopFontSize" name="customTopFontSize"
+                                                value="<?php echo $customTopFontSize; ?>">
+
+                                            <p class="help-block">
+                                                px
+                                            </p>
                                         </div>
+
                                         <div class="col-md-6 mb-3">
-                                            <!-- <label for="customTopFontColor">Top Font Color:</label> -->
                                             Top Font Color:
-                                            <div class="input-group">
-                                                <input type="text" id="customTopFontColor" name="customTopFontColor"
-                                                    class="form-control" data-position="bottom left"
-                                                    value="<?php echo $customTopFontColor; ?>">
-                                            </div>
+
+                                            <input type="text" class="form-control"
+                                                id="customTopFontColor" name="customTopFontColor"
+                                                data-position="bottom left"
+                                                value="<?php echo $customTopFontColor; ?>">
+
+                                            <!-- <p class="help-block">
+                                            </p> -->
                                         </div>
+
                                         <script>
                                             $(function () {
                                                 $('#customTopFontColor').colorpicker();
@@ -154,29 +174,32 @@ if (!empty($_POST['saveConfig'])) {
                                             });
                                         </script>
                                     </div>
+
                                     <div class="form-group advanced-setting row">
                                         <div class="col-md-6 mb-3">
-                                            <!-- <label for="customTopFontOutlineSize">Top Font Outline Size:</label> -->
                                             Top Font Outline Size:
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" id="customTopFontOutlineSize"
-                                                    name="customTopFontOutlineSize" 
-                                                    value="<?php echo $customTopFontOutlineSize; ?>">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">px</div>
-                                                </div>
-                                            </div>
+
+                                            <input type="text" class="form-control"
+                                                id="customTopFontOutlineSize" name="customTopFontOutlineSize"
+                                                value="<?php echo $customTopFontOutlineSize; ?>">
+
+                                            <p class="help-block">
+                                                px
+                                            </p>
                                         </div>
+
                                         <div class="col-md-6 mb-3">
-                                            <!-- <label for="customTopFontOutlineColor">Top Font Outline Color:</label> -->
                                             Top Font Outline Color:
-                                            <div class="input-group">
-                                                <input type="text" id="customTopFontOutlineColor" 
-                                                    name="customTopFontOutlineColor" class="form-control"
-                                                    data-position="bottom left"
-                                                    value="<?php echo $customTopFontOutlineColor; ?>">
-                                            </div>
+
+                                            <input type="text" class="form-control"
+                                                id="customTopFontOutlineColor" name="customTopFontOutlineColor"
+                                                data-position="bottom left"
+                                                value="<?php echo $customTopFontOutlineColor; ?>">
+
+                                            <!-- <p class="help-block">
+                                            </p> -->
                                         </div>
+
                                         <script>
                                             $(function () {
                                                 $('#customTopFontOutlineColor').colorpicker();
@@ -186,40 +209,50 @@ if (!empty($_POST['saveConfig'])) {
                                             });
                                         </script>
                                     </div>
+
                                     <div class="form-group">
                                         <hr>
                                         <h3>Bottom Text Option:</h3>
                                     </div>
+
                                     <div class="form-group">
-                                        <label for="customBottomText">Custom Bottom Text</label>
-                                        <span class="text-muted"><small>(Optional)</small>:</span></label>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" id="customBottomText" 
-                                                name="customBottomText" placeholder="Coming Soon Top Text"
-                                                value="<?php echo $customBottomText; ?>">
-                                        </div>
+                                        Custom Bottom Text:
+
+                                        <input type="text" class="form-control"
+                                            id="customBottomText" name="customBottomText"
+                                            placeholder="Coming Soon Top Text"
+                                            value="<?php echo $customBottomText; ?>">
+
+                                        <p class="help-block">
+                                            <small>Optional</small>
+                                        </p>
                                     </div>
+
                                     <div class="form-group advanced-setting row">
                                         <div class="col-md-6 mb-3">
-                                            <!-- <label for="customBottomFontSize">Bottom Font Size:</label> -->
                                             Bottom Font Size:
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" id="customBottomFontSize"
-                                                        name="customBottomFontSize" value="<?php echo $customBottomFontSize; ?>">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">px</div>
-                                                </div>
-                                            </div>
+
+                                            <input type="text" class="form-control"
+                                                id="customBottomFontSize" name="customBottomFontSize"
+                                                value="<?php echo $customBottomFontSize; ?>">
+
+                                            <p class="help-block">
+                                                px
+                                            </p>
                                         </div>
+
                                         <div class="col-md-6 mb-3">
-                                            <!-- <label for="customBottomFontColor">Bottom Font Color:</label> -->
                                             Bottom Font Color:
-                                            <div class="input-group">
-                                                <input type="text" id="customBottomFontColor" name="customBottomFontColor"
-                                                    class="form-control" data-position="bottom left"
-                                                    value="<?php echo $customBottomFontColor; ?>">
-                                            </div>
+
+                                            <input type="text" class="form-control"
+                                                id="customBottomFontColor" name="customBottomFontColor"
+                                                data-position="bottom left"
+                                                value="<?php echo $customBottomFontColor; ?>">
+
+                                            <!-- <p class="help-block">
+                                            </p> -->
                                         </div>
+
                                         <script>
                                             $(function () {
                                                 $('#customBottomFontColor').colorpicker();
@@ -229,29 +262,32 @@ if (!empty($_POST['saveConfig'])) {
                                             });
                                         </script>
                                     </div>
+
                                     <div class="form-group advanced-setting row">
                                         <div class="col-md-6 mb-3">
-                                            <!-- <label for="customBottomFontOutlineSize">Bottom Font Outline Size:</label> -->
                                             Bottom Font Outline Size:
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" id="customBottomFontOutlineSize"
-                                                    name="customBottomFontOutlineSize" 
-                                                    value="<?php echo $customBottomFontOutlineSize; ?>">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">px</div>
-                                                </div>
-                                            </div>
+
+                                            <input type="text" class="form-control"
+                                                id="customBottomFontOutlineSize" name="customBottomFontOutlineSize"
+                                                value="<?php echo $customBottomFontOutlineSize; ?>">
+
+                                            <p class="help-block">
+                                                px
+                                            </p>
                                         </div>
+
                                         <div class="col-md-6 mb-3">
-                                            <!-- <label for="customBottomFontOutlineColor">Bottom Font Outline Color:</label> -->
                                             Bottom Font Outline Color:
-                                            <div class="input-group">
-                                                <input type="text" id="customBottomFontOutlineColor" 
-                                                    name="customBottomFontOutlineColor" class="form-control"
-                                                    data-position="bottom left"
-                                                    value="<?php echo $customBottomFontOutlineColor; ?>">
-                                            </div>
+
+                                            <input type="text" class="form-control"
+                                                id="customBottomFontOutlineColor" name="customBottomFontOutlineColor"
+                                                data-position="bottom left"
+                                                value="<?php echo $customBottomFontOutlineColor; ?>">
+
+                                            <!-- <p class="help-block">
+                                            </p> -->
                                         </div>
+
                                         <script>
                                             $(function () {
                                                 $('#customBottomFontOutlineColor').colorpicker();
