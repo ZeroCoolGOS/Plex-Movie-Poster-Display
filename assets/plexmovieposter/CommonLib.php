@@ -204,7 +204,7 @@ function HeaderInfoApple($configPage) {
     echo "\t<meta name=\"apple-touch-fullscreen\" content=\"yes\">\n";
 
     echo "\n";
-    echo "\t<!-- <link rel=\"apple-touch-icon\" href=\"$paths/assets/plex/images/apple-touch-icon.png\"> -->\n";
+    // echo "\t<!-- <link rel=\"apple-touch-icon\" href=\"$paths/assets/plex/images/apple-touch-icon.png\"> -->\n";
     echo "\t<link rel=\"apple-touch-icon-precomposed\" href=\"$paths/assets/plex/images/desktop/ios/icon-iphone.png\">\n";
     echo "\t<link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"$paths/assets/plex/images/desktop/ios/icon-ipad.png\">\n";
     echo "\t<link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"$paths/assets/plex/images/desktop/ios/icon-iphone@2x.png\">\n";

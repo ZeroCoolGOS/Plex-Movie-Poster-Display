@@ -1,6 +1,6 @@
 <?php
 //For feedback, suggestions, or issues please visit https://www.mattsshack.com/plex-movie-poster-display/
-// include_once('../assets/plexmovieposter/loginCheck.php');
+include_once('../assets/plexmovieposter/loginCheck.php');
 include '../assets/plexmovieposter/setData.php';
 include 'PMPInfo.php';
 include 'PMPReleaseNotes.php';
