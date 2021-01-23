@@ -1,6 +1,6 @@
 <?php
-include 'CommonLib.php';
-include 'setData.php';
+include '../assets/plexmovieposter/CommonLib.php';
+include '../assets/plexmovieposter/setData.php';
 
 $msg = NULL;
 // $returnPageData = $_GET['returnPage'];
@@ -25,7 +25,7 @@ if (isset($_POST['username']) && !empty($_POST['password'])) {
 <!doctype html>
 <html lang="en">
 <head>
-    <?php HeaderInfo(); ?>
+    <?php HeaderInfo(basename(__FILE__)); ?>
     <script> ShowHideAdvanced(); </script>
 </head>
 

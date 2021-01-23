@@ -1,54 +1,16 @@
 <?php
 //For feedback, suggestions, or issues please visit https://www.mattsshack.com/plex-movie-poster-display/
 include_once('config.php');
-include_once('settings/tokenCheck.php');
+include_once('assets/plexmovieposter/tokenCheck.php');
+include 'assets/plexmovieposter/CommonLib.php';
 $pmpImageSpeed = ($pmpImageSpeed * 1000);
 ?>
 
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <!-- <meta charset="utf-8"> -->
-    <title>Plex Movie Poster Display</title>
-
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
-    <meta name="description" content="">
-    <meta name="author" content="www.mattsshack.com">
-
-    <link rel="shortcut icon" type="image/png" href="/assets/images/desktop/favicon.ico"/>
-    <link rel="mask-icon" href="/assets/images/desktop/favicon-mask.svg" color="#cc7b19">
-
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-touch-fullscreen" content="yes">
-
-    <!-- <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png"> -->
-    <link rel="apple-touch-icon-precomposed" href="/assets/images/desktop/ios/icon-iphone.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/desktop/ios/icon-ipad.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/desktop/ios/icon-iphone@2x.png">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/desktop/ios/icon-ipad@2x.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 320px)" href="/assets/images/desktop/ios/startup-iphone-portrait.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" href="/assets/images/desktop/ios/startup-iphone-portrait@2x.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="/assets/images/desktop/ios/startup-iphone5-portrait@2x.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 768px) and (orientation: portrait)" href="/assets/images/desktop/ios/startup-ipad-portrait.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 768px) and (orientation: landscape)" href="/assets/images/desktop/ios/startup-ipad-landscape.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 1536px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="/assets/images/desktop/ios/startup-ipad-portrait@2x.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 1536px)  and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="/assets/images/desktop/ios/startup-ipad-landscape@2x.png">
-
-    <!-- JQuery Javascript -->
-    <script src="/assets/jquery-3.4.0/jquery-3.4.0.min.js"></script>
-    <script src="/assets/jquery-3.4.0/jquery.marquee.min.js"></script>
-    <script src="/assets/jquery-3.4.0/jquery.easing.min.js"></script>
-
-    <!-- Text Scaler Javascript -->
-    <script src="/assets/fitty/fitty.js"></script>
-
-    <!-- Bootstrap Javascript & CSS -->
-    <script src="/assets/bootstrap-4.3.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/assets/bootstrap-4.3.1/css/bootstrap.min.css">
-
-    <!-- Plex Movie Poster Display CSS -->
-    <link rel="stylesheet" href="/assets/styles/default/poster.css">
-
+    <?php HeaderInfo(basename(__FILE__)); ?>
+    
     <style>
         .comingSoonTop {
             font-size: <?php echo $comingSoonTopFontSize?>px;
@@ -102,7 +64,6 @@ $pmpImageSpeed = ($pmpImageSpeed * 1000);
                 });
             }, <?php echo $pmpImageSpeed; ?>);
         });
-
     </script>
 </head>
 

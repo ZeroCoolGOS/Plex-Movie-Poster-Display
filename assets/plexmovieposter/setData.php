@@ -23,7 +23,7 @@ function ghostData($configPage) {
     }
 
     // General PHP
-    if ($configPage != "general.php"  && $configPage != "login.php") {
+    if ($configPage != "general.php" && $configPage != "login.php") {
         $ghostField = "\n";
         echo $ghostField;
 

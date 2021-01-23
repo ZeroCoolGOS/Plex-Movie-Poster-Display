@@ -1,10 +1,10 @@
 <?php
 //For feedback, suggestions, or issues please visit https://www.mattsshack.com/plex-movie-poster-display/
-// include_once('loginCheck.php');
-include 'setData.php';
+include_once('../assets/plexmovieposter/loginCheck.php');
+include '../assets/plexmovieposter/setData.php';
 include 'PMPInfo.php';
 include 'PMPReleaseNotes.php';
-include 'CommonLib.php';
+include '../assets/plexmovieposter/CommonLib.php';
 include '../config.php';
 
 $CurrentPage = basename(__FILE__);
@@ -47,7 +47,7 @@ uploadConfig();
 <!doctype html>
 <html lang="en">
 <head>
-    <?php HeaderInfo(); ?>
+    <?php HeaderInfo(basename(__FILE__)); ?>
     <script> ShowHideAdvanced(); </script>
 </head>
 
