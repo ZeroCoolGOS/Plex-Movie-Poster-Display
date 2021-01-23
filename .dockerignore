@@ -1,4 +1,5 @@
 /build
+/setup
 .gitignore
 LICENSE
 README.md
