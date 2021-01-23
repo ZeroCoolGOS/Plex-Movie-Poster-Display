@@ -21,14 +21,48 @@
       tags: ['git']
 
   tasks:
+    # - name: "Copy: Assets"
+    #   copy:
+    #     src: "{{ repo_tmp }}/assets/"
+    #     dest: "{{ nginx_siteroot }}/assets/"
+    #     directory_mode: yes
+    #     remote_src: yes
+    
+    # - name: "Copy: Admin"
+    #   copy:
+    #     src: "{{ repo_tmp }}/admin/"
+    #     dest: "{{ nginx_siteroot }}/admin/"
+    #     directory_mode: yes
+    #     remote_src: yes
+    
+    # - name: "Copy: Cache"
+    #   copy:
+    #     src: "{{ repo_tmp }}/cache"
+    #     dest: "{{ nginx_siteroot }}/cache/"
+    #     directory_mode: yes
+    #     remote_src: yes
+
+    # - name: Display paths of all .txt files in dir
+    #   debug: msg={{ lookup('fileglob', '{{ repo_tmp }}/*.php') }}
+
+    # - name: "Copy: Site Pages (*.php)"
+    #   copy:
+    #     src: "{{ repo_tmp }}/"
+    #     dest: "{{ nginx_siteroot }}"
+    #     remote_src: yes
+    #   with_fileglob:
+    #     - "*.php"
     - name: "Copy: Site Pages (*.php)"
       copy:
-        src: "{{ repo_tmp }}/"
+        src: "{{ item }}/"
         dest: "{{ nginx_siteroot }}"
         remote_src: yes
+        directory_mode: no
       with_items:
-        ['*.php']
+        - '{{ repo_tmp }}/*.php'
+
       # become: false
+    
     - name: "Set Security"
       file:
         path: "{{ nginx_siteroot }}"
