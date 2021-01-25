@@ -255,13 +255,18 @@ if ($customImageEnabled != "Enabled") {
     }
 }
 
+$customTopFont_Name = "CustomFont"; // Prototype
+$customBottomFont_Name = "CustomFont"; // Prototype
+
 $topStyle = "color: ${topColor}; -webkit-text-stroke: ${topStrokeSize}px ${topStrokeColor};";
-if (!$autoScaleTop) $topStyle .= "font-size: ${topSize}px;";
-$topLine = "<div><span class='userText' style='$topStyle'> $topText</span></div>"; // Missing: Scroll Append?
+if ($customTopFont) $topStyle .= " font-family: '$customTopFont_Name';"; // Prototype
+if (!$autoScaleTop) $topStyle .= " font-size: ${topSize}px;";
+$topLine = "<div><span class='userText' style=\"$topStyle\"> $topText</span></div>"; // Missing: Scroll Append?
 
 $bottomStyle = "color: ${bottomColor}; -webkit-text-stroke: ${bottomStrokeSize}px ${bottomStrokeColor};";
-if (!$autoScaleBottom) $bottomStyle .= "font-size: ${bottomSize}px;";
-$bottomLine = "$scrollPrepend<div><span class='userText' style='$bottomStyle'>${bottomText}</span></div>$scrollAppend";
+if ($customBottomFont) $bottomStyle .= " font-family: '$customBottomFont_Name';"; // Prototype
+if (!$autoScaleBottom) $bottomStyle .= " font-size: ${bottomSize}px;";
+$bottomLine = "$scrollPrepend<div><span class='userText' style=\"$bottomStyle\">${bottomText}</span></div>$scrollAppend";
 
 $results = [];
 $results['top'] = $topLine . $progressBar;

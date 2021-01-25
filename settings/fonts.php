@@ -1,6 +1,6 @@
 <?php
 //For feedback, suggestions, or issues please visit https://www.mattsshack.com/plex-movie-poster-display/
-// include_once('../assets/plexmovieposter/loginCheck.php');
+include_once('../assets/plexmovieposter/loginCheck.php');
 include '../assets/plexmovieposter/setData.php';
 include 'PMPInfo.php';
 include 'PMPReleaseNotes.php';
@@ -85,84 +85,93 @@ uploadFont();
                                     </form>
                                 </div>
 
-                                <div class="form-group advanced-setting">
-                                    Custom Uploaded Font:    
-                                    <div style="font-family: 'CustomFont'; font-size: large; display: inline;">
-                                        Sample
-                                    </div>
-                                </div>
-
                                 <!-- <div class="form-group">
-                                    <div style="font-family: '';">
-                                        TEMPLATE
+                                    {Template String}&nbsp;
+                                    <div style="font-family: '{font name}';">
+                                        Sample
                                     </div>
                                 </div> -->
 
                                 <div class="form-group">
-                                    Custom Uploaded Font:
+                                    <hr>
+                                    Custom Uploaded Font:&nbsp;
                                     <div style="font-family: 'CustomFont'; font-size: large; display: inline;">
                                         Sample
                                     </div>
                                 </div>
 
                                 <div class="form-group">
+                                    <hr>
+                                    A Bug's Life:&nbsp;
                                     <div style="font-family: 'A Bugs Life'; font-size: large; display: inline;">
-                                        A Bug's Life
+                                        Sample
                                     </div>
+                                    <br>
+                                    A Bug's Life - Debugged:&nbsp;
                                     <div style="font-family: 'A Bugs Life - Debugged'; font-size: large; display: inline;">
-                                        A Bug's Life - Debugged
+                                        Sample
                                     </div>
                                 </div>
 
                                 <div class="form-group">
+                                    007 GoldenEye:&nbsp;
                                     <div style="font-family: '007 GoldenEye';font-size: large; display: inline;">
-                                        007 GoldenEye
+                                        Sample    
                                     </div>
                                 </div>
 
                                 <div class="form-group">
+                                    A Clockwork Orange:&nbsp;
                                     <div style="font-family: 'A Clockwork Orange';font-size: large; display: inline;">
-                                        A Clockwork Orange
+                                        Sample    
                                     </div>
-
+                                    <br>
+                                    A Clockwork Orange - Backfill:&nbsp;
                                     <div style="font-family: 'A Clockwork Orange - Backfill';font-size: large; display: inline;">
-                                        A Clockwork Orange - Backfill
+                                        Sample
                                     </div>
                                 </div>
 
                                 <div class="form-group">
+                                    Addams Family:&nbsp;
                                     <div style="font-family: 'Addams Family';font-size: large; display: inline;">
-                                        Addams Family
+                                        Sample
                                     </div>
                                 </div>
 
                                 <div class="form-group">
+                                    Alice In Wonderland:&nbsp;
                                     <div style="font-family: 'alice-in-wonderland';font-size: large; display: inline;">
-                                        alice-in-wonderland
+                                        Sample
                                     </div>
                                 </div>
 
                                 <div class="form-group">
+                                    Alien:&nbsp;
                                     <div style="font-family: 'alien';font-size: large; display: inline;">
-                                        Alien
+                                        Sample
                                     </div>
                                 </div>
 
                                 <div class="form-group">
+                                    Amazing Spider Man Movie (A):&nbsp;
                                     <div style="font-family: 'amazing-spider-man-movie_A';font-size: large; display: inline;">
-                                        Amazing Spider Man Movie
+                                        Sample
                                     </div>
-
+                                    <br>
+                                    Amazing Spider Man Movie (B):&nbsp;
                                     <div style="font-family: 'amazing-spider-man-movie_B';font-size: large; display: inline;">
-                                        Amazing Spider Man Movie
+                                        Sample
                                     </div>
-
+                                    <br>
+                                    Amazing Spider Man Movie (C):&nbsp;
                                     <div style="font-family: 'amazing-spider-man-movie_C';font-size: large; display: inline;">
-                                        Amazing Spider Man Movie
+                                        Sample
                                     </div>
-
+                                    <br>
+                                    Amazing Spider Man Movie (D):&nbsp;
                                     <div style="font-family: 'amazing-spider-man-movie_D';font-size: large; display: inline;">
-                                        Amazing Spider Man Movie
+                                        Sample
                                     </div>
                                 </div>
                             <!-- SEGMENT BLOCK END -->

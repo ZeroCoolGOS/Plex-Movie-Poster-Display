@@ -73,6 +73,14 @@ function sidebarInfo($configPage) {
     else {
         sidebarInfoMeta("custom.php","Custom Configuration","NotActive");
     }
+    
+    // Fonts PHP
+    if ($configPage == "fonts.php") {
+        sidebarInfoMeta("fonts.php","Font Configuration","Active");
+    }
+    else {
+        sidebarInfoMeta("fonts.php","Font Configuration","NotActive");
+    }
 
     echo '            </div>
                   </div>
@@ -503,6 +511,5 @@ function uploadFont() {
         }
     }
 }
-
 
 ?>
