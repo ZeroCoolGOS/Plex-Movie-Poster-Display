@@ -184,7 +184,7 @@ if (!empty($_POST['saveConfig'])) {
                                     </div>
 
                                     <div class="form-group advanced-setting">
-                                        <input type="checkbox" name="nowShowingTopAutoScale" id="comingSoonTopAutoScale" value="1" <?php if ($comingSoonTopAutoScale) echo " checked"?>>
+                                        <input type="checkbox" name="nowShowingTopAutoScale" id="nowShowingTopAutoScale" value="1" <?php if ($nowShowingTopAutoScale) echo " checked"?>>
                                         Auto-scale top text
 
                                         <!-- <p class="help-block">
@@ -322,7 +322,7 @@ if (!empty($_POST['saveConfig'])) {
                                     </div>
 
                                     <div class="form-group advanced-setting">
-                                        <input type="checkbox" name="nowShowingBottomAutoScale" id="nowShowingBottomAutoScale" value="1" <?php if ($comingSoonBottomAutoScale) echo " checked"?>>
+                                        <input type="checkbox" name="nowShowingBottomAutoScale" id="nowShowingBottomAutoScale" value="1" <?php if ($nowShowingBottomAutoScale) echo " checked"?>>
                                         Auto-scale bottom text
 
                                         <!-- <p class="help-block">
