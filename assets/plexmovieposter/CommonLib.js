@@ -57,3 +57,16 @@ function showName() {
     document.getElementById('configFileName').innerHTML = PostMSG;
 
 }
+
+function showName_font() {
+    var name = document.getElementById('fileToUpload'); 
+    //   alert('Selected file: ' + name.files.item(0).name);
+    //   alert('Selected file: ' + name.files.item(0).size);
+    //   alert('Selected file: ' + name.files.item(0).type);
+    
+    var FontFileName = name.files.item(0).name;
+    
+    var PostMSG = "Upload Font File: " + FontFileName;
+    document.getElementById('UploadFileName').innerHTML = PostMSG;
+
+}

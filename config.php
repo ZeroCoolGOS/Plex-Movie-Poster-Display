@@ -27,13 +27,16 @@
   $customTopText = '';
   $customTopFontSize = '55'; //Default: 55 (px)
   $customTopFontColor = '#FFFF00'; //Default: #FFFF00 (Yellow)
+  $customTopFont = ''; //Default: #FFFF00 (Yellow)
   $customTopFontOutlineSize = '0'; //Default: 0 (px)
   $customTopFontOutlineColor = '#FFFF00'; //Default: #FFFF00 (Yellow)
   $customBottomText = '';
   $customBottomFontSize = '25'; //Default: 25 (px)
   $customBottomFontColor = '#FFFFFF'; //Default: #FFFFFF (White)
+  $customBottomFont = ''; //Default: Unchecked
   $customBottomFontOutlineSize = '0'; //Default: 0 (px)
   $customBottomFontOutlineColor = '#FFFFFF'; //Default: #FFFFFF (White)
+  
 
   //Coming Soon Configuration
   $comingSoonTop = 'custom'; //Default: custom (title/summary/tagline/custom)

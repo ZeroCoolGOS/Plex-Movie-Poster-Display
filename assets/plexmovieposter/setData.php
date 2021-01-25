@@ -242,6 +242,9 @@ function ghostData($configPage) {
 
         $ghostField = "$formIndent<input type=\"hidden\" id=\"customTopFontColor\" name=\"customTopFontColor\" value=\"$customTopFontColor\">\n";
         echo $ghostField;
+        
+        $ghostField = "$formIndent<input type=\"hidden\" id=\"customTopFont\" name=\"customTopFont\" value=\"$customTopFont\">\n";
+        echo $ghostField;
 
         $ghostField = "$formIndent<input type=\"hidden\" id=\"customTopFontOutlineSize\" name=\"customTopFontOutlineSize\" value=\"$customTopFontOutlineSize\">\n";
         echo $ghostField;
@@ -256,6 +259,9 @@ function ghostData($configPage) {
         echo $ghostField;
 
         $ghostField = "$formIndent<input type=\"hidden\" id=\"customBottomFontColor\" name=\"customBottomFontColor\" value=\"$customBottomFontColor\">\n";
+        echo $ghostField;
+        
+        $ghostField = "$formIndent<input type=\"hidden\" id=\"customBottomFont\" name=\"customBottomFont\" value=\"$customBottomFont\">\n";
         echo $ghostField;
 
         $ghostField = "$formIndent<input type=\"hidden\" id=\"customBottomFontOutlineSize\" name=\"customBottomFontOutlineSize\" value=\"$customBottomFontOutlineSize\">\n";
@@ -318,11 +324,13 @@ function setData($configPage) {
   \$customTopText = '$_POST[customTopText]';
   \$customTopFontSize = '$_POST[customTopFontSize]'; //Default: 55 (px)
   \$customTopFontColor = '$_POST[customTopFontColor]'; //Default: #FFFF00 (Yellow)
+  \$customTopFont = '$_POST[customTopFont]'; //Default: Unchecked
   \$customTopFontOutlineSize = '$_POST[customTopFontOutlineSize]'; //Default: 0 (px)
   \$customTopFontOutlineColor = '$_POST[customTopFontOutlineColor]'; //Default: #FFFF00 (Yellow)
   \$customBottomText = '$_POST[customBottomText]';
   \$customBottomFontSize = '$_POST[customBottomFontSize]'; //Default: 25 (px)
   \$customBottomFontColor = '$_POST[customBottomFontColor]'; //Default: #FFFFFF (White)
+  \$customBottomFont = '$_POST[customBottomFont]'; //Default: Unchecked
   \$customBottomFontOutlineSize = '$_POST[customBottomFontOutlineSize]'; //Default: 0 (px)
   \$customBottomFontOutlineColor = '$_POST[customBottomFontOutlineColor]'; //Default: #FFFFFF (White)
 

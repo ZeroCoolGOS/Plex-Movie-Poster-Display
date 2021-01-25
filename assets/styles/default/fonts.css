@@ -1,0 +1,116 @@
+@font-face { 
+	font-family: "A Bugs Life";
+	src: url('ABugsLife.eot');
+	src: url('ABugsLife.eot?#iefix') format('embedded-opentype'),
+	     url('ABugsLife.woff') format('woff'),
+	     url('/assets/fonts/a-bugs-life/A\ Bug\ s\ Life.ttf') format('truetype'),
+	     url('ABugsLife.svg#webfont') format('svg');
+}
+
+@font-face { 
+	font-family: "A Bugs Life - Debugged";
+	src: url('ABugsLife.eot');
+	src: url('ABugsLife.eot?#iefix') format('embedded-opentype'),
+	     url('ABugsLife.woff') format('woff'),
+	     url('/assets/fonts/a-bugs-life/A\ Bug\ s\ Life\ -\ Debugged.ttf') format('truetype'),
+	     url('ABugsLife.svg#webfont') format('svg');
+}
+
+@font-face { 
+	font-family: "007 GoldenEye";
+	src: url('007 GoldenEye.eot');
+	src: url('007 GoldenEye.eot?#iefix') format('embedded-opentype'),
+	     url('007 GoldenEye.woff') format('woff'),
+	     url('/assets/fonts/007-goldeneye/007 GoldenEye.ttf') format('truetype'),
+	     url('007 GoldenEye.svg#webfont') format('svg');
+}
+
+@font-face { 
+	font-family: "A Clockwork Orange";
+	src: url('Timepiece.eot');
+	src: url('Timepiece.eot?#iefix') format('embedded-opentype'),
+	     url('Timepiece.woff') format('woff'),
+	     url('/assets/fonts/a-clockwork-orange/Timepiece.ttf') format('truetype'),
+	     url('Timepiece.svg#webfont') format('svg');
+}
+@font-face { 
+	font-family: "A Clockwork Orange - Backfill";
+	src: url('Timepiece.eot');
+	src: url('Timepiece.eot?#iefix') format('embedded-opentype'),
+	     url('Timepiece.woff') format('woff'),
+	     url('/assets/fonts/a-clockwork-orange/Timepiece3dBackfill.ttf') format('truetype'),
+	     url('Timepiece.svg#webfont') format('svg');
+}
+
+@font-face { 
+	font-family: "Addams Family";
+	src: url('Family.eot');
+	src: url('Family.eot?#iefix') format('embedded-opentype'),
+	     url('Family.woff') format('woff'),
+	     url('/assets/fonts/addams-family/Fiddums Family.ttf') format('truetype'),
+	     url('Family.svg#webfont') format('svg');
+}
+
+@font-face { 
+	font-family: "alice-in-wonderland";
+	src: url('Family.eot');
+	src: url('Family.eot?#iefix') format('embedded-opentype'),
+	     url('Family.woff') format('woff'),
+	     url('/assets/fonts/alice-in-wonderland/Alice_in_Wonderland_3.ttf') format('truetype'),
+	     url('Family.svg#webfont') format('svg');
+}
+
+@font-face { 
+	font-family: "alien";
+	src: url('Family.eot');
+	src: url('Family.eot?#iefix') format('embedded-opentype'),
+	     url('Family.woff') format('woff'),
+	     url('/assets/fonts/alien/ALIEN5.TTF') format('truetype'),
+	     url('Family.svg#webfont') format('svg');
+}
+
+@font-face { 
+	font-family: "amazing-spider-man-movie_A";
+	src: url('Family.eot');
+	src: url('Family.eot?#iefix') format('embedded-opentype'),
+	     url('Family.woff') format('woff'),
+	     url('/assets/fonts/amazing-spider-man-movie/Amazing\ Spider-Man\ toile.ttf') format('truetype'),
+	     url('Family.svg#webfont') format('svg');
+}
+
+@font-face { 
+	font-family: "amazing-spider-man-movie_B";
+	src: url('Family.eot');
+	src: url('Family.eot?#iefix') format('embedded-opentype'),
+	     url('Family.woff') format('woff'),
+	     url('/assets/fonts/amazing-spider-man-movie/Amazing\ Spider-Man\ toile\ slant.ttf') format('truetype'),
+	     url('Family.svg#webfont') format('svg');
+}
+
+@font-face { 
+	font-family: "amazing-spider-man-movie_C";
+	src: url('Family.eot');
+	src: url('Family.eot?#iefix') format('embedded-opentype'),
+	     url('Family.woff') format('woff'),
+	     url('/assets/fonts/amazing-spider-man-movie/Amazing\ Spider\ Man.ttf') format('truetype'),
+	     url('Family.svg#webfont') format('svg');
+}
+
+@font-face { 
+	font-family: "amazing-spider-man-movie_D";
+	src: url('Family.eot');
+	src: url('Family.eot?#iefix') format('embedded-opentype'),
+	     url('Family.woff') format('woff'),
+	     url('/assets/fonts/amazing-spider-man-movie/Amazing\ Spider\ Man\ slant.ttf') format('truetype'),
+	     url('Family.svg#webfont') format('svg');
+}
+
+
+@font-face { 
+	font-family: "CustomFont";
+	src: url('assets/fonts/_CustomFonts/CustomFont.eot');
+	src: url('assets/fonts/_CustomFonts/CustomFont.eot?#iefix') format('embedded-opentype'),
+	     url('assets/fonts/_CustomFonts/CustomFont.woff') format('woff'),
+	     url('/assets/fonts/_CustomFonts/CustomFont.ttf') format('truetype'),
+	     url('assets/fonts/_CustomFonts/CustomFont.svg#webfont') format('svg');
+}

@@ -161,6 +161,14 @@ if (!empty($_POST['saveConfig'])) {
                                             });
                                         </script>
                                     </div>
+                                    
+                                    <div class="form-group advanced-setting">
+                                        <input type="checkbox" name="customTopFont" id="customTopFont" value="1" <?php if ($customTopFont) echo " checked"?>>
+                                        Use Custom Font (Top)
+
+                                        <!-- <p class="help-block">
+                                        </p> -->
+                                    </div>
 
                                     <div class="form-group advanced-setting row">
                                         <div class="col-md-6 mb-3">
@@ -284,6 +292,15 @@ if (!empty($_POST['saveConfig'])) {
                                             });
                                         </script>
                                     </div>
+
+                                    <div class="form-group advanced-setting">
+                                        <input type="checkbox" name="customBottomFont" id="customBottomFont" value="1" <?php if ($customBottomFont) echo " checked"?>>
+                                        Use Custom Font (Bottom)
+
+                                        <!-- <p class="help-block">
+                                        </p> -->
+                                    </div>
+
                                 <!-- SEGMENT BLOCK END -->
 
                                 <!-- GHOST BLOCK START -->
