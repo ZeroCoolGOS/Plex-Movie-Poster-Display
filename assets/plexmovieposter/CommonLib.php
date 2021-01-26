@@ -183,7 +183,8 @@ function HeaderInfo($configPage) {
         echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/plexmovieposter/fonts_custom.css?v=$font_custom_ver\">\n";
     }
     else {
-        echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/plexmovieposter/fonts_custom.css\">\n";
+        // echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/plexmovieposter/fonts_custom.css\">\n";
+        echo "\t<link rel=\"stylesheet\" href=\"$paths/cache/fonts/fonts_custom.css\">\n";
     }
 
 
