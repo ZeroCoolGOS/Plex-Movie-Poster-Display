@@ -104,13 +104,3 @@
 	     url('/assets/fonts/amazing-spider-man-movie/Amazing\ Spider\ Man\ slant.ttf') format('truetype'),
 	     url('Family.svg#webfont') format('svg');
 }
-
-
-@font-face { 
-	font-family: "CustomFont";
-	src: url('assets/fonts/_CustomFonts/CustomFont.eot');
-	src: url('assets/fonts/_CustomFonts/CustomFont.eot?#iefix') format('embedded-opentype'),
-	     url('assets/fonts/_CustomFonts/CustomFont.woff') format('woff'),
-	     url('/assets/fonts/_CustomFonts/CustomFont.ttf') format('truetype'),
-	     url('assets/fonts/_CustomFonts/CustomFont.svg#webfont') format('svg');
-}

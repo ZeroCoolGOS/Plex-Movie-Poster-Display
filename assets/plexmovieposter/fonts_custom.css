@@ -1,0 +1,8 @@
+@font-face { 
+	font-family: "CustomFont";
+	src: url('/cache/fonts/CustomFont.eot');
+	src: url('/cache/fonts/CustomFont.eot?#iefix') format('embedded-opentype'),
+	     url('/cache/fonts/CustomFont.woff') format('woff'),
+	     url('/cache/fonts/CustomFont.ttf') format('truetype'),
+	     url('/cache/fonts/CustomFont.svg#webfont') format('svg');
+}

@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y \
     # dialog \
     dos2unix \
     # git \
-    # nano \
+    nano \
     nginx \
     php-curl \
     php-fpm \
@@ -110,8 +110,11 @@ WORKDIR /home/
 COPY ${localconfig}/start.sh start.sh
 RUN dos2unix start.sh
 
+# Setting working directory to site root for development and debugging
+WORKDIR /var/www/html/
+
 # COPY ${buildconfig}/Setup.sh Setup.sh
-CMD ["/bin/bash","start.sh"]
+CMD ["/bin/bash","/home/start.sh"]
 #endregion
 
 #TODO:

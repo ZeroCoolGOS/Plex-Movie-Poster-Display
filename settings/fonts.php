@@ -5,6 +5,7 @@ include '../assets/plexmovieposter/setData.php';
 include 'PMPInfo.php';
 include 'PMPReleaseNotes.php';
 include '../assets/plexmovieposter/CommonLib.php';
+include '../assets/plexmovieposter/FontLib.php';
 include '../config.php';
 
 //Save Configuration
@@ -13,7 +14,7 @@ if (!empty($_POST['saveConfig'])) {
 }
 
 uploadFont();
-
+GenerateCSS_Font();
 ?>
 
 <!doctype html>

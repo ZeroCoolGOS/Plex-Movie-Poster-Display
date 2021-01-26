@@ -73,7 +73,7 @@ function sidebarInfo($configPage) {
     else {
         sidebarInfoMeta("custom.php","Custom Configuration","NotActive");
     }
-    
+
     // Fonts PHP
     if ($configPage == "fonts.php") {
         sidebarInfoMeta("fonts.php","Font Configuration","Active");
@@ -144,7 +144,7 @@ function HeaderInfo($configPage) {
     echo "\n";
     echo "\t<!-- JQuery Javascript -->\n";
     echo "\t<script src=\"$paths/assets/jquery-3.4.0/jquery-3.4.0.min.js\"></script>\n";
-    
+
     if ($configPage == "index.php") {
         echo "\t<script src=\"$paths/assets/jquery-3.4.0/jquery.marquee.min.js\"></script>\n";
         echo "\t<script src=\"$paths/assets/jquery-3.4.0/jquery.easing.min.js\"></script>\n";
@@ -166,7 +166,7 @@ function HeaderInfo($configPage) {
     echo "\t<!-- Bootstrap Javascript & CSS -->\n";
     echo "\t<script src=\"$paths/assets/bootstrap-4.3.1/js/bootstrap.min.js\"></script>\n";
     echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/bootstrap-4.3.1/css/bootstrap.min.css\">\n";
-    
+
     if ($configPage != "index.php") {
         echo "\n";
         echo "\t<!-- Bootstrap Colorpicker Javascript & CSS -->\n";
@@ -176,14 +176,23 @@ function HeaderInfo($configPage) {
 
     echo "\n";
     echo "\t<!-- Plex Movie Poster Display Javascript & CSS -->\n";
-    echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/styles/default/fonts.css\">\n";
-    
+    echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/plexmovieposter/fonts_stock.css\">\n";
+
+    if ($debugMode == TRUE) {
+        $font_custom_ver = date('his');
+        echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/plexmovieposter/fonts_custom.css?v=$font_custom_ver\">\n";
+    }
+    else {
+        echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/plexmovieposter/fonts_custom.css\">\n";
+    }
+
+
     if ($configPage != "index.php") {
         echo "\t<script src=\"$paths/assets/plexmovieposter/CommonLib.js\"></script>\n";
         echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/styles/default/style.css\">\n";
         echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/styles/default/form-validation.css\">\n";
-    }    
-    
+    }
+
     if ($configPage == "index.php") {
         echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/styles/default/poster.css\">\n";
         // echo "\t<link rel=\"shortcut icon\" type=\"image/png\" href=\"$paths/assets/images/desktop/favicon.ico\"/>\n";
@@ -256,7 +265,7 @@ function FooterInfo() {
     $CopyrightMsg_01 = "Plex is a copyright of the Plex Media Company";
     $CopyrightMsg_02 = "Works with Plex";
     $CopyrightMsg_03 = "Plex Move Poster Display for Plex";
-    
+
     echo "<div style=\"position: absolute; left: 0; bottom: 0; width: 100%; text-align: center; \">";
     echo "<p>";
     echo "$CopyrightMsg_02";
@@ -274,7 +283,12 @@ function fixupSize($bytes) {
 
 function PosterCache() {
     //Count Items in Posters
-    $posters = scandir('../cache/posters');
+    $target_dir = "../cache/posters/";
+
+    if (!file_exists($target_dir)) {
+        mkdir($target_dir, 0777, true);
+    }
+    $posters = scandir("$target_dir");
     $GLOBALS['posterCount'] = count($posters) - 2;
     if ($GLOBALS['posterCount'] < 0) {
         $GLOBALS['posterCount'] = 0;
@@ -283,7 +297,12 @@ function PosterCache() {
 
 function PosterCacheClear() {
     //Clear Poster Cache Directory
-    $files = glob('../cache/posters/*');
+    $target_dir = "../cache/posters/";
+
+    if (!file_exists($target_dir)) {
+        mkdir($target_dir, 0777, true);
+    }
+    $files = glob("$target_dir/*");
     foreach ($files as $file) {
         if (is_file($file)) {
             unlink($file);
@@ -293,7 +312,13 @@ function PosterCacheClear() {
 
 function CustomCache() {
     //Count Items in Custom Images
-    $custom = scandir('../cache/custom');
+    $target_dir = "../cache/custom/";
+
+    if (!file_exists($target_dir)) {
+        mkdir($target_dir, 0777, true);
+    }
+
+    $custom = scandir("$target_dir");
     $GLOBALS['customCount'] = count($custom) - 2;
     if ($GLOBALS['$customCount'] < 0) {
         $GLOBALS['$customCount'] = 0;
@@ -302,7 +327,44 @@ function CustomCache() {
 
 function CustomCacheClear() {
     //Clear Custom Cache Directory
-    $files = glob('../cache/custom/*');
+    $target_dir = "../cache/custom/";
+
+    if (!file_exists($target_dir)) {
+        mkdir($target_dir, 0777, true);
+    }
+
+    $files = glob("$target_dir/*");
+    foreach ($files as $file) {
+        if (is_file($file)) {
+            unlink($file);
+        }
+    }
+}
+
+function CustomFontCache() {
+    //Count Items in Custom Font Cache Directory
+    $target_dir = "../cache/fonts/";
+
+    if (!file_exists($target_dir)) {
+        mkdir($target_dir, 0777, true);
+    }
+
+    $custom = scandir("$target_dir");
+    $GLOBALS['customFontCount'] = count($custom) - 2;
+    if ($GLOBALS['$customFontCount'] < 0) {
+        $GLOBALS['$customFontCount'] = 0;
+    }
+}
+
+function CustomFontCacheClear() {
+    //Clear Custom Font Cache Directory
+    $target_dir = "../cache/fonts/";
+
+    if (!file_exists($target_dir)) {
+        mkdir($target_dir, 0777, true);
+    }
+
+    $files = glob("$target_dir/*");
     foreach ($files as $file) {
         if (is_file($file)) {
             unlink($file);
@@ -361,7 +423,7 @@ function uploadConfig() {
                 echo "File is an image - " . $check["mime"] . ".";
             }
             $uploadOk = 1;
-        } 
+        }
         else {
             if ($ShowMSG == true) {
                 echo "File is not an image.";
@@ -405,7 +467,7 @@ function uploadConfig() {
             echo "Sorry, your file was not uploaded.<br>";
         }
         // if everything is ok, try to upload file
-    } 
+    }
     else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             if ($ShowMSG == true) {
@@ -415,7 +477,7 @@ function uploadConfig() {
                 header("Location: general.php");
                 exit();
             }
-        } 
+        }
         else {
             if ($ShowMSG == true) {
                 echo "Sorry, there was an error uploading your file.";
@@ -428,11 +490,19 @@ function uploadFont() {
     $ShowMSG = false;
     $SetRedirect = true;
 
+    $UseFileName = true;
+
     // $target_dir = "uploads/";
-    $target_dir = "../assets/fonts/_CustomFonts/";
+    $target_dir = "../cache/fonts/";
     $target_fileName = "CustomFont.ttf";
-    // $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-    $target_file = $target_dir . $target_fileName;
+
+    if ($UseFileName == TRUE) {
+        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+    }
+    else {
+        $target_file = $target_dir . $target_fileName;
+    }
+
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
@@ -449,7 +519,7 @@ function uploadFont() {
                 echo "File is an image - " . $check["mime"] . ".";
             }
             $uploadOk = 1;
-        } 
+        }
         else {
             if ($ShowMSG == true) {
                 echo "File is not an image.";
@@ -493,7 +563,7 @@ function uploadFont() {
             echo "Sorry, your file was not uploaded.<br>";
         }
         // if everything is ok, try to upload file
-    } 
+    }
     else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             if ($ShowMSG == true) {
@@ -503,7 +573,7 @@ function uploadFont() {
                 header("Location: fonts.php");
                 exit();
             }
-        } 
+        }
         else {
             if ($ShowMSG == true) {
                 echo "Sorry, there was an error uploading your file.";
