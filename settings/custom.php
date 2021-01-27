@@ -1,6 +1,6 @@
 <?php
 //For feedback, suggestions, or issues please visit https://www.mattsshack.com/plex-movie-poster-display/
-include_once('../assets/plexmovieposter/loginCheck.php');
+// include_once('../assets/plexmovieposter/loginCheck.php');
 include '../assets/plexmovieposter/setData.php';
 include 'PMPInfo.php';
 include 'PMPReleaseNotes.php';
@@ -161,14 +161,6 @@ if (!empty($_POST['saveConfig'])) {
                                             });
                                         </script>
                                     </div>
-                                    
-                                    <div class="form-group advanced-setting">
-                                        <input type="checkbox" name="customTopFont" id="customTopFont" value="1" <?php if ($customTopFont) echo " checked"?>>
-                                        Use Custom Font (Top)
-
-                                        <!-- <p class="help-block">
-                                        </p> -->
-                                    </div>
 
                                     <div class="form-group advanced-setting row">
                                         <div class="col-md-6 mb-3">
@@ -203,6 +195,30 @@ if (!empty($_POST['saveConfig'])) {
                                                 });
                                             });
                                         </script>
+                                    </div>
+
+                                    <div class="form-group advanced-setting row">
+                                        <div class="col-md-6 mb-3">
+                                            <input type="checkbox" name="customTopFontEnabled" id="customTopFontEnabled" value="1" <?php if ($customTopFontEnabled) echo " checked"?>>
+                                            Use Custom Font (Top)
+
+                                            <!-- <p class="help-block">
+                                            </p> -->
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            Custom Font (Top): &nbsp;
+                                            <select id="customTopFontID" name="customTopFontID">
+                                                <option value="A Bugs Life" <?php if ($customTopFontID == 'A Bugs Life') { echo "selected"; } ?>>
+                                                    A Bugs Life
+                                                </option>
+                                                <option value="007 GoldenEye" <?php if ($customTopFontID == '007 GoldenEye') { echo "selected"; } ?>>
+                                                    007 GoldenEye
+                                                </option>
+                                            </select>
+
+                                            <!-- <p class="help-block">
+                                            </p> -->
+                                        </div>
                                     </div>
 
                                     <div class="form-group">
@@ -293,12 +309,28 @@ if (!empty($_POST['saveConfig'])) {
                                         </script>
                                     </div>
 
-                                    <div class="form-group advanced-setting">
-                                        <input type="checkbox" name="customBottomFont" id="customBottomFont" value="1" <?php if ($customBottomFont) echo " checked"?>>
-                                        Use Custom Font (Bottom)
+                                    <div class="form-group advanced-setting row">
+                                        <div class="col-md-6 mb-3">
+                                            <input type="checkbox" name="customBottomFontEnabled" id="customBottomFontEnabled" value="1" <?php if ($customBottomFontEnabled) echo " checked"?>>
+                                            Use Custom Font (Bottom)
 
-                                        <!-- <p class="help-block">
-                                        </p> -->
+                                            <!-- <p class="help-block">
+                                            </p> -->
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            Custom Font (Bottom): &nbsp;
+                                            <select id="customBottomFontID" name="customBottomFontID">
+                                                <option value="Disabled" <?php if ($customBottomFontID == 'Disabled') { echo "selected"; } ?>>
+                                                    Disabled
+                                                </option>
+                                                <option value="Enabled" <?php if ($customBottomFontID == 'Enabled') { echo "selected"; } ?>>
+                                                    Enabled
+                                                </option>
+                                            </select>
+
+                                            <!-- <p class="help-block">
+                                            </p> -->
+                                        </div>
                                     </div>
 
                                 <!-- SEGMENT BLOCK END -->
