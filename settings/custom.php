@@ -210,7 +210,7 @@ if (!empty($_POST['saveConfig'])) {
                                             Custom Font (Top): &nbsp;
                                             <?php 
                                                 // PHP 7.x
-                                                findFontFamily("../assets/plexmovieposter/", "fonts_stock.css", FALSE, TRUE, "customTopFontID");
+                                                findFontFamily_Full(FALSE, TRUE, "customTopFontID");
                                                 // PHP 8.x
                                                 //findFontFamily(CSSPath: "../assets/plexmovieposter/", CSSFile: "fonts_stock.css", HTMLdropdown: TRUE, fieldID: "customTopFontID");
                                             ?>
@@ -319,7 +319,7 @@ if (!empty($_POST['saveConfig'])) {
                                             Custom Font (Bottom): &nbsp;
                                             <?php 
                                                 // PHP 7.x
-                                                findFontFamily("../assets/plexmovieposter/", "fonts_stock.css", FALSE, TRUE, "customBottomFontID");
+                                                findFontFamily_Full(FALSE, TRUE, "customBottomFontID");
                                                 // PHP 8.x
                                                 //findFontFamily(CSSPath: "../assets/plexmovieposter/", CSSFile: "fonts_stock.css", HTMLdropdown: TRUE, fieldID: "customBottomFontID");
                                             ?>

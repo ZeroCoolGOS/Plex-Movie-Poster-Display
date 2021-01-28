@@ -537,7 +537,7 @@ function uploadFont() {
 
     // Check file size
     // $fileSizeMax = 500000; // 500 KB
-    $fileSizeMax = 100000;  // 100 KB
+    $fileSizeMax = 500000;  // 500 KB
     if ($_FILES["fileToUpload"]["size"] > $fileSizeMax) {
         if ($ShowMSG == true) {
             echo "Sorry, your file is too large.";

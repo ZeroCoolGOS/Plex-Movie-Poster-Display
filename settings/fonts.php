@@ -14,7 +14,8 @@ if (!empty($_POST['saveConfig'])) {
 }
 
 uploadFont();
-GenerateCSS_Font();
+// GenerateCSS_Font();
+GenerateCSS_Font_ALL();
 ?>
 
 <!doctype html>
@@ -87,8 +88,9 @@ GenerateCSS_Font();
                                 </div>
                                 <?php
                                     // PHP 7.x
-                                    findFontFamily("../assets/plexmovieposter/", "fonts_stock.css", TRUE, FALSE, "");
-                                    findFontFamily("../cache/fonts/", "fonts_custom.css", TRUE, FALSE, "");
+                                    // findFontFamily("../assets/plexmovieposter/", "fonts_stock.css", TRUE, FALSE, "");
+                                    // findFontFamily("../cache/fonts/", "fonts_custom.css", TRUE, FALSE, "");
+                                    findFontFamily_Full(TRUE, FALSE, "");
                                     // PHP 8.x
                                     // findFontFamily(CSSPath: "../assets/plexmovieposter/", CSSFile: "fonts_stock.css", HTMLdisplay: TRUE, HTMLdropdown: FALSE);
                                     // findFontFamily(CSSPath: "../cache/fonts/", CSSFile: "fonts_custom.css", HTMLdisplay:TRUE, HTMLdropdown:FALSE);
