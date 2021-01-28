@@ -74,7 +74,7 @@ GenerateCSS_Font();
                                                 Upload Font File:
                                                 <i>None</i>
                                             </div>
-                                        </p>                                            
+                                        </p>
 
                                         <label for="uploadFont" style="cursor: pointer;">
                                             <div class= "label label-btn label-primary">
@@ -85,9 +85,15 @@ GenerateCSS_Font();
                                         <input type="submit" value="Upload Font" name="uploadFont" id="uploadFont" style="opacity: 0;">
                                     </form>
                                 </div>
-
-                                <?php findFontFamily(); ?>
-                                <?php findFontFamily("../cache/fonts/", "fonts_custom.css"); ?>
+                                <?php
+                                    // PHP 7.x
+                                    findFontFamily("../assets/plexmovieposter/", "fonts_stock.css", TRUE, FALSE, "");
+                                    findFontFamily("../cache/fonts/", "fonts_custom.css", TRUE, FALSE, "");
+                                    // PHP 8.x
+                                    // findFontFamily(CSSPath: "../assets/plexmovieposter/", CSSFile: "fonts_stock.css", HTMLdisplay: TRUE, HTMLdropdown: FALSE);
+                                    // findFontFamily(CSSPath: "../cache/fonts/", CSSFile: "fonts_custom.css", HTMLdisplay:TRUE, HTMLdropdown:FALSE);
+                                    
+                                ?>
 
                             <!-- SEGMENT BLOCK END -->
 

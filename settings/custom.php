@@ -1,10 +1,11 @@
 <?php
 //For feedback, suggestions, or issues please visit https://www.mattsshack.com/plex-movie-poster-display/
-// include_once('../assets/plexmovieposter/loginCheck.php');
+include_once('../assets/plexmovieposter/loginCheck.php');
 include '../assets/plexmovieposter/setData.php';
 include 'PMPInfo.php';
 include 'PMPReleaseNotes.php';
 include '../assets/plexmovieposter/CommonLib.php';
+include '../assets/plexmovieposter/FontLib.php';
 include '../config.php';
 
 //Save Configuration
@@ -207,15 +208,12 @@ if (!empty($_POST['saveConfig'])) {
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             Custom Font (Top): &nbsp;
-                                            <select id="customTopFontID" name="customTopFontID">
-                                                <option value="A Bugs Life" <?php if ($customTopFontID == 'A Bugs Life') { echo "selected"; } ?>>
-                                                    A Bugs Life
-                                                </option>
-                                                <option value="007 GoldenEye" <?php if ($customTopFontID == '007 GoldenEye') { echo "selected"; } ?>>
-                                                    007 GoldenEye
-                                                </option>
-                                            </select>
-
+                                            <?php 
+                                                // PHP 7.x
+                                                findFontFamily("../assets/plexmovieposter/", "fonts_stock.css", FALSE, TRUE, "customTopFontID");
+                                                // PHP 8.x
+                                                //findFontFamily(CSSPath: "../assets/plexmovieposter/", CSSFile: "fonts_stock.css", HTMLdropdown: TRUE, fieldID: "customTopFontID");
+                                            ?>
                                             <!-- <p class="help-block">
                                             </p> -->
                                         </div>
@@ -319,14 +317,12 @@ if (!empty($_POST['saveConfig'])) {
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             Custom Font (Bottom): &nbsp;
-                                            <select id="customBottomFontID" name="customBottomFontID">
-                                                <option value="Disabled" <?php if ($customBottomFontID == 'Disabled') { echo "selected"; } ?>>
-                                                    Disabled
-                                                </option>
-                                                <option value="Enabled" <?php if ($customBottomFontID == 'Enabled') { echo "selected"; } ?>>
-                                                    Enabled
-                                                </option>
-                                            </select>
+                                            <?php 
+                                                // PHP 7.x
+                                                findFontFamily("../assets/plexmovieposter/", "fonts_stock.css", FALSE, TRUE, "customBottomFontID");
+                                                // PHP 8.x
+                                                //findFontFamily(CSSPath: "../assets/plexmovieposter/", CSSFile: "fonts_stock.css", HTMLdropdown: TRUE, fieldID: "customBottomFontID");
+                                            ?>
 
                                             <!-- <p class="help-block">
                                             </p> -->

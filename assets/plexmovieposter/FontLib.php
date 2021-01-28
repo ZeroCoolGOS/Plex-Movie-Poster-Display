@@ -43,7 +43,7 @@ function GenerateCSS_Font($CSSPath = "../cache/fonts/", $CSSFile = "fonts_custom
     if (is_file($CSSFullName)) {
         unlink($CSSFullName);
     }
-    
+
     // Process Logic
 
     // $files = glob('folder/*.{jpg,png,gif}', GLOB_BRACE);
@@ -55,45 +55,63 @@ function GenerateCSS_Font($CSSPath = "../cache/fonts/", $CSSFile = "fonts_custom
     }
 }
 
-function findFontFamily($CSSPath = "../assets/plexmovieposter/", $CSSFile = "fonts_stock.css") {
+function findFontFamily($CSSPath = "../assets/plexmovieposter/", $CSSFile = "fonts_stock.css", $HTMLdisplay = FALSE, $HTMLdropdown = FALSE, $fieldID) {
     // $file = '../assets/plexmovieposter/fonts_stock.css';
     $file = $CSSPath . $CSSFile;
     $searchfor = 'font-family:';
-    
+
     // the following line prevents the browser from parsing this as HTML.
     header('Content-Type: text/plain');
-    
+
     // get the file contents, assuming the file to be readable (and exist)
     $contents = file_get_contents($file);
-    
+
     // escape special characters in the query
     $pattern = preg_quote($searchfor, '/');
-    
+
     // finalise the regular expression, matching the whole line
     $pattern = "/^.*$pattern.*\$/m";
-    
-    // search, and store all matching occurences in $matches
+
+    // search, and store all matching occurrences in $matches
     if(preg_match_all($pattern, $contents, $matches)){
     //    echo "Found fonts:\n";
     //    echo implode("\n", $matches[0]);
 
-        foreach($matches[0] as $fontfamily) {
-            // Clean Up String
-            $fontfamily = str_replace($searchfor,'',$fontfamily);
-            $fontfamily = str_replace('"','',$fontfamily);
-            $fontfamily = str_replace(';','',$fontfamily);
-            $fontfamily = trim($fontfamily);
-            
-            displayFontFamily($fontfamily);
+        if ($HTMLdisplay == TRUE) {
+            // PHP 7.x
+            displayFontFamily($searchfor, $matches[0]);
+            // PHP 8.x
+            // displayFontFamily(searchfor: $searchfor, fontfamilyRAW: $matches[0]);
         }
-        dropdownFontFamily($searchfor, $matches[0]);
+
+        if ($HTMLdropdown == TRUE) {
+            // PHP 7.x
+            dropdownFontFamily($searchfor, $matches[0], $fieldID);
+            // PHP 8.x
+            // dropdownFontFamily(searchfor: $searchfor, fontfamilyRAW: $matches[0], fieldID: $fieldID);
+        }
     }
     else{
-       echo "\nNo fonts found";
-    }  
+    //    echo "\nNo fonts found";
+    }
 }
 
-function displayFontFamily($fontfamily) {
+function displayFontFamily($searchfor, $fontfamilyRAW) {
+    foreach($fontfamilyRAW as $fontfamily) {
+        // Clean Up String
+        $fontfamily = str_replace($searchfor,'',$fontfamily);
+        $fontfamily = str_replace('"','',$fontfamily);
+        $fontfamily = str_replace(';','',$fontfamily);
+        $fontfamily = trim($fontfamily);
+
+        // PHP 7.x
+        displayFontFamilySub($fontfamily);
+        // PHP 8.x
+        // displayFontFamilySub(fontfamily: $fontfamily);
+    }
+}
+
+function displayFontFamilySub($fontfamily) {
     echo "<div class=\"form-group\">\n";
     echo "$fontfamily:&nbsp;\n";
     echo "<div style=\"font-family: '$fontfamily'; font-size: 20px; display: inline;\">\n";
@@ -102,8 +120,10 @@ function displayFontFamily($fontfamily) {
     echo "</div>\n";
 }
 
-function dropdownFontFamily($searchfor, $fontfamilyRAW) {
-    echo "<select id=\"customBottomFontID\" name=\"customBottomFontID\" style=\"font-size: 20px;\">";
+function dropdownFontFamily($searchfor, $fontfamilyRAW, $fieldID = "customTopFontID") {
+
+    echo "<select id=\"\" name=\"$fieldID\" style=\"font-size: 20px;\">\n";
+    echo "<option value=\"\">None</option>\n";
 
     foreach($fontfamilyRAW as $fontfamily) {
         // Clean Up String
@@ -111,8 +131,12 @@ function dropdownFontFamily($searchfor, $fontfamilyRAW) {
         $fontfamily = str_replace('"','',$fontfamily);
         $fontfamily = str_replace(';','',$fontfamily);
         $fontfamily = trim($fontfamily);
-        
-        dropdownFontFamilySub3($fontfamily);
+
+        // PHP 7.x
+        dropdownFontFamilySub3($fontfamily, $fieldID);
+        // PHP 8.x
+        // dropdownFontFamilySub3(fontfamily: $fontfamily, fieldID: $fieldID);
+
     }
     echo "</select>";
 }
@@ -132,12 +156,13 @@ function dropdownFontFamilySub2($fontfamily) {
     echo "</option>\n";
 }
 
-function dropdownFontFamilySub3($fontfamily) {
-    if ($customBottomFontID == $fontfamily) {
-        echo "<option value=\"$fontfamily\" style=\"font-family: '$fontfamily';\" selected>\n";
+function dropdownFontFamilySub3($fontfamily, $fieldID) {
+    include '../config.php';
+    if ($$fieldID == $fontfamily) {
+        echo "<option value=\"$fontfamily\" style=\"font-family: '$fontfamily';\" selected>";
     }
     else {
-        echo "<option value=\"$fontfamily\" style=\"font-family: '$fontfamily';\">\n";
+        echo "<option value=\"$fontfamily\" style=\"font-family: '$fontfamily';\">";
     }
     echo "$fontfamily";
     echo "</option>\n";
