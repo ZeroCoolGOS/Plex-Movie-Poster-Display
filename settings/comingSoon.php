@@ -13,6 +13,8 @@ if (!empty($_POST['saveConfig'])) {
     setData(basename(__FILE__));
 }
 
+GenerateCSS_Font_ALL();
+
 ?>
 
 <!doctype html>

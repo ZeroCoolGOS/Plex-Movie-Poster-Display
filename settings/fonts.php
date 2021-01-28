@@ -14,7 +14,6 @@ if (!empty($_POST['saveConfig'])) {
 }
 
 uploadFont();
-// GenerateCSS_Font();
 GenerateCSS_Font_ALL();
 ?>
 

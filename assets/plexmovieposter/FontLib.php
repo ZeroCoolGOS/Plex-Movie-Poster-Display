@@ -31,9 +31,7 @@ function GenerateCSS_FontSingle($CSSFullName, $fontPath = "/cache/fonts", $fontN
 function GenerateCSS_Font($CSSPath = "../cache/fonts/", $CSSFile = "fonts_custom.css", $FontPath = "../cache/fonts") {
     // CSS File Settings
     $CSSFullName = $CSSPath . $CSSFile;
-    // $CSSFontPath = "/cache/fonts";
-    $CSSFontPath = str_replace('..','',$FontPath);
-
+    
     // Generate the directory if it does not exist.
     if (!file_exists($CSSPath)) {
         mkdir($CSSPath, 0777, true);
@@ -47,18 +45,28 @@ function GenerateCSS_Font($CSSPath = "../cache/fonts/", $CSSFile = "fonts_custom
     // Process Logic
 
     // $files = glob('folder/*.{jpg,png,gif}', GLOB_BRACE);
-    $files = glob("$FontPath/*.{[tT][tT][fF]}", GLOB_BRACE);
+    // $files = glob("$FontPath/*.{[tT][tT][fF]}", GLOB_BRACE);
+
+    $dir_iterator = new RecursiveDirectoryIterator("$FontPath");
+    $files = new RecursiveIteratorIterator($dir_iterator, RecursiveIteratorIterator::SELF_FIRST);
 
     foreach($files as $file) {
         $file_parts = pathinfo($file);
-        GenerateCSS_FontSingle($CSSFullName, $CSSFontPath, $file_parts['filename'], $file_parts['filename']);
+        if (preg_match("{[tT][tT][fF]}",$file_parts['extension'])) {
+            $fontPath = $file_parts['dirname'];
+            $fontPath = str_replace('..','',$fontPath);
+            $fontName = $file_parts['filename'];
+            $fontFile = $file_parts['filename'];
+
+            GenerateCSS_FontSingle($CSSFullName, $fontPath, $fontName, $fontFile);
+        }
     }
 }
 
 function GenerateCSS_Font_Stock() {
     $CSSPath = "../assets/plexmovieposter/";
     $CSSFontFileName = "fonts_stock.css";
-    $FontPath = "../assets/fonts/";
+    $FontPath = "../assets/fonts";
 
     GenerateCSS_Font($CSSPath, $CSSFontFileName, $FontPath);
 }
