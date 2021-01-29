@@ -6,6 +6,7 @@ include 'PMPInfo.php';
 include 'PMPReleaseNotes.php';
 include '../assets/plexmovieposter/CommonLib.php';
 include '../assets/plexmovieposter/FontLib.php';
+include '../assets/plexmovieposter/importExportLib.php';
 include '../config.php';
 
 //Save Configuration
@@ -17,9 +18,11 @@ uploadFont();
 GenerateCSS_Font_ALL();
 // exportFont();
 Zip("../assets/fonts","../cache/archive", "FontArchive_Stock.zip");
+Zip("../cache/fonts","../cache/archive", "FontArchive_Custom.zip");
 
 if (isset($_POST["btn_zip"])) {
-    uploadFiles();
+    // uploadFiles();
+    importFiles();
 }
 
 ?>
