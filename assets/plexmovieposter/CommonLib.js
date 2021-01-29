@@ -70,3 +70,16 @@ function showName_font() {
     document.getElementById('UploadFileName').innerHTML = PostMSG;
 
 }
+
+function showName_zip() {
+    var name = document.getElementById('zip_file'); 
+    //   alert('Selected file: ' + name.files.item(0).name);
+    //   alert('Selected file: ' + name.files.item(0).size);
+    //   alert('Selected file: ' + name.files.item(0).type);
+    
+    var ZipFileName = name.files.item(0).name;
+    
+    var PostMSG = "Upload Zip File: " + ZipFileName;
+    document.getElementById('UploadFileName_Zip').innerHTML = PostMSG;
+
+}

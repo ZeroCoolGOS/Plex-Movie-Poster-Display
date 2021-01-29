@@ -31,7 +31,7 @@ function GenerateCSS_FontSingle($CSSFullName, $fontPath = "/cache/fonts", $fontN
 function GenerateCSS_Font($CSSPath = "../cache/fonts/", $CSSFile = "fonts_custom.css", $FontPath = "../cache/fonts") {
     // CSS File Settings
     $CSSFullName = $CSSPath . $CSSFile;
-    
+
     // Generate the directory if it does not exist.
     if (!file_exists($CSSPath)) {
         mkdir($CSSPath, 0777, true);
@@ -256,6 +256,236 @@ function dropdownFontFamilySub($fontfamily, $fieldID, $showFontSample = FALSE) {
     echo "<option value=\"$fontfamily\" $HTMLStyle $HTMLSelect>";
     echo "$fontfamily";
     echo "</option>\n";
+}
+
+function uploadFont() {
+    $ShowMSG = false;
+    $SetRedirect = true;
+
+    $UseFileName = true;
+
+    // $target_dir = "uploads/";
+    $target_dir = "../cache/fonts/";
+    $target_fileName = "CustomFont.ttf";
+
+    if ($UseFileName == TRUE) {
+        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+    }
+    else {
+        $target_file = $target_dir . $target_fileName;
+    }
+
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+    // Generate the Upload directory if it does not exist.
+    if (!file_exists($target_dir)) {
+        mkdir($target_dir, 0777, true);
+    }
+
+    // Check if image file is a actual image or fake image
+    if (isset($_POST["uploadFont"])) {
+        // $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]); // Disabled for php upload
+        if ($check !== false) {
+            if ($ShowMSG == true) {
+                echo "File is an image - " . $check["mime"] . ".";
+            }
+            $uploadOk = 1;
+        }
+        else {
+            if ($ShowMSG == true) {
+                echo "File is not an image.";
+            }
+            $uploadOk = 0;
+        }
+    }
+
+    // Check if file already exists
+    // if (file_exists($target_file)) {
+    //     echo "Sorry, file already exists.";
+    //     $uploadOk = 0;
+    // }
+
+    // Check file size
+    // $fileSizeMax = 500000; // 500 KB
+    $fileSizeMax = 500000;  // 500 KB
+    if ($_FILES["fileToUpload"]["size"] > $fileSizeMax) {
+        if ($ShowMSG == true) {
+            echo "Sorry, your file is too large.";
+        }
+        $uploadOk = 0;
+    }
+
+    // Allow certain file formats
+    // if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+    //   echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+    //   $uploadOk = 0;
+    // }
+
+    if($imageFileType != "ttf") {
+        if ($ShowMSG == true) {
+            echo "Sorry, only ttf files are allowed.";
+        }
+        $uploadOk = 0;
+    }
+
+    // Check if $uploadOk is set to 0 by an error
+    if ($uploadOk == 0) {
+        if ($ShowMSG == true) {
+            echo "Sorry, your file was not uploaded.<br>";
+        }
+        // if everything is ok, try to upload file
+    }
+    else {
+        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+            if ($ShowMSG == true) {
+                echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.<br>";
+            }
+            if ($SetRedirect == true) {
+                header("Location: fonts.php");
+                exit();
+            }
+        }
+        else {
+            if ($ShowMSG == true) {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
+    }
+}
+
+function exportFont() {
+
+    $zip_file = '../cache/FontDump.zip';
+
+    $zip = new ZipArchive();
+	if ( $zip->open($zip_file, ZipArchive::CREATE) !== TRUE) {
+	exit("Shit, that did not work.");
+	}
+
+    $zip->addFile('../assets/fonts/*');
+
+    $download_file = file_get_contents( $file_url );
+	$zip->addFromString(basename($file_url),$download_file);
+
+    $zip->close();
+
+}
+
+function Zip($source, $destination, $compressFileName) {
+    if (!extension_loaded('zip') || !file_exists($source)) {
+     return false;
+    }
+
+    // Generate the directory if it does not exist.
+    if (!file_exists($destination)) {
+        mkdir($destination, 0777, true);
+    }
+
+    // $destination_FullName = $destination . $compressFileName;
+    $destination_FullName = "$destination/$compressFileName";
+
+    // Remove the file if it exits.
+    if (is_file($destination_FullName)) {
+        unlink($destination_FullName);
+    }
+
+    $zip = new ZipArchive();
+
+    if (!$zip->open($destination_FullName, ZIPARCHIVE::CREATE)) {
+     return false;
+    }
+
+    $source = str_replace('\\', '/', realpath($source));
+
+    if (is_dir($source) === true) {
+        $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($source), RecursiveIteratorIterator::SELF_FIRST);
+
+        foreach ($files as $file) {
+            $file = str_replace('\\', '/', $file);
+
+            if ( in_array(substr($file, strrpos($file, '/')+1), array('.', '..')) )
+            continue;
+            $file = realpath($file);
+
+            if (is_dir($file) === true) {
+                $zip->addEmptyDir(str_replace($source . '/', '', $file . '/'));
+            }
+            else if (is_file($file) === true) {
+                $zip->addFromString(str_replace($source . '/', '', $file), file_get_contents($file));
+            }
+        }
+    }
+    else if (is_file($source) === true) {
+        $zip->addFromString(basename($source), file_get_contents($source));
+    }
+
+    return $zip->close();
+    header('Content-type: application/zip');
+    header('Content-Disposition: attachment; filename='.basename($destination));
+}
+
+function uploadFiles() {
+    $ShowMSG = false;
+    $SetRedirect = true;
+
+    $output = '';
+    // $destination = '../upload/';
+    $destination = '../cache/fonts/';
+
+
+    if ($_FILES['zip_file']['name'] != '') {
+        $file_name = basename($_FILES['zip_file']['name']);
+        $array = explode(".", $file_name);
+        $name = $array[0];
+        $ext = $array[1];
+
+        
+
+        // Generate the directory if it does not exist.
+        if (!file_exists($destination)) {
+            mkdir($destination, 0777, true);
+        }
+
+        if ($ext == 'zip') {
+            $location = $destination . $file_name;
+
+            if (move_uploaded_file($_FILES['zip_file']['tmp_name'], $location)) {
+                $zip = new ZipArchive;
+
+                if ($zip->open($location)) {
+                    $zip->extractTo($destination);
+                    $zip->close();
+                }
+
+                // $files = scandir($destination . $name);
+                // $name is extract folder from zip file
+
+                // foreach ($files as $file) {
+                //     $file_ext = end(explode(".", $file));
+                //     $allowed_ext = array('jpg', 'png');
+
+                //     if (in_array($file_ext, $allowed_ext)) {
+                //         $new_name = md5(rand()).'.' . $file_ext;
+                //         $output .= '<div class="col-md-6"><div style="padding:16px; border:1px solid #CCC;"><img src="upload/'.$new_name.'" width="170" height="240" /></div>';
+                //         copy($destination.$name.'/'.$file, $destination . $new_name);
+                //         unlink($destination.$name.'/'.$file);
+                //     }
+                // }
+
+                unlink ($location);
+                rmdir ($destination . $name);
+
+                if ($ShowMSG == true) {
+                    echo "The file ". htmlspecialchars( basename( $_FILES["zip_file"]["name"])). " has been uploaded.<br>";
+                }
+                if ($SetRedirect == true) {
+                    header("Location: fonts.php");
+                    exit();
+                }
+            }
+        }
+    }
 }
 
 ?>

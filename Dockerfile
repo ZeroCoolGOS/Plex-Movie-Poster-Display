@@ -26,6 +26,7 @@ RUN apt-get update && apt-get install -y \
     php-curl \
     php-fpm \
     php-xml \
+    php-zip \
     # python3 \
     supervisor
 

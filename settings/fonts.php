@@ -15,6 +15,13 @@ if (!empty($_POST['saveConfig'])) {
 
 uploadFont();
 GenerateCSS_Font_ALL();
+// exportFont();
+Zip("../assets/fonts","../cache/archive", "FontArchive_Stock.zip");
+
+if (isset($_POST["btn_zip"])) {
+    uploadFiles();
+}
+
 ?>
 
 <!doctype html>
@@ -57,6 +64,45 @@ GenerateCSS_Font_ALL();
                         </div>
                             <!-- SEGMENT BLOCK START -->
                                 <div class="format-group ">
+                                    Import Bundle:
+
+                                    <form action="fonts.php" method="post" enctype="multipart/form-data">
+                                        <label for="zip_file" style="cursor: pointer;">
+                                            <div class= "label label-btn label-primary">
+                                                <i class="label-icon glyphicon file"></i>
+                                                Browse Zip
+                                            </div>
+                                        </label>
+
+                                        <!-- <input type="file" name="zip_file" accept=".zip"/> -->
+                                        <input type="file" name="zip_file" id="zip_file" accept=".zip" style="opacity: 0; display: inline;" onchange="showName_zip()">
+                                        <p>
+                                            <div id="UploadFileName_Zip" style="font-size: smaller;">
+                                                Upload Zip File:
+                                                <i>None</i>
+                                            </div>
+                                        </p>
+
+                                    <!-- <input type="submit" name="btn_zip" class="btn btn-info" value="Upload"/> -->
+                                    <label for="btn_zip" style="cursor: pointer;">
+                                            <div class= "label label-btn label-primary">
+                                                <i class="label-icon glyphicon upload"></i>
+                                                Upload Zip
+                                            </div>
+                                        </label>
+                                        <input type="submit" value="Upload Zip" name="btn_zip" id="btn_zip" style="opacity: 0;">
+                                    </form>
+
+                                    <br>
+                                    <?php
+                                        // if (isset($output)) {
+                                            echo $output;
+                                        // }
+                                    ?>
+                                </div>
+
+                                <div class="format-group ">
+                                    <hr>
                                     Import font:
 
                                     <form action="fonts.php" method="post" enctype="multipart/form-data">
@@ -85,17 +131,20 @@ GenerateCSS_Font_ALL();
                                         <input type="submit" value="Upload Font" name="uploadFont" id="uploadFont" style="opacity: 0;">
                                     </form>
                                 </div>
-                                <?php
-                                    // PHP 7.x
-                                    // findFontFamily("../assets/plexmovieposter/", "fonts_stock.css", TRUE, FALSE, "");
-                                    // findFontFamily("../cache/fonts/", "fonts_custom.css", TRUE, FALSE, "");
-                                    findFontFamily_Full(TRUE, FALSE, "");
-                                    // PHP 8.x
-                                    // findFontFamily(CSSPath: "../assets/plexmovieposter/", CSSFile: "fonts_stock.css", HTMLdisplay: TRUE, HTMLdropdown: FALSE);
-                                    // findFontFamily(CSSPath: "../cache/fonts/", CSSFile: "fonts_custom.css", HTMLdisplay:TRUE, HTMLdropdown:FALSE);
-                                    
-                                ?>
 
+                                <div class="format-group ">
+                                    <hr>
+                                    <?php
+                                        // PHP 7.x
+                                        // findFontFamily("../assets/plexmovieposter/", "fonts_stock.css", TRUE, FALSE, "");
+                                        // findFontFamily("../cache/fonts/", "fonts_custom.css", TRUE, FALSE, "");
+                                        findFontFamily_Full(TRUE, FALSE, "");
+                                        // PHP 8.x
+                                        // findFontFamily(CSSPath: "../assets/plexmovieposter/", CSSFile: "fonts_stock.css", HTMLdisplay: TRUE, HTMLdropdown: FALSE);
+                                        // findFontFamily(CSSPath: "../cache/fonts/", CSSFile: "fonts_custom.css", HTMLdisplay:TRUE, HTMLdropdown:FALSE);
+
+                                ?>
+                                </div>
                             <!-- SEGMENT BLOCK END -->
 
                             <!-- GHOST BLOCK START -->
