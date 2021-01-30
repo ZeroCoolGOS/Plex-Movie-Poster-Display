@@ -170,20 +170,29 @@ function importFiles_TTF($ShowMSG = FALSE, $SetRedirect = FALSE, $fieldID = 'zip
     }
 }
 
-function exportFiles($source = "../cache/fonts", $destination = "../cache/archive", $exportFileName = "FontArchive_Custom.zip", $exportType = "zip") {
+function exportFiles($source = "../cache/fonts", $destination = "../cache/archive", $exportFileName = "FontArchive_Custom.zip", $exportType = "zip", $SetRedirect = TRUE) {
     // exportFiles_ZIP("../assets/fonts","../cache/archive", "FontArchive_Stock.zip");
     // exportFiles_ZIP("../cache/fonts","../cache/archive", "FontArchive_Custom.zip");
+
+    $exportType = "pmp";
 
     $PostMSG = '';
 
     $ShowMSG = FALSE;
-    $SetRedirect = TRUE;
+    // $SetRedirect = TRUE;
     $SetRedirect_target = "fonts.php";
 
     if (preg_match("{[zZ][iI][pP]}",$exportType)) {
         // $source = "$source";
         // $destination = "$destination";
         exportFiles_ZIP($ShowMSG, $SetRedirect, $source, $destination, $exportFileName);
+    }
+
+    if (preg_match("{[pP][mM][pP]}",$exportType)) {
+        // $source = "$source";
+        // $destination = "$destination";
+        $exportFileName = "PlexMoviePosterBackup.pmp";
+        exportFiles_PMP($ShowMSG, $SetRedirect, $source, $destination, $exportFileName);
     }
 }
 
@@ -258,14 +267,96 @@ function exportFiles_ZIP($ShowMSG = FALSE, $SetRedirect = FALSE, $source, $desti
     }
 }
 
-function exportFiles_DownloadLink($destination = "../cache/archive", $FileInfo_Name = "FontArchive_Custom.zip") {
+function exportFiles_PMP($ShowMSG = FALSE, $SetRedirect = FALSE, $source, $destination = "../cache/archive", $FileInfo_Name) {
+    if (!extension_loaded('zip') || !file_exists($source)) {
+        return false;
+    }
+
+    $PostMSG = '';
+
+    $PMPFontsDir = "fonts/";
+
+    // $ShowMSG = FALSE;
+    // $SetRedirect = TRUE;
+    $SetRedirect_target = "fonts.php";
+
+    // Generate the directory if it does not exist.  (* Look at moving to separate function)
+    if (!file_exists($destination)) {
+        mkdir($destination, 0777, true);
+    }
+
+    // $destination_FullName = $destination . $FileInfo_Name;
+    // $destination_FullName = "$destination/$FileInfo_Name";
+    $destination_FullName = join('/', array(trim($destination, '/'), trim($FileInfo_Name, '/')));
+
+    // Remove the file if it exits.  (* Look at moving to separate function)
+    if (is_file($destination_FullName)) {
+        unlink ($destination_FullName);
+    }
+
+    $zip = new ZipArchive();
+
+    if (!$zip->open($destination_FullName, ZIPARCHIVE::CREATE)) {
+        return false;
+    }
+
+    $source = str_replace('\\', '/', realpath($source));
+
+    if (strpos($source, "../../")) {
+        $configRootPath = "../../";
+    }
+    else {
+        $configRootPath = "../";
+    }
+
+    $zip->addFile("$configRootPath/config.php","config.php");
+
+    if (is_dir($source) === true) {
+        $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($source), RecursiveIteratorIterator::SELF_FIRST);
+
+        foreach ($files as $file) {
+            $file = str_replace('\\', '/', $file);
+
+            if (in_array(substr($file, strrpos($file, '/')+1), array('.', '..')))
+            continue;
+            $file = realpath($file);
+
+            if (is_dir($file) === true) {
+                $zip->addEmptyDir(str_replace($source . '/', "$PMPFontsDir", $file . '/'));
+            }
+            else if (is_file($file) === true) {
+                $zip->addFromString(str_replace($source . '/', "$PMPFontsDir", $file), file_get_contents($file));
+            }
+        }
+    }
+    else if (is_file($source) === true) {
+        $zip->addFromString(basename($source), file_get_contents($source));
+    }
+
+    // return $zip->close();
+    $zip->close();
+    //header('Content-type: application/zip');
+    //header('Content-Disposition: attachment; filename='.basename($destination));
+
+    if ($ShowMSG == TRUE) {
+        $PostMSG .= "The file ". htmlspecialchars($FileInfo_Name). " has been uploaded.<br>";
+        echo $PostMSG;
+    }
+
+    if ($SetRedirect == TRUE) {
+        header("Location: $SetRedirect_target");
+        exit();
+    }
+}
+
+function exportFiles_DownloadLink($fieldID = "DownloadLink", $destination = "../cache/archive", $FileInfo_Name = "FontArchive_Custom.zip") {
     $destination_FullName = join('/', array(trim($destination, '/'), trim($FileInfo_Name, '/')));
 
     if(file_exists($destination_FullName)) {
-        $GLOBALS['DownloadLink'] = "Download Bundle: <a href=\"$destination_FullName\">Here</a>";
+        $GLOBALS["$fieldID"] = "Download Bundle: <a href=\"$destination_FullName\">Here</a>";
     }
     else {
-        $GLOBALS['DownloadLink'] = "Download Bundle: <i>None</i>";
+        $GLOBALS["$fieldID"] = "Download Bundle: <i>None</i>";
     }
 }
 

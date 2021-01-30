@@ -16,7 +16,7 @@ if (!empty($_POST['saveConfig'])) {
 
 // uploadFont();
 GenerateCSS_Font_ALL();
-exportFiles_DownloadLink();
+exportFiles_DownloadLink("DownloadLink", "../cache/archive", "PlexMoviePosterBackup.pmp");
 
 if (isset($_POST["btn_zipDL"])) {
     exportFiles();
@@ -79,7 +79,7 @@ if (isset($_POST["btn_zip"])) {
                                             </div>
                                         </label>
 
-                                        <input type="file" name="zip_file" id="zip_file" accept=".zip,.ttf" style="opacity: 0; display: inline;" onchange="showName_zip()">
+                                        <input type="file" name="zip_file" id="zip_file" accept=".zip,.ttf,.pmp" style="opacity: 0; display: inline;" onchange="showName_zip()">
                                         <p>
                                             <div id="UploadFileName_Zip" style="font-size: smaller;">
                                                 Upload Zip File:
@@ -95,14 +95,6 @@ if (isset($_POST["btn_zip"])) {
                                         </label>
                                         <input type="submit" value="Upload Zip" name="btn_zip" id="btn_zip" style="opacity: 0;">
                                     </form>
-
-                                    <br>
-                                    
-                                    <?php
-                                        // if (isset($output)) {
-                                            echo $output;
-                                        // }
-                                    ?>
                                 </div>
 
                                 <div class="format-group ">
