@@ -42,6 +42,11 @@ function GenerateCSS_Font($CSSPath = "../cache/fonts/", $CSSFile = "fonts_custom
         unlink($CSSFullName);
     }
 
+    // Generate the directory if it does not exist.  (* Look at moving to separate function)
+    if (!file_exists($FontPath)) {
+        mkdir($FontPath, 0777, true);
+    }
+
     // Process Logic
 
     // $files = glob('folder/*.{jpg,png,gif}', GLOB_BRACE);
@@ -127,13 +132,23 @@ function findFontFamily($CSSPath = "../assets/plexmovieposter/", $CSSFile = "fon
 
 function findFontFamily_Full($HTMLdisplay = FALSE, $HTMLdropdown = FALSE, $fieldID) {
     // Settings
+    $CSSFontPath_Placeholder = "../assets/plexmovieposter/";
+    $CSSFontFileName_Placeholder = "fonts.css";
+    $CSSFontFullName_Placeholder = $CSSFontPath_Placeholder . $CSSFontFileName_Placeholder;
+    $contents_0 = file_get_contents($CSSFontFullName_Placeholder);
+    // echo "<br> Debug (contents_A): <br> $contents_A <br>"; // Debug MSG
+
     $CSSFontPath_Stock = "../assets/plexmovieposter/";
     $CSSFontFileName_Stock = "fonts_stock.css";
     $CSSFontFullName_Stock = $CSSFontPath_Stock . $CSSFontFileName_Stock;
+    $contents_1 = file_get_contents($CSSFontFullName_Stock);
+    // echo "<br> Debug (contents_A): <br> $contents_A <br>"; // Debug MSG
 
     $CSSFontPath_Custom = "../cache/fonts/";
     $CSSFontFileName_Custom = "fonts_custom.css";
     $CSSFontFullName_Custom = $CSSFontPath_Custom . $CSSFontFileName_Custom;
+    $contents_2 = file_get_contents($CSSFontFullName_Custom);
+        // echo "<br> Debug (contents_B): <br> $contents_B <br>"; // Debug MSG
 
     $searchfor = 'font-family:';
 
@@ -142,13 +157,10 @@ function findFontFamily_Full($HTMLdisplay = FALSE, $HTMLdropdown = FALSE, $field
 
     // get the file contents, assuming the file to be readable (and exist)
     // $contents = file_get_contents($file);
-    $contents_A = file_get_contents($CSSFontFullName_Stock);
-        // echo "<br> Debug (contents_A): <br> $contents_A <br>"; // Debug MSG
-    $contents_B = file_get_contents($CSSFontFullName_Custom);
-        // echo "<br> Debug (contents_B): <br> $contents_B <br>"; // Debug MSG
-
-    $contents_Full = $contents_A;
-    $contents_Full .= $contents_B;
+    
+    $contents_Full = $contents_0;
+    $contents_Full .= $contents_1;
+    $contents_Full .= $contents_2;
         // echo "<br> Debug (contents_Full): <br> $contents_Full <br>"; // Debug MSG
 
     // escape special characters in the query

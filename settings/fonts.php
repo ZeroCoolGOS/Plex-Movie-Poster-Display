@@ -14,12 +14,8 @@ if (!empty($_POST['saveConfig'])) {
     setData(basename(__FILE__));
 }
 
-uploadFont();
+// uploadFont();
 GenerateCSS_Font_ALL();
-// exportFont();
-// Zip("../assets/fonts","../cache/archive", "FontArchive_Stock.zip");
-// Zip("../cache/fonts","../cache/archive", "FontArchive_Custom.zip");
-
 exportFiles_DownloadLink();
 
 if (isset($_POST["btn_zipDL"])) {
@@ -73,18 +69,17 @@ if (isset($_POST["btn_zip"])) {
                         </div>
                             <!-- SEGMENT BLOCK START -->
                                 <div class="format-group ">
-                                    Import Bundle:
+                                    Import Font or Bundle:
 
                                     <form action="fonts.php" method="post" enctype="multipart/form-data">
                                         <label for="zip_file" style="cursor: pointer;">
                                             <div class= "label label-btn label-primary">
                                                 <i class="label-icon glyphicon file"></i>
-                                                Browse Zip
+                                                Browse File
                                             </div>
                                         </label>
 
-                                        <!-- <input type="file" name="zip_file" accept=".zip"/> -->
-                                        <input type="file" name="zip_file" id="zip_file" accept=".zip" style="opacity: 0; display: inline;" onchange="showName_zip()">
+                                        <input type="file" name="zip_file" id="zip_file" accept=".zip,.ttf" style="opacity: 0; display: inline;" onchange="showName_zip()">
                                         <p>
                                             <div id="UploadFileName_Zip" style="font-size: smaller;">
                                                 Upload Zip File:
@@ -92,17 +87,17 @@ if (isset($_POST["btn_zip"])) {
                                             </div>
                                         </p>
 
-                                    <!-- <input type="submit" name="btn_zip" class="btn btn-info" value="Upload"/> -->
-                                    <label for="btn_zip" style="cursor: pointer;">
+                                        <label for="btn_zip" style="cursor: pointer;">
                                             <div class= "label label-btn label-primary">
                                                 <i class="label-icon glyphicon upload"></i>
-                                                Upload Zip
+                                                Upload File
                                             </div>
                                         </label>
                                         <input type="submit" value="Upload Zip" name="btn_zip" id="btn_zip" style="opacity: 0;">
                                     </form>
 
                                     <br>
+                                    
                                     <?php
                                         // if (isset($output)) {
                                             echo $output;
@@ -111,33 +106,29 @@ if (isset($_POST["btn_zip"])) {
                                 </div>
 
                                 <div class="format-group ">
+                                    <hr>
                                     Download Bundle:
 
                                     <form method="post" enctype="multipart/form-data">
-                                    <label for="btn_zipDL" style="cursor: pointer;">
+                                        <label for="btn_zipDL" style="cursor: pointer;">
                                             <div class= "label label-btn label-primary">
                                                 <i class="label-icon glyphicon upload"></i>
-                                                Generate Zip
+                                                Generate Bundle
                                             </div>
                                         </label>
-                                        <input type="submit" value="Generate Zip" name="btn_zipDL" id="btn_zipDL" style="opacity: 0;" onclick="exportFiles_ZIP()">
+                                        <input type="submit" value="Generate Zip" name="btn_zipDL" id="btn_zipDL" style="opacity: 0;" >
                                     </form>
+
+                                    <br>
 
                                     <?php
                                         if (isset($DownloadLink)) {
                                             echo $DownloadLink;
                                         }
                                     ?>
-
-                                    <p>
-                                        <div id="ExportFileName_Zip" style="font-size: smaller;">
-                                            Download Bundle:
-                                            <i>None</i>
-                                        </div>
-                                    </p>
                                 </div>
 
-                                <div class="format-group ">
+                                <!-- <div class="format-group ">
                                     <hr>
                                     Import font:
 
@@ -166,7 +157,7 @@ if (isset($_POST["btn_zip"])) {
                                         </label>
                                         <input type="submit" value="Upload Font" name="uploadFont" id="uploadFont" style="opacity: 0;">
                                     </form>
-                                </div>
+                                </div> -->
 
                                 <div class="format-group ">
                                     <hr>
