@@ -83,3 +83,16 @@ function showName_zip() {
     document.getElementById('UploadFileName_Zip').innerHTML = PostMSG;
 
 }
+
+function exportFiles_ZIP() {
+    //var name = document.getElementById('zip_file'); 
+    //   alert('Selected file: ' + name.files.item(0).name);
+    //   alert('Selected file: ' + name.files.item(0).size);
+    //   alert('Selected file: ' + name.files.item(0).type);
+    
+    //var ZipFileName = name.files.item(0).name;
+    
+    var PostMSG = "Upload Zip File: "; //+ ZipFileName;
+    document.getElementById('ExportFileName_Zip').innerHTML = PostMSG;
+
+}

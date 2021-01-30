@@ -17,12 +17,18 @@ if (!empty($_POST['saveConfig'])) {
 uploadFont();
 GenerateCSS_Font_ALL();
 // exportFont();
-Zip("../assets/fonts","../cache/archive", "FontArchive_Stock.zip");
-Zip("../cache/fonts","../cache/archive", "FontArchive_Custom.zip");
+// Zip("../assets/fonts","../cache/archive", "FontArchive_Stock.zip");
+// Zip("../cache/fonts","../cache/archive", "FontArchive_Custom.zip");
+
+exportFiles_DownloadLink();
+
+if (isset($_POST["btn_zipDL"])) {
+    exportFiles();
+}
 
 if (isset($_POST["btn_zip"])) {
     // uploadFiles();
-    importFiles();
+    importFiles("zip_file");
 }
 
 ?>
@@ -102,6 +108,33 @@ if (isset($_POST["btn_zip"])) {
                                             echo $output;
                                         // }
                                     ?>
+                                </div>
+
+                                <div class="format-group ">
+                                    Download Bundle:
+
+                                    <form method="post" enctype="multipart/form-data">
+                                    <label for="btn_zipDL" style="cursor: pointer;">
+                                            <div class= "label label-btn label-primary">
+                                                <i class="label-icon glyphicon upload"></i>
+                                                Generate Zip
+                                            </div>
+                                        </label>
+                                        <input type="submit" value="Generate Zip" name="btn_zipDL" id="btn_zipDL" style="opacity: 0;" onclick="exportFiles_ZIP()">
+                                    </form>
+
+                                    <?php
+                                        if (isset($DownloadLink)) {
+                                            echo $DownloadLink;
+                                        }
+                                    ?>
+
+                                    <p>
+                                        <div id="ExportFileName_Zip" style="font-size: smaller;">
+                                            Download Bundle:
+                                            <i>None</i>
+                                        </div>
+                                    </p>
                                 </div>
 
                                 <div class="format-group ">
