@@ -1,6 +1,6 @@
 <?php
 //For feedback, suggestions, or issues please visit https://www.mattsshack.com/plex-movie-poster-display/
-// include_once('../assets/plexmovieposter/loginCheck.php');
+include_once('../assets/plexmovieposter/loginCheck.php');
 include '../assets/plexmovieposter/setData.php';
 include 'PMPInfo.php';
 include 'PMPReleaseNotes.php';
@@ -14,16 +14,18 @@ if (!empty($_POST['saveConfig'])) {
     setData(basename(__FILE__));
 }
 
+$rootDir = "../";
+$exportFileName = "FontArchive_Custom.zip";
+
 // uploadFont();
 GenerateCSS_Font_ALL();
-exportFiles_DownloadLink("DownloadLink", "../cache/archive", "PlexMoviePosterBackup.pmp");
+exportFiles_DownloadLink("DownloadLink", "$rootDir/cache/archive", "$exportFileName");
 
 if (isset($_POST["btn_zipDL"])) {
-    exportFiles();
+    exportFiles("$rootDir/cache/fonts", "$rootDir/cache/archive", "$exportFileName", "zip", TRUE);
 }
 
 if (isset($_POST["btn_zip"])) {
-    // uploadFiles();
     importFiles("zip_file");
 }
 

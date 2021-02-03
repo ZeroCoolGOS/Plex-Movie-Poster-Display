@@ -174,7 +174,7 @@ function exportFiles($source = "../cache/fonts", $destination = "../cache/archiv
     // exportFiles_ZIP("../assets/fonts","../cache/archive", "FontArchive_Stock.zip");
     // exportFiles_ZIP("../cache/fonts","../cache/archive", "FontArchive_Custom.zip");
 
-    $exportType = "pmp";
+    // $exportType = "pmp";
 
     $PostMSG = '';
 
@@ -191,7 +191,7 @@ function exportFiles($source = "../cache/fonts", $destination = "../cache/archiv
     if (preg_match("{[pP][mM][pP]}",$exportType)) {
         // $source = "$source";
         // $destination = "$destination";
-        $exportFileName = "PlexMoviePosterBackup.pmp";
+        // $exportFileName = "PlexMoviePosterBackup.pmp";
         exportFiles_PMP($ShowMSG, $SetRedirect, $source, $destination, $exportFileName);
     }
 }
@@ -253,8 +253,8 @@ function exportFiles_ZIP($ShowMSG = FALSE, $SetRedirect = FALSE, $source, $desti
 
     // return $zip->close();
     $zip->close();
-    header('Content-type: application/zip');
-    header('Content-Disposition: attachment; filename='.basename($destination));
+    // header('Content-type: application/zip');
+    // header('Content-Disposition: attachment; filename='.basename($destination));
 
     if ($ShowMSG == TRUE) {
         $PostMSG .= "The file ". htmlspecialchars($FileInfo_Name). " has been uploaded.<br>";
@@ -268,7 +268,11 @@ function exportFiles_ZIP($ShowMSG = FALSE, $SetRedirect = FALSE, $source, $desti
 }
 
 function exportFiles_PMP($ShowMSG = FALSE, $SetRedirect = FALSE, $source, $destination = "../cache/archive", $FileInfo_Name) {
-    if (!extension_loaded('zip') || !file_exists($source)) {
+    // if (!extension_loaded('zip') || !file_exists($source)) {
+    //     return false;
+    // }
+
+    if (!extension_loaded('zip')) {
         return false;
     }
 
@@ -281,12 +285,13 @@ function exportFiles_PMP($ShowMSG = FALSE, $SetRedirect = FALSE, $source, $desti
     $SetRedirect_target = "fonts.php";
 
     // Generate the directory if it does not exist.  (* Look at moving to separate function)
+
+    $destination = str_replace("//", "/", $destination);
+
     if (!file_exists($destination)) {
         mkdir($destination, 0777, true);
     }
 
-    // $destination_FullName = $destination . $FileInfo_Name;
-    // $destination_FullName = "$destination/$FileInfo_Name";
     $destination_FullName = join('/', array(trim($destination, '/'), trim($FileInfo_Name, '/')));
 
     // Remove the file if it exits.  (* Look at moving to separate function)
@@ -300,16 +305,25 @@ function exportFiles_PMP($ShowMSG = FALSE, $SetRedirect = FALSE, $source, $desti
         return false;
     }
 
-    $source = str_replace('\\', '/', realpath($source));
-
-    if (strpos($source, "../../")) {
+    // --- Config File
+    if (strpos($source, "../../") !== false) {
         $configRootPath = "../../";
     }
     else {
         $configRootPath = "../";
     }
 
-    $zip->addFile("$configRootPath/config.php","config.php");
+    $configFile_Name = "config.php";
+    $configFile_FullName = join('/', array(trim($configRootPath, '/'), trim($configFile_Name, '/')));
+    
+    if ($ShowMSG == TRUE) {
+        print "<br> Config File: $configFile_FullName <br>";
+    }
+    // --- Config File
+
+    $zip->addFile($configFile_FullName,$configFile_Name);
+
+    $source = str_replace('\\', '/', realpath($source));
 
     if (is_dir($source) === true) {
         $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($source), RecursiveIteratorIterator::SELF_FIRST);
@@ -335,8 +349,8 @@ function exportFiles_PMP($ShowMSG = FALSE, $SetRedirect = FALSE, $source, $desti
 
     // return $zip->close();
     $zip->close();
-    //header('Content-type: application/zip');
-    //header('Content-Disposition: attachment; filename='.basename($destination));
+    // header('Content-type: application/zip');
+    // header('Content-Disposition: attachment; filename='.basename($destination));
 
     if ($ShowMSG == TRUE) {
         $PostMSG .= "The file ". htmlspecialchars($FileInfo_Name). " has been uploaded.<br>";

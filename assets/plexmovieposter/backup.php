@@ -16,10 +16,18 @@ $rootDir = "../../";
 $d = date("Y-m-d");
 echo "Date: $d <br>";
 
-$BackupFile = "PlexMoviePosterBackup_$d.pmp";
-echo "Backup File: $BackupFile";
+$exportFileName = "PlexMoviePosterBackup_$d.pmp";
+echo "Backup File: $exportFileName";
 
-exportFiles("$rootDir/cache/fonts", "$rootDir/cache/archive", "$BackupFile", "pmp", FALSE);
+$source = "cache/fonts";
+$source_FullName = join('/', array(trim($rootDir, '/'), trim($source, '/')));
+print "<br>Source (In): $source_FullName <br>";
 
-echo "<br>Download Backup: <a href=\"$rootDir/cache/archive/$BackupFile\">Here</a>";
+$destination = "cache/archive";
+$destination_FullName = join('/', array(trim($rootDir, '/'), trim($destination, '/')));
+print "<br>Destination (In): $destination_FullName <br>";
+
+exportFiles($source_FullName, $destination_FullName, $exportFileName, "pmp", FALSE);
+
+echo "<br>Download Backup: <a href=\"$destination_FullName/$exportFileName\">Here</a>";
 
