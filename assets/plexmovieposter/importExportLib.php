@@ -170,6 +170,94 @@ function importFiles_TTF($ShowMSG = FALSE, $SetRedirect = FALSE, $fieldID = 'zip
     }
 }
 
+function importFiles_Config() {
+    $ShowMSG = false;
+    $SetRedirect = true;
+
+    // $target_dir = "uploads/";
+    $target_dir = "../";
+    $target_fileName = "config.php";
+    // $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+    $target_file = $target_dir . $target_fileName;
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+    // Generate the Upload directory if it does not exist.
+    if (!file_exists($target_dir)) {
+        mkdir($target_dir, 0777, true);
+    }
+
+    // Check if image file is a actual image or fake image
+    if (isset($_POST["restoreConfig"])) {
+        // $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]); // Disabled for php upload
+        if ($check !== false) {
+            if ($ShowMSG == true) {
+                echo "File is an image - " . $check["mime"] . ".";
+            }
+            $uploadOk = 1;
+        }
+        else {
+            if ($ShowMSG == true) {
+                echo "File is not an image.";
+            }
+            $uploadOk = 0;
+        }
+    }
+
+    // Check if file already exists
+    // if (file_exists($target_file)) {
+    //     echo "Sorry, file already exists.";
+    //     $uploadOk = 0;
+    // }
+
+    // Check file size
+    // $fileSizeMax = 500000; // 500 KB
+    $fileSizeMax = 10000;  // 10 KB
+    if ($_FILES["fileToUpload"]["size"] > $fileSizeMax) {
+        if ($ShowMSG == true) {
+            echo "Sorry, your file is too large.";
+        }
+        $uploadOk = 0;
+    }
+
+    // Allow certain file formats
+    // if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+    //   echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+    //   $uploadOk = 0;
+    // }
+
+    if($imageFileType != "php") {
+        if ($ShowMSG == true) {
+            echo "Sorry, only php files are allowed.";
+        }
+        $uploadOk = 0;
+    }
+
+    // Check if $uploadOk is set to 0 by an error
+    if ($uploadOk == 0) {
+        if ($ShowMSG == true) {
+            echo "Sorry, your file was not uploaded.<br>";
+        }
+        // if everything is ok, try to upload file
+    }
+    else {
+        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+            if ($ShowMSG == true) {
+                echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.<br>";
+            }
+            if ($SetRedirect == true) {
+                header("Location: general.php");
+                exit();
+            }
+        }
+        else {
+            if ($ShowMSG == true) {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
+    }
+}
+
 function exportFiles($source = "../cache/fonts", $destination = "../cache/archive", $exportFileName = "FontArchive_Custom.zip", $exportType = "zip", $SetRedirect = TRUE) {
     // exportFiles_ZIP("../assets/fonts","../cache/archive", "FontArchive_Stock.zip");
     // exportFiles_ZIP("../cache/fonts","../cache/archive", "FontArchive_Custom.zip");
@@ -371,6 +459,31 @@ function exportFiles_DownloadLink($fieldID = "DownloadLink", $destination = "../
     }
     else {
         $GLOBALS["$fieldID"] = "Download Bundle: <i>None</i>";
+    }
+}
+
+function exportFiles_Config($exportFile) {
+    // $fileName = basename($exportFile);
+    $fileName = $exportFile;
+    $filePath = '../'.$fileName;
+
+    $exportConfigName = "PMP_config.php";
+
+    if (!empty($fileName) && file_exists($filePath)) {
+        //Define Headers
+        header("Cache-Control: public");
+        header("Content-Description: File Transfer");
+        // header("Content-Disposition: attachment; filename=$fileName");
+        header("Content-Disposition: attachment; filename=$exportConfigName");
+        header("Content-Type: application/zip");
+        header("Content-Transfer-Encoding: binary");
+        ob_clean();
+        flush();
+        readfile($filePath);
+        exit;
+    }
+    else {
+        echo "This file does not exist.";
     }
 }
 

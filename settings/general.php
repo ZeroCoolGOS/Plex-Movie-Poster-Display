@@ -5,6 +5,7 @@ include '../assets/plexmovieposter/setData.php';
 include 'PMPInfo.php';
 include 'PMPReleaseNotes.php';
 include '../assets/plexmovieposter/CommonLib.php';
+include '../assets/plexmovieposter/importExportLib.php';
 include '../config.php';
 
 $CurrentPage = basename(__FILE__);
@@ -42,14 +43,14 @@ if (!empty($_POST['clearFontCache'])) {
 }
 
 if (!empty($_GET['file'])) {
-    exportConfig(basename($_GET['file']));
+    exportFiles_Config(basename($_GET['file']));
 }
 
 if(!empty($_POST['pmplogout'])) {
     header("Location: ../assets/plexmovieposter/logout.php");
 }
 
-uploadConfig();
+importFiles_Config();
 
 ?>
 

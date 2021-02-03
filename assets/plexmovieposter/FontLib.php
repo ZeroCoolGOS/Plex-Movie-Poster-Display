@@ -212,10 +212,22 @@ function displayFontFamily($searchfor, $fontfamilyRAW) {
 }
 
 function displayFontFamilySub($fontfamily) {
+    $set_Inline = TRUE;
+
+    if ($set_Inline == TRUE) {
+        $displayInline = "display: inline;";
+    }
+    else {
+        $displayInline = "";
+    }
+    
+    $fontSample[0] = "Sample";
+    $fontSample[1] = "The quick brown fox jumps over the lazy dog";
+
     echo "<div class=\"form-group\">\n";
     echo "$fontfamily:&nbsp;\n";
-    echo "<div style=\"font-family: '$fontfamily'; font-size: 20px; display: inline;\">\n";
-    echo "Sample\n";
+    echo "<div style=\"font-family: '$fontfamily'; font-size: 20px; $displayInline\">\n";
+    echo "$fontSample[1]\n";
     echo "</div>\n";
     echo "</div>\n";
 }
