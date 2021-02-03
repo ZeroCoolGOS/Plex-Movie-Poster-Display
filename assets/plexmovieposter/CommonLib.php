@@ -350,8 +350,19 @@ function CustomFontCache() {
         mkdir($target_dir, 0777, true);
     }
 
-    $custom = scandir("$target_dir");
-    $GLOBALS['customFontCount'] = count($custom) - 2;
+    $fileCount = 0;
+
+    $dir_iterator = new RecursiveDirectoryIterator("$target_dir");
+    $files = new RecursiveIteratorIterator($dir_iterator, RecursiveIteratorIterator::SELF_FIRST);
+
+    foreach($files as $file) {
+        $file_parts = pathinfo($file);
+        if (preg_match("{[tT][tT][fF]}",$file_parts['extension'])) {
+            $fileCount = $fileCount + 1;
+        }
+    }
+
+    $GLOBALS['customFontCount'] = $fileCount;
     if ($GLOBALS['$customFontCount'] < 0) {
         $GLOBALS['$customFontCount'] = 0;
     }
