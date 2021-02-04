@@ -1,116 +1,5 @@
 <?php
 
-function sidebarInfo($configPage) {
-
-    echo '<div class="SidebarContainer-sidebarContainer-2RAYT1">
-              <div class="SidebarScroller-scroller-2wp83y Scroller-scroller-3GqQcZ Scroller-vertical-VScFLT Scroller-auto-LsWiWx ">
-                  <div id="SideBar" class="SettingsSidebar-sidebarContent-3yMjj9">
-                      <div role="navigation">
-                          <div class="SidebarList-sidebarListHeaderContainer-2D2g-W">
-                              <div class="SettingsSidebarList-header-1RCToc SidebarList-sidebarListHeader-1t0yzs" role="header">Settings</div>
-                          </div>';
-
-    // General PHP
-    if ($configPage == "general.php") {
-        sidebarInfoMeta("general.php","General","Active");
-    }
-    else {
-        sidebarInfoMeta("general.php","General","NotActive");
-    }
-
-    // Security PHP
-    if ($configPage == "security.php") {
-        sidebarInfoMeta("security.php","Security Configuration","Active");
-    }
-    else {
-        sidebarInfoMeta("security.php","Security Configuration","NotActive");
-    }
-
-    // Common PHP
-    if ($configPage == "common.php") {
-        sidebarInfoMeta("common.php","Common Configuration","Active");
-    }
-    else {
-        sidebarInfoMeta("common.php","Common Configuration","NotActive");
-    }
-
-    // Server PHP
-    if ($configPage == "server.php") {
-        sidebarInfoMeta("server.php","Server Configuration","Active");
-    }
-    else {
-        sidebarInfoMeta("server.php","Server Configuration","NotActive");
-    }
-
-    // Client PHP
-    if ($configPage == "client.php") {
-        sidebarInfoMeta("client.php","Client Configuration","Active");
-    }
-    else {
-        sidebarInfoMeta("client.php","Client Configuration","NotActive");
-    }
-
-    // Coming Soon PHP
-    if ($configPage == "comingSoon.php") {
-        sidebarInfoMeta("comingSoon.php","Coming Soon","Active");
-    }
-    else {
-        sidebarInfoMeta("comingSoon.php","Coming Soon","NotActive");
-    }
-
-    // Now Showing PHP
-    if ($configPage == "nowShowing.php") {
-        sidebarInfoMeta("nowShowing.php","Now Showing","Active");
-    }
-    else {
-        sidebarInfoMeta("nowShowing.php","Now Showing","NotActive");
-    }
-
-    // Custom PHP
-    if ($configPage == "custom.php") {
-        sidebarInfoMeta("custom.php","Custom Configuration","Active");
-    }
-    else {
-        sidebarInfoMeta("custom.php","Custom Configuration","NotActive");
-    }
-
-    // Fonts PHP
-    if ($configPage == "fonts.php") {
-        sidebarInfoMeta("fonts.php","Font Configuration","Active");
-    }
-    else {
-        sidebarInfoMeta("fonts.php","Font Configuration","NotActive");
-    }
-
-    echo '            </div>
-                  </div>
-              </div>
-          </div>';
-
-}
-
-function sidebarInfoMeta($configPage, $configString, $configStatus) {
-    echo '<div class="SidebarListItem-sidebarListItem-GdcVsd">';
-
-    if ($configStatus == "Active") {
-        echo "<a href=\"$configPage\" role=\"link\" class=\"SidebarLink-sidebarLink-L2OPdE Link-default-2XA2bN Link-link-2n0yJn Link-isSelected-IRm9uM\">
-              <div class=\"SidebarLink-container-24bhWp\">
-              <div class=\"SettingsSidebarListLink-icon-eICe1t SidebarLink-icon-34JWqs SettingsSidebarListLink-selectedIcon-caIG1g\"></div>
-              <div class=\"SidebarLink-title-2vaAAn\">$configString</div>
-              <div class=\"SidebarLink-children-3Lh_RU\"></div>";
-    }
-    else {
-        echo "<a href=\"$configPage\" role=\"link\" class=\"SidebarLink-sidebarLink-L2OPdE Link-default-2XA2bN Link-link-2n0yJn\">
-              <div class=\"SidebarLink-container-24bhWp\">
-              <div class=\"SettingsSidebarListLink-icon-eICe1t SidebarLink-icon-34JWqs\"></div>
-              <div class=\"SidebarLink-title-2vaAAn\">$configString</div>";
-    }
-
-    echo '</div>
-          </a>
-          </div>';
-}
-
 function HeaderInfo($configPage) {
     if ($configPage == "index.php") {
         $paths = "";
@@ -258,130 +147,133 @@ function NavBar() {
     echo "        </div>\n";
 }
 
+function sidebarInfo($configPage) {
+
+    echo '<div class="SidebarContainer-sidebarContainer-2RAYT1">
+              <div class="SidebarScroller-scroller-2wp83y Scroller-scroller-3GqQcZ Scroller-vertical-VScFLT Scroller-auto-LsWiWx ">
+                  <div id="SideBar" class="SettingsSidebar-sidebarContent-3yMjj9">
+                      <div role="navigation">
+                          <div class="SidebarList-sidebarListHeaderContainer-2D2g-W">
+                              <div class="SettingsSidebarList-header-1RCToc SidebarList-sidebarListHeader-1t0yzs" role="header">Settings</div>
+                          </div>';
+
+    // General PHP
+    if ($configPage == "general.php") {
+        sidebarInfoMeta("general.php","General","Active");
+    }
+    else {
+        sidebarInfoMeta("general.php","General","NotActive");
+    }
+
+    // Security PHP
+    if ($configPage == "security.php") {
+        sidebarInfoMeta("security.php","Security Configuration","Active");
+    }
+    else {
+        sidebarInfoMeta("security.php","Security Configuration","NotActive");
+    }
+
+    // Common PHP
+    if ($configPage == "common.php") {
+        sidebarInfoMeta("common.php","Common Configuration","Active");
+    }
+    else {
+        sidebarInfoMeta("common.php","Common Configuration","NotActive");
+    }
+
+    // Server PHP
+    if ($configPage == "server.php") {
+        sidebarInfoMeta("server.php","Server Configuration","Active");
+    }
+    else {
+        sidebarInfoMeta("server.php","Server Configuration","NotActive");
+    }
+
+    // Client PHP
+    if ($configPage == "client.php") {
+        sidebarInfoMeta("client.php","Client Configuration","Active");
+    }
+    else {
+        sidebarInfoMeta("client.php","Client Configuration","NotActive");
+    }
+
+    // Coming Soon PHP
+    if ($configPage == "comingSoon.php") {
+        sidebarInfoMeta("comingSoon.php","Coming Soon","Active");
+    }
+    else {
+        sidebarInfoMeta("comingSoon.php","Coming Soon","NotActive");
+    }
+
+    // Now Showing PHP
+    if ($configPage == "nowShowing.php") {
+        sidebarInfoMeta("nowShowing.php","Now Showing","Active");
+    }
+    else {
+        sidebarInfoMeta("nowShowing.php","Now Showing","NotActive");
+    }
+
+    // Custom PHP
+    if ($configPage == "custom.php") {
+        sidebarInfoMeta("custom.php","Custom Configuration","Active");
+    }
+    else {
+        sidebarInfoMeta("custom.php","Custom Configuration","NotActive");
+    }
+
+    // Fonts PHP
+    if ($configPage == "fonts.php") {
+        sidebarInfoMeta("fonts.php","Font Configuration","Active");
+    }
+    else {
+        sidebarInfoMeta("fonts.php","Font Configuration","NotActive");
+    }
+
+    echo '            </div>
+                  </div>
+              </div>
+          </div>';
+
+}
+
+function sidebarInfoMeta($configPage, $configString, $configStatus) {
+    echo '<div class="SidebarListItem-sidebarListItem-GdcVsd">';
+
+    if ($configStatus == "Active") {
+        echo "<a href=\"$configPage\" role=\"link\" class=\"SidebarLink-sidebarLink-L2OPdE Link-default-2XA2bN Link-link-2n0yJn Link-isSelected-IRm9uM\">
+              <div class=\"SidebarLink-container-24bhWp\">
+              <div class=\"SettingsSidebarListLink-icon-eICe1t SidebarLink-icon-34JWqs SettingsSidebarListLink-selectedIcon-caIG1g\"></div>
+              <div class=\"SidebarLink-title-2vaAAn\">$configString</div>
+              <div class=\"SidebarLink-children-3Lh_RU\"></div>";
+    }
+    else {
+        echo "<a href=\"$configPage\" role=\"link\" class=\"SidebarLink-sidebarLink-L2OPdE Link-default-2XA2bN Link-link-2n0yJn\">
+              <div class=\"SidebarLink-container-24bhWp\">
+              <div class=\"SettingsSidebarListLink-icon-eICe1t SidebarLink-icon-34JWqs\"></div>
+              <div class=\"SidebarLink-title-2vaAAn\">$configString</div>";
+    }
+
+    echo '</div>
+          </a>
+          </div>';
+}
+
 function FooterInfo() {
     // https://www.plex.tv/about/privacy-legal/plex-trademarks-and-guidelines/
     // http://brand.plex.tv/d/qxmJ3odkK0fj/style-guide
     // http://brand.plex.tv/d/qxmJ3odkK0fj/style-guide#/style-guide/typography
 
-    $CopyrightMsg_01 = "Plex is a copyright of the Plex Media Company";
-    $CopyrightMsg_02 = "Works with Plex";
-    $CopyrightMsg_03 = "Plex Move Poster Display for Plex";
+    $CopyrightMsg[0] = "Plex is a copyright of the Plex Media Company";
+    $CopyrightMsg[1] = "Works with Plex";
+    $CopyrightMsg[2] = "Plex Move Poster Display for Plex";
+    $CopyrightMsg[3] = "PLEX, PLEX PASS, myPLEX, PLEX MEDIA SERVER, PLEX MEDIA CENTER, PLEX MEDIA MANAGER, PLEX HOME THEATER, PLEX TV, PLEX.TV, the Plex Play Logo (\">\" in stylized format) are trademarks that are the exclusive property of Plex, Inc.";
+
 
     echo "<div style=\"position: absolute; left: 0; bottom: 0; width: 100%; text-align: center; \">";
     echo "<p>";
-    echo "$CopyrightMsg_02";
+    echo "$CopyrightMsg[3]";
     echo "</p>";
     echo "</div>";
-}
-
-//Fixup Size Calculations
-function fixupSize($bytes) {
-    $places = '2';
-    $size = array('B', 'KB', 'MB', 'GB');
-    $factor = floor((strlen($bytes) - 1) / 3);
-    return sprintf("%.{$places}f", $bytes / pow(1024, $factor)) . @$size[$factor];
-}
-
-function PosterCache() {
-    //Count Items in Posters
-    $target_dir = "../cache/posters/";
-
-    if (!file_exists($target_dir)) {
-        mkdir($target_dir, 0777, true);
-    }
-    $posters = scandir("$target_dir");
-    $GLOBALS['posterCount'] = count($posters) - 2;
-    if ($GLOBALS['posterCount'] < 0) {
-        $GLOBALS['posterCount'] = 0;
-    }
-}
-
-function PosterCacheClear() {
-    //Clear Poster Cache Directory
-    $target_dir = "../cache/posters/";
-
-    if (!file_exists($target_dir)) {
-        mkdir($target_dir, 0777, true);
-    }
-    $files = glob("$target_dir/*");
-    foreach ($files as $file) {
-        if (is_file($file)) {
-            unlink($file);
-        }
-    }
-}
-
-function CustomCache() {
-    //Count Items in Custom Images
-    $target_dir = "../cache/custom/";
-
-    if (!file_exists($target_dir)) {
-        mkdir($target_dir, 0777, true);
-    }
-
-    $custom = scandir("$target_dir");
-    $GLOBALS['customCount'] = count($custom) - 2;
-    if ($GLOBALS['$customCount'] < 0) {
-        $GLOBALS['$customCount'] = 0;
-    }
-}
-
-function CustomCacheClear() {
-    //Clear Custom Cache Directory
-    $target_dir = "../cache/custom/";
-
-    if (!file_exists($target_dir)) {
-        mkdir($target_dir, 0777, true);
-    }
-
-    $files = glob("$target_dir/*");
-    foreach ($files as $file) {
-        if (is_file($file)) {
-            unlink($file);
-        }
-    }
-}
-
-function CustomFontCache() {
-    //Count Items in Custom Font Cache Directory
-    $target_dir = "../cache/fonts/";
-
-    if (!file_exists($target_dir)) {
-        mkdir($target_dir, 0777, true);
-    }
-
-    $fileCount = 0;
-
-    $dir_iterator = new RecursiveDirectoryIterator("$target_dir");
-    $files = new RecursiveIteratorIterator($dir_iterator, RecursiveIteratorIterator::SELF_FIRST);
-
-    foreach($files as $file) {
-        $file_parts = pathinfo($file);
-        if (preg_match("{[tT][tT][fF]}",$file_parts['extension'])) {
-            $fileCount = $fileCount + 1;
-        }
-    }
-
-    $GLOBALS['customFontCount'] = $fileCount;
-    if ($GLOBALS['$customFontCount'] < 0) {
-        $GLOBALS['$customFontCount'] = 0;
-    }
-}
-
-function CustomFontCacheClear() {
-    //Clear Custom Font Cache Directory
-    $target_dir = "../cache/fonts/";
-
-    if (!file_exists($target_dir)) {
-        mkdir($target_dir, 0777, true);
-    }
-
-    $files = glob("$target_dir/*");
-    foreach ($files as $file) {
-        if (is_file($file)) {
-            unlink($file);
-        }
-    }
 }
 
 ?>

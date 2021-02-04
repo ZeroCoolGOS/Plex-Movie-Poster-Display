@@ -79,7 +79,8 @@ function showName_zip() {
     
     var ZipFileName = name.files.item(0).name;
     
-    var PostMSG = "Upload Zip File: " + ZipFileName;
+    // var PostMSG = "Upload Zip File: " + ZipFileName;
+    var PostMSG = "Upload File: " + ZipFileName;
     document.getElementById('UploadFileName_Zip').innerHTML = PostMSG;
 
 }
@@ -92,7 +93,8 @@ function exportFiles_ZIP() {
     
     //var ZipFileName = name.files.item(0).name;
     
-    var PostMSG = "Upload Zip File: "; //+ ZipFileName;
+    // var PostMSG = "Upload Zip File: "; //+ ZipFileName;
+    var PostMSG = "Upload File: "; //+ ZipFileName;
     document.getElementById('ExportFileName_Zip').innerHTML = PostMSG;
 
 }

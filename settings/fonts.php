@@ -17,7 +17,6 @@ if (!empty($_POST['saveConfig'])) {
 $rootDir = "../";
 $exportFileName = "FontArchive_Custom.zip";
 
-// uploadFont();
 GenerateCSS_Font_ALL();
 exportFiles_DownloadLink("DownloadLink", "$rootDir/cache/archive", "$exportFileName");
 
@@ -59,7 +58,7 @@ if (isset($_POST["btn_zip"])) {
                 <div class="Page-page-aq7i_X Scroller-scroller-3GqQcZ Scroller-vertical-VScFLT  ">
                     <div id="MainPage" class="SettingsPage-content-1vKVEr PageContent-pageContent-16mK6G">
                         <h2 class="SettingsPageHeader-header-1ugtIL">
-                            Font Display - Test Page
+                            Font Configuration
                         </h2>
                         <div>
                         <div class="server-settings-container show-advanced">
@@ -84,7 +83,7 @@ if (isset($_POST["btn_zip"])) {
                                         <input type="file" name="zip_file" id="zip_file" accept=".zip,.ttf,.pmp" style="opacity: 0; display: inline;" onchange="showName_zip()">
                                         <p>
                                             <div id="UploadFileName_Zip" style="font-size: smaller;">
-                                                Upload Zip File:
+                                                Upload File:
                                                 <i>None</i>
                                             </div>
                                         </p>
@@ -121,37 +120,6 @@ if (isset($_POST["btn_zip"])) {
                                         }
                                     ?>
                                 </div>
-
-                                <!-- <div class="format-group ">
-                                    <hr>
-                                    Import font:
-
-                                    <form action="fonts.php" method="post" enctype="multipart/form-data">
-                                        <label for="fileToUpload" style="cursor: pointer;">
-                                            <div class= "label label-btn label-primary">
-                                                <i class="label-icon glyphicon file"></i>
-                                                Browse Font
-                                            </div>
-                                        </label>
-
-                                        <input type="file" name="fileToUpload" id="fileToUpload" accept=".ttf" style="opacity: 0; display: inline;" onchange="showName_font()">
-
-                                        <p>
-                                            <div id="UploadFileName" style="font-size: smaller;">
-                                                Upload Font File:
-                                                <i>None</i>
-                                            </div>
-                                        </p>
-
-                                        <label for="uploadFont" style="cursor: pointer;">
-                                            <div class= "label label-btn label-primary">
-                                                <i class="label-icon glyphicon upload"></i>
-                                                Upload Font
-                                            </div>
-                                        </label>
-                                        <input type="submit" value="Upload Font" name="uploadFont" id="uploadFont" style="opacity: 0;">
-                                    </form>
-                                </div> -->
 
                                 <div class="format-group ">
                                     <hr>

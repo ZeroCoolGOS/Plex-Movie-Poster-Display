@@ -5,6 +5,7 @@ include '../assets/plexmovieposter/setData.php';
 include 'PMPInfo.php';
 include 'PMPReleaseNotes.php';
 include '../assets/plexmovieposter/CommonLib.php';
+include '../assets/plexmovieposter/CacheLib.php';
 include '../assets/plexmovieposter/importExportLib.php';
 include '../config.php';
 
@@ -16,7 +17,8 @@ if (!empty($_POST['saveConfig'])) {
 }
 
 //Count Items in Posters
-PosterCache();
+// PosterCache();
+GeneralCache("../cache/posters/", "posterCount");
 
 //Clear Poster Cache Directory
 if (!empty($_POST['clearPosterCache'])) {
@@ -25,7 +27,8 @@ if (!empty($_POST['clearPosterCache'])) {
 }
 
 //Count Items in Custom Images
-CustomCache();
+// CustomCache();
+GeneralCache("../cache/custom/", "customCount");
 
 //Clear Custom Cache Directory
 if (!empty($_POST['clearCustomCache'])) {

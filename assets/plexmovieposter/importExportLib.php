@@ -175,16 +175,16 @@ function importFiles_Config() {
     $SetRedirect = true;
 
     // $target_dir = "uploads/";
-    $target_dir = "../";
+    $destination = "../";
     $target_fileName = "config.php";
     // $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-    $target_file = $target_dir . $target_fileName;
+    $target_file = $destination . $target_fileName;
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
     // Generate the Upload directory if it does not exist.
-    if (!file_exists($target_dir)) {
-        mkdir($target_dir, 0777, true);
+    if (!file_exists($destination)) {
+        mkdir($destination, 0777, true);
     }
 
     // Check if image file is a actual image or fake image
