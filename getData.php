@@ -40,7 +40,7 @@ if ($pmpBottomScroll == 'Enabled') {
 
 // -------------------------
 // Poster Cache
-$cachePath = $pmpPosterDir; 
+$cachePath = $pmpPosterDir;
 GeneralCache_Prep($cachePath, TRUE);
 // -------------------------
 
@@ -250,40 +250,49 @@ if ($customImageEnabled == "Enabled") {
 if ($customImageEnabled != "Enabled") {
     // Check to see if we should cache our art
     if ($cacheEnabled) {
+        // Media Thumb (Poster)
         $mediaThumb_ID = explode("/", $mediaThumb);
         $mediaThumb_ID = trim($mediaThumb_ID[count($mediaThumb_ID) - 1], '/');
         $filename = $cachePath . $mediaThumb_ID;
         $mediaThumb_URL = "$URLScheme://$plexServer:32400$mediaThumb?X-Plex-Token=$plexToken";
-        // There's nothing else to do here, just save it
-        if (!file_exists($filename)) {
-            file_put_contents("$cachePath/$mediaThumb_ID", fopen("$mediaThumb_URL", 'r'));  // Not using getPoster function and using older un-secure function
-        }
-        $mediaThumb_Display = "url('$cachePath/$mediaThumb_ID')";
         pmp_Logging("getMediaThumb", "$mediaThumb_ID ($cachePath) - $mediaThumb_URL");
 
+        // There's nothing else to do here, just save it
+        if (!file_exists($filename)) {
+            file_put_contents("$cachePath/$mediaThumb_ID", fopen("$mediaThumb_URL", 'r'));
+        }
+
+        $mediaThumb_URLCache = join('/', array(trim($cachePath, '/'), trim($mediaThumb_ID, '/')));
+        // $mediaThumb_Display = "url('$mediaThumb_URLCache')"; // Unsecure URL
+        $mediaThumb_Display = "url('data:image/jpeg;base64,".getCachePoster($mediaThumb_URLCache)."')"; // Secure URL
+        pmp_Logging("getMediaThumb", "mediaThumb (Display) - $mediaThumb_Display");
+
+        // Media Art (Background)
         $mediaArt_ID = explode("/", $mediaArt);
         $mediaArt_ID = trim($mediaArt_ID[count($mediaArt_ID) - 1], '/');
         $filename = $cacheArtPath . $mediaArt_ID;
         $mediaArt_URL = "$URLScheme://$plexServer:32400$mediaArt?X-Plex-Token=$plexToken";
-        // There's nothing else to do here, just save it
-        if (!file_exists($filename)) {
-            file_put_contents("$cacheArtPath/$mediaArt_ID", fopen("$mediaArt_URL", 'r'));  // Not using getPoster function and using older un-secure function
-        }
-        $mediaArt_Display = "url('$cacheArtPath/$mediaArt_ID')";
         pmp_Logging("getMediaArt", "$mediaArt_ID ($cacheArtPath) - $mediaArt_URL");
 
-    } else {
-        $mediaThumb_Display = "url('data:image/jpeg;base64,".getPoster($mediaThumb)."')";
-        // $mediaThumb_Display = "url('$URLScheme://$plexServer:32400$mediaThumb?X-Plex-Token=$plexToken')";
-        if (empty($mediaThumb_Display)) {
-            $mediaThumb_Display = "url('$URLScheme://$plexServer:32400$mediaThumb?X-Plex-Token=$plexToken')";
+        // There's nothing else to do here, just save it
+        if (!file_exists($filename)) {
+            file_put_contents("$cacheArtPath/$mediaArt_ID", fopen("$mediaArt_URL", 'r'));
         }
 
-        $mediaArt_Display = "url('data:image/jpeg;base64,".getPoster($mediaArt)."')";
-        if (empty($mediaArt_Display)) {
-            $mediaArt_Display = "url('$URLScheme://$plexServer:32400$mediaArt?X-Plex-Token=$plexToken')";
-        }
+        $mediaArt_URLCache = join('/', array(trim($cacheArtPath, '/'), trim($mediaArt_ID, '/')));
+        // $mediaArt_Display = "url('$mediaArt_URLCache')"; // Unsecure URL
+        $mediaArt_Display = "url('data:image/jpeg;base64,".getCachePoster($mediaArt_URLCache)."')"; // Secure URL
+        pmp_Logging("getMediaArt", "mediaArt (Display) - $mediaArt_Display");
+    } else {
+        // $mediaThumb_Display = "url('$URLScheme://$plexServer:32400$mediaThumb?X-Plex-Token=$plexToken')"; // Unsecure URL
+        $mediaThumb_Display = "url('data:image/jpeg;base64,".getPoster($mediaThumb)."')"; // Secure URL
+        pmp_Logging("getMediaThumb", "mediaThumb (Display) - $mediaThumb_Display");
+
+        // $mediaArt_Display = "url('$URLScheme://$plexServer:32400$mediaArt?X-Plex-Token=$plexToken')"; // Unsecure URL
+        $mediaArt_Display = "url('data:image/jpeg;base64,".getPoster($mediaArt)."')"; // Secure URL
+        pmp_Logging("getMediaArt", "mediaArt (Display) - $mediaArt_Display");
     }
+
     // Figure out which text goes where
     switch($topSelection) {
         case 'title': $topText = $mediaTitle;break;
