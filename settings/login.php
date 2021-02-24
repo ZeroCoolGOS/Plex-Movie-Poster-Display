@@ -34,12 +34,7 @@ if (isset($_POST['username']) && !empty($_POST['password'])) {
     <div id="plex" class="application">
         <div class="background-container">
             <div class="FullPage-container-17Y0cs">
-                <div>
-                    <div style="position: absolute; width: 100%; height: 100%;">
-                        <div class=" CrossFadeImage-crossFade-10Sndv" style="position: absolute; animation-duration: 600ms; background-image: url(&quot;/../assets/images/Plex/backgrounds/preset-dark.png&quot;); width: 100%; height: 100%; background-size: cover; background-position: center center; background-repeat: no-repeat;"></div>
-                    </div>
-                    <div style="position: absolute; width: 100%; height: 100%; background: url(&quot;/../assets/images/Plex/backgrounds/noise.png&quot;); z-index: 2;"></div>
-                </div>
+                <div class="settings-core"></div>
             </div>
         </div>
         <?php NavBar() ;?>

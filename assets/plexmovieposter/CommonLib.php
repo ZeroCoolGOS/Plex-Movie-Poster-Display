@@ -100,7 +100,7 @@ function HeaderInfo($configPage) {
     // echo "\n";
     // echo "\t<!-- Plex CSS & Icons-->\n";
     // if ($configPage != "index.php") {
-        // echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/plex/Plex.css\">\n";
+        echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/plex/Plex.css\">\n";
     // }
     // echo "\t<link rel=\"shortcut icon\" type=\"image/png\" href=\"$paths/assets/plex/images/desktop/favicon.ico\"/>\n";
     // echo "\t<link rel=\"mask-icon\" href=\"$paths/assets/plex/images/desktop/favicon-mask.svg\" color=\"#cc7b19\">\n";
@@ -137,12 +137,11 @@ function HeaderInfoApple($configPage) {
 
 function NavBar() {
     echo "<div class=\"nav-bar\">\n";
-    echo "            <div class=\"NavBar-container-1T0BJz\">\n";
-    echo "                <div class=\"NavBar-left-2SrTGf NavBar-side-2kZrHV\">\n";
-    echo "                    <a id=\"id-261\" aria-label=\"Home\" data-uid=\"id-262\" href=\"../index.php\" role=\"link\" class=\"NavBar-button-diriIs NavBarIconButton-button-eR0v0j IconButton-button-9An-7I Link-link-2n0yJn Link-default-2XA2bN     \">\n";
-    echo "                        <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 560 560\" id=\"plex-icon-navbar-home-560\" aria-hidden=\"true\" class=\"PlexIcon-plexIcon-8Tamaj NavBarIconButton-icon-2gdVPu\">\n";
-    echo "                        <path d=\"M84 448V291.598a28 28 0 0 1 8.201-19.799L280 84l187.799 187.799A28 28 0 0 1 476 291.598V448c0 15.464-12.536 28-28 28H322V336h-84v140H112c-15.464 0-28-12.536-28-28z\">\n";
-    echo "                        </path>\n";
+    echo "            <div class=\"NavBar-core\">\n";
+    echo "                <div class=\"NavBar-Alignment NavBar-AlignmentImg\">\n";
+    echo "                    <a id=\"NavBar-HomeLink\" aria-label=\"Home\" href=\"../index.php\" role=\"link\" class=\"NavBar-HomeLinkButton\">\n";
+    echo "                        <svg height=\"16px\" id=\"Layer_1\" style=\"enable-background:new 0 0 16 16;\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16px\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" class=\"NavBar-HomeLinkIcon\">\n";
+    echo "                          <path d=\"M15.45,7L14,5.551V2c0-0.55-0.45-1-1-1h-1c-0.55,0-1,0.45-1,1v0.553L9,0.555C8.727,0.297,8.477,0,8,0S7.273,0.297,7,0.555  L0.55,7C0.238,7.325,0,7.562,0,8c0,0.563,0.432,1,1,1h1v6c0,0.55,0.45,1,1,1h3v-5c0-0.55,0.45-1,1-1h2c0.55,0,1,0.45,1,1v5h3  c0.55,0,1-0.45,1-1V9h1c0.568,0,1-0.437,1-1C16,7.562,15.762,7.325,15.45,7z\"/>\n";
     echo "                        </svg>\n";
     echo "                    </a>\n";
     echo "                    </a>\n";
@@ -276,5 +275,16 @@ function FooterInfo() {
     echo "</p>";
     echo "</div>";
 }
+
+function AdvancedBar() {
+    echo "<div >\n";
+    echo "                        <div class=\"AdvancedBar-core\">\n";
+    echo "                            <div class=\"filter-bar-right\">\n";
+    echo "                                <input class=\" btn btn-sm btn-default advanced-settingButton\" type=\"button\" value=\"SHOW ADVANCED\"></input>\n";
+    echo "                            </div>\n";
+    echo "                        </div>\n";
+    echo "                    </div>\n";
+}
+
 
 ?>

@@ -23,12 +23,7 @@ if (!empty($_POST['saveConfig'])) {
     <div id="plex" class="application">
         <div class="background-container">
             <div class="FullPage-container-17Y0cs">
-                <div>
-                    <div style="position: absolute; width: 100%; height: 100%;">
-                        <div class=" CrossFadeImage-crossFade-10Sndv" style="position: absolute; animation-duration: 600ms; background-image: url(&quot;/../assets/images/Plex/backgrounds/preset-dark.png&quot;); width: 100%; height: 100%; background-size: cover; background-position: center center; background-repeat: no-repeat;"></div>
-                    </div>
-                    <div style="position: absolute; width: 100%; height: 100%; background: url(&quot;/../assets/images/Plex/backgrounds/noise.png&quot;); z-index: 2;"></div>
-                </div>
+                <div class="settings-core"></div>
             </div>
         </div>
         <?php NavBar() ;?>
@@ -43,13 +38,7 @@ if (!empty($_POST['saveConfig'])) {
                             Security Configuration
                         </h2>
                         <div>
-                        <div class="server-settings-container show-advanced">
-                            <div class="filter-bar">
-                                <div class="filter-bar-right">
-                                    <input class="toggle-advanced-btn btn btn-sm btn-default advanced-settingButton" type="button" value="SHOW ADVANCED"></input>
-                                </div>
-                            </div>
-                        </div>
+                        <?php AdvancedBar() ;?>
                             <form id="server-settings-form" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                                 <!-- SEGMENT BLOCK START -->
                                     <div class="form-group">
