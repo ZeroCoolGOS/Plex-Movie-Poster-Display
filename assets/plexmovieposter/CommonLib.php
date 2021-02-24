@@ -8,6 +8,8 @@ function HeaderInfo($configPage) {
         $paths = "/..";
     }
 
+    $AppName = "plexmovieposter";
+
     echo "<meta charset=\"utf-8\">\n";
     if ($configPage == "index.php") {
         echo "\t<title>Plex Movie Poster Display</title>\n";
@@ -62,40 +64,46 @@ function HeaderInfo($configPage) {
         echo "\t<script src=\"$paths/assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js\"></script>\n";
         echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/bootstrap-colorpicker/css/bootstrap-colorpicker.css\">\n";
     }
-
+    // --------------------------------------------------
+    // First Party
     echo "\n";
     echo "\t<!-- Plex Movie Poster Display Javascript & CSS -->\n";
-    echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/plexmovieposter/fonts_stock.css\">\n";
+    echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/$AppName/fonts_stock.css\">\n";
+    echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/$AppName/PlexMini.css\">\n";  // BasePoint to Phase out Plex.css
+    echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/$AppName/glyphicons.css\">\n";  // BasePoint to Phase out Plex.css
 
     if ($debugMode == TRUE) {
         $font_custom_ver = date('his');
-        echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/plexmovieposter/fonts_custom.css?v=$font_custom_ver\">\n";
+        echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/$AppName/fonts_custom.css?v=$font_custom_ver\">\n";
     }
     else {
-        // echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/plexmovieposter/fonts_custom.css\">\n";
+        // echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/$AppName/fonts_custom.css\">\n";
         echo "\t<link rel=\"stylesheet\" href=\"$paths/cache/fonts/fonts_custom.css\">\n";
     }
 
-
     if ($configPage != "index.php") {
-        echo "\t<script src=\"$paths/assets/plexmovieposter/CommonLib.js\"></script>\n";
+        echo "\t<script src=\"$paths/assets/$AppName/CommonLib.js\"></script>\n";
         echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/styles/default/style.css\">\n";
         echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/styles/default/form-validation.css\">\n";
+        echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/$AppName/css/SettingsStyle.css\">\n";  // Clean css file
     }
 
     if ($configPage == "index.php") {
         echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/styles/default/poster.css\">\n";
+        echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/$AppName/css/DisplayStyle.css\">\n";  // Clean css file
         // echo "\t<link rel=\"shortcut icon\" type=\"image/png\" href=\"$paths/assets/images/desktop/favicon.ico\"/>\n";
         // echo "\t<link rel=\"mask-icon\" href=\"$paths/assets/images/desktop/favicon-mask.svg\" color=\"#cc7b19\">\n";
     }
 
-    echo "\n";
-    echo "\t<!-- Plex CSS & Icons-->\n";
-    if ($configPage != "index.php") {
-        echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/plex/Plex.css\">\n";
-    }
-    echo "\t<link rel=\"shortcut icon\" type=\"image/png\" href=\"$paths/assets/plex/images/desktop/favicon.ico\"/>\n";
-    echo "\t<link rel=\"mask-icon\" href=\"$paths/assets/plex/images/desktop/favicon-mask.svg\" color=\"#cc7b19\">\n";
+    // --------------------------------------------------
+
+    // echo "\n";
+    // echo "\t<!-- Plex CSS & Icons-->\n";
+    // if ($configPage != "index.php") {
+        // echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/plex/Plex.css\">\n";
+    // }
+    // echo "\t<link rel=\"shortcut icon\" type=\"image/png\" href=\"$paths/assets/plex/images/desktop/favicon.ico\"/>\n";
+    // echo "\t<link rel=\"mask-icon\" href=\"$paths/assets/plex/images/desktop/favicon-mask.svg\" color=\"#cc7b19\">\n";
 }
 
 function HeaderInfoApple($configPage) {
@@ -137,10 +145,6 @@ function NavBar() {
     echo "                        </path>\n";
     echo "                        </svg>\n";
     echo "                    </a>\n";
-    // Below is the 'Copyright Plex Logo" version of the NavBar
-    // echo "                    <a data-uid=\"id-2\" href=\"#\" role=\"link\" class=\"NavBar-plexLogo-3_NNRw NavBarIconButton-button-eR0v0j IconButton-button-9An-7I Link-link-2n0yJn Link-default-2XA2bN     \">\n";
-    // Below is the "Non-copyright Logo" version of the NavBar -- Coming Soon
-    // echo "                    <a data-uid=\"id-2\" href=\"#\" role=\"link\" class=\"NavBar-plexLogo-3_NNRw NavBarIconButton-button-eR0v0j IconButton-button-9An-7I Link-link-2n0yJn Link-default-2XA2bN     \">\n";
     echo "                    </a>\n";
     echo "                </div>\n";
     echo "            </div>\n";
@@ -148,14 +152,11 @@ function NavBar() {
 }
 
 function sidebarInfo($configPage) {
-
-    echo '<div class="SidebarContainer-sidebarContainer-2RAYT1">
-              <div class="SidebarScroller-scroller-2wp83y Scroller-scroller-3GqQcZ Scroller-vertical-VScFLT Scroller-auto-LsWiWx ">
-                  <div id="SideBar" class="SettingsSidebar-sidebarContent-3yMjj9">
+    echo '<div class="SidebarInfo-core">
+              <div>
+                  <div id="SideBar" class="SettingsSidebar-spacing">
                       <div role="navigation">
-                          <div class="SidebarList-sidebarListHeaderContainer-2D2g-W">
-                              <div class="SettingsSidebarList-header-1RCToc SidebarList-sidebarListHeader-1t0yzs" role="header">Settings</div>
-                          </div>';
+                          <div class="SidebarList-title" role="header">Settings</div>';
 
     // General PHP
     if ($configPage == "general.php") {
@@ -237,20 +238,19 @@ function sidebarInfo($configPage) {
 }
 
 function sidebarInfoMeta($configPage, $configString, $configStatus) {
-    echo '<div class="SidebarListItem-sidebarListItem-GdcVsd">';
+    echo '<div class="sidebarItem">';
 
     if ($configStatus == "Active") {
-        echo "<a href=\"$configPage\" role=\"link\" class=\"SidebarLink-sidebarLink-L2OPdE Link-default-2XA2bN Link-link-2n0yJn Link-isSelected-IRm9uM\">
-              <div class=\"SidebarLink-container-24bhWp\">
-              <div class=\"SettingsSidebarListLink-icon-eICe1t SidebarLink-icon-34JWqs SettingsSidebarListLink-selectedIcon-caIG1g\"></div>
-              <div class=\"SidebarLink-title-2vaAAn\">$configString</div>
-              <div class=\"SidebarLink-children-3Lh_RU\"></div>";
+        echo "<a href=\"$configPage\" role=\"link\" class=\"SidebarLink-indent SidebarItem-isActive\">
+              <div class=\"SidebarItem-NoCR\">
+              <div class=\"SidebarItem-Indentation SidebarItem-isActiveIcon\"></div>
+              <div>$configString</div>";
     }
     else {
-        echo "<a href=\"$configPage\" role=\"link\" class=\"SidebarLink-sidebarLink-L2OPdE Link-default-2XA2bN Link-link-2n0yJn\">
-              <div class=\"SidebarLink-container-24bhWp\">
-              <div class=\"SettingsSidebarListLink-icon-eICe1t SidebarLink-icon-34JWqs\"></div>
-              <div class=\"SidebarLink-title-2vaAAn\">$configString</div>";
+        echo "<a href=\"$configPage\" role=\"link\" class=\"SidebarLink-indent SidebarItem-isInactive\">
+              <div class=\"SidebarItem-NoCR\">
+              <div class=\"SidebarItem-Indentation \"></div>
+              <div>$configString</div>";
     }
 
     echo '</div>
@@ -269,7 +269,8 @@ function FooterInfo() {
     $CopyrightMsg[3] = "PLEX, PLEX PASS, myPLEX, PLEX MEDIA SERVER, PLEX MEDIA CENTER, PLEX MEDIA MANAGER, PLEX HOME THEATER, PLEX TV, PLEX.TV, the Plex Play Logo (\">\" in stylized format) are trademarks that are the exclusive property of Plex, Inc.";
 
 
-    echo "<div style=\"position: absolute; left: 0; bottom: 0; width: 100%; text-align: center; \">";
+    // echo "<div style=\"position: absolute; left: 0; bottom: 0; width: 100%; text-align: center; \">";
+    echo "<div class=\"footerInfo\">";
     echo "<p>";
     echo "$CopyrightMsg[3]";
     echo "</p>";

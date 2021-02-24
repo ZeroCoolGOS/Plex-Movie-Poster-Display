@@ -175,3 +175,14 @@ R&D - Research Plex Webhooks (Issue #31):
 **v2.9.2 Community Updates**\
 Updates - Color Picker Desktop (Issue #35)
 - Change color picker from 'bootstrap-colorpicker' to built in color picker system.  This changes how we select the color picker from just selecting the filed to pressing the 'browse color' button.
+
+**v2.10.0 Community Updates**\
+Refactor - Remove all Plex Assets (Issue #38)
+
+    Update to conform to PLEX trademarks and guidelines
+    - Remove all PLEX images and assets
+    - Change color scheme
+    - Rename project
+- Create new set of 'clean' css files for the settings and the display pages
+- Change out hard coded naming of project to variables
+- 

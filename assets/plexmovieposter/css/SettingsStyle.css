@@ -1,0 +1,149 @@
+/* -------------------------------------------------- */
+/* CORE */
+
+
+/* -------------------------------------------------- */
+
+/* -------------------------------------------------- */
+/* NavBar */
+
+
+/* -------------------------------------------------- */
+
+/* -------------------------------------------------- */
+/* sidebarInfo */
+
+.SidebarInfo-core {
+	display: flex;
+	flex: 0 0 240px;
+	flex-direction: column;
+	width: 240px;
+	height: 100%;
+	background-color: #222831;
+	transform: translateZ(0)
+}
+
+.SettingsSidebar-spacing {
+	padding-top: 10px;
+	padding-bottom: 60px
+}
+
+.SidebarList-title { /* Clean UP FONT*/
+	overflow: hidden!important;
+	min-width: 0;
+	max-width: 100%;
+	text-overflow: ellipsis;
+	white-space: nowrap!important;
+	align-content: center;
+	padding-left: 25px;
+	height: 45px;
+	color: hsla(0, 0%, 100%, .3);
+	text-transform: uppercase;
+	font-size: 12px;
+	font-family: Open Sans Bold, Helvetica Neue, Helvetica, Arial, sans-serif;
+	line-height: 45px
+}
+
+/* -------------------------------------------------- */
+
+/* -------------------------------------------------- */
+/* sidebarInfoMeta */
+
+.sidebarItem a:hover {
+    /* NO MAP BACK*/
+    text-decoration: none;
+    color: #2feb0a
+}
+
+
+.sidebarItem {
+    /* position: relative; */
+	/* display: flex; */
+	/* min-height: 30px; */
+	/* border-top-right-radius: 4px; */
+	/* border-bottom-right-radius: 4px */
+}
+
+.sidebarItem:hover {
+    background-color: #393E46;
+    /* TEST Color */
+    /* background-color: #f50606; */
+}
+
+.SidebarLink-indent {
+    /* SidebarLink-sidebarLink-L2OPdE */
+	display: block;
+	flex-grow: 1;
+	overflow: hidden;
+	padding: 4px 0 2px 25px
+}
+
+.SidebarLink-indent.isDisabled {
+    /* SidebarLink-sidebarLink-L2OPdE.isDisabled */
+	color: hsla(0, 0%, 100%, .3)
+}
+
+.SidebarLink-indent:hover .SidebarLink-iconImg-1grLXe {
+    /* SidebarLink-sidebarLink-L2OPdE:hover .SidebarLink-iconImg-1grLXe */
+	opacity: 1
+}
+
+.SidebarItem-isActive {
+    /* Link-isSelected-IRm9uM */
+	color: #e50d0d;
+    /* color: #e5a00d */
+}
+
+.SidebarItem-isInactive {
+    /* NO MAP BACK*/
+	color: #ffffff;
+}
+
+.SidebarItem-isActiveIcon {
+    /* SettingsSidebarListLink-selectedIcon-caIG1g */
+	text-align: center
+}
+
+.SidebarItem-isActiveIcon:before {
+    /* SettingsSidebarListLink-selectedIcon-caIG1g:before */
+
+    /* https://www.toptal.com/designers/htmlarrows/punctuation/ */
+    
+	/* Bullet = "\2022" */
+    /* DOUBLE RIGHT-POINTING ANGLE QUOTATION MARK  - \00BB*/
+    content: "\00BB"
+}
+
+.SidebarItem-Indentation {
+    /* SettingsSidebarListLink-icon-eICe1t */
+	width: 18px;
+	font-size: 13px
+}
+
+.SidebarItem-NoCR {
+    /* SidebarLink-container-24bhWp */
+	display: flex
+}
+
+/* -------------------------------------------------- */
+
+/* -------------------------------------------------- */
+/* FooterInfo */
+
+.footerInfo {
+    position: absolute; 
+    left: 0; 
+    bottom: 0; 
+    width: 100%; 
+    text-align: center;
+}
+/* -------------------------------------------------- */
+
+/* -------------------------------------------------- */
+/* -------------------------------------------------- */
+
+/* -------------------------------------------------- */
+/* -------------------------------------------------- */
+
+/* -------------------------------------------------- */
+/* -------------------------------------------------- */
