@@ -100,7 +100,7 @@ function HeaderInfo($configPage) {
     // echo "\n";
     // echo "\t<!-- Plex CSS & Icons-->\n";
     // if ($configPage != "index.php") {
-        echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/plex/Plex.css\">\n";
+        // echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/plex/Plex.css\">\n";
     // }
     // echo "\t<link rel=\"shortcut icon\" type=\"image/png\" href=\"$paths/assets/plex/images/desktop/favicon.ico\"/>\n";
     // echo "\t<link rel=\"mask-icon\" href=\"$paths/assets/plex/images/desktop/favicon-mask.svg\" color=\"#cc7b19\">\n";

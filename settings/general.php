@@ -77,7 +77,7 @@ importFiles_Config();
                     <div id="MainPage" class="SettingsPage-content-1vKVEr PageContent-pageContent-16mK6G">
                         <h2 class="SettingsPageHeader-header-1ugtIL">
                             <?php echo gethostname(); ?>
-                            <span class="DashSeparator-separator-4CyEFW">—</span>
+                            <span class="hyphenSpace">—</span>
                             General
                         </h2>
                         <?php AdvancedBar() ;?>
@@ -107,57 +107,14 @@ importFiles_Config();
                                 </div>
 
                                 <div class="form-group ">
-                                    <h4 class="version-header">
-                                        <span class="version">Version <?php echo $version;?></span>
-                                        <span class="update-region">
-                                            <span class="check-for-updates-container has-release-notes available">
-                                                <a href="#" class="check-for-updates-btn label label-btn label-primary active">
-                                                    <i class="label-icon glyphicon upload"></i>
-                                                    Check for Updates
-                                                </a>
-                                                <a href="#" class="checking-for-updates-btn label label-btn label-primary active">
-                                                    <i class="label-icon glyphicon upload"></i>
-                                                    Checking for Updates
-                                                </a>
+                                    <h4 >
+                                        <span >Version <?php echo $version;?></span>
+                                        <span>
+                                            <span class="check-for-updates-container available">
                                                 <a href="https://github.com/MattsShack/Plex-Movie-Poster-Display/tree/dev" class="available-updates-btn label label-btn label-primary" target="_blank">
                                                     <i class="label-icon glyphicon download"></i>
                                                     Download Updates
                                                 </a>
-                                                <!-- <a href="#" class="available-updates-btn label label-btn label-primary">
-                                                    <i class="label-icon glyphicon download"></i>
-                                                    Download Updates
-                                                </a>
-                                                <span class="downloading-updates-container label label-btn label-progress active">
-                                                    <i class="label-icon glyphicon download"></i>
-                                                    Downloading Update
-                                                    <span class="downloading-progress-container hidden">
-                                                        (
-                                                        <span class="downloading-progress-label"></span>
-                                                        %)
-                                                        </span>
-                                                    </span>
-                                                <a href="#" class="install-updates-btn label label-btn label-primary">
-                                                    <i class="label-icon glyphicon download"></i>
-                                                    Install Update
-                                                </a>
-                                                <a href="#" class="installing-updates-btn label label-btn label-primary active">
-                                                    <i class="label-icon glyphicon upload"></i>
-                                                    Installing
-                                                </a>
-                                                <span class="install-info-label up-to-date-label">
-                                                    <i class="success-icon glyphicon ok-2"></i>
-                                                    Up to date
-                                                </span>
-                                                <span class="install-info-label install-error-label">
-                                                    <i class="failure-icon glyphicon circle-exclamation-mark"></i>
-                                                    <span class="update-error-message"></span>
-                                                    <a class="install-manual-link" href="https://github.com/MattsShack/Plex-Movie-Poster-Display/tree/dev" target="_blank">Please install manually.</a>
-                                                </span>  -->
-                                                <!-- NOTE: What's New option coming soon -->
-                                                <!-- <a href="#" class="release-notes-btn label label-btn label-default">
-                                                    <i class="label-icon glyphicon circle-info"></i>
-                                                    What's New
-                                                </a> -->
                                             </span>
                                         </span>
                                     </h4>
