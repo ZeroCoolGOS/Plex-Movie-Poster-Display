@@ -280,7 +280,7 @@ function AdvancedBar() {
     echo "<div >\n";
     echo "                        <div class=\"AdvancedBar-core\">\n";
     echo "                            <div class=\"filter-bar-right\">\n";
-    echo "                                <input class=\" btn btn-sm btn-default advanced-settingButton\" type=\"button\" value=\"SHOW ADVANCED\"></input>\n";
+    echo "                                <input class=\"toggle-advanced-btn btn btn-sm btn-default advanced-settingButton\" type=\"button\" value=\"SHOW ADVANCED\"></input>\n";
     echo "                            </div>\n";
     echo "                        </div>\n";
     echo "                    </div>\n";
