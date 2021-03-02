@@ -124,6 +124,7 @@ GenerateCSS_Font_ALL();
                                                 $("input[type=radio]").change( comingSoonTopSelected );
                                             });
 
+                                            // Look at moving script to js file
                                             function comingSoonTopSelected() {
                                                 // readonly: input can't be modified
                                                 // disabled: input has no form function

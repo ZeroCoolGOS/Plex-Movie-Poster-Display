@@ -84,40 +84,26 @@ importFiles_Config();
                         <form id="server-settings-form" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                             <!-- SEGMENT BLOCK START -->
                                 <div class="form-group">
-                                    <div class="ClaimedServer-container-3O6-1n">
-                                        <div class="ServerAvatar-avatar-2VGH0z">
-                                            <div class="AvatarImg-avatar-3Op56u">
-                                                <div style="width: 60px; height: 60px; background-image: url(&quot;blob:&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat;">
-                                            </div>
-                                        </div>
+                                    <div>
+                                        <span class="infoString">Server signed in as:&nbsp</span>
+                                        <span class="infoUser"><?php echo $pmpUsername?></span>
                                     </div>
-                                    <div class="ClaimedServer-message-1yZ-wd">
-                                        <div class="ClaimedServer-messageHeader-3uzatL">Server signed in as</div>
-                                        <div class="ClaimedServer-messageDetails-3lEkVI"><?php echo $pmpUsername?></div>
-                                    </div>
+
                                     <form method="post" class="needs-validation" novalidate>
-                                        <button id="pmplogout" name="pmplogout" value="pmplogout" role="button" class="ClaimedServer-button-36k0Q0 SpinnerButton-button-1A8EcL Button-button-2kT68l Link-link-2n0yJn SpinnerButton-button-1A8EcL Button-button-2kT68l Link-link-2n0yJn  Button-button-2kT68l Link-link-2n0yJn Button-default--yDCH5 Button-medium-3g45_Q Link-link-2n0yJn Link-default-2XA2bN     ">
-                                            <span class="SpinnerButton-spinnerContainer-1NdZWc">
-                                                <div class="SpinnerButton-spinner-1TgDPI Spinner-spinner-Niere7 spin-spin-2kLwt_ Spinner-small-3PStHE Spinner-spinner-Niere7 spin-spin-2kLwt_" aria-label="Loading" style="border-top-color: rgb(255, 255, 255); border-left-color: rgb(255, 255, 255);">
-                                                </div>
-                                            </span>
-                                            <span class="SpinnerButton-label-qxG01S">Sign Out</span>
+                                        <button name="pmplogout" id="pmplogout" role="button" class="btn btn-sm" value="pmplogout">
+                                            Sign Out
                                         </button>
                                     </form>
                                 </div>
 
                                 <div class="form-group ">
-                                    <h4 >
-                                        <span >Version <?php echo $version;?></span>
-                                        <span>
-                                            <span class="check-for-updates-container available">
-                                                <a href="https://github.com/MattsShack/Plex-Movie-Poster-Display/tree/dev" class="available-updates-btn label label-btn label-primary" target="_blank">
-                                                    <i class="label-icon glyphicon download"></i>
-                                                    Download Updates
-                                                </a>
-                                            </span>
-                                        </span>
+                                    <h4 class="btn-inline">
+                                        Version: <?php echo $version;?>&nbsp
                                     </h4>
+
+                                    <button name="linkUpdate" id="linkUpdate" class="btn btn-sm" onclick="window.open('https://github.com/MattsShack/Plex-Movie-Poster-Display/tree/dev')">
+                                        Download Updates
+                                    </button>
                                 </div>
 
                                 <div class="form-group">
@@ -130,19 +116,13 @@ importFiles_Config();
                                 <div class="form-group">
                                     Posters:
 
-                                    <div style="display: inline; padding-left:8.85em">
+                                    <div class="cacheDisplay cacheDisplay-poster">
                                         <?php echo $posterCount; ?>
                                     </div>
 
-                                    <form method="post" class="needs-validation" novalidate style="display: inline; padding-left:5em">
-                                        <label for="clearPosterCache" style="cursor: pointer;">
-                                            <div class= "label label-btn label-primary">
-                                                <i class="label-icon glyphicon remove circle"></i>
-                                                Clear Cache
-                                            </div>
-                                        </label>
-                                        <button name="clearPosterCache" id="clearPosterCache" type="submit" class="btn btn-danger btn-sm" value="clearPosterCache" style="opacity: 0; display: inline;">
-                                            Clear
+                                    <form method="post" class="needs-validation cacheDisplay cacheDisplay-posterBtn" novalidate >
+                                        <button name="clearPosterCache" id="clearPosterCache" type="submit" class="btn btn-danger btn-sm" value="clearPosterCache" >
+                                            Clear Cache
                                         </button>
                                     </form>
 
@@ -154,19 +134,13 @@ importFiles_Config();
                                 <div class="form-group">
                                     Custom Images:
 
-                                    <div style="display: inline; padding-left:5em">
+                                    <div class="cacheDisplay cacheDisplay-custom">
                                         <?php echo $customCount; ?>
                                     </div>
 
-                                    <form method="post" class="needs-validation" novalidate style="display: inline; padding-left:5em">
-                                        <label for="clearCustomCache" style="cursor: pointer;">
-                                            <div class= "label label-btn label-primary">
-                                                <i class="label-icon glyphicon remove circle"></i>
-                                                Clear Cache
-                                            </div>
-                                        </label>
-                                        <button name="clearCustomCache" id="clearCustomCache" type="submit" class="btn btn-danger btn-sm" value="clearCustomCache" style="opacity: 0; display: inline;">
-                                            Clear
+                                    <form method="post" class="needs-validation cacheDisplay cacheDisplay-customBtn" novalidate >
+                                        <button name="clearCustomCache" id="clearCustomCache" type="submit" class="btn btn-danger btn-sm" value="clearCustomCache">
+                                            Clear Cache
                                         </button>
                                     </form>
 
@@ -178,21 +152,15 @@ importFiles_Config();
                                 <div class="form-group">
                                     Custom Fonts:
 
-                                    <div style="display: inline; padding-left:5.9em">
+                                    <div class="cacheDisplay cacheDisplay-font">
                                         <?php echo $customFontCount; ?>
                                     </div>
 
-                                    <!-- <form method="post" class="needs-validation" novalidate style="display: inline; padding-left:5em">
-                                        <label for="clearFontCache" style="cursor: pointer;">
-                                            <div class= "label label-btn label-primary">
-                                                <i class="label-icon glyphicon remove circle"></i>
-                                                Clear Cache
-                                            </div>
-                                        </label>
-                                        <button name="clearFontCache" id="clearFontCache" type="submit" class="btn btn-danger btn-sm" value="clearFontCache" style="opacity: 0; display: inline;">
-                                            Clear
+                                    <form method="post" class="needs-validation cacheDisplay cacheDisplay-fontBtn" novalidate >
+                                        <button name="clearFontCache" id="clearFontCache" type="submit" class="btn btn-danger btn-sm" value="clearFontCache" disabled>
+                                            Clear Cache
                                         </button>
-                                    </form> -->
+                                    </form>
 
                                     <p class="help-block">
                                         <small class="text-muted">Items in cache/fonts</small>
@@ -202,7 +170,7 @@ importFiles_Config();
                                 <div class="form-group">
                                     Free Space:
 
-                                    <div style="display: inline; padding-left:5em">
+                                    <div class="cacheDisplay cacheDisplay-disk">
                                         <?php echo fixupSize(disk_free_space("/")); ?>
                                     </div>
 
@@ -211,39 +179,36 @@ importFiles_Config();
                                     </p>
                                 </div>
 
-                                <div class="format-group advanced-setting">
+                                <div class="form-group advanced-setting">
                                     <hr>
                                     <h4>
                                         Configuration Settings:
                                     </h4>
                                 </div>
 
-                                <div class="format-group advanced-setting">
+                                <div class="form-group advanced-setting">
                                     Export Configuration:
-                                    <br>
 
-                                    <a href="general.php?file=config.php" class="available-updates-btn label label-btn label-primary">
-                                        <i class="label-icon glyphicon download"></i>
+                                    <button name="exportConfig" id="exportConfig" class="btn btn-sm" onclick="document.location='general.php?file=config.php'">
                                         Export Configuration
-                                    </a>
+                                    </button>
 
                                     <p class="help-block">
-                                        <small class="text-muted">Export Current Configuration</small>
+                                        <small class="text-muted">Export current configuration file (config.php)</small>
                                     </p>
                                 </div>
 
-                                <div class="format-group advanced-setting">
-                                    Import Configuration:
-
+                                <div class="form-group advanced-setting">
                                     <form action="general.php" method="post" enctype="multipart/form-data">
-                                        <label for="fileToUpload" style="cursor: pointer;">
-                                            <div class= "label label-btn label-primary">
-                                                <i class="label-icon glyphicon file"></i>
-                                                Browse Configuration
-                                            </div>
+                                        Import Configuration:
+                                        <label for="fileToUpload" class="btn btn-sm btn-faux">
+                                            Browse Configuration
                                         </label>
-
                                         <input type="file" name="fileToUpload" id="fileToUpload" accept=".php" style="opacity: 0; display: inline;" onchange="showName()">
+                                        
+                                        <p class="help-block">
+                                            <small class="text-muted">Select configuration file to restore (config.php)</small>
+                                        </p>
 
                                         <p>
                                             <div id="configFileName" style="font-size: smaller;">
@@ -251,14 +216,16 @@ importFiles_Config();
                                                 <i>None</i>
                                             </div>
                                         </p>
-
-                                        <label for="submitConfig" style="cursor: pointer;">
-                                            <div class= "label label-btn label-primary">
-                                                <i class="label-icon glyphicon upload"></i>
-                                                Restore Configuration
-                                            </div>
+                                        
+                                        Restore Configuration:
+                                        <label for="submitConfig" class="btn btn-sm btn-faux btn-danger">
+                                            Restore Configuration
                                         </label>
                                         <input type="submit" value="Restore Configuration" name="restoreConfig" id="submitConfig" style="opacity: 0;">
+                                        
+                                        <p class="help-block">
+                                            <small class="text-muted">Restore selected configuration file (config.php)</small>
+                                        </p>
                                     </form>
                                 </div>
                             <!-- SEGMENT BLOCK END -->

@@ -68,24 +68,25 @@ function HeaderInfo($configPage) {
     // First Party
     echo "\n";
     echo "\t<!-- Plex Movie Poster Display Javascript & CSS -->\n";
-    echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/$AppName/fonts_stock.css\">\n";
-    echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/$AppName/PlexMini.css\">\n";  // BasePoint to Phase out Plex.css
-    echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/$AppName/glyphicons.css\">\n";  // BasePoint to Phase out Plex.css
+    // echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/$AppName/fonts_stock.css\">\n";
+    // echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/$AppName/PlexMini.css\">\n";  // BasePoint to Phase out Plex.css
+    // echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/$AppName/glyphicons.css\">\n";  // BasePoint to Phase out Plex.css
 
     if ($debugMode == TRUE) {
         $font_custom_ver = date('his');
-        echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/$AppName/fonts_custom.css?v=$font_custom_ver\">\n";
+        // echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/$AppName/fonts_custom.css?v=$font_custom_ver\">\n";
     }
     else {
         // echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/$AppName/fonts_custom.css\">\n";
-        echo "\t<link rel=\"stylesheet\" href=\"$paths/cache/fonts/fonts_custom.css\">\n";
+        // echo "\t<link rel=\"stylesheet\" href=\"$paths/cache/fonts/fonts_custom.css\">\n";
     }
 
     if ($configPage != "index.php") {
         echo "\t<script src=\"$paths/assets/$AppName/CommonLib.js\"></script>\n";
-        echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/styles/default/style.css\">\n";
-        echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/styles/default/form-validation.css\">\n";
+        // echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/styles/default/style.css\">\n";
+        // echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/styles/default/form-validation.css\">\n";
         echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/$AppName/css/SettingsStyle.css\">\n";  // Clean css file
+        // echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/$AppName/css/SettingsStyle-Pre.css\">\n";  // Clean css file
     }
 
     if ($configPage == "index.php") {

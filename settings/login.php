@@ -99,9 +99,8 @@ if (isset($_POST['username']) && !empty($_POST['password'])) {
 
                             <div class="form-footer">
                                 <div class="form-alignment input-group" style="text-align:center;">
-                                    <button name="login" class="submit-btn btn btn-lg btn-primary btn-loading " type="submit">
-                                        <div class="loading loading-sm"></div>
-                                        <span class="btn-label">SIGN IN</span>
+                                    <button name="login" class="btn" type="submit">
+                                        <span >SIGN IN</span>
                                     </button>
                                 </div>
                             </div>
