@@ -35,39 +35,30 @@ if (isset($_POST["btn_zip"])) {
     <script> ShowHideAdvanced(); </script>
 </head>
 
-<body class="bg-light">
+<body>
     <div id="plex" class="application">
         <div class="background-container">
-            <div class="FullPage-container-17Y0cs">
-                <div class="settings-core"></div>
-            </div>
+            <div class="settings-core"></div>
         </div>
         <?php NavBar() ;?>
         <div id="content" class="scroll-container dark-scrollbar">
             <div class="FullPage-container-17Y0cs">
-                <div class="Measure-container-3yONEe">
-                    <?php sidebarInfo(basename(__FILE__)) ;?>
-                </div>
+                <?php sidebarInfo(basename(__FILE__)) ;?>
                 <div class="Page-page-aq7i_X Scroller-scroller-3GqQcZ Scroller-vertical-VScFLT  ">
                     <div id="MainPage" class="SettingsPage-content-1vKVEr PageContent-pageContent-16mK6G">
                         <h2 class="SettingsPageHeader-header-1ugtIL">
                             Font Configuration
                         </h2>
-                        <div>
                         <?php AdvancedBar() ;?>
                             <!-- SEGMENT BLOCK START -->
-                                <div class="format-group ">
-                                    Import Font or Bundle:
-
+                                <div class="form-group">
                                     <form action="fonts.php" method="post" enctype="multipart/form-data">
-                                        <label for="zip_file" style="cursor: pointer;">
-                                            <div class= "label label-btn label-primary">
-                                                <i class="label-icon glyphicon file"></i>
-                                                Browse File
-                                            </div>
+                                        Import Font or Bundle:
+                                        <label for="zip_file" class="btn btn-sm btn-faux">
+                                            Browse File
                                         </label>
+                                        <input type="file" name="zip_file" id="zip_file" accept=".zip,.ttf,.pmp" class="field-hideInput" onchange="showName_zip()">
 
-                                        <input type="file" name="zip_file" id="zip_file" accept=".zip,.ttf,.pmp" style="opacity: 0; display: inline;" onchange="showName_zip()">
                                         <p>
                                             <div id="UploadFileName_Zip" style="font-size: smaller;">
                                                 Upload File:
@@ -75,28 +66,24 @@ if (isset($_POST["btn_zip"])) {
                                             </div>
                                         </p>
 
-                                        <label for="btn_zip" style="cursor: pointer;">
-                                            <div class= "label label-btn label-primary">
-                                                <i class="label-icon glyphicon upload"></i>
-                                                Upload File
-                                            </div>
+                                        <label for="btn_zip" class="btn btn-sm btn-faux">
+                                            Upload File
                                         </label>
-                                        <input type="submit" value="Upload Zip" name="btn_zip" id="btn_zip" style="opacity: 0;">
+                                        <input type="submit" value="Upload Zip" name="btn_zip" id="btn_zip" class="field-hideInput">
                                     </form>
+
+                                    <!-- <p class="help-block">
+                                    </p> -->
                                 </div>
 
-                                <div class="format-group ">
+                                <div class="form-group ">
                                     <hr>
-                                    Download Bundle:
-
                                     <form method="post" enctype="multipart/form-data">
-                                        <label for="btn_zipDL" style="cursor: pointer;">
-                                            <div class= "label label-btn label-primary">
-                                                <i class="label-icon glyphicon upload"></i>
-                                                Generate Bundle
-                                            </div>
+                                        Download Bundle:
+                                        <label for="btn_zipDL" class="btn btn-sm btn-faux">
+                                            Generate Bundle
                                         </label>
-                                        <input type="submit" value="Generate Zip" name="btn_zipDL" id="btn_zipDL" style="opacity: 0;" >
+                                        <input type="submit" value="Generate Zip" name="btn_zipDL" id="btn_zipDL" class="field-hideInput">
                                     </form>
 
                                     <br>
@@ -106,9 +93,12 @@ if (isset($_POST["btn_zip"])) {
                                             echo $DownloadLink;
                                         }
                                     ?>
+
+                                    <!-- <p class="help-block">
+                                    </p> -->
                                 </div>
 
-                                <div class="format-group ">
+                                <div class="form-group ">
                                     <hr>
                                     <?php
                                         // PHP 7.x
@@ -119,13 +109,17 @@ if (isset($_POST["btn_zip"])) {
                                         // findFontFamily(CSSPath: "../assets/plexmovieposter/", CSSFile: "fonts_stock.css", HTMLdisplay: TRUE, HTMLdropdown: FALSE);
                                         // findFontFamily(CSSPath: "../cache/fonts/", CSSFile: "fonts_custom.css", HTMLdisplay:TRUE, HTMLdropdown:FALSE);
 
-                                ?>
+                                    ?>
                                 </div>
                             <!-- SEGMENT BLOCK END -->
 
                             <!-- GHOST BLOCK START -->
 
                             <!-- GHOST BLOCK END -->
+
+                            <!-- SUBMIT BLOCK START -->
+
+                            <!-- SUBMIT BLOCK END -->
                         </div>
                         <?php FooterInfo() ; ?>
                     </div>

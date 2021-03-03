@@ -204,7 +204,7 @@ importFiles_Config();
                                         <label for="fileToUpload" class="btn btn-sm btn-faux">
                                             Browse Configuration
                                         </label>
-                                        <input type="file" name="fileToUpload" id="fileToUpload" accept=".php" style="opacity: 0; display: inline;" onchange="showName()">
+                                        <input type="file" name="fileToUpload" id="fileToUpload" accept=".php" class="field-hideInput" onchange="showName()">
                                         
                                         <p class="help-block">
                                             <small class="text-muted">Select configuration file to restore (config.php)</small>
@@ -233,12 +233,9 @@ importFiles_Config();
                             <!-- GHOST BLOCK START -->
                             <!-- GHOST BLOCK END -->
 
-                            <div class="form-footer">
-                                <!-- <button name="saveConfig" class="submit-btn btn btn-lg btn-primary btn-loading " type="submit" value="saveConfig">
-                                    <div class="loading loading-sm"></div>
-                                    <span class="btn-label">SAVE CHANGES</span>
-                                </button> -->
-                            </div>
+                            <!-- SUBMIT BLOCK START -->
+                                <!-- <?php submitForm(FALSE); ?> -->
+                            <!-- SUBMIT BLOCK END -->
                         </form>
                         <?php FooterInfo() ; ?>
                     </div>

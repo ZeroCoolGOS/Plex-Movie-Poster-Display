@@ -287,5 +287,21 @@ function AdvancedBar() {
     echo "                    </div>\n";
 }
 
+function submitForm($warning) {
+    // Create submit button to allow share across all pages.
 
+    if ($warning == TRUE) {
+        $subButtonType = "btn-danger";
+    }
+    else {
+        $subButtonType = "";
+    }
+
+    echo "<div class=\"form-footer\">\n";
+    echo "    <button name=\"saveConfig\" class=\"btn $subButtonType\" type=\"submit\" value=\"saveConfig\">\n";
+    echo "        SAVE CHANGES\n";
+    echo "    </button>\n";
+    echo "</div>\n";
+
+}
 ?>

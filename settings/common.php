@@ -19,75 +19,65 @@ if (!empty($_POST['saveConfig'])) {
     <script> ShowHideAdvanced(); </script>
 </head>
 
-<body class="bg-light">
+<body>
     <div id="plex" class="application">
         <div class="background-container">
-            <div class="FullPage-container-17Y0cs">
-                <div class="settings-core"></div>
-            </div>
+            <div class="settings-core"></div>
         </div>
         <?php NavBar() ;?>
         <div id="content" class="scroll-container dark-scrollbar">
             <div class="FullPage-container-17Y0cs">
-                <div class="Measure-container-3yONEe">
-                    <?php sidebarInfo(basename(__FILE__)) ;?>
-                </div>
+                <?php sidebarInfo(basename(__FILE__)) ;?>
                 <div class="Page-page-aq7i_X Scroller-scroller-3GqQcZ Scroller-vertical-VScFLT  ">
                     <div id="MainPage" class="SettingsPage-content-1vKVEr PageContent-pageContent-16mK6G">
                         <h2 class="SettingsPageHeader-header-1ugtIL">
                             Common Configuration
                         </h2>
-                        <div>
                         <?php AdvancedBar() ;?>
-                            <form id="server-settings-form" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
-                                <!-- SEGMENT BLOCK START -->
-                                    <div class="form-group" >
-                                        Poster Transition/Refresh Speed: &nbsp;
-                                        <input type="text" id="pmpImageSpeed" style="display: inline;" name="pmpImageSpeed" class="form-control fieldInfo-xsmall" value="<?php echo $pmpImageSpeed; ?>" required>
-                                        &nbsp; Seconds
+                        <form id="server-settings-form" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+                            <!-- SEGMENT BLOCK START -->
+                                <div class="form-group">
+                                    Poster Transition/Refresh Speed: &nbsp;
+                                    <input type="text" id="pmpImageSpeed" name="pmpImageSpeed" class="form-control fieldInfo-xsmall form-inline" value="<?php echo $pmpImageSpeed; ?>" required>
+                                     &nbsp; Seconds
 
-                                        <!-- <p class="help-block">
+                                    <!-- <p class="help-block">
                                             Seconds
-                                        </p> -->
-                                    </div>
-
-                                    <div class="form-group">
-                                        Bottom Scrolling Text: &nbsp;
-                                        <select id="pmpBottomScroll" name="pmpBottomScroll">
-                                            <option value="Disabled" <?php if ($pmpBottomScroll == 'Disabled') { echo "selected"; } ?>>
-                                                Disabled
-                                            </option>
-                                            <option value="Enabled" <?php if ($pmpBottomScroll == 'Enabled') { echo "selected"; } ?>>
-                                                Enabled
-                                            </option>
-                                        </select>
-
-                                        <!-- <p class="help-block">
-                                        </p> -->
-                                    </div>
-
-                                    <div class="form-group">
-                                        <input type="checkbox" name="cacheEnabled" id="cacheEnabled" value="1" <?php if ($cacheEnabled) echo " checked"?>>
-                                        Cache Images
-
-                                        <!-- <p class="help-block">
-                                        </p> -->
-                                    </div>
-                                <!-- SEGMENT BLOCK END -->
-
-                                <!-- GHOST BLOCK START -->
-                                    <?php ghostData(basename(__FILE__)) ;?>
-                                <!-- GHOST BLOCK END -->
-
-                                <div class="form-footer">
-                                    <!-- <button name="saveConfig" class="submit-btn btn btn-lg btn-primary btn-loading disabled" type="submit" value="saveConfig"> -->
-                                    <button name="saveConfig" class="submit-btn btn btn-lg btn-primary btn-loading " type="submit" value="saveConfig">
-                                        <div class="loading loading-sm"></div>
-                                        <span class="btn-label">SAVE CHANGES</span>
-                                    </button>
+                                    </p> -->
                                 </div>
-                            </form>
-                        </div>
+
+                                <div class="form-group">
+                                    Bottom Scrolling Text: &nbsp;
+                                    <select id="pmpBottomScroll" name="pmpBottomScroll">
+                                        <option value="Disabled" <?php if ($pmpBottomScroll == 'Disabled') { echo "selected"; } ?>>
+                                            Disabled
+                                        </option>
+                                        <option value="Enabled" <?php if ($pmpBottomScroll == 'Enabled') { echo "selected"; } ?>>
+                                            Enabled
+                                        </option>
+                                    </select>
+
+                                    <!-- <p class="help-block">
+                                    </p> -->
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="checkbox" name="cacheEnabled" id="cacheEnabled" value="1" <?php if ($cacheEnabled) echo " checked"?>>
+                                    Cache Images
+
+                                    <!-- <p class="help-block">
+                                    </p> -->
+                                </div>
+                            <!-- SEGMENT BLOCK END -->
+
+                            <!-- GHOST BLOCK START -->
+                                <?php ghostData(basename(__FILE__)) ;?>
+                            <!-- GHOST BLOCK END -->
+
+                            <!-- SUBMIT BLOCK START -->
+                                <?php submitForm(FALSE); ?>
+                            <!-- SUBMIT BLOCK END -->
+                        </form>
                         <?php FooterInfo() ; ?>
                     </div>
                 </div>

@@ -1,5 +1,114 @@
 /* -------------------------------------------------- */
+/* PreExisting */
+
+.fieldInfo-password {
+    max-width: 330px;
+}
+
+.fieldInfo-password-login {
+    max-width: 330px;
+    text-align: center;
+    width: 50%; 
+    margin: auto;
+    display: inline;
+}
+
+.fieldInfo-username {
+    max-width: 330px;
+}
+
+.fieldInfo-username-login {
+    max-width: 330px;
+    text-align: center;
+    width: 50%; 
+    margin: auto;
+    display: inline;
+}
+
+
+.fieldInfo-token {
+    max-width: 330px;
+}
+
+.fieldInfo-ipaddress {
+    max-width: 150px;
+}
+
+.fieldInfo-xsmall {
+    max-width: 50px;
+    white-space: nowrap;
+}
+
+.fieldInfo-small {
+    max-width: 75px;
+}
+
+.fieldInfo-medium {
+    max-width: 100px;
+}
+
+.fieldInfo-large {
+    max-width: 150px;
+}
+
+.fieldInfo-xlarge {
+    max-width: 250px;
+}
+
+.fieldInfo-2xlarge {
+    max-width: 350px;
+}
+
+.fieldInfo-3xlarge {
+    max-width: 450px;
+}
+
+.field-hideInput {
+    opacity: 0;
+    display: inline;
+}
+
+.input-group {
+	position: relative;
+	display: table;
+	border-collapse: separate
+}
+
+.input-group.col {
+	float: none;
+	padding-left: 0;
+	padding-right: 0
+}
+
+.input-group .form-control {
+	width: 100%;
+	margin-bottom: 0
+}
+
+.input-group-sm>.form-control,
+.input-group-sm>.input-group-addon,
+.input-group-sm>.input-group-btn>.btn {
+	height: 24px;
+	padding: 2px 10px;
+	font-size: 12px;
+	line-height: 1.5;
+	border-radius: 3px;
+	font-size: 14px;
+	line-height: 1.3em
+}
+
+.input-group-addon,
+.input-group-btn,
+.input-group .form-control {
+	display: table-cell
+}
+
+/* -------------------------------------------------- */
 /* CORE */
+
+.form-inline{
+    display: inline;
+}
 
 body,
 html {
@@ -248,6 +357,106 @@ h3 {
 h4 {
 	font-size: 18px
 }
+
+table {
+    width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+    margin-left: -10px;
+	margin-right: -10px
+}
+
+tr {
+    /* height: 20px; */
+}
+
+td {
+    vertical-align: top;
+    text-align: left;
+    padding: 10px;
+}
+
+td[rowspan] {
+    vertical-align: top;
+    text-align: left;
+}
+
+.picker {
+    margin-left: 500px;
+}
+
+.form-horizontal .form-group {
+	margin-left: -15px;
+	margin-right: -15px
+}
+
+.form-horizontal .form-group:after,
+.form-horizontal .form-group:before {
+	content: " ";
+	display: table
+}
+
+.form-horizontal .form-group:after {
+	clear: both
+}
+
+
+
+.col-lg-1,
+.col-lg-2,
+.col-lg-3,
+.col-lg-4,
+.col-lg-5,
+.col-lg-6,
+.col-lg-7,
+.col-lg-8,
+.col-lg-9,
+.col-lg-10,
+.col-lg-11,
+.col-lg-12,
+.col-md-1,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9,
+.col-md-10,
+.col-md-11,
+.col-md-12,
+.col-sm-1,
+.col-sm-2,
+.col-sm-3,
+.col-sm-4,
+.col-sm-5,
+.col-sm-6,
+.col-sm-7,
+.col-sm-8,
+.col-sm-9,
+.col-sm-10,
+.col-sm-11,
+.col-sm-12,
+.col-xs-1,
+.col-xs-2,
+.col-xs-3,
+.col-xs-4,
+.col-xs-5,
+.col-xs-6,
+.col-xs-7,
+.col-xs-8,
+.col-xs-9,
+.col-xs-10,
+.col-xs-11,
+.col-xs-12 {
+	position: relative;
+	min-height: 1px;
+	padding-left: 15px;
+	padding-right: 15px
+}
+
+
 
 
 .Page-page-aq7i_X {
@@ -685,7 +894,7 @@ input[type=submit].btn-block {
 
 input[type="text"], textarea {
     NOTE: "No MAP BACK";
-    background-color : #d1d1d1; 
+    background-color : #ffffff; 
       
 }
 
@@ -696,6 +905,6 @@ input[type="text"]:disabled{
 
 input[type="text"]:read-only{
     NOTE: "No MAP BACK";
-    background-color:rgb(43, 114, 104);
+    background-color:rgb(109, 109, 109);
     cursor: pointer
 }
