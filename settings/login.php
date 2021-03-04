@@ -79,7 +79,7 @@ if (isset($_POST['username']) && !empty($_POST['password'])) {
                             <!-- GHOST BLOCK END -->
 
                             <!-- SUBMIT BLOCK START -->
-                                <?php signInForm(TRUE); ?>
+                                <?php signInForm(FALSE); ?>
                             <!-- SUBMIT BLOCK END -->
                         </form>
                         <?php FooterInfo() ; ?>
