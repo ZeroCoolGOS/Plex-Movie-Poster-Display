@@ -304,4 +304,24 @@ function submitForm($warning) {
     echo "</div>\n";
 
 }
+
+function signInForm($warning) {
+    // Create submit button to allow share across all pages.
+
+    if ($warning == TRUE) {
+        $subButtonType = "btn-danger";
+    }
+    else {
+        $subButtonType = "";
+    }
+
+    echo "<div class=\"form-footer\">\n";
+    echo "    <div class=\"form-alignment input-group\" style=\"text-align:center;\"\n>";
+    echo "        <button name=\"login\" class=\"btn $subButtonType\" type=\"submit\">\n";
+    echo "            SIGN IN\n";
+    echo "        </button>\n";
+    echo "    </div>\n";
+    echo "</div>\n";
+
+}
 ?>

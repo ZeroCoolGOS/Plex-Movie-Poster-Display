@@ -96,7 +96,7 @@ importFiles_Config();
                                     </form>
                                 </div>
 
-                                <div class="form-group ">
+                                <div class="form-group">
                                     <h4 class="btn-inline">
                                         Version: <?php echo $version;?>&nbsp
                                     </h4>

@@ -340,7 +340,6 @@ if (isset($_POST["btn_customImg"])) {
                                         </tr>
                                     </table>
                                 </div>
-
                             <!-- SEGMENT BLOCK END -->
 
                             <!-- GHOST BLOCK START -->
