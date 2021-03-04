@@ -108,7 +108,7 @@ GenerateCSS_Font_ALL();
                                     Custom Text:
                                     <input type="text" class="form-control"
                                         id="comingSoonTopText" name="comingSoonTopText"
-                                        placeholder="Coming Soon Top Text"
+                                        placeholder="COMING SOON"
                                         value="<?php echo $comingSoonTopText; ?>" readonly="readonly">
 
                                     <p class="help-block">
@@ -278,7 +278,7 @@ GenerateCSS_Font_ALL();
 
                                     <input type="text" class="form-control"
                                         id="comingSoonBottomText" name="comingSoonBottomText"
-                                        placeholder="Coming Soon Bottom Text"
+                                        placeholder="Custom Text"
                                         value="<?php echo $comingSoonBottomText; ?>" readonly="readonly">
 
                                     <p class="help-block">

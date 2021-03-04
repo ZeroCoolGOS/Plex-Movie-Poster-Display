@@ -106,7 +106,7 @@ GenerateCSS_Font_ALL();
 
                                     <input type="text" class="form-control"
                                         id="nowShowingTopText" name="nowShowingTopText"
-                                        placeholder="Now Showing Top Text"
+                                        placeholder="NOW SHOWING"
                                         value="<?php echo $nowShowingTopText; ?>" readonly="readonly">
 
                                     <p class="help-block">
@@ -276,7 +276,7 @@ GenerateCSS_Font_ALL();
 
                                     <input type="text" class="form-control"
                                         id="nowShowingBottomText" name="nowShowingBottomText"
-                                        placeholder="Now Showing Bottom Text"
+                                        placeholder="Custom Text"
                                         value="<?php echo $nowShowingBottomText; ?>" readonly="readonly">
 
                                     <p class="help-block">

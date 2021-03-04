@@ -125,7 +125,7 @@ if (isset($_POST["btn_customImg"])) {
                                     Custom Text:
                                     <input type="text" class="form-control"
                                         id="customTopText" name="customTopText"
-                                        placeholder="Custom Image Top Text"
+                                        placeholder="Custom Text"
                                         value="<?php echo $customTopText; ?>">
 
                                     <p class="help-block">
@@ -238,7 +238,7 @@ if (isset($_POST["btn_customImg"])) {
 
                                     <input type="text" class="form-control"
                                         id="customBottomText" name="customBottomText"
-                                        placeholder="Custom Image Bottom Text"
+                                        placeholder="Custom Text"
                                         value="<?php echo $customBottomText; ?>">
 
                                     <p class="help-block">

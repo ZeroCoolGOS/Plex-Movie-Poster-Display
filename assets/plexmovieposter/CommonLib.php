@@ -91,7 +91,7 @@ function HeaderInfo($configPage) {
 
     if ($configPage == "index.php") {
         echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/styles/default/poster.css\">\n";
-        echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/$AppName/css/DisplayStyle.css\">\n";  // Clean css file
+        // echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/$AppName/css/DisplayStyle.css\">\n";  // Clean css file
         // echo "\t<link rel=\"shortcut icon\" type=\"image/png\" href=\"$paths/assets/images/desktop/favicon.ico\"/>\n";
         // echo "\t<link rel=\"mask-icon\" href=\"$paths/assets/images/desktop/favicon-mask.svg\" color=\"#cc7b19\">\n";
     }
@@ -152,10 +152,25 @@ function NavBar() {
 
 function sidebarInfo($configPage) {
     echo '<div class="SidebarInfo-core">
-              <div>
-                  <div id="SideBar" class="SettingsSidebar-spacing">
-                      <div role="navigation">
-                          <div class="SidebarList-title" role="header">Settings</div>';
+            <div>
+                <div id="SideBar" class="SettingsSidebar-spacing">
+                    <div role="navigation">';
+
+    sidebarInfo_Settings($configPage);
+    sidebarInfo_MediaServers($configPage);
+
+    echo "<br><br>";
+    sidebarInfo_Statistics($configPage);
+
+    echo '          </div>
+                </div>
+            </div>
+          </div>';
+
+}
+
+function sidebarInfo_Settings($configPage) {
+    echo '<div class="SidebarList-title" role="header">Settings</div>';
 
     // General PHP
     if ($configPage == "general.php") {
@@ -181,21 +196,21 @@ function sidebarInfo($configPage) {
         sidebarInfoMeta("common.php","Common Configuration","NotActive");
     }
 
-    // Server PHP
-    if ($configPage == "server.php") {
-        sidebarInfoMeta("server.php","Server Configuration","Active");
-    }
-    else {
-        sidebarInfoMeta("server.php","Server Configuration","NotActive");
-    }
+    // // Server PHP
+    // if ($configPage == "server.php") {
+    //     sidebarInfoMeta("server.php","Server Configuration","Active");
+    // }
+    // else {
+    //     sidebarInfoMeta("server.php","Server Configuration","NotActive");
+    // }
 
-    // Client PHP
-    if ($configPage == "client.php") {
-        sidebarInfoMeta("client.php","Client Configuration","Active");
-    }
-    else {
-        sidebarInfoMeta("client.php","Client Configuration","NotActive");
-    }
+    // // Client PHP
+    // if ($configPage == "client.php") {
+    //     sidebarInfoMeta("client.php","Client Configuration","Active");
+    // }
+    // else {
+    //     sidebarInfoMeta("client.php","Client Configuration","NotActive");
+    // }
 
     // Coming Soon PHP
     if ($configPage == "comingSoon.php") {
@@ -229,10 +244,28 @@ function sidebarInfo($configPage) {
         sidebarInfoMeta("fonts.php","Font Configuration","NotActive");
     }
 
-    echo '            </div>
-                  </div>
-              </div>
-          </div>';
+}
+
+function sidebarInfo_MediaServers($configPage) {
+    echo '<div class="SidebarList-title" role="header">Media Servers</div>';
+
+    // Plex PHP
+    if ($configPage == "plex.php") {
+        sidebarInfoMeta("plex.php","PLEX Configuration","Active");
+    }
+    else {
+        sidebarInfoMeta("plex.php","PLEX Configuration","NotActive");
+    }
+
+}
+
+function sidebarInfo_Statistics($configPage) {
+    echo '<div class="SidebarList-title" role="header">Statistics</div>';
+
+    // echo "Posters:";
+    // echo "<div class=\"cacheDisplay cacheDisplay-poster\">";
+    // echo $posterCount;
+    // echo "</div>";
 
 }
 
@@ -257,23 +290,24 @@ function sidebarInfoMeta($configPage, $configString, $configStatus) {
           </div>';
 }
 
-function FooterInfo() {
+function FooterInfo($MSGID = 0) {
     // https://www.plex.tv/about/privacy-legal/plex-trademarks-and-guidelines/
     // http://brand.plex.tv/d/qxmJ3odkK0fj/style-guide
     // http://brand.plex.tv/d/qxmJ3odkK0fj/style-guide#/style-guide/typography
 
-    $CopyrightMsg[0] = "Plex is a copyright of the Plex Media Company";
-    $CopyrightMsg[1] = "Works with Plex";
-    $CopyrightMsg[2] = "Plex Move Poster Display for Plex";
-    $CopyrightMsg[3] = "PLEX, PLEX PASS, myPLEX, PLEX MEDIA SERVER, PLEX MEDIA CENTER, PLEX MEDIA MANAGER, PLEX HOME THEATER, PLEX TV, PLEX.TV, the Plex Play Logo (\">\" in stylized format) are trademarks that are the exclusive property of Plex, Inc.";
+    $CopyrightMsg[0] = "Movie Poster Display";
+    $CopyrightMsg[1] = "Plex is a copyright of the Plex Media Company";
+    $CopyrightMsg[2] = "Works with Plex";
+    $CopyrightMsg[3] = "Plex Move Poster Display for Plex";
+    $CopyrightMsg[4] = "PLEX, PLEX PASS, myPLEX, PLEX MEDIA SERVER, PLEX MEDIA CENTER, PLEX MEDIA MANAGER, PLEX HOME THEATER, PLEX TV, PLEX.TV, the Plex Play Logo (\">\" in stylized format) are trademarks that are the exclusive property of Plex, Inc.";
 
 
     // echo "<div style=\"position: absolute; left: 0; bottom: 0; width: 100%; text-align: center; \">";
-    echo "<div class=\"footerInfo\">";
-    echo "<p>";
-    echo "$CopyrightMsg[3]";
-    echo "</p>";
-    echo "</div>";
+    echo "<div class=\"footerInfo\">\n";
+    echo "<p>\n";
+    echo "$CopyrightMsg[$MSGID]\n";
+    echo "</p>\n";
+    echo "</div>\n";
 }
 
 function AdvancedBar() {

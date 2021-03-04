@@ -42,7 +42,7 @@ if (isset($_POST['username']) && !empty($_POST['password'])) {
                 <div class="Page-page-aq7i_X Scroller-scroller-3GqQcZ Scroller-vertical-VScFLT  ">
                     <div id="MainPage" class="SettingsPage-content-1vKVEr PageContent-pageContent-16mK6G">
                         <h2 class="SettingsPageHeader-header-1ugtIL" style="text-align:center;">
-                            Plex Movie Poster
+                            Movie Poster Display
                             <span class="hyphenSpace">—</span>
                             Login
                         </h2>
