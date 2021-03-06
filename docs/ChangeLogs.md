@@ -176,6 +176,14 @@ R&D - Research Plex Webhooks (Issue #31):
 Updates - Color Picker Desktop (Issue #35)
 - Change color picker from 'bootstrap-colorpicker' to built in color picker system.  This changes how we select the color picker from just selecting the filed to pressing the 'browse color' button.
 
+**v2.9.3 Community Updates**\
+Updates - Color Picker Desktop (Issue #35)
+- Fix missing color picker for the Progress Bar
+
+Update - Theme Idea (Enhancement) (Issue #27)
+- Fix issue with poster and background art not displaying.  Issue was around how the getPoster was reading the mimetype for the image.  It is still unclear why it's failing but a fallback to the unsecure URL is now in place.
+- Fix issue with log files not generating correctly based on path.
+
 **v2.10.0 Community Updates**\
 Refactor - Remove all Plex Assets (Issue #38)
 
