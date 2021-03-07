@@ -25,7 +25,6 @@
     /* display: inline; */
 }
 
-
 .fieldInfo-token {
     max-width: 330px;
 }
@@ -60,7 +59,7 @@
 }
 
 .fieldInfo-3xlarge {
-    max-width: 450px;
+    max-width: 500px;
 }
 
 .field-hideInput {
@@ -281,7 +280,6 @@ hr {
     padding-left:5em;
 }
 
-
 .h1,
 h1 {
 	font-size: 36px
@@ -309,7 +307,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: Open Sans Regular, Helvetica Neue, Helvetica, Arial, sans-serif;
+	/* font-family: Open Sans Regular, Helvetica Neue, Helvetica, Arial, sans-serif; */
 	font-weight: 400;
 	line-height: 1.5
 }
@@ -346,8 +344,6 @@ h6 {
 	margin-bottom: 12px
 }
 
-
-
 .h3,
 h3 {
 	font-size: 24px
@@ -366,8 +362,33 @@ table {
 	margin-right: -10px
 }
 
-tr {
-    /* height: 20px; */
+table.StatsLong {
+	width: 50%
+}
+
+table.StatsShort {
+	width: 100%;
+	margin-left: 25px;
+}
+
+tr.StatsShort {
+    height: 25px;
+}
+
+td.StatsShort {
+    padding: 0px 25px 0px 15px; 
+}
+
+td.StatsStr {
+	width: 200px;
+}
+
+td.StatsVal {
+	text-align: center;
+}
+
+td.StatsBtn {
+	width: 200px;
 }
 
 td {
@@ -379,10 +400,6 @@ td {
 td[rowspan] {
     vertical-align: top;
     text-align: left;
-}
-
-.picker {
-    margin-left: 500px;
 }
 
 .form-horizontal .form-group {
@@ -399,65 +416,6 @@ td[rowspan] {
 .form-horizontal .form-group:after {
 	clear: both
 }
-
-
-
-.col-lg-1,
-.col-lg-2,
-.col-lg-3,
-.col-lg-4,
-.col-lg-5,
-.col-lg-6,
-.col-lg-7,
-.col-lg-8,
-.col-lg-9,
-.col-lg-10,
-.col-lg-11,
-.col-lg-12,
-.col-md-1,
-.col-md-2,
-.col-md-3,
-.col-md-4,
-.col-md-5,
-.col-md-6,
-.col-md-7,
-.col-md-8,
-.col-md-9,
-.col-md-10,
-.col-md-11,
-.col-md-12,
-.col-sm-1,
-.col-sm-2,
-.col-sm-3,
-.col-sm-4,
-.col-sm-5,
-.col-sm-6,
-.col-sm-7,
-.col-sm-8,
-.col-sm-9,
-.col-sm-10,
-.col-sm-11,
-.col-sm-12,
-.col-xs-1,
-.col-xs-2,
-.col-xs-3,
-.col-xs-4,
-.col-xs-5,
-.col-xs-6,
-.col-xs-7,
-.col-xs-8,
-.col-xs-9,
-.col-xs-10,
-.col-xs-11,
-.col-xs-12 {
-	position: relative;
-	min-height: 1px;
-	padding-left: 15px;
-	padding-right: 15px
-}
-
-
-
 
 .Page-page-aq7i_X {
     NOTE: "Page-page-aq7i_X";
@@ -487,79 +445,6 @@ td[rowspan] {
     /* Scroller-vertical-VScFLT.Scroller-auto-LsWiWx */
 	overflow-y: auto
 }
-
-
-/* button,
-input,
-select,
-textarea {
-	font-size: 100%;
-	margin: 0
-} */
-
-/* button,
-input {
-	line-height: normal
-} */
-
-/* button,
-select {
-	text-transform: none
-} */
-
-/* button,
-html input[type=button],
-input[type=reset],
-input[type=submit] {
-	-webkit-appearance: button;
-	cursor: pointer
-} */
-
-/* button[disabled],
-html input[disabled] {
-	cursor: default
-} */
-
-
-/* button,
-input,
-select,
-textarea {
-	font-family: inherit;
-	font-size: inherit;
-	line-height: inherit
-} */
-
-/* button,
-input,
-select[multiple],
-textarea {
-	background-image: none
-} */
-
-/* input[type=button].btn-block,
-input[type=reset].btn-block,
-input[type=submit].btn-block {
-	width: 100%
-} */
-
-
-/* .Button-button-3A5jB3 {
-	display: inline-block;
-	overflow: hidden;
-	border-radius: 4px;
-	color: #fafafa;
-	vertical-align: middle;
-	text-align: center;
-	text-transform: uppercase;
-	white-space: nowrap;
-	font-family: Open Sans Bold, Helvetica Neue, Helvetica, Arial, sans-serif;
-	transition: background-color .2s, color .2s;
-	-webkit-user-select: none;
-	user-select: none
-} */
-
-
 
 .SettingsPage-content-1vKVEr {
     /* SettingsPage-content-1vKVEr */
@@ -651,37 +536,37 @@ input[type=submit].btn-block {
     max-width: 330px;
     padding: 15px;
     margin: 0 auto;
-  }
-  
-  .form-signin .form-control {
-    position: relative;
-    box-sizing: border-box;
-    height: auto;
-    padding: 10px;
-    font-size: 16px;
-  }
-  
-  .form-signin .form-control:focus {
-    z-index: 2;
-  }
-  
-  .form-signin input[type="username"] {
-    margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-  
-  .form-signin input[type="password"] {
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-  }
-  
-  hr.login {
-    margin-top:.25rem;
-    margin-bottom:.25rem;
-    border-top: 0px none gray;
-  }
+}
+
+.form-signin .form-control {
+	position: relative;
+	box-sizing: border-box;
+	height: auto;
+	padding: 10px;
+	font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+	z-index: 2;
+}
+
+.form-signin input[type="username"] {
+	margin-bottom: -1px;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+	margin-bottom: 10px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+hr.login {
+	margin-top:.25rem;
+	margin-bottom:.25rem;
+	border-top: 0px none gray;
+}
 
 /* -------------------------------------------------- */
 /* NavBar */
@@ -812,8 +697,6 @@ input[type=submit].btn-block {
     content: "\00BB"
 }
 
-
-
 .SidebarItem-Indentation {
     /* SettingsSidebarListLink-icon-eICe1t */
 	width: 18px;
@@ -881,7 +764,6 @@ input[type=submit].btn-block {
     text-align: center;
 }
 
-
 /* -------------------------------------------------- */
 /* Form Information */
 
@@ -931,7 +813,6 @@ input[type=submit].btn-block {
 .form-control-btn {
 	margin-bottom: 5px
 }
-
 
 input[type="text"], textarea {
     NOTE: "No MAP BACK";

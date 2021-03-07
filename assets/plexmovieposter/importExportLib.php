@@ -189,7 +189,7 @@ function importFiles_CUSTOM($ShowMSG = FALSE, $SetRedirect = FALSE, $fieldID = '
     if (!file_exists($destination)) {
         mkdir($destination, 0777, true);
     }
-echo "shit monky";
+
     $FileInfo_NameRAW = $_FILES[$fieldID]['name'];
     $FileInfo_NameTMP = $_FILES[$fieldID]['tmp_name'];
 
@@ -263,7 +263,6 @@ echo "shit monky";
         }
     }
 
-    echo "SHIT SHOW";
 }
 
 function importFiles_Config() {

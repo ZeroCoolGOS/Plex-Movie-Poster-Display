@@ -292,8 +292,8 @@ function ghostData($configPage) {
         $ghostField = "$formIndent<!-- Custom PHP -->\n";
         echo $ghostField;
 
-        $ghostField = "$formIndent<input type=\"hidden\" id=\"customImageUpload\" name=\"customImageUpload\" value=\"$customImageUpload\">\n";
-        echo $ghostField;
+        // // $ghostField = "$formIndent<input type=\"hidden\" id=\"customImageUpload\" name=\"customImageUpload\" value=\"$customImageUpload\">\n";
+        // // echo $ghostField;
 
         $ghostField = "$formIndent<input type=\"hidden\" id=\"customImageEnabled\" name=\"customImageEnabled\" value=\"$customImageEnabled\">\n";
         echo $ghostField;
@@ -350,16 +350,16 @@ function ghostData($configPage) {
 function setData($configPage) {
     //Save Configuration
 
-    //Custom Image Upload
-    if ($_FILES['customImageUpload'] != "") {
-        $uploaddir = 'cache/custom/';
-        $uploadfile = $uploaddir . basename($_FILES['customImageUpload']['name']);
+    // //Custom Image Upload
+    // if ($_FILES['customImageUpload'] != "") {
+    //     $uploaddir = 'cache/custom/';
+    //     $uploadfile = $uploaddir . basename($_FILES['customImageUpload']['name']);
 
-        if (move_uploaded_file($_FILES['customImageUpload']['tmp_name'], $uploadfile)) {
-        } else {
-            $uploadfile = $_POST['customImageUpload'];
-        }
-    }
+    //     if (move_uploaded_file($_FILES['customImageUpload']['tmp_name'], $uploadfile)) {
+    //     } else {
+    //         $uploadfile = $_POST['customImageUpload'];
+    //     }
+    // }
 
     //Define Config File
     $myfile = fopen("../config.php", "w") or die("Unable to open file!");

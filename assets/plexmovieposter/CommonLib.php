@@ -1,6 +1,11 @@
 <?php
 
+$AppName = "plexmovieposter";
+$AppTitle = "Movie Poster Display";
+
 function HeaderInfo($configPage) {
+    global $AppName, $AppTitle;
+
     if ($configPage == "index.php") {
         $paths = "";
     }
@@ -8,14 +13,12 @@ function HeaderInfo($configPage) {
         $paths = "/..";
     }
 
-    $AppName = "plexmovieposter";
-
     echo "<meta charset=\"utf-8\">\n";
     if ($configPage == "index.php") {
-        echo "\t<title>Plex Movie Poster Display</title>\n";
+        echo "\t<title>$AppTitle</title>\n";
     }
     else {
-        echo "\t<title>Plex Movie Poster Display - Admin</title>\n";
+        echo "\t<title>$AppTitle - Admin</title>\n";
     }
 
     echo "\n";
@@ -64,14 +67,15 @@ function HeaderInfo($configPage) {
         echo "\t<script src=\"$paths/assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js\"></script>\n";
         echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/bootstrap-colorpicker/css/bootstrap-colorpicker.css\">\n";
     }
+
     // --------------------------------------------------
     // First Party
     echo "\n";
-    echo "\t<!-- Plex Movie Poster Display Javascript & CSS -->\n";
+    echo "\t<!-- $AppTitle Javascript & CSS -->\n";
     // echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/$AppName/fonts_stock.css\">\n";
-    // echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/$AppName/PlexMini.css\">\n";  // BasePoint to Phase out Plex.css
-    // echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/$AppName/glyphicons.css\">\n";  // BasePoint to Phase out Plex.css
-
+    echo "\t<link rel=\"shortcut icon\" type=\"image/png\" href=\"$paths/assets/$AppName/images/favicon.ico\"/>\n";
+    // echo "\t<link rel=\"mask-icon\" href=\"$paths/assets/$AppName/images/favicon-mask.svg\" color=\"#cc7b19\">\n";
+    
     if ($debugMode == TRUE) {
         $font_custom_ver = date('his');
         // echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/$AppName/fonts_custom.css?v=$font_custom_ver\">\n";
@@ -86,14 +90,11 @@ function HeaderInfo($configPage) {
         // echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/styles/default/style.css\">\n";
         // echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/styles/default/form-validation.css\">\n";
         echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/$AppName/css/SettingsStyle.css\">\n";  // Clean css file
-        // echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/$AppName/css/SettingsStyle-Pre.css\">\n";  // Clean css file
     }
 
     if ($configPage == "index.php") {
         echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/styles/default/poster.css\">\n";
         // echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/$AppName/css/DisplayStyle.css\">\n";  // Clean css file
-        // echo "\t<link rel=\"shortcut icon\" type=\"image/png\" href=\"$paths/assets/images/desktop/favicon.ico\"/>\n";
-        // echo "\t<link rel=\"mask-icon\" href=\"$paths/assets/images/desktop/favicon-mask.svg\" color=\"#cc7b19\">\n";
     }
 
     // --------------------------------------------------
@@ -103,11 +104,11 @@ function HeaderInfo($configPage) {
     // if ($configPage != "index.php") {
         // echo "\t<link rel=\"stylesheet\" href=\"$paths/assets/plex/Plex.css\">\n";
     // }
-    // echo "\t<link rel=\"shortcut icon\" type=\"image/png\" href=\"$paths/assets/plex/images/desktop/favicon.ico\"/>\n";
-    // echo "\t<link rel=\"mask-icon\" href=\"$paths/assets/plex/images/desktop/favicon-mask.svg\" color=\"#cc7b19\">\n";
 }
 
 function HeaderInfoApple($configPage) {
+    global $AppName;
+
     if ($configPage == "index.php") {
         $paths = "";
     }
@@ -121,19 +122,11 @@ function HeaderInfoApple($configPage) {
     echo "\t<meta name=\"apple-touch-fullscreen\" content=\"yes\">\n";
 
     echo "\n";
-    // echo "\t<!-- <link rel=\"apple-touch-icon\" href=\"$paths/assets/plex/images/apple-touch-icon.png\"> -->\n";
-    echo "\t<link rel=\"apple-touch-icon-precomposed\" href=\"$paths/assets/plex/images/desktop/ios/icon-iphone.png\">\n";
-    echo "\t<link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"$paths/assets/plex/images/desktop/ios/icon-ipad.png\">\n";
-    echo "\t<link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"$paths/assets/plex/images/desktop/ios/icon-iphone@2x.png\">\n";
-    echo "\t<link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"$paths/assets/plex/images/desktop/ios/icon-ipad@2x.png\">\n";
-    echo "\t<link rel=\"apple-touch-startup-image\" media=\"(device-width: 320px)\" href=\"$paths/assets/plex//images/desktop/ios/startup-iphone-portrait.png\">\n";
-    echo "\t<link rel=\"apple-touch-startup-image\" media=\"(device-width: 320px) and (-webkit-device-pixel-ratio: 2)\" href=\"$paths/assets/plex//images/desktop/ios/startup-iphone-portrait@2x.png\">\n";
-    echo "\t<link rel=\"apple-touch-startup-image\" media=\"(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)\" href=\"$paths/assets/plex/images/desktop/ios/startup-iphone5-portrait@2x.png\">\n";
-    echo "\t<link rel=\"apple-touch-startup-image\" media=\"(device-width: 768px) and (orientation: portrait)\" href=\"$paths/assets/plex/images/desktop/ios/startup-ipad-portrait.png\">\n";
-    echo "\t<link rel=\"apple-touch-startup-image\" media=\"(device-width: 768px) and (orientation: landscape)\" href=\"$paths/assets/plex/images/desktop/ios/startup-ipad-landscape.png\">\n";
-    echo "\t<link rel=\"apple-touch-startup-image\" media=\"(device-width: 1536px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)\" href=\"$paths/assets/plex/images/desktop/ios/startup-ipad-portrait@2x.png\">\n";
-    echo "\t<link rel=\"apple-touch-startup-image\" media=\"(device-width: 1536px)  and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)\" href=\"$paths/assets/plex/images/desktop/ios/startup-ipad-landscape@2x.png\">\n";
-
+    echo "\t<link rel=\"apple-touch-icon\" href=\"$paths/assets/$AppName/images/ios/apple-touch-icon.png\">";
+    echo "\t<link rel=\"apple-touch-icon-precomposed\" href=\"$paths/assets/$AppName/images/ios/icon-iphone.png\">\n";
+    echo "\t<link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"$paths/assets/$AppName/images/ios/icon-ipad.png\">\n";
+    echo "\t<link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"$paths/assets/$AppName/images/ios/icon-iphone@2x.png\">\n";
+    echo "\t<link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"$paths/assets/$AppName/images/ios/icon-ipad@2x.png\">\n";
 }
 
 function NavBar() {
@@ -159,8 +152,10 @@ function sidebarInfo($configPage) {
     sidebarInfo_Settings($configPage);
     sidebarInfo_MediaServers($configPage);
 
-    echo "<br><br>";
-    sidebarInfo_Statistics($configPage);
+    if ($configPage != "login.php") {
+        echo "<br>";
+        sidebarInfo_Statistics($configPage);
+    }
 
     echo '          </div>
                 </div>
@@ -262,10 +257,7 @@ function sidebarInfo_MediaServers($configPage) {
 function sidebarInfo_Statistics($configPage) {
     echo '<div class="SidebarList-title" role="header">Statistics</div>';
 
-    // echo "Posters:";
-    // echo "<div class=\"cacheDisplay cacheDisplay-poster\">";
-    // echo $posterCount;
-    // echo "</div>";
+    CacheInfo_Display(TRUE);
 
 }
 

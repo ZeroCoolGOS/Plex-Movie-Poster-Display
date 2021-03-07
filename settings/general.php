@@ -114,69 +114,7 @@ importFiles_Config();
                                 </div>
 
                                 <div class="form-group">
-                                    Posters:
-
-                                    <div class="cacheDisplay cacheDisplay-poster">
-                                        <?php echo $posterCount; ?>
-                                    </div>
-
-                                    <form method="post" class="needs-validation cacheDisplay cacheDisplay-posterBtn" novalidate >
-                                        <button name="clearPosterCache" id="clearPosterCache" type="submit" class="btn btn-danger btn-sm" value="clearPosterCache" >
-                                            Clear Cache
-                                        </button>
-                                    </form>
-
-                                    <p class="help-block">
-                                        <small class="text-muted">Items in cache/posters</small>
-                                    </p>
-                                </div>
-
-                                <div class="form-group">
-                                    Custom Images:
-
-                                    <div class="cacheDisplay cacheDisplay-custom">
-                                        <?php echo $customCount; ?>
-                                    </div>
-
-                                    <form method="post" class="needs-validation cacheDisplay cacheDisplay-customBtn" novalidate >
-                                        <button name="clearCustomCache" id="clearCustomCache" type="submit" class="btn btn-danger btn-sm" value="clearCustomCache">
-                                            Clear Cache
-                                        </button>
-                                    </form>
-
-                                    <p class="help-block">
-                                        <small class="text-muted">Items in cache/custom</small>
-                                    </p>
-                                </div>
-
-                                <div class="form-group">
-                                    Custom Fonts:
-
-                                    <div class="cacheDisplay cacheDisplay-font">
-                                        <?php echo $customFontCount; ?>
-                                    </div>
-
-                                    <form method="post" class="needs-validation cacheDisplay cacheDisplay-fontBtn" novalidate >
-                                        <button name="clearFontCache" id="clearFontCache" type="submit" class="btn btn-danger btn-sm" value="clearFontCache" disabled>
-                                            Clear Cache
-                                        </button>
-                                    </form>
-
-                                    <p class="help-block">
-                                        <small class="text-muted">Items in cache/fonts</small>
-                                    </p>
-                                </div>
-
-                                <div class="form-group">
-                                    Free Space:
-
-                                    <div class="cacheDisplay cacheDisplay-disk">
-                                        <?php echo fixupSize(disk_free_space("/")); ?>
-                                    </div>
-
-                                    <p class="help-block">
-                                        <small class="text-muted">Free space on /</small>
-                                    </p>
+                                    <?php CacheInfo_Display(); ?>
                                 </div>
 
                                 <div class="form-group advanced-setting">
