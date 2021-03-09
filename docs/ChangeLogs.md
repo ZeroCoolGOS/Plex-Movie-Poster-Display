@@ -191,6 +191,28 @@ Refactor - Remove all Plex Assets (Issue #38)
     - Remove all PLEX images and assets
     - Change color scheme
     - Rename project
-- Create new set of 'clean' css files for the settings and the display pages
+- Create new set of 'clean' css files for the settings and the display pages.
 - Change out hard coded naming of project to variables
-- 
+- Remove all PLEX assets from assets folder
+- Segregation of PLEX settings into a dedicated PLEX page
+- Replace color scheme with new design
+- Clean up none required 'extra' formatting that had no impact on end product
+- Restructure some 'duplicate' components to be more central and reusable (eg. 'Save Changes' button)
+- Retained a similar skeletal structure, but streamlined and made enhancements
+- Update/reformat preexisting stock images for use for icons.
+
+ToDo:
+- Continue to refactor and rename some CSS elements.
+- Clean out more unnecessary code in php and css files.
+- Update more of the color and font once updated design change becomes available
+- Continue to Move/Remove PLEX references and keep isolated to a limited locations within the code.
+
+
+Bug - Coming Soon Show Movies - Recently Added & Newest TV Show Poster/Backgrounds (Issue #45)
+- Add better logic to allow for the information of the media when using 'Recently Added' and 'Newest' for TV shows as the xml from the API changes between these options.
+- Add a dropdown option in 'Coming Soon' (same as Now Showing) for TV Shows to allow settings for Episode/Season/Series
+- Add fixes for how the poster is found for TV Shows if a poster is not found it will try to check its next level up
+
+Updates and Bug Fixes:
+- Fix issue with the 'Custom Image Upload' and 'Custom Image Select' not working correctly
+- Start to build out more 'tests' for better debugging of future issues.

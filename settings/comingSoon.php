@@ -41,17 +41,8 @@ GenerateCSS_Font_ALL();
                         <form id="server-settings-form" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                             <!-- SEGMENT BLOCK START -->
                                 <div class="form-group advanced-setting">
-                                    Background Art:&nbsp;
-                                    <input type="checkbox" name="comingSoonBackgroundArt" id="comingSoonBackgroundArt" value="1" <?php if ($comingSoonBackgroundArt) echo " checked"?>>
-
-                                    <p class="help-block">
-                                        Set background art to match background of Plex media.
-                                    </p>
-                                </div>
-
-                                <div class="form-group advanced-setting">
                                     <hr>
-                                    Show Movies:&nbsp;
+                                    Show Media:&nbsp;
 
                                     <select class="form-inline"
                                         id="comingSoonShowSelection" name="comingSoonShowSelection">
@@ -75,6 +66,40 @@ GenerateCSS_Font_ALL();
 
                                     <!-- <p class="help-block">
                                     </p> -->
+                                </div>
+
+                                <div class="form-group advanced-setting">
+                                    Background Art:&nbsp;
+                                    <input type="checkbox" name="comingSoonBackgroundArt" id="comingSoonBackgroundArt" value="1" <?php if ($comingSoonBackgroundArt) echo " checked"?>>
+
+                                    <p class="help-block">
+                                        Set background art to match background of Plex media.
+                                    </p>
+                                </div>
+
+                                <div class="form-group advanced-setting">
+                                    <hr>
+                                    Display TV Show:&nbsp;
+
+                                    <select class="form-inline"
+                                        id="comingSoonShowTVThumb" name="comingSoonShowTVThumb">
+                                        <option value="episode"
+                                            <?php if ($comingSoonShowTVThumb == 'episode') { echo "selected"; } ?>>
+                                            Episode
+                                        </option>
+                                        <option value="season"
+                                            <?php if ($comingSoonShowTVThumb == 'season') { echo "selected"; } ?>>
+                                            Season
+                                        </option>
+                                        <option value="series"
+                                            <?php if ($comingSoonShowTVThumb == 'series') { echo "selected"; } ?>>
+                                            Series
+                                        </option>
+                                    </select>
+
+                                    <p class="help-block">
+                                        Display the poster, background art and information for TV Shows in your library.
+                                    </p>
                                 </div>
 
                                 <div class="form-group">
